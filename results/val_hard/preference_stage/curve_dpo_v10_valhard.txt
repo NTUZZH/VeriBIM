@@ -1,0 +1,17 @@
+val-hard snapshot curve: completion, mean score, n; choice = completion, then mean, then latest step
+sft_v10      completion 0.8667 mean 0.8753 n 300
+dpo_v10_c3   completion 0.8733 mean 0.8789 n 300
+dpo_v10_c6   completion 0.8733 mean 0.8789 n 300
+dpo_v10_c9   completion 0.8667 mean 0.8755 n 300
+dpo_v10_c12  completion 0.8633 mean 0.8719 n 300
+dpo_v10_c15  completion 0.8700 mean 0.8785 n 300
+dpo_v10_c18  completion 0.8667 mean 0.8752 n 300
+dpo_v10_c20  completion 0.8500 mean 0.8618 n 300
+CHOSEN dpo_v10_c6
+paired dpo_v10_c3 vs sft_v10: completion delta +0.0067 [-0.0067, +0.0200] wins 3 losses 1; mean-score delta +0.0035 [-0.0067, +0.0166]
+paired dpo_v10_c6 vs sft_v10: completion delta +0.0067 [-0.0067, +0.0200] wins 3 losses 1; mean-score delta +0.0036 [-0.0067, +0.0167]
+paired dpo_v10_c9 vs sft_v10: completion delta +0.0000 [-0.0167, +0.0167] wins 4 losses 4; mean-score delta +0.0001 [-0.0164, +0.0167]
+paired dpo_v10_c12 vs sft_v10: completion delta -0.0033 [-0.0200, +0.0133] wins 3 losses 4; mean-score delta -0.0035 [-0.0200, +0.0136]
+paired dpo_v10_c15 vs sft_v10: completion delta +0.0033 [-0.0133, +0.0200] wins 4 losses 3; mean-score delta +0.0031 [-0.0107, +0.0189]
+paired dpo_v10_c18 vs sft_v10: completion delta +0.0000 [-0.0200, +0.0200] wins 4 losses 4; mean-score delta -0.0001 [-0.0163, +0.0164]
+paired dpo_v10_c20 vs sft_v10: completion delta -0.0167 [-0.0333, +0.0000] wins 1 losses 6; mean-score delta -0.0135 [-0.0298, +0.0006]

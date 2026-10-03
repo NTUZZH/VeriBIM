@@ -1,0 +1,17 @@
+('IFC2X3', 'create') 36 completion 1.000 mean 0.999 rounds 4.92
+('IFC2X3', 'delete') 36 completion 0.972 mean 0.972 rounds 3.64
+('IFC2X3', 'native') 108 completion 0.944 mean 0.955 rounds 3.89
+('IFC2X3', 'update') 36 completion 0.861 mean 0.895 rounds 3.11
+('IFC4', 'create') 36 completion 1.000 mean 0.999 rounds 5.03
+('IFC4', 'delete') 36 completion 0.972 mean 0.972 rounds 3.50
+('IFC4', 'migrated') 72 completion 0.958 mean 0.958 rounds 3.88
+('IFC4', 'native') 36 completion 1.000 mean 1.000 rounds 3.69
+('IFC4', 'update') 36 completion 0.944 mean 0.944 rounds 2.92
+('IFC4X3', 'create') 36 completion 1.000 mean 1.000 rounds 5.08
+('IFC4X3', 'delete') 36 completion 0.972 mean 0.972 rounds 3.72
+('IFC4X3', 'migrated') 108 completion 0.954 mean 0.973 rounds 4.31
+('IFC4X3', 'update') 36 completion 0.889 mean 0.948 rounds 4.11
+ALL 324 completion 0.957 mean 0.967 rounds 4.00
+IFC2X3 108 completion 0.944 mean 0.955 rounds 3.89
+IFC4 108 completion 0.972 mean 0.972 rounds 3.81
+IFC4X3 108 completion 0.954 mean 0.973 rounds 4.31

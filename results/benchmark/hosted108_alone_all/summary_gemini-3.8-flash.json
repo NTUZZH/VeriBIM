@@ -1,0 +1,69 @@
+{
+  "adapter": "gemini-3.8-flash",
+  "n_tasks": 108,
+  "n_scored": 108,
+  "n_unscorable": 0,
+  "unscorable_ids": [],
+  "mean_final": 0.253851,
+  "by_operation": {
+    "create": {
+      "n": 36,
+      "n_scored": 36,
+      "mean": 0.0
+    },
+    "delete": {
+      "n": 36,
+      "n_scored": 36,
+      "mean": 0.25
+    },
+    "update": {
+      "n": 36,
+      "n_scored": 36,
+      "mean": 0.511553
+    }
+  },
+  "by_category": {
+    "direct": 0.211856,
+    "spatial": 0.248893,
+    "topological": 0.300805
+  },
+  "axis_means": {
+    "geometry": 0.268519,
+    "semantics": 0.265919,
+    "topology": 0.227116
+  },
+  "schema_validity": 0.9959,
+  "code_valid": 0.9959,
+  "code_run": 0.915,
+  "commit_rate": 0.2037,
+  "tasks_with_any_tool_call": 108,
+  "mean_tool_rounds": 20.361,
+  "total_tool_calls": 2199,
+  "stop_reasons": {
+    "budget_exhausted": 77,
+    "tool_timeout": 9,
+    "completed": 22
+  },
+  "hit_output_cap": 0,
+  "mean_output_tokens": 2903.1,
+  "wall_seconds": 11484.0,
+  "resolved_agent_config": {
+    "max_tool_rounds": 22,
+    "tool_timeout": 420.0,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 8192,
+    "max_tool_output_chars": 16000,
+    "max_recorded_output_chars": 4000,
+    "capture_stdout": true,
+    "max_transcript_tokens": 0,
+    "min_turn_tokens": 256,
+    "dup_stop": 0
+  },
+  "per_task_file": "runs_local/bench_v4/results/hosted108_alone_all/per_task_gemini-3.8-flash.jsonl",
+  "subset": "runs_local/bench_v4/subset_108_hosted.v4b.json",
+  "scorer_reading": "family",
+  "label": "VeriBIM-Bench v4 hosted108_alone all, gemini-3.8-flash, family reading",
+  "protocol_conformant": true,
+  "finished_at": "2026-09-29T16:26:10"
+}

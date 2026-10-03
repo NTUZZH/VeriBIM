@@ -1,0 +1,21 @@
+{
+  "adapter": "grpo_v10b_c10",
+  "n": 324,
+  "mean_final": 0.4107,
+  "full_solve_rate": 0.0309,
+  "by_category": {
+    "direct": 0.559,
+    "spatial": 0.3167,
+    "topological": 0.3565
+  },
+  "by_operation": {
+    "create": 0.1567,
+    "delete": 0.4893,
+    "update": 0.5862
+  },
+  "axes": {
+    "geometry": 0.4792,
+    "semantics": 0.4133,
+    "topology": 0.3396
+  }
+}

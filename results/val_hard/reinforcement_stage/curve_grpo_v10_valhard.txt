@@ -1,0 +1,9 @@
+dpo_v10_c6 (start)	completion 0.873	mean 0.8789	n 300
+sft_v10	completion 0.867	mean 0.8753	n 300
+grpo_v10_c10	completion 0.870	mean 0.8784	n 300
+grpo_v10_c20	completion 0.870	mean 0.8757	n 300
+grpo_v10_c30	completion 0.877	mean 0.8791	n 300
+grpo_v10_c40	completion 0.880	mean 0.8820	n 300
+grpo_v10_c50	completion 0.887	mean 0.8891	n 300
+grpo_v10_c60	completion 0.883	mean 0.8859	n 300
+PEAK	grpo_v10_c50	completion 0.887	mean 0.8891

@@ -1,0 +1,40 @@
+{
+ "candidates": 2996,
+ "k": 6,
+ "tasks_with_a_failed_sample": 82,
+ "val_hard_size": 300,
+ "filled_with_lowest_scoring_completed": 218,
+ "failed_samples_hist": {
+  "0": 218,
+  "1": 22,
+  "2": 10,
+  "3": 6,
+  "4": 8,
+  "5": 3,
+  "6": 33
+ },
+ "by_version": {
+  "IFC2X3": 98,
+  "IFC4": 95,
+  "IFC4X3": 107
+ },
+ "by_operation": {
+  "delete": 22,
+  "create": 235,
+  "update": 43
+ },
+ "by_category": {
+  "spatial": 108,
+  "topological": 137,
+  "direct": 55
+ },
+ "by_family_top": {
+  "window": 112,
+  "door": 79,
+  "wall": 42,
+  "column": 30,
+  "slab": 30,
+  "space": 7
+ },
+ "candidate_completion_all_k": 0.9726
+}

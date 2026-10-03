@@ -1,0 +1,17 @@
+{
+  "tasks": 6000,
+  "tasks_without_a_rejected": 5827,
+  "tasks_underspecified": 694,
+  "tasks_without_a_chosen": 96,
+  "tasks_with_pairs": 77,
+  "reason_raised": 49,
+  "class_fabricated_globalid": 83,
+  "class_undefined_name": 2,
+  "reason_fabricated_guid": 10,
+  "reason_margin": 56,
+  "underspecified_pairs": 10,
+  "class_invented_attribute": 8,
+  "pairs": 115,
+  "tasks_read": 6000,
+  "pairs_per_task": 0.0192
+}

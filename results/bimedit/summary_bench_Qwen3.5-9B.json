@@ -1,0 +1,21 @@
+{
+  "adapter": "Qwen3.5-9B",
+  "n": 324,
+  "mean_final": 0.2948,
+  "full_solve_rate": 0.0,
+  "by_category": {
+    "direct": 0.3105,
+    "spatial": 0.2861,
+    "topological": 0.2879
+  },
+  "by_operation": {
+    "create": 0.0,
+    "delete": 0.3667,
+    "update": 0.5178
+  },
+  "axes": {
+    "geometry": 0.2645,
+    "semantics": 0.5123,
+    "topology": 0.1077
+  }
+}

@@ -1,0 +1,2844 @@
+{
+ "model": "gpt-5.6",
+ "endpoint": "https://api.openai.com/v1/chat/completions",
+ "temperature": "not sent (API default), as in stage_a_v6/val100_paraphrase/paraphrase.py",
+ "max_completion_tokens": 1600,
+ "attempts_max": 3,
+ "started": "2026-10-03T01:07:29",
+ "finished": "2026-10-03T01:10:47",
+ "input_tasks": "runs_local/stage_a_v10/val_tasks_100_v3b.jsonl",
+ "input_tasks_sha256": "b5cc402607fc6705c593b9469cbaf41926497e791bde477145ab9a00fd139499",
+ "output_tasks_sha256": "a31791e22254e264048bc869b7636688464eff3c52a25c25fe85476161006752",
+ "rewritten": 85,
+ "kept": 15,
+ "kept_task_ids": [
+  "CHN-CWD-DIR-B33-091",
+  "DOR-CRE-DIR-B40-071",
+  "DOR-CRE-TOP-B40-024",
+  "DOR-UPD-TOP-B32-020",
+  "CHN-CWD-DIR-B33m4-003-x4",
+  "DOR-CRE-DIR-B40m4-001-x4",
+  "SPC-CRE-SPA-B17-002-x4",
+  "DOR-CRE-SPA-B40m4-001-x4a",
+  "WAL-CRE-TOP-B40m4-003-x4",
+  "DOR-UPD-TOP-B26-027-x4",
+  "SPC-CRE-DIR-B17m4X3-003-x3",
+  "COL-CRE-DIR-B33m4X3-005-x3",
+  "SPC-DEL-SPA-B31m4X3-001-x3",
+  "DOR-UPD-DIR-B18m4X3-001-x3c",
+  "COL-UPD-TOP-B26m4X3-007-x3"
+ ],
+ "failed_check_counts_all_attempts": {
+  "overlap": 70,
+  "added_ifc_class": 6,
+  "missing_word": 9
+ },
+ "usage": {
+  "requests": 168,
+  "prompt_tokens": 41238,
+  "completion_tokens": 38929,
+  "reasoning_tokens": 26962,
+  "cached_prompt_tokens": 0
+ },
+ "transport_failures": {},
+ "brief": "You are helping build a test of instruction-wording robustness. Rewrite the change request below as a different person would phrase it in a message to a BIM modeller. Requirements: (1) every fact stays exactly: numbers with units, quoted names in the same quotes, GlobalIds, Ifc class names, directions, storey names, and every relation; add nothing, drop nothing. (2) The wording must be substantially different: a different opening, different verbs (e.g. remove/delete/get rid of instead of take out; put in/create/model instead of add), a different order of the parts, and a natural human tone (a short reason, a 'please', a comment). (3) Returning the text unchanged or with only a word or two changed is a failure. Output only the rewritten request.\n\nRequest:\n",
+ "retry_note": "\n\nA previous rewrite of this request was rejected: {why} Write a new rewrite that avoids this.",
+ "checks": "Rewrite the wording of the 100 val-v3b task instructions with a commercial model that wrote none of the\ntraining wording (the v10 training paraphrases came from Qwen3.5-9B; this pass uses OpenAI gpt-5.6).\n\nProcedure follows runs_local/stage_a_v6/val100_paraphrase/paraphrase.py: the same brief, the same\ndefault temperature (none sent; GPT-5 models accept only the default), up to three attempts per task, and the original wording kept when no\nattempt passes the checks. The checks are the earlier ones, made exact:\n  * protected tokens must survive verbatim: every number (with its sign), every quoted name in the same\n    single quotes (storey names are quoted names), every GlobalId (case-sensitive; quotes around a GlobalId\n    optional), every Ifc class name, Pset name, upper-case enumeration value, axis token (+X, -Y),\n    the W/m2K unit, and every direction / relation word of the original (direction, ordinal, negation,\n    'only', 'true'/'false') and every element noun (door, window, wall, slab, column, space, storey, opening,\n    with a few plain synonyms such as room, level, void);\n  * every number-unit pair of the original survives, and the rewrite uses the same set of length units;\n  * nothing is added: no number, GlobalId, quoted name, Ifc class, Pset, enumeration value or axis token\n    that the original does not contain;\n  * fewer than 80 % of the original's non-fact words are reused, and the first three words differ.\nDifferences from the earlier script, all on the checking side: the quoted-name pattern no longer runs\nacross possessives (wall's ... '), signed numbers keep their sign, GlobalIds are compared case-sensitively,\nelement nouns are protected, a retry carries one sentence naming the check the previous attempt failed,\nand max_completion_tokens is 1600 (800 before) because reasoning tokens count against it.\n\nAfter the run every machine-accepted pair was read by hand against its original. A rewrite that kept every\ntoken but changed what the request asks for (a new reference point, a misleading object of the verb, a\nchanged order of edits, an added constraint) is listed in AUDIT_REJECT and its original wording is kept.",
+ "per_task": [
+  {
+   "task_id": "CHN-CWD-DIR-B33-091",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.92"
+    ],
+    [
+     "overlap:0.83"
+    ],
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.92"
+     ],
+     "overlap": 0.917,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 246,
+     "text": "Please model the following carefully: on the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u', put in a 4 m long, 2.3 m high and 0.2 m thick wall called 'Partition 169', positioning its base corner at (-9.05, 2.33, 0.00) m in that storey's own coordinates. In this new wall, create a door called 'Doorset 540', measuring 0.9 m wide by 2.1 m high, located 1.55 m along the wall from its start point, and cut the opening that the door fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.83"
+     ],
+     "overlap": 0.833,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 408,
+     "text": "Please update the model as follows: model a 0.9 m wide by 2.1 m high door called 'Doorset 540', positioned 1.55 m along the wall from its start point, and form the opening occupied by the door. The door must be hosted by a new wall called 'Partition 169'. Construct that wall on the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u'; it must be 4 m long, 0.2 m thick and 2.3 m high, with the base corner located at (-9.05, 2.33, 0.00) m in the storey’s own coordinates."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.889,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 801,
+     "text": "To complete the requested setup, please model a 0.9 m-wide and 2.1 m-high door called 'Doorset 540' within a new wall called 'Partition 169'. Position the door 1.55 m along the wall from its start point, and have it cut the opening it fills. Make the wall 4 m long, 0.2 m thick and 2.3 m high, on the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u'. Set its base corner at (-9.05, 2.33, 0.00) m in that storey's own coordinates."
+    }
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B31-013",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.625,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 271,
+     "text": "For a clean removal, please get rid of the wall with GlobalId '00SXl1CML78enpCC4ldqrs' and the opening it filled, but first delete the window hosted in that wall."
+    }
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B32-012",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.773,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 346,
+     "text": "Please handle this in sequence on storey 'P.T': locate the wall about 10.9 m north (+Y) of the wall named 'Involucro 2450', delete the window hosted in it, and then get rid of the wall together with the opening it filled."
+    }
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B18-005",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.762,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 244,
+     "text": "Please remove the wall that bounds both the space 'Buero' and the space 'Küche'. As part of the same cleanup, delete the 3 doors and windows hosted in that wall, together with the openings they filled."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B40-047",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.778,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 171,
+     "text": "Please model a 0.9 m wide by 2.1 m high door named 'Doorset 357', standing on the base of the wall with GlobalId '02QZndWnPCr8pqUFFegmVs' and positioned 0.97 m along the wall from its start point. Please also create the opening that the door fills."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B40-066",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.81"
+     ],
+     "overlap": 0.815,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 218,
+     "text": "Please update the wall with GlobalId '02QZndWnPCr8pqUFFegmU8' by cutting an opening and modelling the door that fills it. Name the new door 'Doorset 763', make it 0.9 m wide and 2.1 m high, and position it 1.13 m along the wall from its start point, standing on the wall's base."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.85"
+     ],
+     "overlap": 0.852,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 326,
+     "text": "Please model a new door, 0.9 m wide and 2.1 m high, named 'Doorset 763' in the wall with GlobalId '02QZndWnPCr8pqUFFegmU8'. Position it on the wall's base, 1.13 m along the wall from its start point, and create the opening the door occupies."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.667,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 441,
+     "text": "Please complete this model update: 1.13 m from the start point, measured along the wall with GlobalId '02QZndWnPCr8pqUFFegmU8', create a door called 'Doorset 763' with dimensions of 0.9 m in width and 2.1 m in height. Set it on the wall’s base and form the opening occupied by the door."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B40-071",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.85"
+    ],
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.85"
+     ],
+     "overlap": 0.852,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 271,
+     "text": "Please update the IfcWall with GlobalId '02QZndWnPCr8pqUFFegmS3' by modelling a door 0.9 m wide and 2.1 m high, positioned 1.52 m along the wall from its start point and standing on the wall's base. Name it 'Doorset 309' and cut the opening it fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.81"
+     ],
+     "overlap": 0.815,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 383,
+     "text": "Please revise the model by creating the required opening in the IfcWall with GlobalId '02QZndWnPCr8pqUFFegmS3'. Model a 0.9 m wide, 2.1 m high door named 'Doorset 309' to fill that opening, positioned 1.52 m along the wall from its start point and standing on the wall's base."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.85"
+     ],
+     "overlap": 0.852,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 220,
+     "text": "For coordination, please form an opening in the IfcWall with GlobalId '02QZndWnPCr8pqUFFegmS3' and model a new door named 'Doorset 309' to fill it. Make the door 0.9 m wide and 2.1 m high, position it 1.52 m along the wall from its start point, and set it on the wall's base."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-SPA-B40-026",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.86"
+     ],
+     "overlap": 0.857,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 220,
+     "text": "Please model a 1.2 m wide by 1.4 m high window named 'Glazing unit 670' in the wall on storey 'Level 1' that stands about 16.3 m west (-X) of the wall named 'Basic Wall:150 Concrete:677700'. Position the middle of the leaf 1.78 m along the wall from its start, set the sill 0.9 m above the wall's base, and create the opening it fills. This is the one change the client wants."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.714,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 426,
+     "text": "Please make the client’s single requested revision: on storey 'Level 1', locate the host wall about 16.3 m west (-X) of the wall named 'Basic Wall:150 Concrete:677700'. In that host wall, create a window named 'Glazing unit 670', 1.2 m wide and 1.4 m high, with the middle of the leaf 1.78 m along the wall from its start and the sill 0.9 m above the wall's base. Please cut the opening filled by the window."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-SPA-B40-034",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.97"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.97"
+     ],
+     "overlap": 0.968,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 299,
+     "text": "Please make this update carefully: on storey 'Level 1', create a new door named 'Doorset 555', 0.9 m wide and 2.1 m high, in the wall that stands about 5.8 m west (-X) of the wall named 'Basic Wall:150 Concrete:677607'. Position it 0.78 m along the wall from its start point, standing on the wall's base, and cut the opening it fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.742,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 260,
+     "text": "Please update the model by creating a 0.9 m wide and 2.1 m high door called 'Doorset 555'. Position it on the wall's base, 0.78 m along the wall from its start point. Use the wall on storey 'Level 1' located about 5.8 m west (-X) of the wall named 'Basic Wall:150 Concrete:677607'. Form the corresponding opening for the door to fill."
+    }
+   ]
+  },
+  {
+   "task_id": "WAL-CRE-SPA-B40-017",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.94"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.94"
+     ],
+     "overlap": 0.938,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 235,
+     "text": "Please create 'Partition 135' by duplicating the IfcWall on storey 'Level 1' that stands about 3.0 m west (-X) of the wall named 'Basic Wall:150 Concrete:677919', and place the copy 1 m to the south (-Y)."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.75,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 231,
+     "text": "Please make this layout update: duplicate the IfcWall on storey 'Level 1' located about 3.0 m west (-X) of the wall called 'Basic Wall:150 Concrete:677919', position the duplicate 1 m to the south (-Y), and give it the name 'Partition 135'."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-TOP-B31-027",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.78,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 435,
+     "text": "Please make the client’s single requested update: delete the door hosted in the wall with GlobalId '0gVxt4SKT2LBasZzUOPH7a', removing the old opening with the element it held. In its place, model a window named 'Glazing unit 641', 120 cm wide and 140 cm high, at the same position along the wall, with its sill 90 cm above the wall's base, and cut the opening it fills."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-TOP-B40-012",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.83"
+     ],
+     "overlap": 0.829,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 198,
+     "text": "Please update the model with the client’s only requested change. In the wall connected to the wall named 'Basic Wall:150 Concrete:677624', model an opening with its sill 0.9 m above the wall's base and positioned 1.36 m along the wall from its start point. Create the window that fills this opening at 1.2 m wide and 1.4 m high, and name it 'Glazing unit 248'."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.743,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 356,
+     "text": "Please update the model for the client. In the wall joined to the wall named 'Basic Wall:150 Concrete:677624', model a window named 'Glazing unit 248'. It should be 1.2 m wide and 1.4 m high, positioned 1.36 m along that wall from its start point, with the sill 0.9 m above the wall's base. Please form the opening that the window fills."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B40-024",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.93"
+    ],
+    [
+     "overlap:0.85"
+    ],
+    [
+     "overlap:0.96"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.93"
+     ],
+     "overlap": 0.926,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 262,
+     "text": "Please model a 0.9 m wide and 2.1 m high door named 'Doorset 617', standing on the wall's base and positioned 1.95 m along the wall from its start point. Put it in the wall connected to the wall named 'Basic Wall:150 Concrete:677624', and please cut the opening it fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.85"
+     ],
+     "overlap": 0.852,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 482,
+     "text": "Please cut an opening for a new door named 'Doorset 617' to fill. Model the door at 0.9 m wide and 2.1 m high, standing on the wall's base and positioned 1.95 m along the wall from its start point, within the wall connected to the wall named 'Basic Wall:150 Concrete:677624'."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.96"
+     ],
+     "overlap": 0.963,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 462,
+     "text": "To complete the model, please create a new door called 'Doorset 617', sized 0.9 m wide by 2.1 m high. Place it in the wall connected to the wall named 'Basic Wall:150 Concrete:677624', standing on the wall's base and positioned 1.95 m along the wall from its start point, then cut the opening the door fills."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B40-028",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.96"
+    ],
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.96"
+     ],
+     "overlap": 0.963,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 386,
+     "text": "Please model and cut the opening for a new 0.9 m wide by 2.1 m high door named 'Doorset 123'. Put it in the wall connected to the wall named 'Basic Wall:150 Concrete:677624', standing on the wall's base and 0.98 m along the wall from its start point, making sure the door fills the opening."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.889,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 542,
+     "text": "To complete this area, please create a 0.9 m wide by 2.1 m high door called 'Doorset 123' in the wall connected to the wall named 'Basic Wall:150 Concrete:677624'. Position it 0.98 m along the wall from its start point, with the door standing on the wall’s base, and form the opening that it fills."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.704,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 300,
+     "text": "Please update the model by creating a door called 'Doorset 123', 2.1 m high and 0.9 m wide, within the wall joined to 'Basic Wall:150 Concrete:677624'. Position it on the wall's base, 0.98 m from its start point measured along the wall, and form the opening occupied by the door."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-DIR-B56-003",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.556,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 140,
+     "text": "Please keep the other relationships consistent while removing the IfcColumn with GlobalId '2ZPZ8HMz_9HAWFAIFI3BNL' and every relationship that depends on it."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-DIR-B47-012",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.526,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 41,
+     "text": "Please remove the slab with GlobalId '1MpnE_osr1_P5CtU5Aojbm' and any relationships that depend on it, as requested by the client."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-DIR-B33-021",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.571,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 53,
+     "text": "Please clean up the model by removing the window with GlobalId '2CwKjBp31Cau$E8KMWhnB8'. Get rid of any relationships that depend on it as well, while keeping all other relationships consistent."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-DIR-B31-002",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.5,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 44,
+     "text": "Please remove the relationships dependent on the window with GlobalId '14LeD23bX5oe9WMobOni7A', then delete the window itself from the model so everything stays clean."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-DIR-B57-005",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "added_ifc_class:IfcColumn",
+     "missing_word:column"
+    ],
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "added_ifc_class:IfcColumn",
+      "missing_word:column"
+     ],
+     "overlap": 0.692,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 47,
+     "text": "Please clean up the model by removing the IfcColumn with GlobalId '1RT7BBGoV8JOkH6ebemXhd', and get rid of all relationships that depend on it as well."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.85"
+     ],
+     "overlap": 0.846,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 124,
+     "text": "Please remove from the model, along with the relationships that depend on it, the column with GlobalId '1RT7BBGoV8JOkH6ebemXhd'."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.538,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 141,
+     "text": "Please clean up the model by getting rid of every relationship that depends on the column with GlobalId '1RT7BBGoV8JOkH6ebemXhd', then remove the column itself."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-SPA-B40-015",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.64,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 215,
+     "text": "Please tidy up the model by getting rid of the column on storey 'Level 2' positioned about 2.9 m west (-X) of the column named 'L-Angle-Column:L2-1/2X2-1/2X1/4:693144'. Remove the relationships that depend on it as well, while keeping the other relationships consistent."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-SPA-B40-007",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.737,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 202,
+     "text": "Please clean up the model by getting rid of the column on storey 'Level 1' positioned about 5.8 m west (-X) of the column named 'NZ-UC-Column:310UC96.8:686819', and remove all relationships that depend on it as well."
+    }
+   ]
+  },
+  {
+   "task_id": "WAL-DEL-SPA-B32-001",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.667,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 40,
+     "text": "Please remove from the model the wall on storey 'P.T' that is furthest west (-X), along with all relationships that depend on it, as requested by the client."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B32-001-a-w2",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.88"
+     ],
+     "overlap": 0.882,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 110,
+     "text": "Please clean up the model by deleting, along with all relationships that depend on it, the first window from the south along the wall named 'Involucro 2525'."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.706,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 335,
+     "text": "Please tidy up the model by deleting all relationships dependent on the first window from the south along the wall named 'Involucro 2525', then get rid of that window as well."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-TOP-B32-001-c-w2",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.417,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 179,
+     "text": "Please clean up the model by getting rid of the window hosted in the wall named 'Involucro 2497', removing its dependent relationships as well, while keeping all other relationships consistent."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B29-001",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.579,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 241,
+     "text": "For cleanup, please delete from the model the sole slab contained in storey 'EG', along with every relationship that depends on it."
+    }
+   ]
+  },
+  {
+   "task_id": "WAL-DEL-TOP-B40-001-b-w2",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.591,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 117,
+     "text": "Please keep the other relationships consistent while deleting the wall connected to the wall named 'Basic Wall:150 Concrete:677624', along with all relationships that depend on it."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-UPD-DIR-B18-001-c-w2",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "added_ifc_class:IfcColumn",
+     "missing_word:column"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "added_ifc_class:IfcColumn",
+      "missing_word:column"
+     ],
+     "overlap": 0.5,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 46,
+     "text": "Please update the name of the IfcColumn identified by GlobalId '1FnVzZtET9CQDoxryuX4cb' to 'Post 526' so the model naming is correct."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.667,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 166,
+     "text": "Please give the column with GlobalId '1FnVzZtET9CQDoxryuX4cb' the new name 'Post 526'."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-DIR-B32-002-b-w2",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "added_ifc_class:IfcWindow",
+     "missing_word:window"
+    ],
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "added_ifc_class:IfcWindow",
+      "missing_word:window"
+     ],
+     "overlap": 0.545,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 50,
+     "text": "Please resize the IfcWindow with GlobalId '0gvvHyK1T2ZxZihwMdCk1K' so its overall height is 1.16 m rather than 1.55 m."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.82"
+     ],
+     "overlap": 0.818,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 157,
+     "text": "For the window with GlobalId '0gvvHyK1T2ZxZihwMdCk1K', please revise the overall height to 1.16 m instead of 1.55 m."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.545,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 199,
+     "text": "Please revise the window identified by GlobalId '0gvvHyK1T2ZxZihwMdCk1K' so its overall height is 1.16 m rather than the current 1.55 m."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-DIR-B33-062",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.667,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 21,
+     "text": "Please mark the window as external by setting the Pset_WindowCommon external flag to true."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-SPA-B48-083",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.786,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 192,
+     "text": "Please set the material to 'Cross-laminated timber' for the slab on storey 'Undefined' positioned about 17.3 m east (+X) of the slab named 'PLATE'."
+    }
+   ]
+  },
+  {
+   "task_id": "SPC-UPD-SPA-B33-042",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.75,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 20,
+     "text": "Please update the space name to 'Room 596' so the model stays current."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-SPA-B33-010",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.733,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 113,
+     "text": "Please reassign the slab to storey 'NIVEAU 0' so it drops by 5.15 m, while keeping its position within the storey unchanged."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-TOP-B32-003-b-w2",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.636,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 186,
+     "text": "Please make the client’s one requested model update: move the window hosted in the wall named 'Involucro 2427' 1.66 m southward (-Y), keeping all of its relationships intact."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-TOP-B32-020",
+   "rewritten": false,
+   "attempts": 1,
+   "failed_checks": [],
+   "audit_rejected": "adds a constraint ('keeping it hosted in the wall') and turns the anchor into a presupposition; it may push a model to move the opening as well",
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.632,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 88,
+     "text": "Please update the model to reflect the design team’s agreement: reposition the door 2.88 m to the north (+Y), keeping it hosted in the wall named 'Involucro 2427'."
+    }
+   ]
+  },
+  {
+   "task_id": "CHN-CWD-DIR-B33m4-003-x4",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.94"
+    ],
+    [
+     "overlap:0.83"
+    ],
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.94"
+     ],
+     "overlap": 0.944,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 347,
+     "text": "Please make this layout update so the model reflects the requested arrangement. On the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u', model a wall named 'Partition 153' with its base corner at (-9.50, 1.69, 0.00) meters in that storey's own coordinates. Make it 2.3 meters high, 0.2 meters thick and 4 meters long. In this new wall, create a door named 'Doorset 945', 2.1 meters high and 0.9 meters wide, positioned 1.55 meters along the wall from its start point, and cut the opening that the door fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.83"
+     ],
+     "overlap": 0.833,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 661,
+     "text": "To complete this layout, please model a door named 'Doorset 945', 2.1 meters high and 0.9 meters wide, positioned 1.55 meters along its new wall from the wall’s start point, and form the opening that it fills. The new wall should be named 'Partition 153', stand 2.3 meters high, be 0.2 meters thick and run for 4 meters. Place its base corner at (-9.50, 1.69, 0.00) meters in the own coordinates of the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u'."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.889,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 637,
+     "text": "Please make this update: model a 0.9 meters wide, 2.1 meters high door named 'Doorset 945' in a new wall named 'Partition 153', positioning it 1.55 meters along the wall from its start point and cutting the opening it fills. Place the wall on the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u'; it must be 4 meters long, 0.2 meters thick and 2.3 meters high, with its base corner at (-9.50, 1.69, 0.00) meters in that storey's own coordinates."
+    }
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B30-002-x4",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.81"
+     ],
+     "overlap": 0.812,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 164,
+     "text": "Please clean this up by deleting the 3 doors and windows hosted in the wall with GlobalId '3rPX_Juz59peXXY6wDJl18'; once those are gone, delete the wall itself together with the openings they filled."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.688,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 272,
+     "text": "Please clean up the wall with GlobalId '3rPX_Juz59peXXY6wDJl18': first delete its 3 hosted doors and windows; once those are gone, get rid of the wall as well, together with the openings they filled."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B40m4-016-x4",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.85"
+    ],
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.85"
+     ],
+     "overlap": 0.852,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 193,
+     "text": "Please model a 0.9 m wide by 2.1 m high door named 'Doorset 549', standing on the wall's base and positioned 1.05 m along the wall from its start point. Place it in the wall with GlobalId '02QZndWnPCr8pqUFFegmQz' and create the opening filled by the door."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.85"
+     ],
+     "overlap": 0.852,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 336,
+     "text": "Please model a 0.9 m wide and 2.1 m high door in the wall with GlobalId '02QZndWnPCr8pqUFFegmQz'. Position it 1.05 m along the wall from its start point, with the door standing on the wall's base, and name it 'Doorset 549'. Please also form the opening that the door fills."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.778,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 356,
+     "text": "Please create a new door in the wall identified by GlobalId '02QZndWnPCr8pqUFFegmQz' and call it 'Doorset 549'. Position it on the wall's base, 1.05 m along the wall from the start point. Make it 0.9 m wide and 2.1 m high, and please form the opening that the door fills."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B40m4-009-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.76,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 192,
+     "text": "Please update wall 02QZndWnPCr8pqUFFegmOQ by cutting an opening for a door standing on the wall's base and positioned 1.37 m along the wall from its start point. Model the door at 0.9 m wide and 2.1 m high, and name it 'Doorset 682'."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B40m4-001-x4",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.86"
+    ],
+    [
+     "overlap:0.86"
+    ],
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.86"
+     ],
+     "overlap": 0.857,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 186,
+     "text": "In wall 02QZndWnPCr8pqUFFegmQz, please cut an opening and model the new door that fills it, named 'Doorset 640'. Make it 0.9 m wide and 2.1 m high, positioned 1.22 m along the wall from its start point and standing on the wall's base."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.86"
+     ],
+     "overlap": 0.857,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 409,
+     "text": "In wall ID 02QZndWnPCr8pqUFFegmQz, please form an opening and place within it a new door named 'Doorset 640'. Make the door 0.9 m wide and 2.1 m high, position it 1.22 m along the wall from its start point, and set it on the wall's base. Ensure the opening is cut for the door to fill."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.86"
+     ],
+     "overlap": 0.857,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 558,
+     "text": "To complete the update, please put in a new 0.9 m-wide, 2.1 m-high door named 'Doorset 640'. Position it in wall ID 02QZndWnPCr8pqUFFegmQz, 1.22 m along the wall from its start point, standing on the wall's base, and form the opening filled by the door."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B40m4-008-x4",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.81"
+     ],
+     "overlap": 0.815,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 294,
+     "text": "Please cut an opening in the wall with ID 02QZndWnPCr8pqUFFegmb1 and model the door that fills it. Name it 'Doorset 397', make it 0.9 m wide and 2.1 m high, position it 0.96 m along the wall from its start point, and have it stand on the wall's base."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.667,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 363,
+     "text": "Please update the model by placing a 0.9 m wide, 2.1 m high door at the base of wall ID 02QZndWnPCr8pqUFFegmb1, positioned 0.96 m along the wall from its start point. Make it a new door called 'Doorset 397', and form the opening occupied by it."
+    }
+   ]
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B17-002-x4",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.89"
+    ],
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "audit_rejected": "adds a reference point: the offset is measured 'from the base corner of the space', which the original does not say",
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.893,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 346,
+     "text": "Could you please create a new space on storey '00 Begane grond' and name it 'Room 772'? Give it the predefined type PARKING and make it 4 m long, 3 m wide and 3.3 m high. Position its base corner 4 m to the east (+X) and 6 m to the north (+Y) of the space with the ID 02WVcH6YnB2xoHeO0uUzoF. Thanks."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.86"
+     ],
+     "overlap": 0.857,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 569,
+     "text": "Could you please model a new space on storey '00 Begane grond' under the name 'Room 772'? Assign it the predefined type PARKING and make it 3.3 m high, 3 m wide and 4 m long. Position its base corner 6 m to the north (+Y) and 4 m to the east (+X) of the space with the ID 02WVcH6YnB2xoHeO0uUzoF."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.75,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 282,
+     "text": "One more modelling update, please: from the base corner of the space identified by 02WVcH6YnB2xoHeO0uUzoF, go 4 m east (+X) and 6 m north (+Y) to position the base corner of a new space. Model it at 4 m long, 3 m wide and 3.3 m high on storey '00 Begane grond', call it 'Room 772', and assign the predefined type PARKING."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-SPA-B40m4-001-x4a",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.94"
+    ],
+    [
+     "overlap:0.84"
+    ],
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.94"
+     ],
+     "overlap": 0.938,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 370,
+     "text": "Please model a 90 cm wide, 210 cm high door named 'Doorset 175' on storey 'Level 1'. Put it in the wall that stands about 8.8 m east (+X) of the wall named 'Basic Wall:150 Concrete:677248', positioned 93 cm along the wall from its start point and standing on the wall's base. To complete the update, cut the opening it fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.84"
+     ],
+     "overlap": 0.844,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 322,
+     "text": "Please update storey 'Level 1': model a door called 'Doorset 175', 90 cm wide and 210 cm high, in the wall located about 8.8 m east (+X) of the wall named 'Basic Wall:150 Concrete:677248'. Place it 93 cm along the wall from its start point, standing on the wall's base, and create the opening the door fills."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.88"
+     ],
+     "overlap": 0.875,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 337,
+     "text": "Please update the model on storey 'Level 1'. Find the wall positioned about 8.8 m east (+X) of the wall named 'Basic Wall:150 Concrete:677248', then model a new door called 'Doorset 175' in it. Make the door 90 cm wide and 210 cm high, place it 93 cm along the wall from its start point, and set it on the wall's base. Please create the opening that the door fills."
+    }
+   ]
+  },
+  {
+   "task_id": "WAL-CRE-TOP-B40m4-003-x4",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.89"
+    ],
+    [
+     "missing_word:negation"
+    ],
+    [
+     "overlap:1.00"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.889,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 247,
+     "text": "Please create a copy named 'Partition 289' from the wall on the storey with GUID 39ashYNBDEDR$HhFzW6zmQ, position it 7.83 m to the west (-X), and leave it with no connection to any other element."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "missing_word:negation"
+     ],
+     "overlap": 0.611,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 291,
+     "text": "Please model a new wall called 'Partition 289' by replicating the wall on the storey identified by GUID 39ashYNBDEDR$HhFzW6zmQ, positioning it 7.83 m toward the west (-X), and leaving it unconnected to every other element."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:1.00"
+     ],
+     "overlap": 1.0,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 217,
+     "text": "Please name the copy 'Partition 289' and place it 7.83 m to the west (-X). Create it by duplicating the wall on the storey with GUID 39ashYNBDEDR$HhFzW6zmQ, making sure the duplicate has no connection to any other element."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B32m4-017-x4",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.81"
+     ],
+     "overlap": 0.806,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 339,
+     "text": "Please make the following swap: delete the old opening together with the window it held in the wall named 'Involucro 2497'. In the same position along the wall, model a door named 'Doorset 366', 0.9 m wide and 2.1 m high, standing on the wall's base, and cut the opening the door fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.71,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 436,
+     "text": "Please model a door named 'Doorset 366', 0.9 m wide and 2.1 m high, in the wall named 'Involucro 2497'. Place it on the wall's base at the existing window’s exact position along the wall. Create the opening for the door, then delete the old opening together with the window it held so the swap is complete."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B40m4-009-x4",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.94"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.94"
+     ],
+     "overlap": 0.935,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 244,
+     "text": "To finish this off, please model a new door called 'Doorset 436' in the wall connected to wall 02QZndWnPCr8pqUFFegmUc. Make it 0.9 m wide and 2.1 m high, standing on the wall's base, with the middle of the leaf 1.75 m along the wall from its start, and cut the opening that it fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.774,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 306,
+     "text": "To complete this area, please form an opening and place a new door called 'Doorset 436' within it. The door must be 2.1 m high and 0.9 m wide, standing on the base of the wall connected to wall 02QZndWnPCr8pqUFFegmUc. Position the middle of the leaf 1.75 m along that wall from its start."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-DIR-B29m4-001-x4a",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.86"
+     ],
+     "overlap": 0.857,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 41,
+     "text": "Could you remove from the model the window with ID 3u9ulyhuf3KgXWMUuLCl74, along with all relationships that depend on it, please?"
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.643,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 171,
+     "text": "For model cleanup, please get rid of all relationships that depend on the window (ID: 3u9ulyhuf3KgXWMUuLCl74), then remove the window itself."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-DIR-B47m4-011-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.692,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 176,
+     "text": "Please clean up the model by removing the relationships that depend on the slab with GUID 3TLkvqQRv0ZwSTF3UOHVI3, along with the slab itself."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-DIR-B48m4-008-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.692,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 263,
+     "text": "For a clean model, please delete every relationship that depends on the slab with GlobalId '1YNp9g0003W34sDJ0qC3Oq', and remove the slab itself from the model as well."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-DIR-B54m4-006-x4",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "added_ifc_class:IfcColumn",
+     "missing_word:column"
+    ],
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "added_ifc_class:IfcColumn",
+      "missing_word:column"
+     ],
+     "overlap": 0.526,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 53,
+     "text": "Please remove the IfcColumn identified by GlobalId 1pEgcBors2IP7ojVWLaVZY. To keep the model clean, also get rid of any relationships that depend on it while ensuring all other relationships remain consistent."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.895,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 132,
+     "text": "Please make sure the other relationships stay consistent when you remove from the model the column with GlobalId 1pEgcBors2IP7ojVWLaVZY and all relationships that depend on it."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.684,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 263,
+     "text": "For a clean result, please get rid of the relationships that depend on the column with GlobalId 1pEgcBors2IP7ojVWLaVZY, remove that column from the model as well, and keep all other relationships consistent."
+    }
+   ]
+  },
+  {
+   "task_id": "WAL-DEL-SPA-B26-002-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.765,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 159,
+     "text": "For a quick model tidy-up, please delete the wall furthest east (+X) on storey 'Sous-sol', along with the relationships that depend on it."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-SPA-B17-001-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.783,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 199,
+     "text": "Please clean up the model by removing, along with all relationships that depend on it, the slab between the slab named 'Floor:23_FL_generiek_tegelwerk_15mm:2182851' and the wall named 'Basic Wall:22_WA_Schoonmetselwerk_100mm:2117884' on storey '00 Begane grond'. Make sure every other relationship remains consistent."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-TOP-B26-006-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.733,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 176,
+     "text": "Please clean up the model by removing every column on the storey with GUID 3LQBafOez2oAf7xpUNFl$T, along with all relationships that depend on those columns."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-TOP-B26-017-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.667,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 29,
+     "text": "To clean up the model, please delete every column on storey 'Sous-sol', including all relationships that depend on those columns."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-TOP-B26-016-x4",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.89"
+    ],
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.895,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 187,
+     "text": "For a quick cleanup, please delete from the model the columns taller than 2.00 m on storey '1er étage', and only those columns, together with all relationships that depend on them."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.84"
+     ],
+     "overlap": 0.842,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 173,
+     "text": "To keep this edit focused, please delete from the model, along with the relationships that depend on them, only the columns taller than 2.00 m on storey '1er étage'."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.684,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 132,
+     "text": "To keep things coordinated, could you please delete from the model, along with their dependent relationships, only the columns taller than 2.00 m on storey '1er étage'?"
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B47m4-032-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.778,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 37,
+     "text": "Please update the model for the client by setting the slab’s load-bearing flag in Pset_SlabCommon to false instead of true. This is the only change needed."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B48m4-013-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.5,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 43,
+     "text": "For consistency, could you please change the slab identified by GlobalId 1YNp9g0003W34sDJ0qC3Oq so its predefined type is BASESLAB?"
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B47m4-004-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.6,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 106,
+     "text": "Please use the type object named '90*693.8' for the slab with GlobalId 34G7MRRFzCXvVDHJNqGCNs."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-UPD-DIR-B61m4-006-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.625,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 42,
+     "text": "Please update the name of the column with ID 0YbTgSP2AaJefNqdnXt1aB to 'Post 506' so the model stays consistent."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-DIR-B33m4-002-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.727,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 73,
+     "text": "Please update Pset_WindowCommon for the windows with GlobalIds '0zp6CxCMf0XBZKQJpyN0QP' and '3$FM6bSSzFzhb_8bmQqVpq', setting their thermal transmittance to 1.10 W/m2K for the energy model."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-SPA-B31m4-001-x4b",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.82"
+     ],
+     "overlap": 0.824,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 136,
+     "text": "Please keep its placement fixed, but change the predefined type to LIGHTDOME for the window furthest west (-X) on the storey with the ID 0OzWDtpu1DLvMGuzq2eBt7."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.471,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 262,
+     "text": "Please, as a quick correction, leave the placement unchanged and assign LIGHTDOME as the predefined type for the westernmost (-X) window on the storey whose ID is 0OzWDtpu1DLvMGuzq2eBt7."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-UPD-SPA-B17-001-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.533,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 102,
+     "text": "Please place the column in storey '02 Tweede verdieping' while retaining its position within the storey; this will raise it by 6.45 m."
+    }
+   ]
+  },
+  {
+   "task_id": "SPC-UPD-SPA-B33m4-006-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.619,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 232,
+     "text": "Keeping its exact position in the building and preserving all of its relationships, please reassign the space that is furthest east (+X) from storey 'NIVEAU 0' to storey 'NIVEAU 1'."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-UPD-TOP-B18m4-001-x4a",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.92"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.92"
+     ],
+     "overlap": 0.917,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 155,
+     "text": "A quick correction, please: for the room identified as 2dQFggKBb1fOc1CqZDIDlx, set the predefined type of its bounding column to COLUMN."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.667,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 301,
+     "text": "One small correction, please: for the column bounding the room with GlobalId 2dQFggKBb1fOc1CqZDIDlx, set its predefined type to COLUMN."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-TOP-B26-001-x4c",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.733,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 146,
+     "text": "Please locate the storey with ID 1KEiLNC6mcJRV3LAsGB7Px and change the name of its only slab with no connection to another element to 'Deck 181' for clarity."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-UPD-TOP-B18m4-002-x4a",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.765,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 233,
+     "text": "Please keep the placement fixed for the only column contained in the storey with GlobalId '2IiXqeFJn8JBTQnoaehNyY', but change that column’s predefined type to PILASTER."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-TOP-B26-027-x4",
+   "rewritten": false,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "audit_rejected": "the verb's object changes: 'update the wall ... so its hosted IfcDoor uses the material' invites an edit of the wall",
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.889,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 136,
+     "text": "For the IfcDoor hosted in the wall with the ID 3lnwwRZit5hHdgP3oIkHKH, please set the material to 'Acier'."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.444,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 143,
+     "text": "Please update the wall identified by 3lnwwRZit5hHdgP3oIkHKH so its hosted IfcDoor uses the material 'Acier'."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-TOP-B32m4-003-x4",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.769,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 54,
+     "text": "For energy-performance accuracy, please update Pset_WindowCommon so the thermal transmittance is 1.40 W/m2K for the window hosted in the wall with ID 1AWB_PzwPExQGFZX0DHwpa."
+    }
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B32m4X3-005-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.579,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 210,
+     "text": "Please get rid of the wall containing the window named 'Finestra 2595', together with the openings filled by the 2 windows hosted in that wall; delete those 2 windows as well."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B40m4X3-012-x3",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.89"
+    ],
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.889,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 257,
+     "text": "Please update the wall with GlobalId '02QZndWnPCr8pqUFFegmUv' by modelling a door named 'Doorset 639', sized 0.9 m wide and 2.1 m high. Position it 1.38 m along the wall from its start point, standing on the wall's base, and cut the opening that it fills."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.81"
+     ],
+     "overlap": 0.815,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 274,
+     "text": "Please update the wall identified by GlobalId '02QZndWnPCr8pqUFFegmUv': model a new door named 'Doorset 639', sized 0.9 m wide by 2.1 m high, standing on the wall's base and positioned 1.38 m along the wall from its start point. Please form the opening that the door fills."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.704,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 388,
+     "text": "Please revise the model by creating a 0.9 m wide, 2.1 m high door called 'Doorset 639' within the wall whose GlobalId is '02QZndWnPCr8pqUFFegmUv'. Position it on the wall's base, 1.38 m along the wall from its start point, and form the opening occupied by the door. Thanks."
+    }
+   ]
+  },
+  {
+   "task_id": "SPC-CRE-DIR-B17m4X3-003-x3",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.83"
+    ],
+    [
+     "overlap:0.83"
+    ],
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.83"
+     ],
+     "overlap": 0.826,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 163,
+     "text": "Please model a 4 m long, 3 m wide and 3.3 m high space on the storey with GlobalId 2_ZvelcG11tRIbYc754KmK. Set its lowest corner at (0.42, 8.93, 0.00) m, name it 'Room 458', and assign the predefined type INTERNAL."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.83"
+     ],
+     "overlap": 0.826,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 280,
+     "text": "Please handle this update: on the storey identified by GlobalId 2_ZvelcG11tRIbYc754KmK, model a space with its lowest corner at (0.42, 8.93, 0.00) m. Make it 3 m wide, 3.3 m high and 4 m long, name it 'Room 458', and set its predefined type to INTERNAL."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.83"
+     ],
+     "overlap": 0.826,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 345,
+     "text": "Please use this specification for the new space: on the storey with GlobalId 2_ZvelcG11tRIbYc754KmK, model 'Room 458' with its lowest corner at (0.42, 8.93, 0.00) m. Make it 3 m wide, 3.3 m high and 4 m long, and set the predefined type to INTERNAL."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-DIR-B32m4X3-001-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.75,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 226,
+     "text": "To complete the client’s requested model update, please create a new slab with the predefined type LANDING on the storey with GlobalId '1P9zXa2Wn8LfcY2GJsl19e'. Name it 'Deck 419', make it 4 m by 4 m in plan and 0.2 m thick, and position its lowest corner at (-1.34, -5.29, 0.00) m."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-CRE-DIR-B33m4X3-005-x3",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.88"
+    ],
+    [
+     "overlap:0.80"
+    ],
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.88"
+     ],
+     "overlap": 0.88,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 483,
+     "text": "For coordination, please model a new 2.3 m-high column named 'Post 567', with a 0.4 m by 0.4 m section and its lowest corner at (-11.02, 1.84, 2.75) m. Put it on the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u' and set its predefined type to PIERSTEM_SEGMENT."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.80"
+     ],
+     "overlap": 0.8,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 335,
+     "text": "Could you please model a 2.3 m-high column with a 0.4 m by 0.4 m section on the storey identified by GlobalId '3rXyql0mf8kx3ZXg1$Xk9u'? Position its lowest corner at (-11.02, 1.84, 2.75) m, set the predefined type to PIERSTEM_SEGMENT, and name it 'Post 567'."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.80"
+     ],
+     "overlap": 0.8,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 335,
+     "text": "For coordination, please model 'Post 567' as a new column with the predefined type PIERSTEM_SEGMENT. Make it 2.3 m high with a 0.4 m by 0.4 m section, position its lowest corner at (-11.02, 1.84, 2.75) m, and assign it to the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u'."
+    }
+   ]
+  },
+  {
+   "task_id": "WAL-CRE-DIR-B33m4X3-006-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.89"
+     ],
+     "overlap": 0.889,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 246,
+     "text": "Please make this update: on the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u', model a 4 m long, 0.2 m thick and 2.3 m high wall named 'Partition 161'. Position its base corner at (-10.37, 0.91, 0.00) m in that storey's own coordinates, and have it bound the space 'PATH'."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.704,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 234,
+     "text": "To complete the layout, please model a 4 m long, 2.3 m high and 0.2 m thick wall called 'Partition 161'. Position its base corner at (-10.37, 0.91, 0.00) m in the local coordinates of the storey with GlobalId '3rXyql0mf8kx3ZXg1$Xk9u', and have it bound the space 'PATH'."
+    }
+   ]
+  },
+  {
+   "task_id": "WAL-CRE-SPA-B17m4X3-001-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.769,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 307,
+     "text": "For this layout update, please model a 4000 mm long, 3300 mm high and 200 mm thick wall on storey '00 Begane grond'. Name it 'Partition 357', assign the predefined type STANDARD, and position its base corner 8000 mm east (+X) and 4000 mm south (-Y) of column 01bClUa8n2YB1oOe2GwJOH."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-SPA-B17m4X3-002-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.793,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 336,
+     "text": "Please create a new 4 m by 4 m slab, 0.2 m thick, on storey '00 Begane grond' and name it 'Deck 816'. Use the predefined type BASESLAB, and position its base corner 4 m to the east (+X) and 6 m to the north (+Y) of the space identified as 02WVcH6YnB2xoHeO0uUzoz so it is located correctly."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-CRE-TOP-B17m4X3-006-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.85"
+     ],
+     "overlap": 0.852,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 250,
+     "text": "Please create a new column called 'Post 454' with predefined type PILASTER. Place it on the storey that the space named '3' belongs to, with its lowest corner at (4.76, 11.72, 0.00) m. Make the section 0.4 m by 0.4 m and the height 3.3 m. Thanks."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.778,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 657,
+     "text": "To complete this update, please model a new 3.3 m-high column with a 0.4 m by 0.4 m section, positioning its lowest corner at (4.76, 11.72, 0.00) m. Call it 'Post 454', set its predefined type to PILASTER, and place it on the storey containing the space called '3'."
+    }
+   ]
+  },
+  {
+   "task_id": "SPC-CRE-TOP-B17m4X3-003-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.88"
+     ],
+     "overlap": 0.88,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 127,
+     "text": "Please model a 4 m long, 3 m wide and 3.3 m high space with its lowest corner at (0.82, 12.41, 0.00) m. Place it on the storey that the space named '3' belongs to, name it 'Room 193', and set its predefined type to INTERNAL."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.76,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 135,
+     "text": "Please create a space with the predefined type INTERNAL on the same storey as the space named '3'. Call it 'Room 193', position its lowest corner at (0.82, 12.41, 0.00) m, and make it 3 m wide, 3.3 m high and 4 m long."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B32m4X3-018-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.81"
+     ],
+     "overlap": 0.806,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 141,
+     "text": "Please create a 0.9 m wide and 2.1 m high door named 'Doorset 463', standing on the wall's base and positioned 3.23 m along the wall from its start point. Put it in the wall on storey 'P.T' that hosts no door and no window, and cut the opening it fills, as requested by the client."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.694,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 258,
+     "text": "Please update the model for the client by cutting an opening in the wall on storey 'P.T' that contains neither a door nor a window. Place a door named 'Doorset 463' in that opening, sized 0.9 m wide by 2.1 m high, with its position 3.23 m along the wall from the wall’s start point and its bottom standing on the wall’s base."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-DIR-B26m4X3-001-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.786,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 71,
+     "text": "Please clean up the model by deleting the windows with IDs 3KOVip3CgUT3oue_ic$OLY, 1CtJA9cpfrxMFYaathBjDK and 1XC$OWy2lVKpXuNgR8hWsT, as well as all relationships that depend on them."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-DIR-B48m4X3-004-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.786,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 230,
+     "text": "Please clean up the model by deleting any relationships that depend on the slabs with IDs 1YNp9g0003W34sDJ0qC3Oq and 1YNp9g0003b34sDJ0qC3Ov, then remove those slabs themselves."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-DIR-B48m4X3-002-x3a",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.591,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 47,
+     "text": "Please delete the slab with the ID 1YNp9g0003b34sDJ0qC3Ov and any relationships that depend on it, while keeping all other relationships consistent so the model remains coordinated."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-DEL-DIR-B47m4X3-001-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "added_ifc_class:IfcColumn",
+     "missing_word:column"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "added_ifc_class:IfcColumn",
+      "missing_word:column"
+     ],
+     "overlap": 0.615,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 44,
+     "text": "Please remove the IfcColumn identified by GlobalId '04_GgHrEb7Ohv0MWTtyXF9', and clean up all relationships that depend on it so the model stays consistent."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.692,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 202,
+     "text": "Please update the model by removing the column identified by GlobalId '04_GgHrEb7Ohv0MWTtyXF9'; get rid of all relationships that depend on it as well."
+    }
+   ]
+  },
+  {
+   "task_id": "SPC-DEL-SPA-B31m4X3-001-x3",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.87"
+    ],
+    [
+     "missing_word:furthest"
+    ],
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.87"
+     ],
+     "overlap": 0.867,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 149,
+     "text": "On storey 'Erdgeschoos', please remove from the model the space furthest west (-X), along with the relationships that depend on it."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "missing_word:furthest"
+     ],
+     "overlap": 0.533,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 337,
+     "text": "Please clean this up: remove every relationship that depends on the space at the extreme west (-X) of storey 'Erdgeschoos', then get rid of that space from the model."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.80"
+     ],
+     "overlap": 0.8,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 168,
+     "text": "Please clean up the model by getting rid of the space that is furthest west (-X) on storey 'Erdgeschoos', along with the relationships that depend on it."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B17m4X3-004-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.80"
+     ],
+     "overlap": 0.8,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 112,
+     "text": "Please remove the relationships that depend on the window and delete the window itself from the model; this is the one change the design team has agreed on."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.65,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 212,
+     "text": "Please get rid of the relationships that rely on the window, then remove the window itself from the model. This is the one revision the design team agreed to."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B33m4X3-002-x3a",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.733,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 171,
+     "text": "Please clean up the model: on storey 'NIVEAU 0', get rid of the window furthest west (-X) and remove the relationships that depend on it."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B26m4X3-001-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.75,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 212,
+     "text": "On storey 'Sous-sol', please get rid of the only IfcSlab with no connection to another element, along with the relationships that depend on it."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B32m4X3-003-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.90"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.90"
+     ],
+     "overlap": 0.9,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 136,
+     "text": "Please clean up the model by deleting, together with the relationships that depend on it, the only slab on storey 'P.T' that has no connection to another element."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.45,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 227,
+     "text": "Please clean up storey 'P.T' by deleting the sole slab that is not connected to any other element, along with all relationships dependent on that slab."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-UPD-DIR-B54m4X3-008-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.6,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 39,
+     "text": "Please update the name to 'Post 230' for the IfcColumn whose GlobalId is '0Ii7KBRQnsJRfzua6DMT2x'."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B33m4X3-002-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.75,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 42,
+     "text": "Please set the slab with GUID 2sf4Kg2mnEse93JmyGQibP to use the material 'Béton Dalle' so its material information is correct."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-DIR-B17m4X3-001-x3c",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.333,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 36,
+     "text": "Please update '3yKL7w3aP50Qs40ucQ6N8m' so the window is named 'Glazing unit 123'."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-DIR-B32m4X3-002-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "added_ifc_class:IfcWindow",
+     "missing_word:window"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "added_ifc_class:IfcWindow",
+      "missing_word:window"
+     ],
+     "overlap": 0.538,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 44,
+     "text": "Please update Pset_WindowCommon for the IfcWindow with GlobalId '0gvvHyK1T2ZxZihwMdCk1K', setting its external flag to true."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.615,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 116,
+     "text": "Please update Pset_WindowCommon for the window with GlobalId '0gvvHyK1T2ZxZihwMdCk1K' by setting the external flag to true."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B48m4X3-003-x3b",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.6,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 137,
+     "text": "Please preserve every relationship of the slab with ID 1YNp9g0003W34sDJ0qC3Oq when changing its predefined type to ROOF."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-DIR-B18m4X3-001-x3c",
+   "rewritten": false,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "audit_rejected": "reorders the edit: 'restore the door's current wall so it is whole, then relocate' the door with its opening, which is contradictory if read as written",
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.82"
+     ],
+     "overlap": 0.818,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 194,
+     "text": "Please tidy this up: in the wall named 'Wand-Int-ERDG-1', place the IfcDoor with GlobalId '2qiPPF3FrF8OIqfrKiSUqm' 2.35 meters along that wall from its start point. Bring the opening it fills with it, and leave the wall it came from whole."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.773,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 274,
+     "text": "Please, for a clean result, restore the door’s current wall so it is whole, then relocate the IfcDoor with GlobalId '2qiPPF3FrF8OIqfrKiSUqm', together with the opening it fills, into the wall named 'Wand-Int-ERDG-1' at 2.35 meters along that wall from its start point."
+    }
+   ]
+  },
+  {
+   "task_id": "WAL-UPD-SPA-B31m4X3-001-x3",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.80"
+     ],
+     "overlap": 0.8,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 158,
+     "text": "Please update Pset_WallCommon to set the fire rating to 'F90' for the wall on storey 'Erdgeschoos' that is directly below the wall with GlobalId 00SXl1CML78enpCC4ldqrs."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.6,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 674,
+     "text": "For the fire-rating correction, please locate the wall with GlobalId 00SXl1CML78enpCC4ldqrs, then record 'F90' as the fire rating in Pset_WallCommon for the wall directly beneath it on storey 'Erdgeschoos'."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-UPD-SPA-B40m4X3-007-x3",
+   "rewritten": true,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.82"
+    ],
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.82"
+     ],
+     "overlap": 0.824,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 292,
+     "text": "Please keep the z value fixed and reposition the IfcColumn on the storey with GUID 39ashYNBDEDR$HhFzW6w9a, directly below the column with GUID 1HXmQbW497zOJ$tovXeL5_, by 0.41 m to the south (-Y)."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "overlap:0.82"
+     ],
+     "overlap": 0.824,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 222,
+     "text": "For coordination, please keep the z value fixed and reposition the IfcColumn directly below the column with GUID 1HXmQbW497zOJ$tovXeL5_ by 0.41 m to the south (-Y); it is on the storey with GUID 39ashYNBDEDR$HhFzW6w9a."
+    },
+    {
+     "attempt": 3,
+     "failed": [],
+     "overlap": 0.647,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 415,
+     "text": "Please revise the placement on the storey with GUID 39ashYNBDEDR$HhFzW6w9a: shift the IfcColumn directly beneath the column with GUID 1HXmQbW497zOJ$tovXeL5_ southward (-Y) by 0.41 m, without changing its z value. Thanks."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-SPA-B26m4X3-001-x3a",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.83"
+     ],
+     "overlap": 0.833,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 164,
+     "text": "Quick type correction, please: on storey 'Rez-de-chaussée', find the door located furthest east (+X) and set its predefined type to TURNSTILE."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.75,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 212,
+     "text": "Could you please make TURNSTILE the predefined type for whichever door lies furthest east (+X) on storey 'Rez-de-chaussée'? Thanks."
+    }
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-TOP-B31m4X3-001-x3b",
+   "rewritten": true,
+   "attempts": 2,
+   "failed_checks": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.83"
+     ],
+     "overlap": 0.833,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 307,
+     "text": "Please preserve all relationships when revising the IfcSlab recorded with no space boundary: on storey 'Obergeschoss', set its thickness to 0.16 m instead of 0.2 m."
+    },
+    {
+     "attempt": 2,
+     "failed": [],
+     "overlap": 0.722,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 185,
+     "text": "Please retain every relationship of the IfcSlab recorded with no space boundary on storey 'Obergeschoss', and revise its thickness to 0.16 m instead of 0.2 m."
+    }
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-TOP-B26m4X3-002-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.625,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 145,
+     "text": "Please preserve all relationships while setting 'Porte coulissante extérieure 23' as the type object for the door hosted in wall ID 2Wzq8gHUYtIBTMGNCwX3Mg."
+    }
+   ]
+  },
+  {
+   "task_id": "COL-UPD-TOP-B26m4X3-007-x3",
+   "rewritten": false,
+   "attempts": 3,
+   "failed_checks": [
+    [
+     "overlap:0.87"
+    ],
+    [
+     "missing_word:only"
+    ],
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [
+      "overlap:0.87"
+     ],
+     "overlap": 0.867,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 192,
+     "text": "On storey '1er étage', please change the external flag in Pset_ColumnCommon to false for only the IfcColumn elements taller than 2.00 m; leave everything else unchanged."
+    },
+    {
+     "attempt": 2,
+     "failed": [
+      "missing_word:only"
+     ],
+     "overlap": 0.667,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 236,
+     "text": "Please make this metadata correction in Pset_ColumnCommon: on storey '1er étage', change the external flag to false exclusively for IfcColumn elements whose height exceeds 2.00 m."
+    },
+    {
+     "attempt": 3,
+     "failed": [
+      "overlap:0.80"
+     ],
+     "overlap": 0.8,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 52,
+     "text": "Please update Pset_ColumnCommon for the IfcColumn elements on storey '1er étage' that are taller than 2.00 m, and only those elements, by setting the external flag to false so the classification is correct."
+    }
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-TOP-B26m4X3-001-x3",
+   "rewritten": true,
+   "attempts": 1,
+   "failed_checks": [],
+   "attempt_log": [
+    {
+     "attempt": 1,
+     "failed": [],
+     "overlap": 0.643,
+     "finish_reason": "stop",
+     "served_model": "gpt-5.6-sol",
+     "completion_tokens": 152,
+     "text": "Please update Pset_WindowCommon so the thermal transmittance is 1.10 W/m2K for the window hosted in the wall with GlobalId '0fasjd3ZFdG3$$EchUvk8l'."
+    }
+   ]
+  }
+ ],
+ "manual_audit": "all machine-accepted pairs read by hand against the original on 2026-10-03; 4 rejected and kept in the original wording",
+ "kept_after_three_attempts": [
+  "CHN-CWD-DIR-B33-091",
+  "DOR-CRE-DIR-B40-071",
+  "DOR-CRE-TOP-B40-024",
+  "CHN-CWD-DIR-B33m4-003-x4",
+  "DOR-CRE-DIR-B40m4-001-x4",
+  "DOR-CRE-SPA-B40m4-001-x4a",
+  "WAL-CRE-TOP-B40m4-003-x4",
+  "SPC-CRE-DIR-B17m4X3-003-x3",
+  "COL-CRE-DIR-B33m4X3-005-x3",
+  "SPC-DEL-SPA-B31m4X3-001-x3",
+  "COL-UPD-TOP-B26m4X3-007-x3"
+ ],
+ "kept_by_manual_audit": {
+  "DOR-UPD-TOP-B32-020": "adds a constraint ('keeping it hosted in the wall') and turns the anchor into a presupposition; it may push a model to move the opening as well",
+  "SPC-CRE-SPA-B17-002-x4": "adds a reference point: the offset is measured 'from the base corner of the space', which the original does not say",
+  "DOR-UPD-TOP-B26-027-x4": "the verb's object changes: 'update the wall ... so its hosted IfcDoor uses the material' invites an edit of the wall",
+  "DOR-UPD-DIR-B18m4X3-001-x3c": "reorders the edit: 'restore the door's current wall so it is whole, then relocate' the door with its opening, which is contradictory if read as written"
+ },
+ "attempt_histogram_rewritten": {
+  "1": 52,
+  "3": 9,
+  "2": 24
+ }
+}

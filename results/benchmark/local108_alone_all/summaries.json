@@ -1,0 +1,70 @@
+[
+  {
+    "adapter": "sft_v10",
+    "n_tasks": 108,
+    "n_scored": 108,
+    "n_unscorable": 0,
+    "unscorable_ids": [],
+    "mean_final": 0.245228,
+    "by_operation": {
+      "create": {
+        "n": 36,
+        "n_scored": 36,
+        "mean": 0.027778
+      },
+      "delete": {
+        "n": 36,
+        "n_scored": 36,
+        "mean": 0.027778
+      },
+      "update": {
+        "n": 36,
+        "n_scored": 36,
+        "mean": 0.680128
+      }
+    },
+    "by_category": {
+      "direct": 0.290155,
+      "spatial": 0.169125,
+      "topological": 0.276403
+    },
+    "axis_means": {
+      "geometry": 0.277778,
+      "semantics": 0.27272,
+      "topology": 0.185185
+    },
+    "schema_validity": 0.9889,
+    "code_valid": 0.9878,
+    "code_run": 0.3069,
+    "commit_rate": 0.1667,
+    "tasks_with_any_tool_call": 108,
+    "mean_tool_rounds": 16.713,
+    "total_tool_calls": 1805,
+    "stop_reasons": {
+      "budget_exhausted": 78,
+      "completed": 30
+    },
+    "hit_output_cap": 0,
+    "mean_output_tokens": 3558.0,
+    "wall_seconds": 18105.8,
+    "resolved_agent_config": {
+      "max_tool_rounds": 22,
+      "tool_timeout": 420.0,
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 8192,
+      "max_tool_output_chars": 16000,
+      "max_recorded_output_chars": 4000,
+      "capture_stdout": true,
+      "max_transcript_tokens": 0,
+      "min_turn_tokens": 256,
+      "dup_stop": 0
+    },
+    "per_task_file": "runs_local/bench_v4/results/local108_alone_all/per_task_sft_v10.jsonl",
+    "subset": "runs_local/bench_v4/subset_108_hosted.v4c.json",
+    "scorer_reading": "family",
+    "label": "VeriBIM-Bench v4b 108-task subset, alone arm, local sft_v10, sandbox guard",
+    "protocol_conformant": true,
+    "finished_at": "2026-10-02T05:05:39"
+  }
+]

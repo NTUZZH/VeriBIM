@@ -1,0 +1,9 @@
+grpo_v10_c50 (start)	completion 0.887	mean 0.8891	n 300
+sft_v10	completion 0.867	mean 0.8753	n 300
+grpo_v10b_c10	completion 0.887	mean 0.8891	n 300
+grpo_v10b_c20	completion 0.883	mean 0.8860	n 300
+grpo_v10b_c30	completion 0.883	mean 0.8860	n 300
+grpo_v10b_c40	completion 0.880	mean 0.8827	n 300
+grpo_v10b_c50	completion 0.877	mean 0.8824	n 300
+grpo_v10b_c60	completion 0.883	mean 0.8892	n 300
+PEAK	grpo_v10b_c10	completion 0.887	mean 0.8891

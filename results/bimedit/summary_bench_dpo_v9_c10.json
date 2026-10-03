@@ -1,0 +1,21 @@
+{
+  "adapter": "dpo_v9_c10",
+  "n": 324,
+  "mean_final": 0.4032,
+  "full_solve_rate": 0.0309,
+  "by_category": {
+    "direct": 0.568,
+    "spatial": 0.3089,
+    "topological": 0.3326
+  },
+  "by_operation": {
+    "create": 0.1669,
+    "delete": 0.4867,
+    "update": 0.556
+  },
+  "axes": {
+    "geometry": 0.4723,
+    "semantics": 0.4102,
+    "topology": 0.327
+  }
+}

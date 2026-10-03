@@ -1,0 +1,11 @@
+dpo_v10	completion 0.992	mean 0.9931	n 500
+dpo_v10_c12	completion 0.992	mean 0.9931	n 500
+dpo_v10_c15	completion 0.992	mean 0.9931	n 500
+dpo_v10_c18	completion 0.994	mean 0.9951	n 500
+dpo_v10_c20	completion 0.994	mean 0.9951	n 500
+dpo_v10_c3	completion 0.994	mean 0.9952	n 500
+dpo_v10_c6	completion 0.994	mean 0.9952	n 500
+dpo_v10_c9	completion 0.990	mean 0.9942	n 500
+dpo_v9_c10	completion 0.988	mean 0.9948	n 500
+sft_v10	completion 0.994	mean 0.9952	n 500
+PEAK	dpo_v10_c3	completion 0.994	mean 0.9952

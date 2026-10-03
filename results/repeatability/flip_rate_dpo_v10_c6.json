@@ -1,0 +1,12 @@
+{
+ "model": "dpo_v10_c6",
+ "set": "val-500 v3b",
+ "n": 500,
+ "flips_rep1_vs_rep2": 0,
+ "flip_rate": 0.0,
+ "flip_ids": [],
+ "completion_rep1": 0.994,
+ "completion_rep2": 0.994,
+ "flips_rep1_vs_gate_read": 0,
+ "flip_rate_vs_gate_read": 0.0
+}

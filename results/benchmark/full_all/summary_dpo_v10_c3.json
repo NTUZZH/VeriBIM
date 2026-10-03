@@ -1,0 +1,82 @@
+{
+  "adapter": "dpo_v10_c3",
+  "n_tasks": 2100,
+  "n_scored": 2100,
+  "n_unscorable": 0,
+  "unscorable_ids": [],
+  "mean_final": 0.963865,
+  "by_operation": {
+    "create": {
+      "n": 796,
+      "n_scored": 796,
+      "mean": 0.972079
+    },
+    "delete": {
+      "n": 732,
+      "n_scored": 732,
+      "mean": 0.965642
+    },
+    "update": {
+      "n": 572,
+      "n_scored": 572,
+      "mean": 0.950161
+    }
+  },
+  "by_category": {
+    "direct": 0.993025,
+    "spatial": 0.952377,
+    "topological": 0.952081
+  },
+  "axis_means": {
+    "geometry": 0.964356,
+    "semantics": 0.964821,
+    "topology": 0.96242
+  },
+  "schema_validity": 1.0,
+  "code_valid": 0.9934,
+  "code_run": 0.9491,
+  "commit_rate": 0.9048,
+  "tasks_with_any_tool_call": 2100,
+  "mean_tool_rounds": 4.415,
+  "total_tool_calls": 9272,
+  "stop_reasons": {
+    "completed": 2061,
+    "budget_exhausted": 34,
+    "context_overflow": 5
+  },
+  "hit_output_cap": 0,
+  "mean_output_tokens": 848.4,
+  "wall_seconds": 65813.5,
+  "resolved_agent_config": {
+    "max_tool_rounds": 22,
+    "tool_timeout": 420.0,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 8192,
+    "max_tool_output_chars": 16000,
+    "max_recorded_output_chars": 4000,
+    "capture_stdout": true,
+    "max_transcript_tokens": 0,
+    "min_turn_tokens": 256,
+    "dup_stop": 0
+  },
+  "per_task_file": "runs_local/bench_v4/results/full_all/per_task_dpo_v10_c3.jsonl",
+  "subset": "runs_local/bench_v4/results/_ids_all.json",
+  "scorer_reading": "family",
+  "label": "VeriBIM-Bench v4b full all, dpo_v10_c3, family reading",
+  "protocol_conformant": true,
+  "finished_at": "2026-09-29T23:31:22",
+  "rebuilt_offline": {
+    "script": "code/stage_a/rescore_run.py",
+    "closing_turn_tokens": "server tokenizer",
+    "estimated_fields": [
+      "commits",
+      "committed",
+      "duration_seconds"
+    ],
+    "notes_file": "runs_local/rescore_run/rescore_notes_dpo_v10_c3.json",
+    "missing_transcripts": [],
+    "wall_seconds": 14617.1,
+    "peak_rss_mb": 7790.7
+  }
+}

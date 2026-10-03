@@ -1,0 +1,12 @@
+{
+ "model": "grpo_v10_c50",
+ "set": "val-500 v3b",
+ "n": 500,
+ "flips_rep1_vs_rep2": 1,
+ "flip_rate": 0.002,
+ "flip_ids": [
+  "DOR-UPD-SPA-B32-007"
+ ],
+ "completion_rep1": 0.994,
+ "completion_rep2": 0.996
+}
