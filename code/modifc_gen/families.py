@@ -97,6 +97,11 @@ GROUP_SHARE: dict[str, float] = {
     # An instruction that leaves out one value the edit needs.  Its gold makes
     # no change and its answer is a question, so the share is small on purpose.
     "wording.underspecified": 0.05,
+    # Layer 1, the Revit-export creation family (0.10.0): a create task whose
+    # gold carries the type, the property sets, the material and the
+    # relationships a Revit export writes.  It is drawn only by a run that
+    # names it, so every run that does not draws exactly what it drew before.
+    "op.create.revit": 0.0,
     # Layer 6 is measured rather than drawn: a run cannot ask for more
     # millimetre models than the corpus holds.  The group exists so the
     # conditions are named in one place and is never drawn.
@@ -212,6 +217,17 @@ FAMILIES: tuple[Family, ...] = (
     Family("op.array", "op.create.new", "operation", 0.8),
     Family("op.replace", "op.create.new", "operation", 1.0),
 
+    # ---- layer 1: the Revit-export creation family (0.10.0) ----------------
+    # One family per instruction style; the style decides the category, so a
+    # direct draw writes the box, a topological draw the relation and a
+    # spatial draw the offset from a named element.
+    Family("op.create.revit.box", "op.create.revit", "operation", 1.0,
+           style="direct", builder="revit:draw"),
+    Family("op.create.revit.relation", "op.create.revit", "operation", 1.0,
+           style="topological", builder="revit:draw"),
+    Family("op.create.revit.relative", "op.create.revit", "operation", 1.0,
+           style="spatial", builder="revit:draw"),
+
     # ---- layer 5: one edit over a whole set -------------------------------
     Family("scope.batch", "scope.batch", "scope", 1.0),
     Family("ref.set", "scope.batch", "reference", 1.0),
@@ -283,6 +299,13 @@ OPERATION_TAG = {
     "copy_element": "op.copy",
     "array_elements": "op.array",
     "replace_filling": "op.replace",
+    # 0.10.0
+    "create_revit_wall": "op.create",
+    "create_revit_slab": "op.create",
+    "create_revit_column": "op.create",
+    "create_revit_space": "op.create",
+    "create_revit_door": "op.create",
+    "create_revit_window": "op.create",
 }
 
 SCOPE_TAG = {"single": "scope.single", "compositional": "scope.chain"}

@@ -1,7 +1,7 @@
 """Fig. 8, main result, in two finished variants drawn from writing/tables/exhibit_data.json.
 
 Variant A (fig08_main_A): one panel, completion on the 108-task subset per model and arm as horizontal
-bars with 95 % bootstrap intervals, the proposed model on top and a dashed line at its completion.
+bars with 95 % bootstrap intervals, VeriBIM-9B on top and a dashed line at its completion.
 Variant B (fig08_main_B): two panels sharing the completion axis, per-IFC-version bars on the 108-task
 subset (a) and the 324-task subset (b); bars are the models with the library, white diamonds the same
 model alone. A local-model slot without a dedicated read is labelled 'pending'.
@@ -59,8 +59,8 @@ def variant_a():
     ax.spines['left'].set_visible(False)
     hs = [plt.Rectangle((0, 0), 1, 1, fc=s[0], ec=s[1], lw=0.6, hatch=s[2]) for s in (OURS, LIB, ALONE)]
     boxed_legend(fig, handles=hs + [plt.Line2D([], [], color=REF_LINE, lw=0.8, ls=(0, (4, 2)))],
-                 labels=['Proposed model, with the library', 'Commercial model, with the library',
-                         'Commercial model, alone', 'Completion of the proposed model'],
+                 labels=['VeriBIM-9B, with the library', 'Commercial model, with the library',
+                         'Commercial model, alone', 'Completion of VeriBIM-9B'],
                  loc='upper center', ncol=2, bbox_to_anchor=(0.5, 0.995 if not preview else 0.96))
     if preview:
         preview_mark(fig)

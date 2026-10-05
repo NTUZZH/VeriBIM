@@ -1,0 +1,732 @@
+{
+ "seed": 20261003,
+ "n_buildings": 10,
+ "draw": 188,
+ "rejected_draws": {
+  "version share": 186,
+  "row count": 1
+ },
+ "rule": "allocation by building count per class (largest remainder); draw i samples each class with random.Random(20261003); first draw with version shares within 5.0 points of the main corpus, tasks and imitation rows between 0.08 and 0.12 of the main corpus, and native IFC2X3, native GNI IFC4 and migrated tasks present",
+ "classes": {
+  "corpus": {
+   "training_buildings": 27,
+   "allocated": 3
+  },
+  "gni_ifc4": {
+   "training_buildings": 62,
+   "allocated": 6
+  },
+  "gni_ifc2x3": {
+   "training_buildings": 11,
+   "allocated": 1
+  }
+ },
+ "buildings": [
+  "BLD017",
+  "BLD036",
+  "BLD043",
+  "GNI-model_127",
+  "GNI-model_141",
+  "GNI-model_147",
+  "GNI-model_15",
+  "GNI-model_154",
+  "GNI-model_191",
+  "GNI-model_63"
+ ],
+ "main_corpus": {
+  "training_buildings": 100,
+  "tasks": 51956,
+  "tasks_by_version": {
+   "IFC2X3": 25859,
+   "IFC4X3": 12164,
+   "IFC4": 13933
+  },
+  "task_share_by_version": {
+   "IFC2X3": 49.77,
+   "IFC4": 26.82,
+   "IFC4X3": 23.41
+  },
+  "imitation_rows_on_training_buildings": 75593,
+  "imitation_rows_on_other_buildings": {
+   "BLD034": 7,
+   "BLD033": 43,
+   "BLD037": 87,
+   "BLD047": 2,
+   "BLD001": 396
+  },
+  "assembled_rows": 75953
+ },
+ "small_corpus": {
+  "tasks": 5518,
+  "tasks_by_version": {
+   "IFC4": 1233,
+   "IFC4X3": 1274,
+   "IFC2X3": 3011
+  },
+  "task_share_by_version": {
+   "IFC2X3": 54.57,
+   "IFC4": 22.35,
+   "IFC4X3": 23.09
+  },
+  "task_fraction_of_main": 0.1062,
+  "imitation_rows": 8495,
+  "row_fraction_of_main": 0.1124,
+  "origin_tasks": {
+   "native_ifc2x3": 3011,
+   "native_ifc4_gni": 718,
+   "migrated": 1567
+  }
+ },
+ "per_building": {
+  "BLD017": {
+   "class": "corpus",
+   "collection": "auckland",
+   "model_keys": [
+    "B01",
+    "B01m4X3"
+   ],
+   "tasks": {
+    "IFC4/native": 222,
+    "IFC4X3/migrated": 11
+   },
+   "rows": {
+    "IFC4/native": 410,
+    "IFC4X3/migrated": 26
+   },
+   "tasks_total": 233,
+   "rows_total": 436,
+   "row_task_ids": 212,
+   "files": [
+    {
+     "relpath": "data/corpus/auckland/183_20181220Holter_Tower_10.ifc",
+     "schema": "IFC4",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B01__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/auckland/183_20181220Holter_Tower_10.ifc",
+     "source": "corpus_manifest",
+     "training_eligible": true,
+     "e3_reserved": false,
+     "schema": "IFC4"
+    }
+   ]
+  },
+  "BLD036": {
+   "class": "corpus",
+   "collection": "auckland",
+   "model_keys": [
+    "B52",
+    "B52m4",
+    "B52m4X3"
+   ],
+   "tasks": {
+    "IFC2X3/native": 122,
+    "IFC4/migrated": 21,
+    "IFC4X3/migrated": 27
+   },
+   "rows": {
+    "IFC2X3/native": 283,
+    "IFC4/migrated": 41,
+    "IFC4X3/migrated": 64
+   },
+   "tasks_total": 170,
+   "rows_total": 388,
+   "row_task_ids": 169,
+   "files": [
+    {
+     "relpath": "data/corpus/auckland/226_20210221PRIMARK.ifc",
+     "schema": "IFC2X3",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B52__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B52__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B52__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B52__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/auckland/226_20210221PRIMARK.ifc",
+     "source": "corpus_manifest",
+     "training_eligible": true,
+     "e3_reserved": false,
+     "schema": "IFC2X3"
+    }
+   ]
+  },
+  "BLD043": {
+   "class": "corpus",
+   "collection": "buildingsmart_community",
+   "model_keys": [
+    "B28",
+    "B28m4",
+    "B28m4X3",
+    "B60",
+    "B60m4",
+    "B60m4X3",
+    "B63",
+    "B63m4",
+    "B63m4X3",
+    "B67",
+    "B67m4",
+    "B67m4X3",
+    "B72",
+    "B72m4",
+    "B72m4X3"
+   ],
+   "tasks": {
+    "IFC2X3/native": 2742,
+    "IFC4/migrated": 145,
+    "IFC4X3/migrated": 171
+   },
+   "rows": {
+    "IFC2X3/native": 3097,
+    "IFC4/migrated": 279,
+    "IFC4X3/migrated": 310
+   },
+   "tasks_total": 3058,
+   "rows_total": 3686,
+   "row_task_ids": 1816,
+   "files": [
+    {
+     "relpath": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_A_20110907.ifc",
+     "schema": "IFC2X3",
+     "origin": "native"
+    },
+    {
+     "relpath": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_Electrical_20121207.ifc",
+     "schema": "IFC2X3",
+     "origin": "native"
+    },
+    {
+     "relpath": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_MEP_20110907.ifc",
+     "schema": "IFC2X3",
+     "origin": "native"
+    },
+    {
+     "relpath": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_M_20111024_ROOMS_AND_SPACES.ifc",
+     "schema": "IFC2X3",
+     "origin": "native"
+    },
+    {
+     "relpath": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_Plumbing_20121113.ifc",
+     "schema": "IFC2X3",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B28__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B28__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B60__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B60__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B63__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B63__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B67__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B67__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B72__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/B72__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B28__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B28__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B60__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B60__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B63__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B63__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B67__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B67__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B72__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/B72__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_A_20110907.ifc",
+     "source": "corpus_manifest",
+     "training_eligible": true,
+     "e3_reserved": false,
+     "schema": "IFC2X3"
+    },
+    {
+     "file": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_Electrical_20121207.ifc",
+     "source": "corpus_manifest",
+     "training_eligible": true,
+     "e3_reserved": false,
+     "schema": "IFC2X3"
+    },
+    {
+     "file": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_MEP_20110907.ifc",
+     "source": "corpus_manifest",
+     "training_eligible": true,
+     "e3_reserved": false,
+     "schema": "IFC2X3"
+    },
+    {
+     "file": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_M_20111024_ROOMS_AND_SPACES.ifc",
+     "source": "corpus_manifest",
+     "training_eligible": true,
+     "e3_reserved": false,
+     "schema": "IFC2X3"
+    },
+    {
+     "file": "data/corpus/bs_community_repo/IFC 2.3.0.1 (IFC 2x3)/Duplex Apartment/Duplex_Plumbing_20121113.ifc",
+     "source": "corpus_manifest",
+     "training_eligible": true,
+     "e3_reserved": false,
+     "schema": "IFC2X3"
+    }
+   ]
+  },
+  "GNI-model_127": {
+   "class": "gni_ifc4",
+   "collection": "gni",
+   "model_keys": [
+    "G127",
+    "G127m4X3"
+   ],
+   "tasks": {
+    "IFC4/native": 120,
+    "IFC4X3/migrated": 149
+   },
+   "rows": {
+    "IFC4/native": 228,
+    "IFC4X3/migrated": 298
+   },
+   "tasks_total": 269,
+   "rows_total": 526,
+   "row_task_ids": 256,
+   "files": [
+    {
+     "relpath": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_127.ifc",
+     "schema": "IFC4",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/G127__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/G127__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_127.ifc",
+     "source": "gni_contamination",
+     "bimedit_shared": 0
+    }
+   ]
+  },
+  "GNI-model_141": {
+   "class": "gni_ifc4",
+   "collection": "gni",
+   "model_keys": [
+    "G141",
+    "G141m4X3"
+   ],
+   "tasks": {
+    "IFC4/native": 123,
+    "IFC4X3/migrated": 168
+   },
+   "rows": {
+    "IFC4/native": 211,
+    "IFC4X3/migrated": 319
+   },
+   "tasks_total": 291,
+   "rows_total": 530,
+   "row_task_ids": 291,
+   "files": [
+    {
+     "relpath": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_141.ifc",
+     "schema": "IFC4",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/G141__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/G141__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_141.ifc",
+     "source": "gni_contamination",
+     "bimedit_shared": 0
+    }
+   ]
+  },
+  "GNI-model_147": {
+   "class": "gni_ifc4",
+   "collection": "gni",
+   "model_keys": [
+    "G147",
+    "G147m4X3"
+   ],
+   "tasks": {
+    "IFC4/native": 120,
+    "IFC4X3/migrated": 151
+   },
+   "rows": {
+    "IFC4/native": 221,
+    "IFC4X3/migrated": 294
+   },
+   "tasks_total": 271,
+   "rows_total": 515,
+   "row_task_ids": 265,
+   "files": [
+    {
+     "relpath": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_147.ifc",
+     "schema": "IFC4",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/G147__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/G147__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_147.ifc",
+     "source": "gni_contamination",
+     "bimedit_shared": 0
+    }
+   ]
+  },
+  "GNI-model_15": {
+   "class": "gni_ifc4",
+   "collection": "gni",
+   "model_keys": [
+    "G15",
+    "G15m4X3"
+   ],
+   "tasks": {
+    "IFC4/native": 116,
+    "IFC4X3/migrated": 144
+   },
+   "rows": {
+    "IFC4/native": 226,
+    "IFC4X3/migrated": 301
+   },
+   "tasks_total": 260,
+   "rows_total": 527,
+   "row_task_ids": 257,
+   "files": [
+    {
+     "relpath": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_15.ifc",
+     "schema": "IFC4",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/G15__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/G15__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_15.ifc",
+     "source": "gni_contamination",
+     "bimedit_shared": 0
+    }
+   ]
+  },
+  "GNI-model_154": {
+   "class": "gni_ifc4",
+   "collection": "gni",
+   "model_keys": [
+    "G154",
+    "G154m4X3"
+   ],
+   "tasks": {
+    "IFC4/native": 118,
+    "IFC4X3/migrated": 146
+   },
+   "rows": {
+    "IFC4/native": 230,
+    "IFC4X3/migrated": 271
+   },
+   "tasks_total": 264,
+   "rows_total": 501,
+   "row_task_ids": 254,
+   "files": [
+    {
+     "relpath": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_154.ifc",
+     "schema": "IFC4",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/G154__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/G154__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_154.ifc",
+     "source": "gni_contamination",
+     "bimedit_shared": 0
+    }
+   ]
+  },
+  "GNI-model_191": {
+   "class": "gni_ifc2x3",
+   "collection": "gni",
+   "model_keys": [
+    "G191",
+    "G191m4",
+    "G191m4X3"
+   ],
+   "tasks": {
+    "IFC2X3/native": 147,
+    "IFC4/migrated": 127,
+    "IFC4X3/migrated": 158
+   },
+   "rows": {
+    "IFC2X3/native": 294,
+    "IFC4/migrated": 249,
+    "IFC4X3/migrated": 318
+   },
+   "tasks_total": 432,
+   "rows_total": 861,
+   "row_task_ids": 425,
+   "files": [
+    {
+     "relpath": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_191.ifc",
+     "schema": "IFC2X3",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/G191__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/G191__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/G191__IFC4.ifc",
+     "schema": "IFC4",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/G191__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_191.ifc",
+     "source": "gni_contamination",
+     "bimedit_shared": 0
+    }
+   ]
+  },
+  "GNI-model_63": {
+   "class": "gni_ifc4",
+   "collection": "gni",
+   "model_keys": [
+    "G63",
+    "G63m4X3"
+   ],
+   "tasks": {
+    "IFC4/native": 121,
+    "IFC4X3/migrated": 149
+   },
+   "rows": {
+    "IFC4/native": 228,
+    "IFC4X3/migrated": 297
+   },
+   "tasks_total": 270,
+   "rows_total": 525,
+   "row_task_ids": 261,
+   "files": [
+    {
+     "relpath": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_63.ifc",
+     "schema": "IFC4",
+     "origin": "native"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrated/G63__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    },
+    {
+     "relpath": "runs_local/corpus_v10/migrator_v2/files/G63__IFC4X3.ifc",
+     "schema": "IFC4X3",
+     "origin": "migrated"
+    }
+   ],
+   "native_file_checks": [
+    {
+     "file": "data/corpus/gni/IFC-models/2025_BIMfundamentals/model_63.ifc",
+     "source": "gni_contamination",
+     "bimedit_shared": 0
+    }
+   ]
+  }
+ },
+ "excluded": {
+  "validation_buildings": [
+   "BLD001",
+   "BLD006",
+   "BLD008",
+   "BLD011",
+   "BLD022",
+   "BLD024",
+   "BLD033",
+   "BLD034",
+   "BLD037",
+   "BLD041",
+   "BLD047"
+  ],
+  "benchmark_buildings": [
+   "BLD003",
+   "BLD018",
+   "BLD029",
+   "BLD031",
+   "BLD035",
+   "BLD038",
+   "BLD040",
+   "BLD042",
+   "BLD044",
+   "BLD045",
+   "GNI-project_7",
+   "GNI-project_8"
+  ]
+ },
+ "val_hard_tasks_on_selected_buildings": {
+  "BLD043": 8,
+  "GNI-model_127": 3,
+  "GNI-model_141": 1,
+  "GNI-model_147": 4,
+  "GNI-model_15": 2,
+  "GNI-model_154": 3,
+  "GNI-model_191": 7,
+  "GNI-model_63": 1
+ },
+ "val_hard_tasks_total": 300
+}

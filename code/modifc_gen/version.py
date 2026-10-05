@@ -207,6 +207,23 @@ gold script body are those the plain wording has, and the record carries what
 the rewrite did under ``wording.identifiers``.  0.8.0, the complete deletion and
 the five references it added, was installed without a version bump; this entry
 names both.
+
+0.10.0 (2026-10-03) adds the Revit-export creation family (``revit.py``, group
+``op.create.revit``).  A create task of this family adds a wall, a slab, a
+column, a room, a door or a window and words it in one of three styles: the
+corner and extents of the element's bounding box, a position that follows from
+named elements (the wall that closes the gap between two facing walls, the
+column on top of another, the room the four walls enclose, the door centred in
+the wall between two rooms), or an offset from a named element's minimum
+corner.  The gold element carries what a Revit export writes: a type of the
+requested size, reused from the file or created under Revit's generic family
+name, the name "<type>:<tag>" with the next free seven-digit tag, the property
+sets Revit writes for the class, the type's material layers, and the
+relationships, including path connections between walls and aggregation for a
+room.  The gold script builds the element through the editing sandbox's own
+helper library under an identifier sequence minted from the task, so it
+rebuilds byte for byte.  The family's share is zero unless a run names it, so
+every earlier family draws exactly what it drew before.
 """
 
-GENERATOR_VERSION = "veribim-gen/0.9.0"
+GENERATOR_VERSION = "veribim-gen/0.10.0"

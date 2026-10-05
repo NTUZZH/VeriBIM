@@ -121,7 +121,7 @@ for i in range(len(legs)):
     handles.append(L([], [], **dict(RL, ls=LEG_LS[i % 2], mfc=LEG_MFC[i % 2])))
     labels.append('Reinforcement snapshot' + ('' if len(legs) == 1 else (', first run' if i == 0 else ', second run'))
                   + ('' if final_rl else ' (not adopted)'))
-handles.append(L([], [], marker='o', **RING)); labels.append('Chosen snapshot (final model)')
+handles.append(L([], [], marker='o', **RING)); labels.append('Chosen snapshot (VeriBIM-9B)')
 if not fin or pk[1] != fin[0][1]:
     handles.append(L([], [], marker='s', **RING)); labels.append('Highest reinforcement snapshot')
 handles.append(L([], [], **IMIT)); labels.append('Imitation model')

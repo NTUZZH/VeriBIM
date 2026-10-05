@@ -729,6 +729,43 @@ nothing is retained between rebuilds.  Entries already present when the cache is
 opened are adopted in modification-time order, so a restarted process reuses
 what an earlier one built.
 
+## The Revit-export creation family (0.10.0)
+
+A create task of this family adds a wall, a slab, a column, a room, a door or a
+window the way a Revit export writes one, and words it in one of three styles.
+
+| style | category | what the instruction gives |
+|---|---|---|
+| box | direct | the corner of the element's bounding box and its extents, in storey coordinates |
+| relation | topological | a position read off named elements: the wall that closes the gap between two facing walls, the column on top of another or in the gap between two walls in line, the room the four walls enclose, the slab over a room, the door centred in the wall between two rooms, the window beside another |
+| relative | spatial | an offset from the minimum corner of a named element's bounding box, or a distance from a door's jamb |
+
+Every instruction also states the relationships the element has to carry.  The
+gold element is typed (the file's own type of that size, or a new one named
+after Revit's generic family: "Basic Wall:Generic - 200mm", "Floor:Generic
+250mm", "M_Concrete-Rectangular-Column:300 x 450mm",
+"M_Door-Passage-Single-Flush:0915 x 2134mm", "M_Window-Fixed:1200 x 1500mm"),
+named "<type>:<tag>" with the next free seven-digit tag, given the property
+sets Revit writes for its class and its type's material layers, contained in
+its storey (a room is aggregated), and related: path connections between
+walls, an element connection to the column below, voids and fills for a door
+or window, space boundaries to the rooms it bounds.
+
+The gold script calls `goldlib.revit_wall`, `revit_slab`, `revit_column`,
+`revit_space` or `revit_filling`, which build the element through the editing
+sandbox's own helper library (`modifc_harness.veribim_geom`) under an
+identifier sequence minted from the task, so the gold model rebuilds byte for
+byte and a trajectory that calls the library with the instruction's numbers
+writes the same element.  A position a relation or an offset describes is
+computed at draw time by the same library function the trajectory calls.
+
+The family's group, `op.create.revit`, has a share of zero, so a run that does
+not name it draws exactly what it drew before.  `modifc_gen.revit_run` draws
+the family alone, per class, style and schema version, on the buildings of one
+or more pools; task identifiers carry the codes RVW, RVS, RVC, RVR, RVD and
+RVN.  The family is read with the type's and the material's names as two more
+semantic properties (`revit.SCORER_SETTINGS`).
+
 ## Layout
 
 ```
@@ -752,6 +789,8 @@ run.py        the single-pass driver: probe, allocate, generate
 scale.py      the sharded driver: allocation by building, resume, merge, splits
 materialize.py  rebuilding a gold model from its script, one or a whole split
 audit.py      re-running every check from a finished task file
+revit.py      the Revit-export creation family: draws, placement rules, wording
+revit_run.py  the driver that draws that family per class, style and version
 ```
 
 ## Placement rules

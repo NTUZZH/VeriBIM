@@ -382,6 +382,15 @@ def _draw_complete(scene: Scene, category: str, operation: str, family: str,
                         FAMILY_CLASS[family]), ""
         return None, _dominant(reasons)
 
+    if families.draw("op.create.revit", rng):
+        from . import revit
+
+        style = {v: k for k, v in revit.STYLE_CATEGORY.items()}[category]
+        drawn, reason = revit.draw(scene, family, style, task_id, rng)
+        if drawn is not None:
+            return drawn, ""
+        reasons.append(reason)
+
     if families.draw("op.create.new", rng):
         drawn = draw_create_new(scene, category, family, task_id, rng)
         if drawn is not None:
@@ -750,10 +759,14 @@ def produce(scene: Scene, model_ref, task_id: str, draw: Draw, root: Path,
                                                  "semantics": 1.0,
                                                  "topology": 1.0, "final": 1.0})
     else:
+        family_settings = None
+        if "op.create.revit" in (draw.plan.params.get("families") or ()):
+            from .revit import SCORER_SETTINGS as family_settings
         stage = verify.check_self_score(task_id, draw.plan.operation,
                                         draw.category, draw.entity_type,
                                         draw.plan.target_guids, source_path,
-                                        str(gold_path), models, meshes)
+                                        str(gold_path), models, meshes,
+                                        family_settings)
         if not stage.ok:
             _unlink(gold_path)
             return Outcome(task_id, "self_score", stage.reason,

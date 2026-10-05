@@ -1,54 +1,53 @@
 [
   {
-    "adapter": "grpo_v10b_c10",
+    "adapter": "grpo_small_c10",
     "n_tasks": 2100,
     "n_scored": 2100,
     "n_unscorable": 0,
     "unscorable_ids": [],
-    "mean_final": 0.964111,
+    "mean_final": 0.790161,
     "by_operation": {
       "create": {
         "n": 796,
         "n_scored": 796,
-        "mean": 0.967729
+        "mean": 0.742361
       },
       "delete": {
         "n": 732,
         "n_scored": 732,
-        "mean": 0.967021
+        "mean": 0.891464
       },
       "update": {
         "n": 572,
         "n_scored": 572,
-        "mean": 0.955352
+        "mean": 0.727038
       }
     },
     "by_category": {
-      "direct": 0.991557,
-      "spatial": 0.947221,
-      "topological": 0.957196
+      "direct": 0.830376,
+      "spatial": 0.816002,
+      "topological": 0.745258
     },
     "axis_means": {
-      "geometry": 0.964731,
-      "semantics": 0.965129,
-      "topology": 0.962472
+      "geometry": 0.801225,
+      "semantics": 0.80305,
+      "topology": 0.766207
     },
-    "schema_validity": 0.9978,
-    "code_valid": 0.9931,
-    "code_run": 0.9589,
-    "commit_rate": 0.9048,
+    "schema_validity": 0.9946,
+    "code_valid": 0.9683,
+    "code_run": 0.6903,
+    "commit_rate": 0.789,
     "tasks_with_any_tool_call": 2100,
-    "mean_tool_rounds": 4.33,
-    "total_tool_calls": 9092,
+    "mean_tool_rounds": 6.486,
+    "total_tool_calls": 13621,
     "stop_reasons": {
-      "completed": 2069,
-      "budget_exhausted": 24,
-      "context_overflow": 6,
-      "tool_timeout": 1
+      "completed": 1809,
+      "budget_exhausted": 281,
+      "context_overflow": 10
     },
     "hit_output_cap": 0,
-    "mean_output_tokens": 816.2,
-    "wall_seconds": 63461.8,
+    "mean_output_tokens": 1468.5,
+    "wall_seconds": 138346.2,
     "resolved_agent_config": {
       "max_tool_rounds": 22,
       "tool_timeout": 420.0,
@@ -62,11 +61,11 @@
       "min_turn_tokens": 256,
       "dup_stop": 0
     },
-    "per_task_file": "runs_local/bench_v4/results/full_all/per_task_grpo_v10b_c10.jsonl",
+    "per_task_file": "runs_local/bench_v4/results/full_all/per_task_grpo_small_c10.jsonl",
     "subset": "runs_local/bench_v4/results/_ids_all.json",
     "scorer_reading": "family",
-    "label": "VeriBIM-Bench v4 full all, grpo_v10b_c10, family reading",
+    "label": "VeriBIM-Bench v4 full all, grpo_small_c10, family reading",
     "protocol_conformant": true,
-    "finished_at": "2026-10-03T04:59:28"
+    "finished_at": "2026-10-06T06:00:29"
   }
 ]

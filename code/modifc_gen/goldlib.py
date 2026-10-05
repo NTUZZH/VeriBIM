@@ -1420,3 +1420,144 @@ def replace_filling(model: ifcopenshell.file, guid: str, ifc_class: str,
                        opening_guid, voids_guid, fills_guid, relation_guid,
                        along, across, sill, width, height, thickness,
                        predefined_type, filling_across, filling_depth)
+
+
+# ------------------------------------------------- Revit-export creation
+#
+# A create task of the Revit-export family builds its element with the helper
+# library the editing sandbox offers (``modifc_harness.veribim_geom``), so the
+# gold model is written by exactly the code a trajectory calls.  The library
+# draws a fresh GlobalId for every entity it creates; here those identifiers
+# come from a sequence minted from the task, so the same script rebuilds the
+# same file byte for byte.
+
+
+def _revit_library():
+    try:
+        from modifc_harness import veribim_geom
+    except ImportError:
+        import sys
+        from pathlib import Path
+
+        harness = Path(__file__).resolve().parents[1] / "harness"
+        if str(harness) not in sys.path:
+            sys.path.append(str(harness))
+        from modifc_harness import veribim_geom
+    return veribim_geom
+
+
+def mint_sequence(seed: str, index: int) -> str:
+    """The ``index``-th identifier of a task's minted sequence."""
+    import hashlib
+
+    digest = hashlib.sha256(f"{seed}|revit{index}".encode("utf-8")).hexdigest()
+    return ifcopenshell.guid.compress(digest[:32])
+
+
+def first_free_minted(seed: str, taken) -> str:
+    """The first identifier of the sequence that ``taken`` does not hold.
+
+    ``taken`` is a predicate on an identifier.  The created element is the
+    first entity the library makes, so this is its GlobalId.
+    """
+    index = 0
+    while taken(mint_sequence(seed, index)):
+        index += 1
+    return mint_sequence(seed, index)
+
+
+class _Minter:
+    """Identifiers from a task's sequence, skipping any the model already has."""
+
+    def __init__(self, model: ifcopenshell.file, seed: str):
+        self.model = model
+        self.seed = seed
+        self.index = 0
+
+    def _taken(self, guid: str) -> bool:
+        try:
+            self.model.by_guid(guid)
+            return True
+        except Exception:
+            return False
+
+    def __call__(self) -> str:
+        while True:
+            guid = mint_sequence(self.seed, self.index)
+            self.index += 1
+            if not self._taken(guid):
+                return guid
+
+
+def _revit_build(model: ifcopenshell.file, guid: str, guid_seed: str, build):
+    library = _revit_library()
+    with library.guid_source(_Minter(model, guid_seed), quiet=True):
+        product = build(library)
+    if product.GlobalId != guid:
+        raise ValueError(f"created {product.GlobalId}, expected {guid}")
+    return product
+
+
+def _entities(model: ifcopenshell.file, guids) -> list:
+    return [entity(model, g) for g in (guids or ())]
+
+
+def revit_wall(model: ifcopenshell.file, guid: str, guid_seed: str,
+               storey_guid: str, x: float, y: float, z: float, dx: float,
+               dy: float, dz: float, connect_guids: Sequence[str] = (),
+               bound_guids: Sequence[str] = ()):
+    """A wall filling a storey-frame box, typed and related as Revit writes it.
+
+    ``connect_guids`` are the walls it joins by path connections and
+    ``bound_guids`` the rooms it bounds.
+    """
+    storey = entity(model, storey_guid)
+    return _revit_build(model, guid, guid_seed, lambda lib: lib.add_wall_box(
+        storey, (x, y, z), (dx, dy, dz),
+        connect_to=_entities(model, connect_guids),
+        bounds=_entities(model, bound_guids)))
+
+
+def revit_slab(model: ifcopenshell.file, guid: str, guid_seed: str,
+               storey_guid: str, x: float, y: float, z: float, dx: float,
+               dy: float, dz: float, bound_guids: Sequence[str] = (),
+               connect_guids: Sequence[str] = ()):
+    """A floor slab filling a storey-frame box, as Revit writes one."""
+    storey = entity(model, storey_guid)
+    return _revit_build(model, guid, guid_seed, lambda lib: lib.add_slab_box(
+        storey, (x, y, z), (dx, dy, dz), bounds=_entities(model, bound_guids),
+        connect_to=_entities(model, connect_guids)))
+
+
+def revit_column(model: ifcopenshell.file, guid: str, guid_seed: str,
+                 storey_guid: str, x: float, y: float, z: float, dx: float,
+                 dy: float, dz: float, stands_on_guid: Optional[str] = None,
+                 bound_guids: Sequence[str] = ()):
+    """A rectangular column filling a storey-frame box, as Revit writes one."""
+    storey = entity(model, storey_guid)
+    below = entity(model, stands_on_guid) if stands_on_guid else None
+    return _revit_build(model, guid, guid_seed, lambda lib: lib.add_column_box(
+        storey, (x, y, z), (dx, dy, dz), stands_on=below,
+        bounds=_entities(model, bound_guids)))
+
+
+def revit_space(model: ifcopenshell.file, guid: str, guid_seed: str,
+                storey_guid: str, x: float, y: float, z: float, dx: float,
+                dy: float, dz: float, bounded_by_guids: Sequence[str] = (),
+                long_name: Optional[str] = None):
+    """A room filling a storey-frame box, aggregated and bounded as Revit does."""
+    storey = entity(model, storey_guid)
+    return _revit_build(model, guid, guid_seed, lambda lib: lib.add_space_box(
+        storey, (x, y, z), (dx, dy, dz), long_name=long_name,
+        bounded_by=_entities(model, bounded_by_guids)))
+
+
+def revit_filling(model: ifcopenshell.file, guid: str, guid_seed: str,
+                  ifc_class: str, host_guid: str, x: float, y: float, z: float,
+                  dx: float, dy: float, dz: float,
+                  bound_guids: Sequence[str] = ()):
+    """A door or window in a storey-frame opening box, as Revit writes one."""
+    host = entity(model, host_guid)
+    return _revit_build(model, guid, guid_seed, lambda lib: lib.add_opening_filling(
+        host, ifc_class, (x, y, z), (dx, dy, dz),
+        bounds=_entities(model, bound_guids)))

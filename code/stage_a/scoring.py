@@ -48,6 +48,13 @@ FAMILY_SCORER_SETTINGS: dict[str, dict] = {
     # changing nothing and asking for it, which the shipped reading would score
     # as a perfect answer for any system that changed nothing at all.
     "wording.underspecified": {"underspecified_mode": True},
+    # A Revit-export create puts the element under a type and gives it the
+    # type's material, and a trajectory that left either out would otherwise
+    # pass. Both are read by name as semantic properties; the type is not added
+    # to the relation graph, because a type the edit creates carries a fresh
+    # identifier on each side and is not an element the graph pairs.
+    "op.create.revit": {"properties_include_material": True,
+                        "properties_include_type": True},
 }
 
 
@@ -72,6 +79,10 @@ FAMILY_READING: dict[str, tuple[str, str]] = {
         "semantics",
         "a deletion scores by whether the target is gone, because comparing it"
         " with a counterpart that no longer exists scores a correct delete zero"),
+    "op.create.revit": (
+        "semantics",
+        "the type object's name and the material's name are compared as two"
+        " more properties of the created element"),
     "wording.underspecified": (
         "reply",
         "the file has to come back unchanged and the reply has to ask for the"

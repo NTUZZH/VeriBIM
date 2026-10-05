@@ -1208,6 +1208,7 @@ def _emit_replace_filling(em: _Emitter, kw: dict) -> None:
 #: the arguments the instruction states, and writes none of the profiles,
 #: extrusions, placements or relationship entities the helper builds inside.
 GEOM_CALLS = frozenset({
+    "revit_wall", "revit_slab", "revit_column", "revit_space", "revit_filling",
     "add_filling", "replace_filling", "add_box_element",
     "add_box_element_world", "add_box_element_world_turned", "add_wall_span",
     "copy_element", "array_elements", "add_space_boundary", "connect_elements",
@@ -1700,6 +1701,238 @@ def _geom_delete_batch(em: "_Emitter", guids: list) -> None:
     em.lines.append("    geom.delete_element(ifc.by_guid(target_guid))")
 
 
+# ------------------------------------------- the Revit-export creation family
+
+#: The gold calls of the Revit-export creation family, and the library function
+#: each one is written as.
+REVIT_CREATORS = {"revit_wall": "add_wall_box", "revit_slab": "add_slab_box",
+                  "revit_column": "add_column_box", "revit_space": "add_space_box",
+                  "revit_filling": "add_opening_filling"}
+
+#: The placing functions an instruction's relation or offset is read through,
+#: and the order their arguments are written in. A list names several elements,
+#: a quoted word is written as a string, and everything else is a number the
+#: instruction states.
+REVIT_PLACERS = {
+    "wall_between": (("a", "b", "@storey", "thickness"), ("height",)),
+    "wall_from_jamb": (("door", "a", "b", "@storey", "distance", "direction",
+                        "thickness"), ("height",)),
+    "corner_from": (("reference", "@storey", "offset"), ()),
+    "slab_on_room": (("room", "@storey", "thickness"), ()),
+    "slab_over_walls": (("walls", "@storey", "thickness"), ()),
+    "slab_above": (("slab", "@storey", "distance", "thickness"), ()),
+    "column_on_top": (("column", "@storey", "height"), ()),
+    "column_in_gap": (("a", "b", "@storey"), ("height",)),
+    "column_in_room": (("room", "@storey", "width", "depth"), ("height",)),
+    "room_inside_walls": (("walls", "@storey"), ("height",)),
+    "opening_centred": (("@host", "like", "@storey"), ()),
+    "opening_beside": (("like", "@storey", "distance", "direction"), ()),
+}
+
+#: Which placer arguments are elements rather than numbers or words.
+_REVIT_ELEMENT_ARGS = ("a", "b", "door", "reference", "room", "walls", "slab",
+                       "column", "like", "rooms")
+
+#: Variable names the emitted code gives each kind of element it reads.
+_REVIT_VAR = {"a": "wall_a", "b": "wall_b", "door": "door", "reference": "reference",
+              "room": "room", "slab": "slab", "column": "column", "like": "like"}
+
+
+def revit_spec(params: dict) -> dict:
+    """The family's own record of how a create task places its element."""
+    return dict((params or {}).get("revit") or {})
+
+
+def _revit_value(value) -> str:
+    if isinstance(value, str):
+        return repr(value)
+    if isinstance(value, (list, tuple)):
+        return "(" + ", ".join(_gnum(v) for v in value) + ")"
+    return _gnum(value)
+
+
+def revit_reads(em: "_Emitter", kw: dict, func: str) -> tuple[dict, list[str]]:
+    """The lines that read every element the edit and its placer name.
+
+    Returns a map from GlobalId to the variable that holds it, plus the lines.
+    An element the instruction reaches only through another one, the wall a
+    door stands in or the wall between two rooms, is found through the library
+    rather than written as an identifier.
+    """
+    s = em.style
+    spec = revit_spec(em.params)
+    args = (spec.get("placer_args") or {}) if spec.get("placer") else {}
+    held: dict = {}
+    lines: list[str] = []
+
+    def read(guid: str, base: str) -> str:
+        if guid in held:
+            return held[guid]
+        if guid in em.created:
+            held[guid] = em.created[guid]
+            return held[guid]
+        name = em.fresh(base)
+        lines.append(f"{name} = {em.ref(guid)}")
+        held[guid] = name
+        if guid not in em.extra_refs:
+            em.extra_refs.append(guid)
+        return name
+
+    storey_guid = kw.get("storey_guid") or (em.params or {}).get("storey_guid")
+    if storey_guid:
+        held["@storey"] = read(storey_guid, s.name("storey"))
+    for key in sorted(args):
+        if key not in _REVIT_ELEMENT_ARGS:
+            continue
+        value = args[key]
+        if isinstance(value, list):
+            for guid in value:
+                read(guid, "wall" if key == "walls" else "room")
+        else:
+            read(value, _REVIT_VAR.get(key, "element"))
+    if func == "revit_filling":
+        host_guid = kw["host_guid"]
+        construction = spec.get("construction")
+        if construction == "beside" and "like" in args:
+            name = em.fresh("host")
+            lines.append(f"{name} = geom.host_wall_of({held[args['like']]})")
+            held[host_guid] = name
+        elif construction == "centred" and args.get("rooms"):
+            rooms = args["rooms"]
+            name = em.fresh("host")
+            lines.append(f"{name} = geom.find_wall_between_rooms("
+                         f"{held[rooms[0]]}, {held[rooms[1]]})")
+            held[host_guid] = name
+        else:
+            read(host_guid, "host")
+        held["@host"] = held[host_guid]
+    for key, base in (("connect_guids", "wall"), ("bound_guids", "room"),
+                      ("bounded_by_guids", "element")):
+        for guid in kw.get(key) or ():
+            read(guid, base)
+    if kw.get("stands_on_guid"):
+        read(kw["stands_on_guid"], "column")
+    return held, lines
+
+
+def revit_placer_call(held: dict, spec: dict, lead: str) -> Optional[str]:
+    """The library call that places the element, or None for a stated box."""
+    placer = spec.get("placer")
+    if not placer:
+        return None
+    positional_keys, keyword_keys = REVIT_PLACERS[placer]
+    args = spec.get("placer_args") or {}
+    positional: list[str] = []
+    for key in positional_keys:
+        if key.startswith("@"):
+            positional.append(held[key])
+        elif key in _REVIT_ELEMENT_ARGS:
+            value = args[key]
+            if isinstance(value, list):
+                positional.append("[" + ", ".join(held[g] for g in value) + "]")
+            else:
+                positional.append(held[value])
+        else:
+            positional.append(_revit_value(args[key]))
+    keyword = [(key, _revit_value(args[key])) for key in keyword_keys
+               if args.get(key) is not None]
+    return _geom_call(placer, positional, keyword, lead=lead)
+
+
+def _geom_revit(em: "_Emitter", kw: dict, func: str) -> None:
+    """A Revit-export create, written as one placing call and one creating call.
+
+    The placing call turns the instruction's relation or offset into the box
+    the element fills, and the creating call builds the typed element with its
+    property sets, material and relationships. A box the instruction states is
+    written as its two triples.
+    """
+    s = em.style
+    spec = revit_spec(em.params)
+    comment = s.comment("create")
+    if comment:
+        em.lines.append(comment.rstrip("\n"))
+    held, lines = revit_reads(em, kw, func)
+    em.lines.extend(lines)
+    placer = spec.get("placer")
+    stated = spec.get("stated") or {}
+    if placer:
+        spot = em.fresh("spot")
+        em.lines.append(revit_placer_call(held, spec, f"{spot} = "))
+        if placer == "corner_from":
+            origin = spot
+            extents = _revit_value(stated.get("extents") or
+                                   [kw["dx"], kw["dy"], kw["dz"]])
+        else:
+            origin, extents = f"{spot}['origin']", f"{spot}['extents']"
+    else:
+        origin = _revit_value([kw["x"], kw["y"], kw["z"]])
+        extents = _revit_value([kw["dx"], kw["dy"], kw["dz"]])
+    created = em.fresh(s.name("created"))
+    keyword: list[tuple[str, str]] = []
+
+    def listed(guids) -> str:
+        return "[" + ", ".join(held[g] for g in guids) + "]"
+
+    if func == "revit_wall":
+        first = [held["@storey"], origin, extents]
+        if kw.get("connect_guids"):
+            keyword.append(("connect_to", listed(kw["connect_guids"])))
+        if kw.get("bound_guids"):
+            keyword.append(("bounds", listed(kw["bound_guids"])))
+    elif func == "revit_slab":
+        first = [held["@storey"], origin, extents]
+        if kw.get("bound_guids"):
+            keyword.append(("bounds", listed(kw["bound_guids"])))
+        if kw.get("connect_guids"):
+            keyword.append(("connect_to", listed(kw["connect_guids"])))
+    elif func == "revit_column":
+        first = [held["@storey"], origin, extents]
+        if kw.get("stands_on_guid"):
+            keyword.append(("stands_on", held[kw["stands_on_guid"]]))
+        if kw.get("bound_guids"):
+            keyword.append(("bounds", listed(kw["bound_guids"])))
+    elif func == "revit_space":
+        first = [held["@storey"], origin, extents]
+        if kw.get("bounded_by_guids"):
+            keyword.append(("bounded_by", listed(kw["bounded_by_guids"])))
+    else:
+        first = [held["@host"], s.string(kw["ifc_class"]), origin, extents]
+        if kw.get("bound_guids"):
+            keyword.append(("bounds", listed(kw["bound_guids"])))
+    em.lines.append(_geom_call(REVIT_CREATORS[func], first, keyword,
+                               lead=f"{created} = "))
+    em.created[kw["guid"]] = created
+
+
+def _revit_emitter(func: str):
+    return lambda em, kw: _geom_revit(em, kw, func)
+
+
+def revit_measure_code(task: dict, style: Style) -> Optional[str]:
+    """A round that reads the box an instruction's relation or offset gives.
+
+    It names only elements the instruction names or an earlier round printed,
+    calls the placing function, and lets the library print the box, so the
+    numbers the edit then uses are on the record before it runs.
+    """
+    spec = revit_spec(task.get("edit_params") or {})
+    if not spec.get("placer"):
+        return None
+    calls = task.get("_calls") or []
+    call = next((c for c in calls if c.func in REVIT_CREATORS), None)
+    if call is None:
+        return None
+    em = _Emitter(style=style, params=dict(task.get("edit_params") or {}),
+                  instruction=task.get("instruction") or "")
+    held, lines = revit_reads(em, call.kwargs, call.func)
+    spot = "spot"
+    lines.append(revit_placer_call(held, spec, f"{spot} = "))
+    if style.comments:
+        lines.insert(0, "# read the box the instruction describes")
+    return "\n".join(lines) + "\n"
+
+
 _GEOM_EMITTERS = {
     "add_filling": _geom_add_filling,
     "replace_filling": _geom_replace_filling,
@@ -1718,6 +1951,11 @@ _GEOM_EMITTERS = {
     "rotate": _geom_turn_element,
     "assign_material": _geom_assign_material,
     "assign_type": _geom_assign_type,
+    "revit_wall": _revit_emitter("revit_wall"),
+    "revit_slab": _revit_emitter("revit_slab"),
+    "revit_column": _revit_emitter("revit_column"),
+    "revit_space": _revit_emitter("revit_space"),
+    "revit_filling": _revit_emitter("revit_filling"),
 }
 
 
@@ -1745,6 +1983,13 @@ _EMITTERS = {
     "copy_element": _emit_copy_element,
     "array_elements": _emit_array_elements,
     "replace_filling": _emit_replace_filling,
+    # The Revit-export family has no hand-written form: its gold is built by
+    # the library, so both arms write the library call.
+    "revit_wall": _revit_emitter("revit_wall"),
+    "revit_slab": _revit_emitter("revit_slab"),
+    "revit_column": _revit_emitter("revit_column"),
+    "revit_space": _revit_emitter("revit_space"),
+    "revit_filling": _revit_emitter("revit_filling"),
 }
 
 
@@ -1774,6 +2019,11 @@ _EXISTING_GUID_ARG = {
     "copy_element": ("guid",),
     "array_elements": ("guid",),
     "replace_filling": ("guid", "host_guid"),
+    "revit_wall": ("storey_guid", "connect_guids", "bound_guids"),
+    "revit_slab": ("storey_guid", "bound_guids", "connect_guids"),
+    "revit_column": ("storey_guid", "stands_on_guid", "bound_guids"),
+    "revit_space": ("storey_guid", "bounded_by_guids"),
+    "revit_filling": ("host_guid", "bound_guids"),
 }
 
 
@@ -1788,6 +2038,8 @@ _CREATED_GUID_ARG = {
     "copy_element": "new_guid",
     "replace_filling": "new_guid",
     "array_elements": "new_guids",
+    "revit_wall": "guid", "revit_slab": "guid", "revit_column": "guid",
+    "revit_space": "guid", "revit_filling": "guid",
 }
 
 
@@ -1807,10 +2059,16 @@ def referenced_guids(calls: list[GoldCall], geom: bool = False) -> list[str]:
             # The library reads the wall off the element it replaces, so the
             # edit never names the wall and no round has to find it.
             keys = tuple(key for key in keys if key != "host_guid")
+        if geom and call.func == "revit_filling":
+            # A wall the instruction reaches through a door or two rooms is
+            # found through the library, so no round has to name it.
+            keys = tuple(key for key in keys if key != "host_guid")
         for key in keys:
             value = call.kwargs.get(key)
-            if value and value not in created and value not in needed:
-                needed.append(value)
+            values = list(value) if isinstance(value, (list, tuple)) else [value]
+            for item in values:
+                if item and item not in created and item not in needed:
+                    needed.append(item)
         key = _CREATED_GUID_ARG.get(call.func)
         if key == "new_guids":
             created.update(call.kwargs.get(key) or ())

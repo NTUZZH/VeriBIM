@@ -45,7 +45,8 @@ from pathlib import Path
 from typing import Any, Optional, Sequence
 
 from . import paths
-from .goldcode import EmittedEdit, emit_edit, parse_gold_script
+from .goldcode import (REVIT_CREATORS, EmittedEdit, emit_edit,
+                       parse_gold_script, revit_measure_code)
 from .goldmodels import resolve_gold
 from .inspection import (
     FAMILY_CLASS,
@@ -557,6 +558,12 @@ def _measure_rounds(task: dict, style: Style) -> list[Round]:
     rounds: list[Round] = []
     for call in task["_calls"]:
         kw = call.kwargs
+        if call.func in REVIT_CREATORS:
+            code = revit_measure_code(task, style)
+            if code:
+                rounds.append(Round(code=code,
+                                    purpose="read the box the instruction describes"))
+            continue
         if call.func == "add_filling":
             host = kw.get("host_guid")
             if host and host not in created:
@@ -595,6 +602,8 @@ _CREATED_KEY = {
     "add_box_element_world_turned": "guid", "add_wall_span": "guid",
     "add_filling": "guid", "copy_element": "new_guid",
     "replace_filling": "new_guid", "array_elements": "new_guids",
+    "revit_wall": "guid", "revit_slab": "guid", "revit_column": "guid",
+    "revit_space": "guid", "revit_filling": "guid",
 }
 
 

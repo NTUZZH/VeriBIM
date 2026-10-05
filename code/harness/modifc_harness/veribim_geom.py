@@ -33,6 +33,7 @@ the entity, so there is no model argument to get wrong.
 
 from __future__ import annotations
 
+import contextlib
 from typing import Iterable, Optional, Sequence
 
 import numpy as np
@@ -58,6 +59,46 @@ __all__ = [
 
 #: Opening clearance past each wall face, in metres, as the generator cuts it.
 OPENING_CLEARANCE = 0.05
+
+
+# ------------------------------------------------------------ identifiers
+
+#: Where the GlobalIds of created entities come from.  ``None`` draws a fresh
+#: random identifier for every entity; a caller that has to reproduce a model
+#: byte for byte installs its own source with ``guid_source``.
+_GUID_SOURCE = None
+
+#: Whether the creating functions print what they made.
+_QUIET = False
+
+
+def _new_guid() -> str:
+    """A GlobalId for an entity this module is about to create."""
+    if _GUID_SOURCE is not None:
+        return _GUID_SOURCE()
+    return ifcopenshell.guid.new()
+
+
+@contextlib.contextmanager
+def guid_source(source, quiet: bool = True):
+    """Draw created GlobalIds from ``source`` inside one block.
+
+    ``source`` is a function of no arguments that returns a new GlobalId on
+    every call.  ``quiet`` silences the reports the creating functions print.
+    Both settings are restored when the block ends.
+    """
+    global _GUID_SOURCE, _QUIET
+    saved = (_GUID_SOURCE, _QUIET)
+    _GUID_SOURCE, _QUIET = source, bool(quiet)
+    try:
+        yield
+    finally:
+        _GUID_SOURCE, _QUIET = saved
+
+
+def _say(*parts) -> None:
+    if not _QUIET:
+        print(*parts)
 
 
 # --------------------------------------------------------------- units
@@ -301,7 +342,7 @@ def _contain(model, storey, product) -> None:
         relation.RelatedElements = tuple(relation.RelatedElements) + (product,)
         return
     model.create_entity(
-        "IfcRelContainedInSpatialStructure", GlobalId=ifcopenshell.guid.new(),
+        "IfcRelContainedInSpatialStructure", GlobalId=_new_guid(),
         OwnerHistory=_owner_history(model), Name=None, Description=None,
         RelatedElements=[product], RelatingStructure=storey)
 
@@ -312,7 +353,7 @@ def _aggregate(model, storey, product) -> None:
             relation.RelatedObjects = tuple(relation.RelatedObjects) + (product,)
             return
     model.create_entity(
-        "IfcRelAggregates", GlobalId=ifcopenshell.guid.new(),
+        "IfcRelAggregates", GlobalId=_new_guid(),
         OwnerHistory=_owner_history(model), Name=None, Description=None,
         RelatingObject=storey, RelatedObjects=[product])
 
@@ -434,7 +475,7 @@ def add_filling(host_wall, ifc_class: str, name: Optional[str], width: float,
     hole_depth = wall["thickness"] + 2 * OPENING_CLEARANCE
 
     opening = model.create_entity("IfcOpeningElement",
-                                  GlobalId=ifcopenshell.guid.new(),
+                                  GlobalId=_new_guid(),
                                   OwnerHistory=history, Name="Opening",
                                   Description=None)
     opening.ObjectPlacement = _placement(model, host_wall.ObjectPlacement,
@@ -444,12 +485,12 @@ def add_filling(host_wall, ifc_class: str, name: Optional[str], width: float,
                                         scale)
     if hasattr(opening, "PredefinedType"):
         opening.PredefinedType = "OPENING"
-    model.create_entity("IfcRelVoidsElement", GlobalId=ifcopenshell.guid.new(),
+    model.create_entity("IfcRelVoidsElement", GlobalId=_new_guid(),
                         OwnerHistory=history, Name=None, Description=None,
                         RelatingBuildingElement=host_wall,
                         RelatedOpeningElement=opening)
 
-    leaf = model.create_entity(ifc_class, GlobalId=ifcopenshell.guid.new(),
+    leaf = model.create_entity(ifc_class, GlobalId=_new_guid(),
                                OwnerHistory=history, Name=name, Description=None)
     leaf.ObjectPlacement = _placement(model, host_wall.ObjectPlacement,
                                       x, leaf_across, z, scale)
@@ -460,7 +501,7 @@ def add_filling(host_wall, ifc_class: str, name: Optional[str], width: float,
     leaf.OverallWidth = float(width) / scale
     if predefined_type is not None and hasattr(leaf, "PredefinedType"):
         leaf.PredefinedType = predefined_type
-    model.create_entity("IfcRelFillsElement", GlobalId=ifcopenshell.guid.new(),
+    model.create_entity("IfcRelFillsElement", GlobalId=_new_guid(),
                         OwnerHistory=history, Name=None, Description=None,
                         RelatingOpeningElement=opening,
                         RelatedBuildingElement=leaf)
@@ -597,7 +638,7 @@ def add_box_element(storey, ifc_class: str, name: Optional[str],
         x, y, z = (float(local[0]), float(local[1]), float(local[2]))
     elif frame != "storey":
         raise ValueError("frame is 'storey' or 'world'")
-    product = model.create_entity(ifc_class, GlobalId=ifcopenshell.guid.new(),
+    product = model.create_entity(ifc_class, GlobalId=_new_guid(),
                                   OwnerHistory=_owner_history(model), Name=name,
                                   Description=None)
     product.ObjectPlacement = _placement(model, storey.ObjectPlacement,
@@ -641,7 +682,7 @@ def copy_element(product, dx: float, dy: float, dz: float,
     model = _file(product)
     scale = unit_scale(model)
     forget_geometry(model)
-    copy = model.create_entity(product.is_a(), GlobalId=ifcopenshell.guid.new(),
+    copy = model.create_entity(product.is_a(), GlobalId=_new_guid(),
                                OwnerHistory=_owner_history(model))
     for attribute in product.wrapped_data.declaration().as_entity().all_attributes():
         field = attribute.name()
@@ -710,7 +751,7 @@ def add_space_boundary(space, element, physical_or_virtual: str = "PHYSICAL",
     """Record that one element bounds one space, as an ``IfcRelSpaceBoundary``."""
     model = _file(space)
     return model.create_entity(
-        "IfcRelSpaceBoundary", GlobalId=ifcopenshell.guid.new(),
+        "IfcRelSpaceBoundary", GlobalId=_new_guid(),
         OwnerHistory=_owner_history(model), Name=name, Description=None,
         RelatingSpace=space, RelatedBuildingElement=element,
         ConnectionGeometry=None, PhysicalOrVirtualBoundary=physical_or_virtual,
@@ -721,7 +762,7 @@ def connect_elements(relating, related, name: Optional[str] = None):
     """Record that two elements are connected, as an ``IfcRelConnectsElements``."""
     model = _file(relating)
     return model.create_entity(
-        "IfcRelConnectsElements", GlobalId=ifcopenshell.guid.new(),
+        "IfcRelConnectsElements", GlobalId=_new_guid(),
         OwnerHistory=_owner_history(model), Name=name, Description=None,
         ConnectionGeometry=None, RelatingElement=relating, RelatedElement=related)
 
@@ -1657,23 +1698,23 @@ def set_property(element, pset_name: str, property_name: str, value,
         # one keeps the elements the edit is not about.
         relation.RelatedObjects = tuple(m for m in members if m != element)
         pset = model.create_entity(
-            "IfcPropertySet", GlobalId=ifcopenshell.guid.new(),
+            "IfcPropertySet", GlobalId=_new_guid(),
             OwnerHistory=history, Name=definition.Name,
             Description=definition.Description,
             HasProperties=[_copy_single_value(model, p)
                            for p in definition.HasProperties or ()])
         model.create_entity(
-            "IfcRelDefinesByProperties", GlobalId=ifcopenshell.guid.new(),
+            "IfcRelDefinesByProperties", GlobalId=_new_guid(),
             OwnerHistory=history, Name=None, Description=None,
             RelatedObjects=[element], RelatingPropertyDefinition=pset)
         break
     if pset is None:
         pset = model.create_entity(
-            "IfcPropertySet", GlobalId=ifcopenshell.guid.new(),
+            "IfcPropertySet", GlobalId=_new_guid(),
             OwnerHistory=history, Name=str(pset_name), Description=None,
             HasProperties=[])
         model.create_entity(
-            "IfcRelDefinesByProperties", GlobalId=ifcopenshell.guid.new(),
+            "IfcRelDefinesByProperties", GlobalId=_new_guid(),
             OwnerHistory=history, Name=None, Description=None,
             RelatedObjects=[element], RelatingPropertyDefinition=pset)
     nominal = model.create_entity(kind, value)
@@ -2125,7 +2166,7 @@ def assign_material(element, name: str):
         if element in (relation.RelatedObjects or ()):
             _drop_member(model, relation, element)
     model.create_entity(
-        "IfcRelAssociatesMaterial", GlobalId=ifcopenshell.guid.new(),
+        "IfcRelAssociatesMaterial", GlobalId=_new_guid(),
         OwnerHistory=_owner_history(model), Name=None, Description=None,
         RelatedObjects=[element], RelatingMaterial=material)
     return material
@@ -2138,8 +2179,14 @@ def assign_type(element, type_object):
     file already records other elements under this type, the element joins that
     record rather than a second one being written.  Returns the relationship
     the element now sits in.
+
+    ``type_object`` is either a type entity or a specification such as
+    ``{"kind": "wall", "thickness": 0.2}``, which ``revit_type`` resolves to the
+    file's own type of that size or to a new one named the way Revit names it.
     """
     model = _file(element)
+    if not isinstance(type_object, ifcopenshell.entity_instance):
+        type_object = revit_type(model, **dict(type_object))
     for relation in list(model.by_type("IfcRelDefinesByType")):
         if element in (relation.RelatedObjects or ()):
             _drop_member(model, relation, element)
@@ -2149,7 +2196,7 @@ def assign_type(element, type_object):
             relation.RelatedObjects = tuple(relation.RelatedObjects or ()) + (element,)
             return relation
     return model.create_entity(
-        "IfcRelDefinesByType", GlobalId=ifcopenshell.guid.new(),
+        "IfcRelDefinesByType", GlobalId=_new_guid(),
         OwnerHistory=_owner_history(model), Name=None, Description=None,
         RelatedObjects=[element], RelatingType=type_object)
 
@@ -2678,3 +2725,1279 @@ def __getattr__(name: str):
         raise AttributeError("module %r has no attribute %r" % (__name__, name))
     head = "geom has no function %r. Available:\n" % name[:40]
     raise AttributeError(head + _menu(head))
+
+
+# ================================================== Revit-export creation
+#
+# A wall, a slab, a column, a room, a door or a window created the way a Revit
+# export writes one.  The element is typed: it takes the file's own type of the
+# requested size where the file carries one, and otherwise a new type named the
+# way Revit names its generic family of that size.  Its Name is
+# "<type name>:<tag>", its ObjectType the type name and its Tag a seven-digit
+# element number, the next one the file has free.  It carries the property sets
+# Revit writes for its class, the material of its type, and the relationships a
+# Revit model records: containment in the storey (aggregation for a room), path
+# connections between walls, element connections, voids and fills, and space
+# boundaries.  Every position is a box in the storey's own coordinates, in
+# metres, and every function prints the GlobalId, the class, the name and the
+# box of what it created.
+
+#: Seven-digit element numbers, the range Revit's element ids are written in.
+_TAG_FLOOR = 1000000
+_TAG_CEILING = 9999999
+
+#: How close a type's size has to be to the requested one to be reused: the
+#: layer thickness of a wall or slab type and the cross-section of a column
+#: type within a millimetre, the leaf of a door or window type within ten.
+LAYER_TOLERANCE = 0.001
+SECTION_TOLERANCE = 0.001
+LEAF_TOLERANCE = 0.010
+
+#: A room stands on one side of a wall when its box reaches this far past the
+#: wall's face on that side.
+SIDE_MARGIN = 0.05
+
+#: The type classes of each kind, newest schema first.
+_TYPE_CLASSES = {"wall": ("IfcWallType",), "slab": ("IfcSlabType",),
+                 "column": ("IfcColumnType",),
+                 "door": ("IfcDoorType", "IfcDoorStyle"),
+                 "window": ("IfcWindowType", "IfcWindowStyle")}
+
+#: The material a new wall or slab type is made of, as Revit names its default.
+_DEFAULT_MATERIAL = {"wall": "Default Wall", "slab": "Default Floor"}
+
+
+def _schema_has(model, name: str) -> bool:
+    try:
+        ifcopenshell.ifcopenshell_wrapper.schema_by_name(
+            model.schema).declaration_by_name(name)
+        return True
+    except Exception:
+        return False
+
+
+def _set_if(entity, attribute: str, value) -> None:
+    """Write an attribute the entity's schema declares, and skip it otherwise."""
+    try:
+        setattr(entity, attribute, value)
+    except Exception:
+        pass
+
+
+def _three(values, what: str) -> tuple:
+    # Lengths are read to the micrometre, so a box computed by a placing
+    # function and the same box written out as literals decide alike.
+    out = tuple(round(float(v), 6) + 0.0 for v in values)
+    if len(out) != 3:
+        raise ValueError("%s takes three numbers, x, y and z" % what)
+    return out
+
+
+def _mm(metres: float) -> int:
+    return int(round(float(metres) * 1000.0))
+
+
+def _type_part(name) -> str:
+    """The type part of a Revit "Family:Type" name, or the whole name."""
+    text = str(name or "")
+    return text.split(":", 1)[1] if ":" in text else text
+
+
+def next_tag(model) -> str:
+    """The next free seven-digit element number of the file, as a string."""
+    used = set()
+    for element in model.by_type("IfcElement"):
+        tag = str(getattr(element, "Tag", None) or "").strip()
+        if tag.isdigit():
+            used.add(int(tag))
+    sevens = [n for n in used if _TAG_FLOOR <= n <= _TAG_CEILING]
+    value = (max(sevens) if sevens else _TAG_FLOOR) + 1
+    if value > _TAG_CEILING:
+        value = _TAG_FLOOR + 1
+    while value in used:
+        value += 1
+    return str(value)
+
+
+def next_room_number(model) -> str:
+    """The number a new room takes: one past the highest room number."""
+    spaces = [s for s in model.by_type("IfcSpace") if str(s.Name or "").strip()]
+    names = {str(s.Name).strip() for s in spaces}
+    numbers = [int(n) for n in names if n.isdigit()]
+    value = (max(numbers) + 1) if numbers else len(spaces) + 1
+    while str(value) in names:
+        value += 1
+    return str(value)
+
+
+# ------------------------------------------------------------ type objects
+
+
+def _material_of(product):
+    for relation in getattr(product, "HasAssociations", ()) or ():
+        if relation.is_a("IfcRelAssociatesMaterial"):
+            return relation.RelatingMaterial
+    return None
+
+
+def _layer_set(product):
+    material = _material_of(product)
+    if material is None:
+        return None
+    if material.is_a("IfcMaterialLayerSetUsage"):
+        return material.ForLayerSet
+    if material.is_a("IfcMaterialLayerSet"):
+        return material
+    return None
+
+
+def layer_thickness(type_object) -> Optional[float]:
+    """Total thickness of a type's material layers in metres, or None."""
+    layers = _layer_set(type_object)
+    if layers is None or not layers.MaterialLayers:
+        return None
+    return sum(float(layer.LayerThickness or 0.0)
+               for layer in layers.MaterialLayers) * unit_scale(type_object)
+
+
+def _types_of(model, kind: str) -> list:
+    found = {}
+    for name in _TYPE_CLASSES[kind]:
+        if _schema_has(model, name):
+            for entity in model.by_type(name):
+                found[entity.id()] = entity
+    return [found[key] for key in sorted(found)]
+
+
+def _typed_elements(type_object) -> list:
+    try:
+        elements = ifcopenshell.util.element.get_types(type_object)
+    except Exception:
+        elements = []
+    return sorted(elements, key=lambda e: e.id())
+
+
+def _body_items(product):
+    shape = getattr(product, "Representation", None)
+    for representation in (shape.Representations or ()) if shape else ():
+        if representation.RepresentationIdentifier != "Body":
+            continue
+        items = list(representation.Items or ())
+        if len(items) == 1 and items[0].is_a("IfcMappedItem"):
+            items = list(items[0].MappingSource.MappedRepresentation.Items or ())
+        return items
+    return []
+
+
+def rectangular_section(product) -> Optional[tuple]:
+    """A column's rectangular cross-section in metres, sorted, or None."""
+    items = _body_items(product)
+    if len(items) != 1 or not items[0].is_a("IfcExtrudedAreaSolid"):
+        return None
+    profile = items[0].SweptArea
+    if not profile.is_a("IfcRectangleProfileDef"):
+        return None
+    scale = unit_scale(product)
+    return tuple(sorted((float(profile.XDim) * scale, float(profile.YDim) * scale)))
+
+
+def _leaf_size(product) -> Optional[tuple]:
+    width = getattr(product, "OverallWidth", None)
+    tall = getattr(product, "OverallHeight", None)
+    if width is None or tall is None:
+        return None
+    scale = unit_scale(product)
+    return float(width) * scale, float(tall) * scale
+
+
+def _matching_type(model, kind: str, thickness=None, width=None, depth=None,
+                   height=None):
+    for type_object in _types_of(model, kind):
+        if kind in ("wall", "slab"):
+            if kind == "slab" and str(getattr(type_object, "PredefinedType", "")
+                                      or "") != "FLOOR":
+                continue
+            total = layer_thickness(type_object)
+            if total is not None and abs(total - float(thickness)) <= LAYER_TOLERANCE:
+                return type_object
+        elif kind == "column":
+            wanted = tuple(sorted((float(width), float(depth))))
+            for element in _typed_elements(type_object):
+                section = rectangular_section(element)
+                if section is not None and max(abs(section[0] - wanted[0]),
+                                               abs(section[1] - wanted[1])) \
+                        <= SECTION_TOLERANCE:
+                    return type_object
+        else:
+            for element in _typed_elements(type_object):
+                size = _leaf_size(element)
+                if size is not None and abs(size[0] - float(width)) <= LEAF_TOLERANCE \
+                        and abs(size[1] - float(height)) <= LEAF_TOLERANCE:
+                    return type_object
+    return None
+
+
+def _material_named(model, name: str):
+    for material in sorted(model.by_type("IfcMaterial"), key=lambda m: m.id()):
+        if (material.Name or "") == name:
+            return material
+    return model.create_entity("IfcMaterial", Name=name)
+
+
+def _new_type(model, kind: str, thickness=None, width=None, depth=None,
+              height=None):
+    history = _owner_history(model)
+    if kind == "wall":
+        name, cls, predefined = ("Basic Wall:Generic - %dmm" % _mm(thickness),
+                                 "IfcWallType", "STANDARD")
+    elif kind == "slab":
+        name, cls, predefined = ("Floor:Generic %dmm" % _mm(thickness),
+                                 "IfcSlabType", "FLOOR")
+    elif kind == "column":
+        name, cls, predefined = ("M_Concrete-Rectangular-Column:%d x %dmm"
+                                 % (_mm(width), _mm(depth)), "IfcColumnType",
+                                 "COLUMN")
+    elif kind == "door":
+        name = "M_Door-Passage-Single-Flush:%04d x %04dmm" % (_mm(width), _mm(height))
+        cls = "IfcDoorType" if _schema_has(model, "IfcDoorType") else "IfcDoorStyle"
+        predefined = "DOOR"
+    elif kind == "window":
+        name = "M_Window-Fixed:%04d x %04dmm" % (_mm(width), _mm(height))
+        cls = "IfcWindowType" if _schema_has(model, "IfcWindowType") \
+            else "IfcWindowStyle"
+        predefined = "WINDOW"
+    else:
+        raise ValueError("kind is wall, slab, column, door or window, not %r" % kind)
+    type_object = model.create_entity(cls, GlobalId=_new_guid(),
+                                      OwnerHistory=history, Name=name)
+    _set_if(type_object, "ElementType", _type_part(name))
+    if cls.endswith("Style"):
+        if kind == "door":
+            _set_if(type_object, "OperationType", "SINGLE_SWING_LEFT")
+            _set_if(type_object, "ConstructionType", "NOTDEFINED")
+        else:
+            _set_if(type_object, "ConstructionType", "NOTDEFINED")
+            _set_if(type_object, "OperationType", "SINGLE_PANEL")
+        _set_if(type_object, "ParameterTakesPrecedence", False)
+        _set_if(type_object, "Sizeable", False)
+    else:
+        _set_if(type_object, "PredefinedType", predefined)
+        if kind == "door":
+            _set_if(type_object, "OperationType", "SINGLE_SWING_LEFT")
+            _set_if(type_object, "ParameterTakesPrecedence", False)
+        elif kind == "window":
+            _set_if(type_object, "PartitioningType", "SINGLE_PANEL")
+            _set_if(type_object, "ParameterTakesPrecedence", False)
+    if kind in ("wall", "slab"):
+        scale = unit_scale(model)
+        layer = model.create_entity(
+            "IfcMaterialLayer", Material=_material_named(model, _DEFAULT_MATERIAL[kind]),
+            LayerThickness=float(thickness) / scale, IsVentilated=None)
+        layers = model.create_entity("IfcMaterialLayerSet", MaterialLayers=[layer],
+                                     LayerSetName=name)
+        model.create_entity(
+            "IfcRelAssociatesMaterial", GlobalId=_new_guid(), OwnerHistory=history,
+            Name=None, Description=None, RelatedObjects=[type_object],
+            RelatingMaterial=layers)
+    return type_object
+
+
+def revit_type(model, kind: str, thickness: Optional[float] = None,
+               width: Optional[float] = None, depth: Optional[float] = None,
+               height: Optional[float] = None):
+    """The type a new element of one kind and size is put under.
+
+    A wall or a floor slab takes the file's own type whose material layers add
+    up to ``thickness`` within a millimetre; a column takes one whose elements
+    have the ``width`` by ``depth`` rectangular cross-section within a
+    millimetre; a door or a window takes one whose elements are ``width`` wide
+    and ``height`` tall within ten millimetres.  Where the file has none, a
+    type is created under the name Revit gives its generic family of that size
+    ("Basic Wall:Generic - 200mm", "Floor:Generic 250mm",
+    "M_Concrete-Rectangular-Column:300 x 450mm",
+    "M_Door-Passage-Single-Flush:0915 x 2134mm", "M_Window-Fixed:1200 x 1500mm"),
+    a wall or slab type with one material layer of that thickness.  Lengths are
+    metres.
+    """
+    if kind not in _TYPE_CLASSES:
+        raise ValueError("kind is wall, slab, column, door or window, not %r" % kind)
+    found = _matching_type(model, kind, thickness, width, depth, height)
+    if found is not None:
+        return found
+    return _new_type(model, kind, thickness, width, depth, height)
+
+
+def _associate_usage(element, type_object, direction: str, offset: float) -> None:
+    """Give an element its type's material layers, as a layer set usage."""
+    layers = _layer_set(type_object)
+    if layers is None:
+        return
+    model = _file(element)
+    usage = model.create_entity(
+        "IfcMaterialLayerSetUsage", ForLayerSet=layers, LayerSetDirection=direction,
+        DirectionSense="POSITIVE",
+        OffsetFromReferenceLine=float(offset) / unit_scale(model))
+    model.create_entity(
+        "IfcRelAssociatesMaterial", GlobalId=_new_guid(),
+        OwnerHistory=_owner_history(model), Name=None, Description=None,
+        RelatedObjects=[element], RelatingMaterial=usage)
+
+
+def _associate_constituents(element, type_object) -> None:
+    """Give a door or window its type's material constituent set, if it has one."""
+    material = _material_of(type_object)
+    if material is None or not material.is_a("IfcMaterialConstituentSet"):
+        return
+    model = _file(element)
+    model.create_entity(
+        "IfcRelAssociatesMaterial", GlobalId=_new_guid(),
+        OwnerHistory=_owner_history(model), Name=None, Description=None,
+        RelatedObjects=[element], RelatingMaterial=material)
+
+
+# ------------------------------------------------------------ property sets
+
+
+def _single(model, name: str, value_type: str, value):
+    return model.create_entity("IfcPropertySingleValue", Name=name,
+                               NominalValue=model.create_entity(value_type, value),
+                               Unit=None)
+
+
+def _pset(element, name: str, properties: list):
+    model = _file(element)
+    history = _owner_history(model)
+    pset = model.create_entity("IfcPropertySet", GlobalId=_new_guid(),
+                               OwnerHistory=history, Name=name,
+                               Description=None, HasProperties=properties)
+    model.create_entity("IfcRelDefinesByProperties", GlobalId=_new_guid(),
+                        OwnerHistory=history, Name=None, Description=None,
+                        RelatedObjects=[element], RelatingPropertyDefinition=pset)
+    return pset
+
+
+def add_revit_psets(element, kind: str, reference: Optional[str] = None,
+                    is_external: Optional[bool] = None,
+                    fire_rating: Optional[str] = None) -> list:
+    """Write the property sets a Revit export gives an element of one kind.
+
+    ``kind`` is wall, slab, column, space, door or window.  ``reference`` is the
+    type name part of the element's type, read off the type when it is not
+    given.  A wall and a door or window are external as ``is_external`` says;
+    a slab, a column and a room are internal.  Returns the property sets.
+    """
+    model = _file(element)
+    if reference is None:
+        try:
+            type_object = ifcopenshell.util.element.get_type(element)
+        except Exception:
+            type_object = None
+        reference = _type_part(type_object.Name if type_object is not None
+                               else element.Name)
+    ref = ("Reference", "IfcIdentifier", str(reference))
+    external = ("IsExternal", "IfcBoolean", bool(is_external))
+    internal = ("IsExternal", "IfcBoolean", False)
+    bearing = ("LoadBearing", "IfcBoolean", True)
+    if kind == "wall":
+        sets = [("Pset_WallCommon", [ref, external,
+                                     ("LoadBearing", "IfcBoolean", False),
+                                     ("ExtendToStructure", "IfcBoolean", False)]),
+                ("Pset_EnvironmentalImpactIndicators", [ref]),
+                ("Pset_ReinforcementBarPitchOfWall", [ref])]
+    elif kind == "slab":
+        sets = [("Pset_SlabCommon", [ref, internal, bearing,
+                                     ("PitchAngle", "IfcPlaneAngleMeasure", 0.0)]),
+                ("Pset_EnvironmentalImpactIndicators", [ref]),
+                ("Pset_ReinforcementBarPitchOfSlab", [ref])]
+    elif kind == "column":
+        sets = [("Pset_ColumnCommon", [ref, internal, bearing]),
+                ("Pset_EnvironmentalImpactIndicators", [ref])]
+    elif kind == "space":
+        sets = [("Pset_SpaceCommon", [ref, internal])]
+    elif kind == "door":
+        sets = [("Pset_DoorCommon", [external, ref]),
+                ("Pset_EnvironmentalImpactIndicators", [ref])]
+    elif kind == "window":
+        rows = [external, ref]
+        if fire_rating is not None:
+            rows.append(("FireRating", "IfcLabel", str(fire_rating)))
+        sets = [("Pset_WindowCommon", rows),
+                ("Pset_EnvironmentalImpactIndicators", [ref])]
+    else:
+        raise ValueError("kind is wall, slab, column, space, door or window, not %r"
+                         % kind)
+    return [_pset(element, name, [_single(model, *row) for row in rows])
+            for name, rows in sets]
+
+
+# ------------------------------------------------------------ relationships
+
+
+def _axis_ends(wall):
+    """World points of a wall's axis start and end, in metres."""
+    box = wall_box(wall)
+    if box is None:
+        raise ValueError("wall %s has no body whose axis can be read" % wall.GlobalId)
+    frame = frame_of(wall)
+    middle = (box["near"] + box["far"]) / 2.0
+    ends = []
+    for along in (box["start"], box["end"]):
+        local = np.array([along, middle, box["base"]], dtype=float)
+        ends.append(frame[:3, :3] @ local + frame[:3, 3])
+    return ends
+
+
+def connect_path(relating, related):
+    """Record that a wall joins another, as an ``IfcRelConnectsPathElements``.
+
+    The joining wall ``relating`` is connected along its path (``ATPATH``); the
+    wall it meets, ``related``, is connected at the end of its axis the joining
+    wall stands nearer to, ``ATSTART`` or ``ATEND``.  Returns the relationship.
+    """
+    model = _file(relating)
+    forget_geometry(model)
+    start, end = _axis_ends(related)
+    box = world_box(relating, disable_openings=True)
+    if box is None:
+        raise ValueError("wall %s has no body to measure" % relating.GlobalId)
+    centre = (np.asarray(box[0]) + np.asarray(box[1])) / 2.0
+    near_start = float(np.linalg.norm((centre - start)[:2]))
+    near_end = float(np.linalg.norm((centre - end)[:2]))
+    which = "ATSTART" if near_start <= near_end else "ATEND"
+    relation = model.create_entity(
+        "IfcRelConnectsPathElements", GlobalId=_new_guid(),
+        OwnerHistory=_owner_history(model), Name=None, Description=None,
+        ConnectionGeometry=None, RelatingElement=relating, RelatedElement=related,
+        RelatingPriorities=[], RelatedPriorities=[],
+        RelatedConnectionType=which, RelatingConnectionType="ATPATH")
+    _say("path connection", relation.GlobalId, ":", relating.GlobalId, "ATPATH ->",
+         related.GlobalId, which)
+    return relation
+
+
+# ------------------------------------------------------------ building blocks
+
+
+def _local_placement(model, parent, origin, direction=None):
+    scale = unit_scale(model)
+    point = model.create_entity("IfcCartesianPoint", Coordinates=tuple(
+        float(v) / scale for v in origin))
+    axis = ref = None
+    if direction is not None:
+        axis = model.create_entity("IfcDirection", DirectionRatios=(0.0, 0.0, 1.0))
+        ref = model.create_entity("IfcDirection", DirectionRatios=tuple(
+            float(v) for v in direction))
+    return model.create_entity(
+        "IfcLocalPlacement", PlacementRelTo=parent,
+        RelativePlacement=model.create_entity(
+            "IfcAxis2Placement3D", Location=point, Axis=axis, RefDirection=ref))
+
+
+def _rectangle_solid(model, x_dim: float, y_dim: float, depth: float,
+                     centre: tuple):
+    scale = unit_scale(model)
+    profile = model.create_entity(
+        "IfcRectangleProfileDef", ProfileType="AREA", ProfileName=None,
+        Position=model.create_entity(
+            "IfcAxis2Placement2D",
+            Location=model.create_entity("IfcCartesianPoint", Coordinates=(
+                float(centre[0]) / scale, float(centre[1]) / scale)),
+            RefDirection=None),
+        XDim=float(x_dim) / scale, YDim=float(y_dim) / scale)
+    return model.create_entity(
+        "IfcExtrudedAreaSolid", SweptArea=profile,
+        Position=model.create_entity(
+            "IfcAxis2Placement3D",
+            Location=model.create_entity("IfcCartesianPoint",
+                                         Coordinates=(0.0, 0.0, 0.0)),
+            Axis=None, RefDirection=None),
+        ExtrudedDirection=model.create_entity("IfcDirection",
+                                              DirectionRatios=(0.0, 0.0, 1.0)),
+        Depth=float(depth) / scale)
+
+
+def _swept_body(model, solid):
+    return model.create_entity(
+        "IfcShapeRepresentation", ContextOfItems=_context(model),
+        RepresentationIdentifier="Body", RepresentationType="SweptSolid",
+        Items=[solid])
+
+
+def _axis_context(model):
+    for context in model.by_type("IfcGeometricRepresentationSubContext"):
+        if context.ContextIdentifier == "Axis":
+            return context
+    body = _context(model)
+    parent = getattr(body, "ParentContext", None)
+    return parent if parent is not None else body
+
+
+def _shape(model, representations):
+    return model.create_entity("IfcProductDefinitionShape", Name=None,
+                               Description=None, Representations=representations)
+
+
+def _report(product, storey, origin, extents) -> None:
+    _say("created", product.GlobalId, product.is_a(), repr(product.Name),
+         "on storey", storey.GlobalId)
+    _say("  box in the storey frame (m): corner",
+         [round(float(v), 3) for v in origin], "size",
+         [round(float(v), 3) for v in extents])
+
+
+def _typed_product(type_object, name, tag: str, product) -> None:
+    product.Name = name if name is not None else "%s:%s" % (type_object.Name, tag)
+    product.ObjectType = type_object.Name
+    product.Tag = tag
+    _say("  type", type_object.GlobalId, type_object.is_a(), repr(type_object.Name))
+
+
+def _storey_rooms_sides(storey, rooms, run: int, lo, hi) -> tuple:
+    across = 1 - run
+    low = high = False
+    for room in rooms:
+        box = box_in_frame(room, storey)
+        if box is None:
+            continue
+        if float(box[0][across]) < float(lo[across]) - SIDE_MARGIN:
+            low = True
+        if float(box[1][across]) > float(hi[across]) + SIDE_MARGIN:
+            high = True
+    return low, high
+
+
+# ------------------------------------------------------------ the six creators
+
+
+def add_wall_box(storey, origin, extents, name: Optional[str] = None,
+                 connect_to: Sequence = (), bounds: Sequence = ()):
+    """Create a wall that fills a box on a storey, as a Revit export writes it.
+
+    ``origin`` is the lowest corner of the wall's bounding box and ``extents``
+    its size along x, y and z, in metres and in the storey's own coordinates.
+    The wall runs along the longer of the two plan sides and is as thick as the
+    shorter one.  It gets an axis line and a swept body placed at the start of
+    that axis, the file's wall type of that thickness or a new
+    "Basic Wall:Generic - <mm>mm" type, the type's material layers, the name
+    "<type name>:<tag>" and the property sets Pset_WallCommon,
+    Pset_EnvironmentalImpactIndicators and Pset_ReinforcementBarPitchOfWall.
+    It is contained in the storey, joined to every wall in ``connect_to`` by a
+    path connection, and recorded as a boundary of every room in ``bounds``.
+    The wall is external unless the rooms it bounds stand on both its sides.
+    Returns the wall.
+    """
+    model = _file(storey)
+    forget_geometry(model)
+    x, y, z = _three(origin, "origin")
+    dx, dy, dz = _three(extents, "extents")
+    if min(dx, dy, dz) <= 0:
+        raise ValueError("every extent of the wall has to be positive")
+    run = 0 if dx >= dy else 1
+    length, thickness = (dx, dy) if run == 0 else (dy, dx)
+    if run == 0:
+        start, direction = (x, y + dy / 2.0, z), (1.0, 0.0, 0.0)
+    else:
+        start, direction = (x + dx / 2.0, y, z), (0.0, 1.0, 0.0)
+    wall = model.create_entity("IfcWall", GlobalId=_new_guid(),
+                               OwnerHistory=_owner_history(model), Name=None,
+                               Description=None)
+    tag = next_tag(model)
+    type_object = revit_type(model, "wall", thickness=thickness)
+    _typed_product(type_object, name, tag, wall)
+    _set_if(wall, "PredefinedType", "STANDARD")
+    scale = unit_scale(model)
+    wall.ObjectPlacement = _local_placement(model, storey.ObjectPlacement, start,
+                                            direction)
+    axis = model.create_entity(
+        "IfcShapeRepresentation", ContextOfItems=_axis_context(model),
+        RepresentationIdentifier="Axis", RepresentationType="Curve2D",
+        Items=[model.create_entity("IfcPolyline", Points=[
+            model.create_entity("IfcCartesianPoint", Coordinates=(0.0, 0.0)),
+            model.create_entity("IfcCartesianPoint",
+                                Coordinates=(length / scale, 0.0))])])
+    body = _swept_body(model, _rectangle_solid(model, length, thickness, dz,
+                                               (length / 2.0, 0.0)))
+    wall.Representation = _shape(model, [axis, body])
+    _contain(model, storey, wall)
+    assign_type(wall, type_object)
+    _associate_usage(wall, type_object, "AXIS2", -thickness / 2.0)
+    low, high = _storey_rooms_sides(storey, list(bounds), run, (x, y, z),
+                                    (x + dx, y + dy, z + dz))
+    external = not (low and high)
+    add_revit_psets(wall, "wall", reference=_type_part(type_object.Name),
+                    is_external=external)
+    _report(wall, storey, (x, y, z), (dx, dy, dz))
+    for other in connect_to:
+        connect_path(wall, other)
+    for room in bounds:
+        relation = add_space_boundary(room, wall, "PHYSICAL",
+                                      "EXTERNAL" if external else "INTERNAL")
+        _say("space boundary", relation.GlobalId, ":", room.GlobalId, "<-",
+             wall.GlobalId, relation.InternalOrExternalBoundary)
+    forget_geometry(model)
+    return wall
+
+
+def _slab_boundary_kind(storey, slab_lo_z: float, room) -> str:
+    box = box_in_frame(room, storey)
+    if box is None:
+        return "INTERNAL"
+    above = slab_lo_z >= (float(box[0][2]) + float(box[1][2])) / 2.0
+    neighbour = storey_above(storey) if above else storey_below(storey)
+    return "EXTERNAL" if neighbour is None else "INTERNAL"
+
+
+def add_slab_box(storey, origin, extents, name: Optional[str] = None,
+                 bounds: Sequence = (), connect_to: Sequence = ()):
+    """Create a floor slab that fills a box on a storey, as Revit writes one.
+
+    ``origin`` and ``extents`` are the slab's bounding box in the storey's own
+    coordinates, in metres; the height is the slab's thickness.  The slab is
+    an ``IfcSlab`` of type FLOOR with a swept body, typed by the file's floor
+    type of that thickness or a new "Floor:Generic <mm>mm" type, with the
+    type's material layers, the name "<type name>:<tag>" and the property sets
+    Pset_SlabCommon, Pset_EnvironmentalImpactIndicators and
+    Pset_ReinforcementBarPitchOfSlab.  It is contained in the storey, connected
+    to every element in ``connect_to`` and recorded as a boundary of every room
+    in ``bounds``: external where nothing lies on its far side, internal
+    otherwise.  Returns the slab.
+    """
+    model = _file(storey)
+    forget_geometry(model)
+    x, y, z = _three(origin, "origin")
+    dx, dy, dz = _three(extents, "extents")
+    if min(dx, dy, dz) <= 0:
+        raise ValueError("every extent of the slab has to be positive")
+    slab = model.create_entity("IfcSlab", GlobalId=_new_guid(),
+                               OwnerHistory=_owner_history(model), Name=None,
+                               Description=None)
+    tag = next_tag(model)
+    type_object = revit_type(model, "slab", thickness=dz)
+    _typed_product(type_object, name, tag, slab)
+    _set_if(slab, "PredefinedType", "FLOOR")
+    slab.ObjectPlacement = _local_placement(model, storey.ObjectPlacement, (x, y, z))
+    slab.Representation = _shape(model, [_swept_body(
+        model, _rectangle_solid(model, dx, dy, dz, (dx / 2.0, dy / 2.0)))])
+    _contain(model, storey, slab)
+    assign_type(slab, type_object)
+    _associate_usage(slab, type_object, "AXIS3", 0.0)
+    add_revit_psets(slab, "slab", reference=_type_part(type_object.Name))
+    _report(slab, storey, (x, y, z), (dx, dy, dz))
+    for other in connect_to:
+        relation = connect_elements(slab, other)
+        _say("connection", relation.GlobalId, ":", slab.GlobalId, "->", other.GlobalId)
+    for room in bounds:
+        relation = add_space_boundary(room, slab, "PHYSICAL",
+                                      _slab_boundary_kind(storey, z, room))
+        _say("space boundary", relation.GlobalId, ":", room.GlobalId, "<-",
+             slab.GlobalId, relation.InternalOrExternalBoundary)
+    forget_geometry(model)
+    return slab
+
+
+def add_column_box(storey, origin, extents, name: Optional[str] = None,
+                   stands_on=None, bounds: Sequence = ()):
+    """Create a rectangular column that fills a box on a storey, as Revit does.
+
+    ``origin`` and ``extents`` are the column's bounding box in the storey's
+    own coordinates, in metres.  The column is placed at the centre of its base
+    with a centred rectangular profile, typed by the file's column type of that
+    cross-section or a new "M_Concrete-Rectangular-Column:<w> x <d>mm" type,
+    named "<type name>:<tag>" and given Pset_ColumnCommon and
+    Pset_EnvironmentalImpactIndicators.  It is contained in the storey,
+    connected to the column it stands on when ``stands_on`` names one, and
+    recorded as a boundary of every room in ``bounds``.  Returns the column.
+    """
+    model = _file(storey)
+    forget_geometry(model)
+    x, y, z = _three(origin, "origin")
+    dx, dy, dz = _three(extents, "extents")
+    if min(dx, dy, dz) <= 0:
+        raise ValueError("every extent of the column has to be positive")
+    column = model.create_entity("IfcColumn", GlobalId=_new_guid(),
+                                 OwnerHistory=_owner_history(model), Name=None,
+                                 Description=None)
+    tag = next_tag(model)
+    type_object = revit_type(model, "column", width=dx, depth=dy)
+    _typed_product(type_object, name, tag, column)
+    _set_if(column, "PredefinedType", "COLUMN")
+    column.ObjectPlacement = _local_placement(
+        model, storey.ObjectPlacement, (x + dx / 2.0, y + dy / 2.0, z))
+    column.Representation = _shape(model, [_swept_body(
+        model, _rectangle_solid(model, dx, dy, dz, (0.0, 0.0)))])
+    _contain(model, storey, column)
+    assign_type(column, type_object)
+    add_revit_psets(column, "column", reference=_type_part(type_object.Name))
+    _report(column, storey, (x, y, z), (dx, dy, dz))
+    if stands_on is not None:
+        relation = connect_elements(column, stands_on)
+        _say("connection", relation.GlobalId, ":", column.GlobalId, "->",
+             stands_on.GlobalId)
+    for room in bounds:
+        relation = add_space_boundary(room, column, "PHYSICAL", "INTERNAL")
+        _say("space boundary", relation.GlobalId, ":", room.GlobalId, "<-",
+             column.GlobalId, relation.InternalOrExternalBoundary)
+    forget_geometry(model)
+    return column
+
+
+def add_space_box(storey, origin, extents, name: Optional[str] = None,
+                  long_name: Optional[str] = None, bounded_by: Sequence = ()):
+    """Create a room that fills a box on a storey, as a Revit export writes it.
+
+    ``origin`` and ``extents`` are the room's bounding box in the storey's own
+    coordinates, in metres.  The room is an ``IfcSpace`` named with the next
+    free room number unless ``name`` is given, with a swept body, aggregated
+    under the storey (a room is decomposed from its storey, not contained in
+    it), given Pset_SpaceCommon, and recorded as bounded by every element in
+    ``bounded_by``.  Returns the room.
+    """
+    model = _file(storey)
+    forget_geometry(model)
+    x, y, z = _three(origin, "origin")
+    dx, dy, dz = _three(extents, "extents")
+    if min(dx, dy, dz) <= 0:
+        raise ValueError("every extent of the room has to be positive")
+    space = model.create_entity("IfcSpace", GlobalId=_new_guid(),
+                                OwnerHistory=_owner_history(model), Name=None,
+                                Description=None)
+    space.Name = name if name is not None else next_room_number(model)
+    _set_if(space, "LongName", long_name)
+    _set_if(space, "CompositionType", "ELEMENT")
+    _set_if(space, "InteriorOrExteriorSpace", "INTERNAL")
+    _set_if(space, "PredefinedType", "INTERNAL")
+    space.ObjectPlacement = _local_placement(model, storey.ObjectPlacement, (x, y, z))
+    space.Representation = _shape(model, [_swept_body(
+        model, _rectangle_solid(model, dx, dy, dz, (dx / 2.0, dy / 2.0)))])
+    _aggregate(model, storey, space)
+    add_revit_psets(space, "space", reference=long_name or space.Name)
+    _report(space, storey, (x, y, z), (dx, dy, dz))
+    for element in bounded_by:
+        relation = add_space_boundary(space, element, "PHYSICAL", "INTERNAL")
+        _say("space boundary", relation.GlobalId, ":", space.GlobalId, "<-",
+             element.GlobalId, relation.InternalOrExternalBoundary)
+    forget_geometry(model)
+    return space
+
+
+def _aligned(rotation: np.ndarray) -> bool:
+    rounded = np.round(rotation)
+    return bool(np.abs(rotation - rounded).max() < 1e-6
+                and np.all(np.abs(rounded).sum(axis=0) == 1))
+
+
+def _mapped_leaf(model, type_object, width: float, depth: float, height: float):
+    """A body that reuses the type's own geometry, sized to the opening.
+
+    The type's geometry is measured through an element of the file that
+    already uses it, and is used only when it is as wide and as tall as the
+    opening within five centimetres; the item is then shifted so the body
+    starts at the opening's corner and is centred across the wall.
+    """
+    maps = [m for m in (getattr(type_object, "RepresentationMaps", None) or ())
+            if m.MappedRepresentation is not None
+            and m.MappedRepresentation.RepresentationIdentifier == "Body"]
+    if len(maps) != 1:
+        return None
+    body_map = maps[0]
+    scale = unit_scale(model)
+    for element in _typed_elements(type_object):
+        shape = getattr(element, "Representation", None)
+        for representation in (shape.Representations or ()) if shape else ():
+            if representation.RepresentationIdentifier != "Body":
+                continue
+            items = representation.Items or ()
+            if len(items) != 1 or not items[0].is_a("IfcMappedItem") \
+                    or items[0].MappingSource != body_map:
+                continue
+            target = items[0].MappingTarget
+            if target is None or getattr(target, "Axis1", None) is not None \
+                    or getattr(target, "Axis2", None) is not None \
+                    or getattr(target, "Axis3", None) is not None \
+                    or float(getattr(target, "Scale", None) or 1.0) != 1.0:
+                continue
+            box = box_in_frame(element, element)
+            if box is None:
+                continue
+            shift = np.array(list(target.LocalOrigin.Coordinates) + [0.0] * 3,
+                             dtype=float)[:3] * scale
+            lo = np.asarray(box[0]) - shift
+            size = np.asarray(box[1]) - np.asarray(box[0])
+            if abs(size[0] - width) > 0.05 or abs(size[2] - height) > 0.05 \
+                    or size[1] > depth + 0.3:
+                return None
+            move = np.array([-lo[0], -lo[1] + (depth - size[1]) / 2.0, -lo[2]])
+            operator = model.create_entity(
+                "IfcCartesianTransformationOperator3D", Axis1=None, Axis2=None,
+                LocalOrigin=model.create_entity("IfcCartesianPoint", Coordinates=tuple(
+                    float(v) / scale for v in move)), Scale=None, Axis3=None)
+            item = model.create_entity("IfcMappedItem", MappingSource=body_map,
+                                       MappingTarget=operator)
+            return model.create_entity(
+                "IfcShapeRepresentation", ContextOfItems=_context(model),
+                RepresentationIdentifier="Body",
+                RepresentationType="MappedRepresentation", Items=[item])
+    return None
+
+
+def add_opening_filling(wall, ifc_class: str, origin, extents,
+                        bounds: Sequence = (), name: Optional[str] = None):
+    """Cut an opening in a wall and fill it with a door or a window, as Revit does.
+
+    ``origin`` and ``extents`` are the opening's bounding box in the coordinates
+    of the wall's storey, in metres; the box has to follow the wall's own axes.
+    The ``IfcOpeningElement`` is placed relative to the wall and voids it; the
+    door or window is placed at the opening's own origin, fills it and is
+    contained in the storey (the opening is not).  The leaf is typed by the
+    file's door or window type of that width and height, within ten
+    millimetres, or by a new "M_Door-Passage-Single-Flush:<w> x <h>mm" or
+    "M_Window-Fixed:<w> x <h>mm" type; its body is the type's own geometry when
+    that fits the opening and a box of the opening otherwise.  It is named
+    "<type name>:<tag>", sized by OverallWidth and OverallHeight, given
+    Pset_DoorCommon or Pset_WindowCommon (external when its wall is) and
+    Pset_EnvironmentalImpactIndicators and its type's material constituents,
+    and recorded as a boundary of every room in ``bounds``.  Returns the leaf.
+    """
+    if ifc_class not in ("IfcDoor", "IfcWindow"):
+        raise ValueError("ifc_class is 'IfcDoor' or 'IfcWindow', not %r" % ifc_class)
+    model = _file(wall)
+    storey = storey_of(wall)
+    if storey is None:
+        raise ValueError("wall %s is not contained in a storey" % wall.GlobalId)
+    forget_geometry(model)
+    x, y, z = _three(origin, "origin")
+    dx, dy, dz = _three(extents, "extents")
+    if min(dx, dy, dz) <= 0:
+        raise ValueError("every extent of the opening has to be positive")
+    to_wall = np.linalg.inv(frame_of(wall)) @ frame_of(storey)
+    if not _aligned(to_wall[:3, :3]):
+        raise ValueError("the wall does not run along the storey's axes")
+    corners = np.array([[x + dx * i, y + dy * j, z + dz * k]
+                        for i in (0, 1) for j in (0, 1) for k in (0, 1)])
+    local = (to_wall[:3, :3] @ corners.T).T + to_wall[:3, 3]
+    lo = np.round(local.min(axis=0), 6) + 0.0
+    hi = np.round(local.max(axis=0), 6) + 0.0
+    width, depth, height = (round(float(v), 6) for v in hi - lo)
+    kind = "door" if ifc_class == "IfcDoor" else "window"
+    history = _owner_history(model)
+
+    leaf = model.create_entity(ifc_class, GlobalId=_new_guid(),
+                               OwnerHistory=history, Name=None, Description=None)
+    opening = model.create_entity("IfcOpeningElement", GlobalId=_new_guid(),
+                                  OwnerHistory=history, Name="Opening",
+                                  Description=None)
+    opening.ObjectPlacement = _local_placement(model, wall.ObjectPlacement, lo)
+    opening.Representation = _shape(model, [_swept_body(
+        model, _rectangle_solid(model, width, depth, height,
+                                (width / 2.0, depth / 2.0)))])
+    _set_if(opening, "PredefinedType", "OPENING")
+    model.create_entity("IfcRelVoidsElement", GlobalId=_new_guid(),
+                        OwnerHistory=history, Name=None, Description=None,
+                        RelatingBuildingElement=wall, RelatedOpeningElement=opening)
+
+    tag = next_tag(model)
+    type_object = revit_type(model, kind, width=width, height=height)
+    _typed_product(type_object, name, tag, leaf)
+    scale = unit_scale(model)
+    leaf.OverallWidth = width / scale
+    leaf.OverallHeight = height / scale
+    _set_if(leaf, "PredefinedType", kind.upper())
+    leaf.ObjectPlacement = _local_placement(model, opening.ObjectPlacement,
+                                            (0.0, 0.0, 0.0))
+    body = _mapped_leaf(model, type_object, width, depth, height)
+    if body is None:
+        body = _swept_body(model, _rectangle_solid(
+            model, width, depth, height, (width / 2.0, depth / 2.0)))
+    leaf.Representation = _shape(model, [body])
+    model.create_entity("IfcRelFillsElement", GlobalId=_new_guid(),
+                        OwnerHistory=history, Name=None, Description=None,
+                        RelatingOpeningElement=opening, RelatedBuildingElement=leaf)
+    _contain(model, storey, leaf)
+    assign_type(leaf, type_object)
+    _associate_constituents(leaf, type_object)
+    try:
+        wall_sets = ifcopenshell.util.element.get_psets(wall)
+    except Exception:
+        wall_sets = {}
+    external = bool((wall_sets.get("Pset_WallCommon") or {}).get("IsExternal"))
+    fire = None
+    if kind == "window":
+        try:
+            type_sets = ifcopenshell.util.element.get_psets(type_object)
+        except Exception:
+            type_sets = {}
+        fire = (type_sets.get("Pset_WindowCommon") or {}).get("FireRating")
+    add_revit_psets(leaf, kind, reference=_type_part(type_object.Name),
+                    is_external=external, fire_rating=fire)
+    _report(leaf, storey, (x, y, z), (dx, dy, dz))
+    _say("  opening", opening.GlobalId, "voids wall", wall.GlobalId)
+    for room in bounds:
+        relation = add_space_boundary(room, leaf, "PHYSICAL", "INTERNAL")
+        _say("space boundary", relation.GlobalId, ":", room.GlobalId, "<-",
+             leaf.GlobalId, relation.InternalOrExternalBoundary)
+    forget_geometry(model)
+    return leaf
+
+
+# ------------------------------------------------------------ where it goes
+
+
+def _storey_box(product, storey):
+    """The product's raw body box in the storey's coordinates, in metres."""
+    box = box_in_frame(product, storey, disable_openings=True)
+    if box is None:
+        box = box_in_frame(product, storey)
+    if box is None:
+        raise ValueError("%s %s has no body to measure"
+                         % (product.is_a(), product.GlobalId))
+    return np.asarray(box[0], dtype=float), np.asarray(box[1], dtype=float)
+
+
+def _run_of(lo, hi) -> int:
+    size = hi - lo
+    return 0 if float(size[0]) >= float(size[1]) else 1
+
+
+def _spot(origin, extents, what: str) -> dict:
+    origin = tuple(float(v) for v in origin)
+    extents = tuple(float(v) for v in extents)
+    _say(what, "in the storey frame (m): corner", [round(v, 3) for v in origin],
+         "size", [round(v, 3) for v in extents])
+    return {"origin": origin, "extents": extents}
+
+
+def _facing(wall_a, wall_b, storey):
+    """Two parallel walls facing each other: their run, the gap and the stretch."""
+    a_lo, a_hi = _storey_box(wall_a, storey)
+    b_lo, b_hi = _storey_box(wall_b, storey)
+    run = _run_of(a_lo, a_hi)
+    if _run_of(b_lo, b_hi) != run:
+        raise ValueError("the two walls do not run the same way")
+    across = 1 - run
+    if a_hi[across] <= b_lo[across] + 1e-6:
+        gap = (float(a_hi[across]), float(b_lo[across]))
+    elif b_hi[across] <= a_lo[across] + 1e-6:
+        gap = (float(b_hi[across]), float(a_lo[across]))
+    else:
+        raise ValueError("the two walls overlap, so no gap lies between them")
+    stretch = (float(max(a_lo[run], b_lo[run])), float(min(a_hi[run], b_hi[run])))
+    if stretch[1] <= stretch[0]:
+        raise ValueError("the two walls do not face each other anywhere")
+    base = float(max(a_lo[2], b_lo[2]))
+    top = float(min(a_hi[2], b_hi[2]))
+    return run, gap, stretch, base, top
+
+
+def wall_between(wall_a, wall_b, storey, thickness: float,
+                 height: Optional[float] = None) -> dict:
+    """Where a wall stands that closes the gap between two facing walls.
+
+    The two walls are parallel and face each other.  The new wall runs at right
+    angles to both, from the face of one to the face of the other, centred on
+    the stretch over which they face each other, and stands on their common
+    base.  ``height`` defaults to the height the two share.  Returns the box as
+    ``{"origin": corner, "extents": size}`` in the storey's coordinates.
+    """
+    run, gap, stretch, base, top = _facing(wall_a, wall_b, storey)
+    if stretch[1] - stretch[0] < float(thickness):
+        raise ValueError("the walls face each other over less than the thickness")
+    middle = (stretch[0] + stretch[1]) / 2.0
+    tall = (top - base) if height is None else float(height)
+    origin, extents = [0.0, 0.0, base], [0.0, 0.0, tall]
+    across = 1 - run
+    origin[across], extents[across] = gap[0], gap[1] - gap[0]
+    origin[run], extents[run] = middle - float(thickness) / 2.0, float(thickness)
+    return _spot(origin, extents, "wall box")
+
+
+def wall_from_jamb(door, wall_a, wall_b, storey, distance: float, direction,
+                   thickness: float, height: Optional[float] = None) -> dict:
+    """Where a wall stands that starts a stated distance past a door's jamb.
+
+    The new wall spans at right angles between the facing walls ``wall_a`` and
+    ``wall_b``.  ``direction`` is the axis the distance is counted along, such
+    as "+y"; the jamb is the side of the door's body facing that way, and the
+    new wall's near face stands ``distance`` metres beyond it.  Returns the box
+    as ``{"origin": corner, "extents": size}`` in the storey's coordinates.
+    """
+    axis, sign = _direction(direction)
+    run, gap, stretch, base, top = _facing(wall_a, wall_b, storey)
+    if axis != run:
+        raise ValueError("the distance has to be counted along the two walls")
+    d_lo, d_hi = _storey_box(door, storey)
+    jamb = float(d_hi[axis]) if sign > 0 else float(d_lo[axis])
+    near = jamb + sign * float(distance)
+    low = near if sign > 0 else near - float(thickness)
+    if low < stretch[0] - 1e-6 or low + float(thickness) > stretch[1] + 1e-6:
+        raise ValueError("that position lies outside the stretch the walls face")
+    tall = (top - base) if height is None else float(height)
+    origin, extents = [0.0, 0.0, base], [0.0, 0.0, tall]
+    across = 1 - run
+    origin[across], extents[across] = gap[0], gap[1] - gap[0]
+    origin[run], extents[run] = low, float(thickness)
+    return _spot(origin, extents, "wall box")
+
+
+def corner_from(reference, storey, offset) -> tuple:
+    """A point given as an offset from the minimum corner of an element's box.
+
+    The minimum corner is read in the storey's own coordinates and ``offset``
+    is added to it, in metres.  Returns the point.
+    """
+    lo, _hi = _storey_box(reference, storey)
+    point = lo + np.array(_three(offset, "offset"))
+    _say("minimum corner of", reference.GlobalId, "in the storey frame (m):",
+         [round(float(v), 3) for v in lo], "-> point",
+         [round(float(v), 3) for v in point])
+    return tuple(float(v) for v in point)
+
+
+def _four_walls(walls, storey):
+    boxes = [(_storey_box(w, storey), w) for w in walls]
+    along_x = [b for b in boxes if _run_of(*b[0]) == 0]
+    along_y = [b for b in boxes if _run_of(*b[0]) == 1]
+    if len(along_x) != 2 or len(along_y) != 2:
+        raise ValueError("the walls have to be two along x and two along y")
+    along_x.sort(key=lambda b: float(b[0][0][1] + b[0][1][1]))
+    along_y.sort(key=lambda b: float(b[0][0][0] + b[0][1][0]))
+    return along_x, along_y
+
+
+def room_inside_walls(walls, storey, height: Optional[float] = None) -> dict:
+    """The box a room fills inside four walls that close a rectangle.
+
+    Two of the walls run along x and two along y; the room reaches from the
+    inner face of each to the inner face of the one opposite, stands on their
+    common base and is ``height`` metres tall, or as tall as the four walls
+    share.  Returns ``{"origin": corner, "extents": size}``.
+    """
+    along_x, along_y = _four_walls(walls, storey)
+    y0, y1 = float(along_x[0][0][1][1]), float(along_x[1][0][0][1])
+    x0, x1 = float(along_y[0][0][1][0]), float(along_y[1][0][0][0])
+    if x1 - x0 < 0.3 or y1 - y0 < 0.3:
+        raise ValueError("the four walls do not enclose a room")
+    los = [b[0][0] for b in along_x + along_y]
+    his = [b[0][1] for b in along_x + along_y]
+    base = float(max(lo[2] for lo in los))
+    top = float(min(hi[2] for hi in his))
+    tall = (top - base) if height is None else float(height)
+    return _spot((x0, y0, base), (x1 - x0, y1 - y0, tall), "room box")
+
+
+def slab_over_walls(walls, storey, thickness: float) -> dict:
+    """The box of a slab that covers four walls up to their outer faces.
+
+    The slab reaches the outer face of each of the four walls around a room
+    and its top lies at the level of the storey above, so it closes the storey
+    the way a floor of the next storey would.  Returns
+    ``{"origin": corner, "extents": size}``.
+    """
+    along_x, along_y = _four_walls(walls, storey)
+    y0, y1 = float(along_x[0][0][0][1]), float(along_x[1][0][1][1])
+    x0, x1 = float(along_y[0][0][0][0]), float(along_y[1][0][1][0])
+    above = storey_above(storey)
+    if above is None or above.Elevation is None or storey.Elevation is None:
+        raise ValueError("the storey has no storey above it")
+    scale = unit_scale(storey)
+    top = (float(above.Elevation) - float(storey.Elevation)) * scale
+    return _spot((x0, y0, top - float(thickness)),
+                 (x1 - x0, y1 - y0, float(thickness)), "slab box")
+
+
+def slab_above(slab, storey, distance: float, thickness: float) -> dict:
+    """The box of a slab with another slab's plan, a stated distance above it.
+
+    The new slab's underside stands ``distance`` metres above the named
+    slab's top face and it is ``thickness`` metres thick.  Returns
+    ``{"origin": corner, "extents": size}``.
+    """
+    lo, hi = _storey_box(slab, storey)
+    return _spot((lo[0], lo[1], float(hi[2]) + float(distance)),
+                 (hi[0] - lo[0], hi[1] - lo[1], float(thickness)), "slab box")
+
+
+def slab_on_room(room, storey, thickness: float) -> dict:
+    """The box of a slab that covers a room's plan and rests on its top.
+
+    The slab has the plan of the room's own box, its underside is the top of
+    the room and it is ``thickness`` metres thick.  Returns
+    ``{"origin": corner, "extents": size}``.
+    """
+    lo, hi = _storey_box(room, storey)
+    return _spot((lo[0], lo[1], hi[2]), (hi[0] - lo[0], hi[1] - lo[1],
+                                         float(thickness)), "slab box")
+
+
+def column_in_room(room, storey, width: float, depth: float,
+                   height: Optional[float] = None) -> dict:
+    """The box of a column standing at the centre of a room's plan.
+
+    ``width`` runs along x and ``depth`` along y; the column stands on the
+    room's floor and is ``height`` metres tall, or as tall as the room.
+    Returns ``{"origin": corner, "extents": size}``.
+    """
+    lo, hi = _storey_box(room, storey)
+    middle = (lo + hi) / 2.0
+    tall = float(hi[2] - lo[2]) if height is None else float(height)
+    return _spot((middle[0] - float(width) / 2.0, middle[1] - float(depth) / 2.0,
+                  lo[2]), (float(width), float(depth), tall), "column box")
+
+
+def column_on_top(column, storey, height: float) -> dict:
+    """The box of a column standing on another, with its cross-section.
+
+    The new column's base is the named column's top face and it is
+    ``height`` metres tall.  Returns ``{"origin": corner, "extents": size}``.
+    """
+    lo, hi = _storey_box(column, storey)
+    return _spot((lo[0], lo[1], hi[2]), (hi[0] - lo[0], hi[1] - lo[1], float(height)),
+                 "column box")
+
+
+def column_in_gap(wall_a, wall_b, storey, height: Optional[float] = None) -> dict:
+    """The box of a column filling the gap between two walls in line.
+
+    The two walls run along one line with a gap between their ends; the
+    column fills that gap across the walls' shared thickness, stands on their
+    common base, and is ``height`` metres tall or as tall as the walls share.
+    Returns ``{"origin": corner, "extents": size}``.
+    """
+    a_lo, a_hi = _storey_box(wall_a, storey)
+    b_lo, b_hi = _storey_box(wall_b, storey)
+    run = _run_of(a_lo, a_hi)
+    if _run_of(b_lo, b_hi) != run:
+        raise ValueError("the two walls do not run the same way")
+    across = 1 - run
+    low = float(max(a_lo[across], b_lo[across]))
+    high = float(min(a_hi[across], b_hi[across]))
+    if high - low <= 0.0:
+        raise ValueError("the two walls are not in line")
+    if a_hi[run] <= b_lo[run] + 1e-6:
+        gap = (float(a_hi[run]), float(b_lo[run]))
+    elif b_hi[run] <= a_lo[run] + 1e-6:
+        gap = (float(b_hi[run]), float(a_lo[run]))
+    else:
+        raise ValueError("the two walls overlap, so no gap lies between them")
+    base = float(max(a_lo[2], b_lo[2]))
+    top = float(min(a_hi[2], b_hi[2]))
+    tall = (top - base) if height is None else float(height)
+    origin, extents = [0.0, 0.0, base], [0.0, 0.0, tall]
+    origin[run], extents[run] = gap[0], gap[1] - gap[0]
+    origin[across], extents[across] = low, high - low
+    return _spot(origin, extents, "column box")
+
+
+def _wall_local_to_storey(wall, storey, lo, hi):
+    to_storey = np.linalg.inv(frame_of(storey)) @ frame_of(wall)
+    corners = np.array([[a, b, c] for a in (lo[0], hi[0]) for b in (lo[1], hi[1])
+                        for c in (lo[2], hi[2])], dtype=float)
+    points = (to_storey[:3, :3] @ corners.T).T + to_storey[:3, 3]
+    return points.min(axis=0), points.max(axis=0)
+
+
+def find_wall_between_rooms(room_a, room_b):
+    """The one wall that stands between two rooms, one on each of its sides.
+
+    A wall counts when its body is thin in plan, each room's box comes within
+    0.15 m of one of its two long faces, the two rooms are on opposite faces,
+    and each room runs along the wall for at least 0.8 m.  Raises
+    ``LookupError`` when no wall or more than one wall fits.
+    """
+    storey = storey_of(room_a)
+    if storey is None:
+        raise LookupError("room %s is on no storey" % room_a.GlobalId)
+    boxes = [world_box(room) for room in (room_a, room_b)]
+    if any(box is None for box in boxes):
+        raise LookupError("one of the rooms has no body to measure")
+    found = []
+    for wall in on_storey(storey, "IfcWall"):
+        box = _cached_box(wall)
+        if box is None:
+            continue
+        lo, hi = np.asarray(box[0]), np.asarray(box[1])
+        size = hi - lo
+        run = 0 if size[0] >= size[1] else 1
+        across = 1 - run
+        if size[run] < 1.5 or size[across] > 0.6:
+            continue
+        sides = []
+        for room_lo, room_hi in boxes:
+            cover = min(room_hi[run], hi[run]) - max(room_lo[run], lo[run])
+            if cover < 0.8:
+                sides.append(None)
+            elif abs(float(room_hi[across]) - float(lo[across])) <= 0.15:
+                sides.append("low")
+            elif abs(float(room_lo[across]) - float(hi[across])) <= 0.15:
+                sides.append("high")
+            else:
+                sides.append(None)
+        if None not in sides and sides[0] != sides[1]:
+            found.append(wall)
+    if len(found) != 1:
+        raise LookupError("%d walls stand between rooms %s and %s"
+                          % (len(found), room_a.GlobalId, room_b.GlobalId))
+    wall = found[0]
+    _say("wall between the rooms:", wall.GlobalId, wall.is_a(), wall.Name)
+    return wall
+
+
+def opening_centred(wall, like, storey) -> dict:
+    """The box of an opening centred along a wall, sized like another one.
+
+    The opening is as wide and as tall as the opening the door or window
+    ``like`` fills and stands as high above this wall's base as that one
+    stands above its own wall's base; it is centred along the wall and passes
+    through its whole thickness.  Returns ``{"origin": corner, "extents":
+    size}`` in the storey's coordinates.
+    """
+    slot = filling_slot(like)
+    box = wall_box(wall)
+    if slot is None or box is None:
+        raise ValueError("the wall or the reference opening cannot be measured")
+    middle = (box["start"] + box["end"]) / 2.0
+    lo = (middle - slot["width"] / 2.0, box["near"], box["base"] + slot["sill"])
+    hi = (middle + slot["width"] / 2.0, box["far"],
+          box["base"] + slot["sill"] + slot["height"])
+    lo, hi = _wall_local_to_storey(wall, storey, lo, hi)
+    return _spot(lo, hi - lo, "opening box")
+
+
+def opening_beside(filling, storey, distance: float, direction) -> dict:
+    """The box of an opening that copies another one, moved along its wall.
+
+    The new opening has the size and height of the opening ``filling`` fills,
+    passes through the whole thickness of the same wall, and is moved
+    ``distance`` metres along ``direction``, such as "+x", which has to be the
+    way the wall runs.  Returns ``{"origin": corner, "extents": size}`` in the
+    storey's coordinates.
+    """
+    axis, sign = _direction(direction)
+    slot = filling_slot(filling)
+    if slot is None:
+        raise ValueError("the element does not fill an opening in a wall")
+    host = slot["host"]
+    box = wall_box(host)
+    lo = (slot["along"], box["near"], box["base"] + slot["sill"])
+    hi = (slot["along"] + slot["width"], box["far"],
+          box["base"] + slot["sill"] + slot["height"])
+    lo, hi = _wall_local_to_storey(host, storey, lo, hi)
+    wall_lo, wall_hi = _storey_box(host, storey)
+    if axis != _run_of(wall_lo, wall_hi):
+        raise ValueError("the direction has to run along the wall")
+    shift = np.zeros(3)
+    shift[axis] = sign * float(distance)
+    return _spot(lo + shift, hi - lo, "opening box")
+
+
+#: The Revit-export functions.  They are kept out of ``__all__``, which is the
+#: list the unknown-name menu shows, so that menu reads exactly as it did
+#: before they were added; they are ordinary attributes of the module.
+REVIT_NAMES = (
+    "guid_source", "next_tag", "next_room_number", "revit_type",
+    "layer_thickness", "rectangular_section", "add_revit_psets", "connect_path",
+    "add_wall_box", "add_slab_box", "add_column_box", "add_space_box",
+    "add_opening_filling", "wall_between", "wall_from_jamb", "corner_from",
+    "room_inside_walls", "slab_over_walls", "slab_above", "slab_on_room",
+    "column_on_top", "column_in_room", "find_wall_between_rooms",
+    "column_in_gap", "opening_centred", "opening_beside",
+)

@@ -130,6 +130,15 @@ leaf = geom.add_filling(host, 'IfcWindow', 'Glazing unit 989', width=1.2,
                         height=1.4, along=5.18, along_is_centre=True, sill=0.9)
 ```
 
+A create of the Revit-export family (`goldlib.revit_*`) is written as one
+placing call and one creating call: `geom.wall_between`, `geom.corner_from`,
+`geom.opening_centred` and their siblings turn the instruction's relation or
+offset into the box the element fills, and `geom.add_wall_box`,
+`add_slab_box`, `add_column_box`, `add_space_box` or `add_opening_filling`
+build the typed element with its property sets, material and relationships.
+A box the instruction states is passed as its two triples, and a measuring
+round calls the placing function first so the box is on the record.
+
 `goldcode.GEOM_CALLS` lists the eleven operations written this way: the two
 fillings, the three box creations, the wall span, the copy, the array, the two
 relationships and the filling deletion. Everything else, a translation, a
@@ -178,6 +187,7 @@ record so a later pass can tell which filter a trajectory passed.
 | material assignment (`op.update.material`) | the material's name is one more property, and the association is an edge of the relation graph | semantics |
 | type assignment (`op.update.type_object`) | the type object's name is one more property, and the assignment is an edge of the relation graph | semantics |
 | property-set write (`op.update.pset`) | the published settings, which already count a property-set change as a modified node | topology |
+| Revit-export create (`op.create.revit`) | the type object's name and the material's name are two more properties of the created element | semantics |
 | deletion (`op.delete`) | the target is scored by whether it is gone | semantics |
 | instruction that leaves a value out (`wording.underspecified`) | the file has to come back unchanged and the reply has to ask for the value | the reply, and every axis carries its verdict |
 | every other family, conditions and wording included | the published BIM-Edit settings | all three |

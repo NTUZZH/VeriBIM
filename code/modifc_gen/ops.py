@@ -2102,7 +2102,7 @@ def required_relations(plan: EditPlan) -> list[str]:
     space is aggregated under its storey rather than contained in it, which the
     box writer decides from the class it is given.
     """
-    out: list[str] = []
+    out: list[str] = list(plan.params.get("relation_classes") or ())
     for call in plan.calls:
         for name in CALL_RELATIONS.get(call.func, ()):
             if name == CONTAINED_IN_STOREY and call.args and \

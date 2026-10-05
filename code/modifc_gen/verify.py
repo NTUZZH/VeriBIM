@@ -632,8 +632,13 @@ def check_batch_scope(source_ifc: str, gold_ifc: str, members: Sequence[str],
 
 def check_self_score(task_id: str, operation: str, category: str,
                      entity_type: str, guids: Sequence[str], source_ifc: str,
-                     gold_ifc: str, models=None, meshes=None) -> StageResult:
-    """Stage 4: the gold model scores 1 against itself."""
+                     gold_ifc: str, models=None, meshes=None,
+                     settings: Optional[dict] = None) -> StageResult:
+    """Stage 4: the gold model scores 1 against itself.
+
+    ``settings`` are scorer settings a family is read under on top of the
+    self-check's own, as the Revit-export family reads the type and material.
+    """
     from modifc_score.model_cache import MESHES, MODELS
     from modifc_score.scorer import score_task
     from modifc_score.tasks import Task
@@ -642,8 +647,10 @@ def check_self_score(task_id: str, operation: str, category: str,
                 input_ifc=source_ifc, ground_truth_ifc=gold_ifc, prompt="",
                 entity_type=entity_type, guids=tuple(guids), tags=())
     try:
-        score = score_task(task, source_ifc, gold_ifc, gold_ifc,
-                           scorer_config(operation),
+        config = scorer_config(operation)
+        if settings:
+            config = dataclasses.replace(config, **settings)
+        score = score_task(task, source_ifc, gold_ifc, gold_ifc, config,
                            models or MODELS, meshes or MESHES,
                            geometry_mode="per_pair")
     except Exception as exc:

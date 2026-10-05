@@ -60,15 +60,24 @@ percentile bootstrap intervals over tasks (10,000 resamples, seed 20260929).
 
 | Task set | Model | Result |
 |---|---|---|
-| 2,100-task benchmark | proposed model | completion 0.960 (0.951 to 0.968), 2,016 tasks completed, mean score 0.964 |
-| 108-task subset | proposed model | completion 0.972 (0.935 to 1.000), 105 of 108 |
+| 2,100-task benchmark | VeriBIM-9B | completion 0.960 (0.951 to 0.968), 2,016 tasks completed, mean score 0.964 |
+| 108-task subset | VeriBIM-9B | completion 0.972 (0.935 to 1.000), 105 of 108 |
 | 108-task subset | best commercial model: Claude Sonnet 5.5, with the library | completion 0.852, 92 of 108 |
-| BIM-Edit, 324 tasks | proposed model | mean score 0.411 under the benchmark's own scoring rules |
+| BIM-Edit, 324 tasks | VeriBIM-9B | mean score 0.411 under the benchmark's own scoring rules |
 
-The proposed model is the reinforcement-stage snapshot `grpo_v10b_c10`. The other runs in the paper
+VeriBIM-9B is the reinforcement-stage snapshot, named `grpo_v10b_c10` in the result files and the release asset.
+The other runs in the paper
 (the untrained base model, the stage-1 and stage-2 models, a stage-2 model trained on an earlier task corpus,
 and four commercial models with and without the helper library) are in `results/benchmark/`, one directory
 per run and one `per_task_<model>.jsonl` file per model.
+
+Two further sets of runs support Sections 5.2 and 5.3 of the paper. A chain trained by the same recipe on ten
+training buildings (`results/val_hard/ten_building_chain/buildings_small.json`) gives `per_task_sft_small.jsonl`,
+`per_task_dpo_small_c12.jsonl` and `per_task_grpo_small_c10.jsonl` in `results/benchmark/full_all/` (completion
+0.723, 0.734 and 0.736 on the 2,100 tasks) and the hard-validation-set reads of every snapshot in
+`results/val_hard/ten_building_chain/`. A diagnostic continuation of VeriBIM-9B on a creation family that follows
+Revit-export conventions (`sft_extA`) gives `per_task_sft_extA.jsonl` in `results/benchmark/local324_lib_all/`
+(completion 0.926 on the 324-task subset); its BIM-Edit records are not redistributed, as for every other model.
 
 ## Requirements
 
@@ -125,8 +134,8 @@ IFC4X3), over create, update and delete operations and direct, spatial and topol
 record carries the instruction (`prompt`), the source model, the reference edit script (`gold_script`), the
 checksum of the ground-truth model that script produces (`verification.gold_sha256`) and the generator
 version. `subset_108_hosted.v4c.json` lists the 108-task subset (36 tasks per IFC version) on which all four
-commercial models were run. `subset_324.v4c.json` lists the 324-task subset that contains it, on which the
-proposed model and the strongest commercial model were also run.
+commercial models were run. `subset_324.v4c.json` lists the 324-task subset that contains it, on which
+VeriBIM-9B and the strongest commercial model were also run.
 `library_note.md` is the description of the helper library given to models that were not trained with it.
 
 Ground-truth models are not distributed. The evaluation rebuilds each one from its source model and the
@@ -399,6 +408,7 @@ sha256sum -c grpo_v10b_c10.tar.gz.sha256
 tar -xzf grpo_v10b_c10.tar.gz      # writes weights/grpo_v10b_c10/
 ```
 
+VeriBIM-9B is the adapter named `grpo_v10b_c10` in the result files and the release asset.
 The adapter is a LoRA adapter for Qwen3.5-9B [1]. The directory holds `adapter_config.json`,
 `adapter_model.safetensors`, the tokenizer files (`tokenizer.json`, `tokenizer_config.json`,
 `processor_config.json`) and two chat templates. `chat_template.jinja` is the template used in training and

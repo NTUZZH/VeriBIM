@@ -1,6 +1,6 @@
 """Cost of an edit on the 108-task subset: (a) mean wall-clock seconds per task, with the mean tool rounds
 in an aligned column, and (b) the mean price per task at the providers' list prices (hosted_cost.py
-formula); the proposed model runs locally and has no price per call. Rows as in Fig. 8 variant A.
+formula); VeriBIM-9B runs locally and has no price per call. Rows as in Fig. 8 variant A.
     python make_fig_cost.py ../../tables/exhibit_data.json [--outdir DIR] [--preview]
 """
 import os, sys
@@ -56,7 +56,7 @@ a2.set_xlabel('Price per task at list price (US cents)')
 for ax, tag in ((a1, '(a)'), (a2, '(b)')):
     ax.text(0.0, 1.0, tag, transform=ax.transAxes, ha='left', va='bottom', fontsize=8, fontweight='bold')
 hs = [plt.Rectangle((0, 0), 1, 1, fc=s[0], ec=s[1], lw=0.6, hatch=s[2]) for s in (OURS, LIB, ALONE)]
-boxed_legend(fig, handles=hs, labels=['Proposed model, with the library', 'Commercial model, with the library',
+boxed_legend(fig, handles=hs, labels=['VeriBIM-9B, with the library', 'Commercial model, with the library',
                                       'Commercial model, alone'], loc='lower center', ncol=3, bbox_to_anchor=(0.5, 0.0))
 if preview:
     preview_mark(fig)
