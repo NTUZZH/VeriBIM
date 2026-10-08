@@ -1,0 +1,12 @@
+# checkpoints/stage_b/dpo_v10_s2/resolved_config.json
+# against checkpoints/stage_b/dpo_v10/resolved_config.json
+# 8 differing key(s)
+cli_args.run_id: dpo_v10_s2='dpo_v10_s2'  dpo_v10='dpo_v10'  [allowed]
+cli_args.seed: dpo_v10_s2=20261007  dpo_v10=20260929  [allowed]
+dpo_config.data_seed: dpo_v10_s2=20261007  dpo_v10=20260929  [allowed]
+dpo_config.dataset_num_proc: dpo_v10_s2=3  dpo_v10=6  [loader workers, allowed]
+dpo_config.output_dir: dpo_v10_s2='checkpoints/stage_b/dpo_v10_s2'  dpo_v10='checkpoints/stage_b/dpo_v10'  [allowed]
+dpo_config.seed: dpo_v10_s2=20261007  dpo_v10=20260929  [allowed]
+run_id: dpo_v10_s2='dpo_v10_s2'  dpo_v10='dpo_v10'  [allowed]
+started_at: dpo_v10_s2='2026-10-08T10:58:01'  dpo_v10='2026-09-29T13:44:46'  [timestamp, allowed]
+VERDICT OK: only the run identity, the seed, the output path and the timestamp differ

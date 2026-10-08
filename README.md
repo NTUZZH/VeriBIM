@@ -46,6 +46,8 @@ results/
   repeatability/    changed outcomes between two identical runs of the same model
   training/         counts of the preference-pair construction
   bimedit/          per-task BIM-Edit scores of the trained models
+analysis/
+  revision/         scripts and outputs of the analyses added in release v1.1.0 (see "Release v1.1.0")
 weights/            adapter of the final model (see "Adapter weights")
 ```
 
@@ -78,6 +80,45 @@ training buildings (`results/val_hard/ten_building_chain/buildings_small.json`) 
 `results/val_hard/ten_building_chain/`. A diagnostic continuation of VeriBIM-9B on a creation family that follows
 Revit-export conventions (`sft_extA`) gives `per_task_sft_extA.jsonl` in `results/benchmark/local324_lib_all/`
 (completion 0.926 on the 324-task subset); its BIM-Edit records are not redistributed, as for every other model.
+
+## Release v1.1.0
+
+Release v1.1.0 adds the runs and analyses below.
+
+- The documented commercial setting gives the strongest commercial model the library note, the documentation of
+  every library function, the task conventions and three worked examples. Its per-task results on the 108-task
+  subset are in `results/benchmark/hosted108_informed_all/`. The note is
+  `analysis/revision/informed/note_informed.md`, written by `build_informed_note.py`, and `eval_informed.sh` is
+  the launcher (`ARM=informed`).
+- The untrained Qwen3.5-9B was run alone on the 108-task subset with the sampling settings that its model card
+  recommends, once without reasoning (`results/benchmark/local108_alone_sampled_all/`) and once with reasoning
+  (`results/benchmark/local108_alone_thinking_all/`). `code/harness/modifc_harness/client.py` reads these
+  settings from `VERIBIM_LOCAL_TEMPERATURE`, `VERIBIM_LOCAL_TOP_P`, `VERIBIM_LOCAL_TOP_K`,
+  `VERIBIM_LOCAL_PRESENCE_PENALTY`, `VERIBIM_LOCAL_SEED` and `VERIBIM_CHAT_TEMPLATE_KWARGS`. A run that sets none
+  of them sends the same request as before. The launchers are in `analysis/revision/base_sampled/`.
+- Two further seeds of the preference stage (20261007 and 20261008) were trained on the same pairs to the same
+  step as the reported seed and read on the 324-task subset with the library. Their per-task results are
+  `per_task_dpo_v10_s2_c6.jsonl` and `per_task_dpo_v10_s3_c6.jsonl` in `results/benchmark/local324_lib_all/`, next
+  to `per_task_dpo_v10_c6.jsonl` of the reported seed. `analysis/revision/dpo_seeds/` holds the launchers and the
+  check of each seed's training configuration against the reported run.
+- `analysis/revision/stats/` holds the building-level bootstrap intervals of the reported completion intervals,
+  completion at four verdict thresholds and per building, the split between fully specified tasks and tasks that
+  need a clarification, the way each run on the 108-task subset ended, and the composition of the benchmark.
+- The mutation study writes controlled errors into the ground-truth models of 240 benchmark tasks and scores each
+  copy with the reported checker call. `analysis/revision/checker/mutation.py` runs it, and `sample.json`,
+  `mutation_results.jsonl` and `mutation_summary.json` hold the sample, the rows and the summary.
+- The whole-model off-target diff covers the completed edits of the final model, the imitation model and the four
+  commercial models with the library. It compares each edited model with its ground-truth model over all objects,
+  relations and property sets. `analysis/revision/checker/offtarget_full.py` runs it, `validate_offtarget.py` and
+  `fastpath_check.py` check it, and `offtarget_full.jsonl` and `offtarget_summary.json` hold the rows and the
+  summary.
+- `analysis/revision/provenance/` holds the structural descriptors of the 79 native student files of the GNI
+  dataset in the source-model pool (75 in the training pool, 4 held out) and the scripts that computed them.
+
+The scripts in `analysis/revision/` are released as they were run, with paths relative to the project's working
+layout. In that layout, `runs_local/bench_v4/results/` corresponds to `results/benchmark/` and
+`runs_local/bench_v4/tasks.v4c.jsonl` to `tasks/benchmark/tasks.v4c.jsonl` in this repository. As for every other
+run, the transcripts and the edited models of the new runs are not released.
 
 ## Requirements
 

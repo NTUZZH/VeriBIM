@@ -1,0 +1,1720 @@
+{
+ "verdict_rule": "a task counts as completed at threshold t when geometry, semantics and topology are each >= t (per-task score axes as stored). At t = 0.9 this is make_results_exhibits.done(). The stored score 'final' is the equal-weight mean (g + s + t) / 3 (code/modifc_score/scorer.py lines 373-377, config.py weights 1/1/1) and is not the verdict; underspecified tasks carry one value 0 or 1 on all three axes (scorer.py underspecified_mode), so their verdict does not move with t.",
+ "thresholds": [
+  0.85,
+  0.9,
+  0.95,
+  0.98
+ ],
+ "arms": {
+  "108|ours": {
+   "set": 108,
+   "label": "Final model, with the library",
+   "source": "runs_local/bench_v4/results/local108_lib_all/per_task_grpo_v10b_c10.jsonl",
+   "0.85": {
+    "completion": 0.972222,
+    "done": 105
+   },
+   "0.90": {
+    "completion": 0.972222,
+    "done": 105
+   },
+   "0.95": {
+    "completion": 0.972222,
+    "done": 105
+   },
+   "0.98": {
+    "completion": 0.972222,
+    "done": 105
+   }
+  },
+  "108|sft|lib": {
+   "set": 108,
+   "label": "Imitation, with the library",
+   "source": "runs_local/bench_v4/results/local108_lib_all/per_task_sft_v10.jsonl",
+   "0.85": {
+    "completion": 0.962963,
+    "done": 104
+   },
+   "0.90": {
+    "completion": 0.962963,
+    "done": 104
+   },
+   "0.95": {
+    "completion": 0.962963,
+    "done": 104
+   },
+   "0.98": {
+    "completion": 0.962963,
+    "done": 104
+   }
+  },
+  "108|sft|alone": {
+   "set": 108,
+   "label": "Imitation, alone",
+   "source": "runs_local/bench_v4/results/local108_alone_all/per_task_sft_v10.jsonl",
+   "0.85": {
+    "completion": 0.166667,
+    "done": 18
+   },
+   "0.90": {
+    "completion": 0.166667,
+    "done": 18
+   },
+   "0.95": {
+    "completion": 0.166667,
+    "done": 18
+   },
+   "0.98": {
+    "completion": 0.166667,
+    "done": 18
+   }
+  },
+  "108|dpo|lib": {
+   "set": 108,
+   "label": "Preference snapshot, with the library",
+   "source": "runs_local/bench_v4/results/local108_lib_all/per_task_dpo_v10_c6.jsonl",
+   "0.85": {
+    "completion": 0.962963,
+    "done": 104
+   },
+   "0.90": {
+    "completion": 0.962963,
+    "done": 104
+   },
+   "0.95": {
+    "completion": 0.962963,
+    "done": 104
+   },
+   "0.98": {
+    "completion": 0.962963,
+    "done": 104
+   }
+  },
+  "108|base|alone": {
+   "set": 108,
+   "label": "Untrained Qwen3.5-9B, alone",
+   "source": "runs_local/bench_v4/results/local108_alone_all/per_task_Qwen3.5-9B.jsonl",
+   "0.85": {
+    "completion": 0.018519,
+    "done": 2
+   },
+   "0.90": {
+    "completion": 0.018519,
+    "done": 2
+   },
+   "0.95": {
+    "completion": 0.018519,
+    "done": 2
+   },
+   "0.98": {
+    "completion": 0.018519,
+    "done": 2
+   }
+  },
+  "108|base|libnote": {
+   "set": 108,
+   "label": "Untrained Qwen3.5-9B, with the library note",
+   "source": "runs_local/bench_v4/results/local108_libnote_all/per_task_Qwen3.5-9B.jsonl",
+   "0.85": {
+    "completion": 0.027778,
+    "done": 3
+   },
+   "0.90": {
+    "completion": 0.018519,
+    "done": 2
+   },
+   "0.95": {
+    "completion": 0.018519,
+    "done": 2
+   },
+   "0.98": {
+    "completion": 0.018519,
+    "done": 2
+   }
+  },
+  "108|gpt-5.6-luna|alone": {
+   "set": 108,
+   "label": "GPT-5.6, alone",
+   "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_gpt-5.6-luna.jsonl",
+   "0.85": {
+    "completion": 0.259259,
+    "done": 28
+   },
+   "0.90": {
+    "completion": 0.25,
+    "done": 27
+   },
+   "0.95": {
+    "completion": 0.25,
+    "done": 27
+   },
+   "0.98": {
+    "completion": 0.231481,
+    "done": 25
+   }
+  },
+  "108|gpt-5.6-luna|lib": {
+   "set": 108,
+   "label": "GPT-5.6, with the library",
+   "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_gpt-5.6-luna.jsonl",
+   "0.85": {
+    "completion": 0.425926,
+    "done": 46
+   },
+   "0.90": {
+    "completion": 0.416667,
+    "done": 45
+   },
+   "0.95": {
+    "completion": 0.416667,
+    "done": 45
+   },
+   "0.98": {
+    "completion": 0.407407,
+    "done": 44
+   }
+  },
+  "108|deepseek-v4-pro|alone": {
+   "set": 108,
+   "label": "DeepSeek V4, alone",
+   "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_deepseek-v4-pro.jsonl",
+   "0.85": {
+    "completion": 0.537037,
+    "done": 58
+   },
+   "0.90": {
+    "completion": 0.537037,
+    "done": 58
+   },
+   "0.95": {
+    "completion": 0.518519,
+    "done": 56
+   },
+   "0.98": {
+    "completion": 0.490741,
+    "done": 53
+   }
+  },
+  "108|deepseek-v4-pro|lib": {
+   "set": 108,
+   "label": "DeepSeek V4, with the library",
+   "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_deepseek-v4-pro.jsonl",
+   "0.85": {
+    "completion": 0.787037,
+    "done": 85
+   },
+   "0.90": {
+    "completion": 0.787037,
+    "done": 85
+   },
+   "0.95": {
+    "completion": 0.787037,
+    "done": 85
+   },
+   "0.98": {
+    "completion": 0.768519,
+    "done": 83
+   }
+  },
+  "108|claude-sonnet-5-5|alone": {
+   "set": 108,
+   "label": "Claude Sonnet 5.5, alone",
+   "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_claude-sonnet-5-5.jsonl",
+   "0.85": {
+    "completion": 0.740741,
+    "done": 80
+   },
+   "0.90": {
+    "completion": 0.731481,
+    "done": 79
+   },
+   "0.95": {
+    "completion": 0.703704,
+    "done": 76
+   },
+   "0.98": {
+    "completion": 0.657407,
+    "done": 71
+   }
+  },
+  "108|claude-sonnet-5-5|lib": {
+   "set": 108,
+   "label": "Claude Sonnet 5.5, with the library",
+   "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_claude-sonnet-5-5.jsonl",
+   "0.85": {
+    "completion": 0.851852,
+    "done": 92
+   },
+   "0.90": {
+    "completion": 0.851852,
+    "done": 92
+   },
+   "0.95": {
+    "completion": 0.851852,
+    "done": 92
+   },
+   "0.98": {
+    "completion": 0.833333,
+    "done": 90
+   }
+  },
+  "108|gemini-3.8-flash|alone": {
+   "set": 108,
+   "label": "Gemini 3.8 Flash, alone",
+   "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_gemini-3.8-flash.jsonl",
+   "0.85": {
+    "completion": 0.185185,
+    "done": 20
+   },
+   "0.90": {
+    "completion": 0.185185,
+    "done": 20
+   },
+   "0.95": {
+    "completion": 0.185185,
+    "done": 20
+   },
+   "0.98": {
+    "completion": 0.185185,
+    "done": 20
+   }
+  },
+  "108|gemini-3.8-flash|lib": {
+   "set": 108,
+   "label": "Gemini 3.8 Flash, with the library",
+   "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_gemini-3.8-flash.jsonl",
+   "0.85": {
+    "completion": 0.601852,
+    "done": 65
+   },
+   "0.90": {
+    "completion": 0.601852,
+    "done": 65
+   },
+   "0.95": {
+    "completion": 0.601852,
+    "done": 65
+   },
+   "0.98": {
+    "completion": 0.601852,
+    "done": 65
+   }
+  },
+  "324|ours": {
+   "set": 324,
+   "label": "Final model, with the library",
+   "source": "runs_local/bench_v4/results/local324_lib_all/per_task_grpo_v10b_c10.jsonl",
+   "0.85": {
+    "completion": 0.959877,
+    "done": 311
+   },
+   "0.90": {
+    "completion": 0.959877,
+    "done": 311
+   },
+   "0.95": {
+    "completion": 0.959877,
+    "done": 311
+   },
+   "0.98": {
+    "completion": 0.959877,
+    "done": 311
+   }
+  },
+  "324|sft|lib": {
+   "set": 324,
+   "label": "Imitation, with the library",
+   "source": "runs_local/bench_v4/results/local324_lib_all/per_task_sft_v10.jsonl",
+   "0.85": {
+    "completion": 0.95679,
+    "done": 310
+   },
+   "0.90": {
+    "completion": 0.95679,
+    "done": 310
+   },
+   "0.95": {
+    "completion": 0.95679,
+    "done": 310
+   },
+   "0.98": {
+    "completion": 0.95679,
+    "done": 310
+   }
+  },
+  "324|sft|alone": {
+   "set": 324,
+   "label": "Imitation, alone",
+   "source": "runs_local/bench_v4/results/local324_alone_all/per_task_sft_v10.jsonl",
+   "0.85": {
+    "completion": 0.166667,
+    "done": 54
+   },
+   "0.90": {
+    "completion": 0.166667,
+    "done": 54
+   },
+   "0.95": {
+    "completion": 0.166667,
+    "done": 54
+   },
+   "0.98": {
+    "completion": 0.166667,
+    "done": 54
+   }
+  },
+  "324|prev|lib": {
+   "set": 324,
+   "label": "Imitation + preferences, earlier corpus, with the library",
+   "source": "runs_local/bench_v4/results/local324_lib_all/per_task_dpo_v9_c10.jsonl",
+   "0.85": {
+    "completion": 0.929012,
+    "done": 301
+   },
+   "0.90": {
+    "completion": 0.929012,
+    "done": 301
+   },
+   "0.95": {
+    "completion": 0.929012,
+    "done": 301
+   },
+   "0.98": {
+    "completion": 0.929012,
+    "done": 301
+   }
+  },
+  "324|claude-sonnet-5-5|alone": {
+   "set": 324,
+   "label": "Claude Sonnet 5.5, alone",
+   "source": "runs_local/bench_v4/results/hosted324_alone_all/per_task_claude-sonnet-5-5.jsonl",
+   "0.85": {
+    "completion": 0.774691,
+    "done": 251
+   },
+   "0.90": {
+    "completion": 0.743827,
+    "done": 241
+   },
+   "0.95": {
+    "completion": 0.694444,
+    "done": 225
+   },
+   "0.98": {
+    "completion": 0.638889,
+    "done": 207
+   }
+  },
+  "324|claude-sonnet-5-5|lib": {
+   "set": 324,
+   "label": "Claude Sonnet 5.5, with the library",
+   "source": "runs_local/bench_v4/results/hosted324_lib_all/per_task_claude-sonnet-5-5.jsonl",
+   "0.85": {
+    "completion": 0.87037,
+    "done": 282
+   },
+   "0.90": {
+    "completion": 0.861111,
+    "done": 279
+   },
+   "0.95": {
+    "completion": 0.845679,
+    "done": 274
+   },
+   "0.98": {
+    "completion": 0.805556,
+    "done": 261
+   }
+  },
+  "2100|sft": {
+   "set": 2100,
+   "label": "Imitation",
+   "source": "runs_local/bench_v4/results/full_all/per_task_sft_v10.jsonl",
+   "0.85": {
+    "completion": 0.952857,
+    "done": 2001
+   },
+   "0.90": {
+    "completion": 0.952381,
+    "done": 2000
+   },
+   "0.95": {
+    "completion": 0.950952,
+    "done": 1997
+   },
+   "0.98": {
+    "completion": 0.950952,
+    "done": 1997
+   }
+  },
+  "2100|dpo": {
+   "set": 2100,
+   "label": "Preference snapshot",
+   "source": "runs_local/bench_v4/results/full_all/per_task_dpo_v10_c6.jsonl",
+   "0.85": {
+    "completion": 0.957143,
+    "done": 2010
+   },
+   "0.90": {
+    "completion": 0.957143,
+    "done": 2010
+   },
+   "0.95": {
+    "completion": 0.955714,
+    "done": 2007
+   },
+   "0.98": {
+    "completion": 0.955714,
+    "done": 2007
+   }
+  },
+  "2100|ours": {
+   "set": 2100,
+   "label": "Final model",
+   "source": "runs_local/bench_v4/results/full_all/per_task_grpo_v10b_c10.jsonl",
+   "0.85": {
+    "completion": 0.96,
+    "done": 2016
+   },
+   "0.90": {
+    "completion": 0.96,
+    "done": 2016
+   },
+   "0.95": {
+    "completion": 0.958571,
+    "done": 2013
+   },
+   "0.98": {
+    "completion": 0.958571,
+    "done": 2013
+   }
+  },
+  "2100|prev": {
+   "set": 2100,
+   "label": "Imitation + preferences, earlier corpus",
+   "source": "runs_local/bench_v4/results/full_all/per_task_dpo_v9_c10.jsonl",
+   "0.85": {
+    "completion": 0.918095,
+    "done": 1928
+   },
+   "0.90": {
+    "completion": 0.915714,
+    "done": 1923
+   },
+   "0.95": {
+    "completion": 0.914762,
+    "done": 1921
+   },
+   "0.98": {
+    "completion": 0.91381,
+    "done": 1919
+   }
+  },
+  "2100|sft_small": {
+   "set": 2100,
+   "label": "Ten-building chain, imitation",
+   "source": "runs_local/bench_v4/results/full_all/per_task_sft_small.jsonl",
+   "0.85": {
+    "completion": 0.727619,
+    "done": 1528
+   },
+   "0.90": {
+    "completion": 0.722857,
+    "done": 1518
+   },
+   "0.95": {
+    "completion": 0.709048,
+    "done": 1489
+   },
+   "0.98": {
+    "completion": 0.707619,
+    "done": 1486
+   }
+  },
+  "2100|dpo_small": {
+   "set": 2100,
+   "label": "Ten-building chain, preferences",
+   "source": "runs_local/bench_v4/results/full_all/per_task_dpo_small_c12.jsonl",
+   "0.85": {
+    "completion": 0.740476,
+    "done": 1555
+   },
+   "0.90": {
+    "completion": 0.73381,
+    "done": 1541
+   },
+   "0.95": {
+    "completion": 0.717619,
+    "done": 1507
+   },
+   "0.98": {
+    "completion": 0.715238,
+    "done": 1502
+   }
+  },
+  "2100|grpo_small": {
+   "set": 2100,
+   "label": "Ten-building chain, reinforcement",
+   "source": "runs_local/bench_v4/results/full_all/per_task_grpo_small_c10.jsonl",
+   "0.85": {
+    "completion": 0.742381,
+    "done": 1559
+   },
+   "0.90": {
+    "completion": 0.73619,
+    "done": 1546
+   },
+   "0.95": {
+    "completion": 0.720476,
+    "done": 1513
+   },
+   "0.98": {
+    "completion": 0.718571,
+    "done": 1509
+   }
+  }
+ },
+ "paired": {
+  "108: Final model, with the library minus Claude Sonnet 5.5, with the library": {
+   "0.85": {
+    "diff": 0.1204,
+    "task_level": [
+     0.0463,
+     0.1944
+    ],
+    "cluster": [
+     0.0172,
+     0.2366
+    ],
+    "a_only": 15,
+    "b_only": 2
+   },
+   "0.90": {
+    "diff": 0.1204,
+    "task_level": [
+     0.0463,
+     0.1944
+    ],
+    "cluster": [
+     0.0172,
+     0.2366
+    ],
+    "a_only": 15,
+    "b_only": 2
+   },
+   "0.95": {
+    "diff": 0.1204,
+    "task_level": [
+     0.0463,
+     0.1944
+    ],
+    "cluster": [
+     0.0172,
+     0.2366
+    ],
+    "a_only": 15,
+    "b_only": 2
+   },
+   "0.98": {
+    "diff": 0.1389,
+    "task_level": [
+     0.0648,
+     0.213
+    ],
+    "cluster": [
+     0.0309,
+     0.2604
+    ],
+    "a_only": 17,
+    "b_only": 2
+   }
+  },
+  "324: Final model, with the library minus Claude Sonnet 5.5, with the library": {
+   "0.85": {
+    "diff": 0.0895,
+    "task_level": [
+     0.0463,
+     0.1358
+    ],
+    "cluster": [
+     0.0029,
+     0.1661
+    ],
+    "a_only": 41,
+    "b_only": 12
+   },
+   "0.90": {
+    "diff": 0.0988,
+    "task_level": [
+     0.0556,
+     0.1451
+    ],
+    "cluster": [
+     0.0122,
+     0.1713
+    ],
+    "a_only": 44,
+    "b_only": 12
+   },
+   "0.95": {
+    "diff": 0.1142,
+    "task_level": [
+     0.0679,
+     0.1605
+    ],
+    "cluster": [
+     0.0318,
+     0.1842
+    ],
+    "a_only": 48,
+    "b_only": 11
+   },
+   "0.98": {
+    "diff": 0.1543,
+    "task_level": [
+     0.108,
+     0.2037
+    ],
+    "cluster": [
+     0.0592,
+     0.234
+    ],
+    "a_only": 60,
+    "b_only": 10
+   }
+  },
+  "108: Final model, with the library minus Claude Sonnet 5.5, alone": {
+   "0.85": {
+    "diff": 0.2315,
+    "task_level": [
+     0.1481,
+     0.3148
+    ],
+    "cluster": [
+     0.1275,
+     0.3421
+    ],
+    "a_only": 26,
+    "b_only": 1
+   },
+   "0.90": {
+    "diff": 0.2407,
+    "task_level": [
+     0.1574,
+     0.3241
+    ],
+    "cluster": [
+     0.1364,
+     0.3491
+    ],
+    "a_only": 27,
+    "b_only": 1
+   },
+   "0.95": {
+    "diff": 0.2685,
+    "task_level": [
+     0.1852,
+     0.3611
+    ],
+    "cluster": [
+     0.1651,
+     0.3694
+    ],
+    "a_only": 30,
+    "b_only": 1
+   },
+   "0.98": {
+    "diff": 0.3148,
+    "task_level": [
+     0.2222,
+     0.4074
+    ],
+    "cluster": [
+     0.2093,
+     0.4184
+    ],
+    "a_only": 35,
+    "b_only": 1
+   }
+  },
+  "2100: Final model minus Imitation": {
+   "0.85": {
+    "diff": 0.0071,
+    "task_level": [
+     0.0029,
+     0.0114
+    ],
+    "cluster": [
+     -0.0005,
+     0.0197
+    ],
+    "a_only": 18,
+    "b_only": 3
+   },
+   "0.90": {
+    "diff": 0.0076,
+    "task_level": [
+     0.0033,
+     0.0119
+    ],
+    "cluster": [
+     0.0,
+     0.0202
+    ],
+    "a_only": 19,
+    "b_only": 3
+   },
+   "0.95": {
+    "diff": 0.0076,
+    "task_level": [
+     0.0033,
+     0.0119
+    ],
+    "cluster": [
+     -0.0004,
+     0.0202
+    ],
+    "a_only": 20,
+    "b_only": 4
+   },
+   "0.98": {
+    "diff": 0.0076,
+    "task_level": [
+     0.0033,
+     0.0119
+    ],
+    "cluster": [
+     -0.0004,
+     0.0202
+    ],
+    "a_only": 20,
+    "b_only": 4
+   }
+  }
+ },
+ "binding_axis_at_0_98": {
+  "2100|ours": {
+   "completed_at_0.90_not_at_0.98": 3,
+   "axis_below_0.98_among_them": {
+    "geometry": 2,
+    "semantics": 1,
+    "topology": 1
+   }
+  },
+  "108|ours": {
+   "completed_at_0.90_not_at_0.98": 0,
+   "axis_below_0.98_among_them": {
+    "geometry": 0,
+    "semantics": 0,
+    "topology": 0
+   }
+  },
+  "108|claude-sonnet-5-5|lib": {
+   "completed_at_0.90_not_at_0.98": 2,
+   "axis_below_0.98_among_them": {
+    "geometry": 2,
+    "semantics": 0,
+    "topology": 0
+   }
+  },
+  "324|claude-sonnet-5-5|lib": {
+   "completed_at_0.90_not_at_0.98": 18,
+   "axis_below_0.98_among_them": {
+    "geometry": 17,
+    "semantics": 1,
+    "topology": 1
+   }
+  }
+ },
+ "fully_specified": {
+  "definition": "fully specified = tasks without the wording.underspecified family (97 of 108, 295 of 324, 1,944 of 2,100)",
+  "arms": {
+   "108|ours": {
+    "set": 108,
+    "n": 97,
+    "label": "Final model, with the library",
+    "0.85": {
+     "completion": 0.969072,
+     "done": 94
+    },
+    "0.90": {
+     "completion": 0.969072,
+     "done": 94
+    },
+    "0.95": {
+     "completion": 0.969072,
+     "done": 94
+    },
+    "0.98": {
+     "completion": 0.969072,
+     "done": 94
+    }
+   },
+   "108|sft|lib": {
+    "set": 108,
+    "n": 97,
+    "label": "Imitation, with the library",
+    "0.85": {
+     "completion": 0.958763,
+     "done": 93
+    },
+    "0.90": {
+     "completion": 0.958763,
+     "done": 93
+    },
+    "0.95": {
+     "completion": 0.958763,
+     "done": 93
+    },
+    "0.98": {
+     "completion": 0.958763,
+     "done": 93
+    }
+   },
+   "108|sft|alone": {
+    "set": 108,
+    "n": 97,
+    "label": "Imitation, alone",
+    "0.85": {
+     "completion": 0.072165,
+     "done": 7
+    },
+    "0.90": {
+     "completion": 0.072165,
+     "done": 7
+    },
+    "0.95": {
+     "completion": 0.072165,
+     "done": 7
+    },
+    "0.98": {
+     "completion": 0.072165,
+     "done": 7
+    }
+   },
+   "108|dpo|lib": {
+    "set": 108,
+    "n": 97,
+    "label": "Preference snapshot, with the library",
+    "0.85": {
+     "completion": 0.958763,
+     "done": 93
+    },
+    "0.90": {
+     "completion": 0.958763,
+     "done": 93
+    },
+    "0.95": {
+     "completion": 0.958763,
+     "done": 93
+    },
+    "0.98": {
+     "completion": 0.958763,
+     "done": 93
+    }
+   },
+   "324|ours": {
+    "set": 324,
+    "n": 295,
+    "label": "Final model, with the library",
+    "0.85": {
+     "completion": 0.955932,
+     "done": 282
+    },
+    "0.90": {
+     "completion": 0.955932,
+     "done": 282
+    },
+    "0.95": {
+     "completion": 0.955932,
+     "done": 282
+    },
+    "0.98": {
+     "completion": 0.955932,
+     "done": 282
+    }
+   },
+   "324|sft|lib": {
+    "set": 324,
+    "n": 295,
+    "label": "Imitation, with the library",
+    "0.85": {
+     "completion": 0.952542,
+     "done": 281
+    },
+    "0.90": {
+     "completion": 0.952542,
+     "done": 281
+    },
+    "0.95": {
+     "completion": 0.952542,
+     "done": 281
+    },
+    "0.98": {
+     "completion": 0.952542,
+     "done": 281
+    }
+   },
+   "324|sft|alone": {
+    "set": 324,
+    "n": 295,
+    "label": "Imitation, alone",
+    "0.85": {
+     "completion": 0.084746,
+     "done": 25
+    },
+    "0.90": {
+     "completion": 0.084746,
+     "done": 25
+    },
+    "0.95": {
+     "completion": 0.084746,
+     "done": 25
+    },
+    "0.98": {
+     "completion": 0.084746,
+     "done": 25
+    }
+   },
+   "324|dpo|lib": {
+    "set": 324,
+    "n": 295,
+    "label": "Preference snapshot, with the library",
+    "0.85": {
+     "completion": 0.949153,
+     "done": 280
+    },
+    "0.90": {
+     "completion": 0.949153,
+     "done": 280
+    },
+    "0.95": {
+     "completion": 0.949153,
+     "done": 280
+    },
+    "0.98": {
+     "completion": 0.949153,
+     "done": 280
+    }
+   },
+   "324|prev|lib": {
+    "set": 324,
+    "n": 295,
+    "label": "Imitation + preferences, earlier corpus, with the library",
+    "0.85": {
+     "completion": 0.922034,
+     "done": 272
+    },
+    "0.90": {
+     "completion": 0.922034,
+     "done": 272
+    },
+    "0.95": {
+     "completion": 0.922034,
+     "done": 272
+    },
+    "0.98": {
+     "completion": 0.922034,
+     "done": 272
+    }
+   },
+   "108|base|alone": {
+    "set": 108,
+    "n": 97,
+    "label": "Untrained Qwen3.5-9B, alone",
+    "0.85": {
+     "completion": 0.020619,
+     "done": 2
+    },
+    "0.90": {
+     "completion": 0.020619,
+     "done": 2
+    },
+    "0.95": {
+     "completion": 0.020619,
+     "done": 2
+    },
+    "0.98": {
+     "completion": 0.020619,
+     "done": 2
+    }
+   },
+   "108|base|libnote": {
+    "set": 108,
+    "n": 97,
+    "label": "Untrained Qwen3.5-9B, with the library note",
+    "0.85": {
+     "completion": 0.030928,
+     "done": 3
+    },
+    "0.90": {
+     "completion": 0.020619,
+     "done": 2
+    },
+    "0.95": {
+     "completion": 0.020619,
+     "done": 2
+    },
+    "0.98": {
+     "completion": 0.020619,
+     "done": 2
+    }
+   },
+   "108|gpt-5.6-luna|alone": {
+    "set": 108,
+    "n": 97,
+    "label": "GPT-5.6, alone",
+    "0.85": {
+     "completion": 0.28866,
+     "done": 28
+    },
+    "0.90": {
+     "completion": 0.278351,
+     "done": 27
+    },
+    "0.95": {
+     "completion": 0.278351,
+     "done": 27
+    },
+    "0.98": {
+     "completion": 0.257732,
+     "done": 25
+    }
+   },
+   "108|gpt-5.6-luna|lib": {
+    "set": 108,
+    "n": 97,
+    "label": "GPT-5.6, with the library",
+    "0.85": {
+     "completion": 0.474227,
+     "done": 46
+    },
+    "0.90": {
+     "completion": 0.463918,
+     "done": 45
+    },
+    "0.95": {
+     "completion": 0.463918,
+     "done": 45
+    },
+    "0.98": {
+     "completion": 0.453608,
+     "done": 44
+    }
+   },
+   "108|deepseek-v4-pro|alone": {
+    "set": 108,
+    "n": 97,
+    "label": "DeepSeek V4, alone",
+    "0.85": {
+     "completion": 0.597938,
+     "done": 58
+    },
+    "0.90": {
+     "completion": 0.597938,
+     "done": 58
+    },
+    "0.95": {
+     "completion": 0.57732,
+     "done": 56
+    },
+    "0.98": {
+     "completion": 0.546392,
+     "done": 53
+    }
+   },
+   "108|deepseek-v4-pro|lib": {
+    "set": 108,
+    "n": 97,
+    "label": "DeepSeek V4, with the library",
+    "0.85": {
+     "completion": 0.876289,
+     "done": 85
+    },
+    "0.90": {
+     "completion": 0.876289,
+     "done": 85
+    },
+    "0.95": {
+     "completion": 0.876289,
+     "done": 85
+    },
+    "0.98": {
+     "completion": 0.85567,
+     "done": 83
+    }
+   },
+   "108|claude-sonnet-5-5|alone": {
+    "set": 108,
+    "n": 97,
+    "label": "Claude Sonnet 5.5, alone",
+    "0.85": {
+     "completion": 0.824742,
+     "done": 80
+    },
+    "0.90": {
+     "completion": 0.814433,
+     "done": 79
+    },
+    "0.95": {
+     "completion": 0.783505,
+     "done": 76
+    },
+    "0.98": {
+     "completion": 0.731959,
+     "done": 71
+    }
+   },
+   "108|claude-sonnet-5-5|lib": {
+    "set": 108,
+    "n": 97,
+    "label": "Claude Sonnet 5.5, with the library",
+    "0.85": {
+     "completion": 0.948454,
+     "done": 92
+    },
+    "0.90": {
+     "completion": 0.948454,
+     "done": 92
+    },
+    "0.95": {
+     "completion": 0.948454,
+     "done": 92
+    },
+    "0.98": {
+     "completion": 0.927835,
+     "done": 90
+    }
+   },
+   "108|gemini-3.8-flash|alone": {
+    "set": 108,
+    "n": 97,
+    "label": "Gemini 3.8 Flash, alone",
+    "0.85": {
+     "completion": 0.206186,
+     "done": 20
+    },
+    "0.90": {
+     "completion": 0.206186,
+     "done": 20
+    },
+    "0.95": {
+     "completion": 0.206186,
+     "done": 20
+    },
+    "0.98": {
+     "completion": 0.206186,
+     "done": 20
+    }
+   },
+   "108|gemini-3.8-flash|lib": {
+    "set": 108,
+    "n": 97,
+    "label": "Gemini 3.8 Flash, with the library",
+    "0.85": {
+     "completion": 0.670103,
+     "done": 65
+    },
+    "0.90": {
+     "completion": 0.670103,
+     "done": 65
+    },
+    "0.95": {
+     "completion": 0.670103,
+     "done": 65
+    },
+    "0.98": {
+     "completion": 0.670103,
+     "done": 65
+    }
+   },
+   "324|claude-sonnet-5-5|alone": {
+    "set": 324,
+    "n": 295,
+    "label": "Claude Sonnet 5.5, alone",
+    "0.85": {
+     "completion": 0.850847,
+     "done": 251
+    },
+    "0.90": {
+     "completion": 0.816949,
+     "done": 241
+    },
+    "0.95": {
+     "completion": 0.762712,
+     "done": 225
+    },
+    "0.98": {
+     "completion": 0.701695,
+     "done": 207
+    }
+   },
+   "324|claude-sonnet-5-5|lib": {
+    "set": 324,
+    "n": 295,
+    "label": "Claude Sonnet 5.5, with the library",
+    "0.85": {
+     "completion": 0.955932,
+     "done": 282
+    },
+    "0.90": {
+     "completion": 0.945763,
+     "done": 279
+    },
+    "0.95": {
+     "completion": 0.928814,
+     "done": 274
+    },
+    "0.98": {
+     "completion": 0.884746,
+     "done": 261
+    }
+   },
+   "2100|sft": {
+    "set": 2100,
+    "n": 1944,
+    "label": "Imitation",
+    "0.85": {
+     "completion": 0.950103,
+     "done": 1847
+    },
+    "0.90": {
+     "completion": 0.949588,
+     "done": 1846
+    },
+    "0.95": {
+     "completion": 0.948045,
+     "done": 1843
+    },
+    "0.98": {
+     "completion": 0.948045,
+     "done": 1843
+    }
+   },
+   "2100|dpo": {
+    "set": 2100,
+    "n": 1944,
+    "label": "Preference snapshot",
+    "0.85": {
+     "completion": 0.954733,
+     "done": 1856
+    },
+    "0.90": {
+     "completion": 0.954733,
+     "done": 1856
+    },
+    "0.95": {
+     "completion": 0.953189,
+     "done": 1853
+    },
+    "0.98": {
+     "completion": 0.953189,
+     "done": 1853
+    }
+   },
+   "2100|ours": {
+    "set": 2100,
+    "n": 1944,
+    "label": "Final model",
+    "0.85": {
+     "completion": 0.957305,
+     "done": 1861
+    },
+    "0.90": {
+     "completion": 0.957305,
+     "done": 1861
+    },
+    "0.95": {
+     "completion": 0.955761,
+     "done": 1858
+    },
+    "0.98": {
+     "completion": 0.955761,
+     "done": 1858
+    }
+   },
+   "2100|prev": {
+    "set": 2100,
+    "n": 1944,
+    "label": "Imitation + preferences, earlier corpus",
+    "0.85": {
+     "completion": 0.912551,
+     "done": 1774
+    },
+    "0.90": {
+     "completion": 0.909979,
+     "done": 1769
+    },
+    "0.95": {
+     "completion": 0.908951,
+     "done": 1767
+    },
+    "0.98": {
+     "completion": 0.907922,
+     "done": 1765
+    }
+   },
+   "2100|sft_small": {
+    "set": 2100,
+    "n": 1944,
+    "label": "Ten-building chain, imitation",
+    "0.85": {
+     "completion": 0.712963,
+     "done": 1386
+    },
+    "0.90": {
+     "completion": 0.707819,
+     "done": 1376
+    },
+    "0.95": {
+     "completion": 0.692901,
+     "done": 1347
+    },
+    "0.98": {
+     "completion": 0.691358,
+     "done": 1344
+    }
+   },
+   "2100|dpo_small": {
+    "set": 2100,
+    "n": 1944,
+    "label": "Ten-building chain, preferences",
+    "0.85": {
+     "completion": 0.728909,
+     "done": 1417
+    },
+    "0.90": {
+     "completion": 0.721708,
+     "done": 1403
+    },
+    "0.95": {
+     "completion": 0.704218,
+     "done": 1369
+    },
+    "0.98": {
+     "completion": 0.701646,
+     "done": 1364
+    }
+   },
+   "2100|grpo_small": {
+    "set": 2100,
+    "n": 1944,
+    "label": "Ten-building chain, reinforcement",
+    "0.85": {
+     "completion": 0.734053,
+     "done": 1427
+    },
+    "0.90": {
+     "completion": 0.727366,
+     "done": 1414
+    },
+    "0.95": {
+     "completion": 0.710391,
+     "done": 1381
+    },
+    "0.98": {
+     "completion": 0.708333,
+     "done": 1377
+    }
+   }
+  },
+  "paired": {
+   "108: Final model, with the library minus Claude Sonnet 5.5, with the library": {
+    "0.85": {
+     "n": 97,
+     "diff": 0.020619,
+     "task_level": [
+      -0.030928,
+      0.072165
+     ],
+     "cluster": [
+      -0.034091,
+      0.078431
+     ],
+     "n_buildings": 12,
+     "a_only": 4,
+     "b_only": 2
+    },
+    "0.90": {
+     "n": 97,
+     "diff": 0.020619,
+     "task_level": [
+      -0.030928,
+      0.072165
+     ],
+     "cluster": [
+      -0.034091,
+      0.078431
+     ],
+     "n_buildings": 12,
+     "a_only": 4,
+     "b_only": 2
+    },
+    "0.95": {
+     "n": 97,
+     "diff": 0.020619,
+     "task_level": [
+      -0.030928,
+      0.072165
+     ],
+     "cluster": [
+      -0.034091,
+      0.078431
+     ],
+     "n_buildings": 12,
+     "a_only": 4,
+     "b_only": 2
+    },
+    "0.98": {
+     "n": 97,
+     "diff": 0.041237,
+     "task_level": [
+      -0.010309,
+      0.103093
+     ],
+     "cluster": [
+      -0.019048,
+      0.105263
+     ],
+     "n_buildings": 12,
+     "a_only": 6,
+     "b_only": 2
+    }
+   },
+   "108: Final model, with the library minus Claude Sonnet 5.5, alone": {
+    "0.85": {
+     "n": 97,
+     "diff": 0.14433,
+     "task_level": [
+      0.072165,
+      0.226804
+     ],
+     "cluster": [
+      0.085106,
+      0.204545
+     ],
+     "n_buildings": 12,
+     "a_only": 15,
+     "b_only": 1
+    },
+    "0.90": {
+     "n": 97,
+     "diff": 0.154639,
+     "task_level": [
+      0.082474,
+      0.237113
+     ],
+     "cluster": [
+      0.094595,
+      0.213483
+     ],
+     "n_buildings": 12,
+     "a_only": 16,
+     "b_only": 1
+    },
+    "0.95": {
+     "n": 97,
+     "diff": 0.185567,
+     "task_level": [
+      0.103093,
+      0.268041
+     ],
+     "cluster": [
+      0.116883,
+      0.244444
+     ],
+     "n_buildings": 12,
+     "a_only": 19,
+     "b_only": 1
+    },
+    "0.98": {
+     "n": 97,
+     "diff": 0.237113,
+     "task_level": [
+      0.154639,
+      0.329897
+     ],
+     "cluster": [
+      0.163043,
+      0.303371
+     ],
+     "n_buildings": 12,
+     "a_only": 24,
+     "b_only": 1
+    }
+   },
+   "324: Final model, with the library minus Claude Sonnet 5.5, with the library": {
+    "0.85": {
+     "n": 295,
+     "diff": 0.0,
+     "task_level": [
+      -0.033898,
+      0.033898
+     ],
+     "cluster": [
+      -0.063694,
+      0.051515
+     ],
+     "n_buildings": 12,
+     "a_only": 12,
+     "b_only": 12
+    },
+    "0.90": {
+     "n": 295,
+     "diff": 0.010169,
+     "task_level": [
+      -0.023729,
+      0.044068
+     ],
+     "cluster": [
+      -0.054598,
+      0.059701
+     ],
+     "n_buildings": 12,
+     "a_only": 15,
+     "b_only": 12
+    },
+    "0.95": {
+     "n": 295,
+     "diff": 0.027119,
+     "task_level": [
+      -0.010169,
+      0.064407
+     ],
+     "cluster": [
+      -0.036101,
+      0.076433
+     ],
+     "n_buildings": 12,
+     "a_only": 19,
+     "b_only": 11
+    },
+    "0.98": {
+     "n": 295,
+     "diff": 0.071186,
+     "task_level": [
+      0.030508,
+      0.111864
+     ],
+     "cluster": [
+      -0.003846,
+      0.130719
+     ],
+     "n_buildings": 12,
+     "a_only": 31,
+     "b_only": 10
+    }
+   },
+   "324: Final model, with the library minus Claude Sonnet 5.5, alone": {
+    "0.85": {
+     "n": 295,
+     "diff": 0.105085,
+     "task_level": [
+      0.061017,
+      0.149153
+     ],
+     "cluster": [
+      0.058182,
+      0.147727
+     ],
+     "n_buildings": 12,
+     "a_only": 39,
+     "b_only": 8
+    },
+    "0.90": {
+     "n": 295,
+     "diff": 0.138983,
+     "task_level": [
+      0.091525,
+      0.186441
+     ],
+     "cluster": [
+      0.093248,
+      0.177474
+     ],
+     "n_buildings": 12,
+     "a_only": 49,
+     "b_only": 8
+    },
+    "0.95": {
+     "n": 295,
+     "diff": 0.19322,
+     "task_level": [
+      0.142373,
+      0.244068
+     ],
+     "cluster": [
+      0.148,
+      0.236527
+     ],
+     "n_buildings": 12,
+     "a_only": 64,
+     "b_only": 7
+    },
+    "0.98": {
+     "n": 295,
+     "diff": 0.254237,
+     "task_level": [
+      0.2,
+      0.308475
+     ],
+     "cluster": [
+      0.207843,
+      0.299652
+     ],
+     "n_buildings": 12,
+     "a_only": 80,
+     "b_only": 5
+    }
+   }
+  },
+  "paired_other_commercial_t090_108": {
+   "108: Final model, with the library minus GPT-5.6, with the library": {
+    "n": 97,
+    "diff": 0.505155,
+    "task_level": [
+     0.402062,
+     0.608247
+    ],
+    "cluster": [
+     0.421053,
+     0.575
+    ],
+    "n_buildings": 12,
+    "a_only": 49,
+    "b_only": 0
+   },
+   "108: Final model, with the library minus DeepSeek V4, with the library": {
+    "n": 97,
+    "diff": 0.092784,
+    "task_level": [
+     0.030928,
+     0.164948
+    ],
+    "cluster": [
+     0.021053,
+     0.166667
+    ],
+    "n_buildings": 12,
+    "a_only": 10,
+    "b_only": 1
+   },
+   "108: Final model, with the library minus Gemini 3.8 Flash, with the library": {
+    "n": 97,
+    "diff": 0.298969,
+    "task_level": [
+     0.206186,
+     0.391753
+    ],
+    "cluster": [
+     0.236364,
+     0.368932
+    ],
+    "n_buildings": 12,
+    "a_only": 29,
+    "b_only": 0
+   }
+  }
+ }
+}

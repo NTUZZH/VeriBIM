@@ -1,0 +1,65 @@
+{
+ "final_full": {
+  "n": 2100,
+  "completed_090": 2016,
+  "completed_098": 2013,
+  "all_axes_1": 1817,
+  "rate_090": 0.96,
+  "rate_098": 0.9586,
+  "lost_at_098_with_geometry_below_098": 2
+ },
+ "final_108": {
+  "n": 108,
+  "completed_090": 105,
+  "completed_098": 105,
+  "all_axes_1": 98,
+  "rate_090": 0.9722,
+  "rate_098": 0.9722,
+  "lost_at_098_with_geometry_below_098": 0
+ },
+ "imitation_108": {
+  "n": 108,
+  "completed_090": 104,
+  "completed_098": 104,
+  "all_axes_1": 97,
+  "rate_090": 0.963,
+  "rate_098": 0.963,
+  "lost_at_098_with_geometry_below_098": 0
+ },
+ "claude-sonnet-5-5_108": {
+  "n": 108,
+  "completed_090": 92,
+  "completed_098": 90,
+  "all_axes_1": 81,
+  "rate_090": 0.8519,
+  "rate_098": 0.8333,
+  "lost_at_098_with_geometry_below_098": 2
+ },
+ "gpt-5.6-luna_108": {
+  "n": 108,
+  "completed_090": 45,
+  "completed_098": 44,
+  "all_axes_1": 41,
+  "rate_090": 0.4167,
+  "rate_098": 0.4074,
+  "lost_at_098_with_geometry_below_098": 1
+ },
+ "gemini-3.8-flash_108": {
+  "n": 108,
+  "completed_090": 65,
+  "completed_098": 65,
+  "all_axes_1": 58,
+  "rate_090": 0.6019,
+  "rate_098": 0.6019,
+  "lost_at_098_with_geometry_below_098": 0
+ },
+ "deepseek-v4-pro_108": {
+  "n": 108,
+  "completed_090": 85,
+  "completed_098": 83,
+  "all_axes_1": 76,
+  "rate_090": 0.787,
+  "rate_098": 0.7685,
+  "lost_at_098_with_geometry_below_098": 2
+ }
+}

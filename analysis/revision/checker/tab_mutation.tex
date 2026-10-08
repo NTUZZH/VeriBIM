@@ -1,0 +1,50 @@
+\begin{tabular}{lrrrrr}
+\toprule
+Change applied to the ground truth & Tasks & \multicolumn{2}{c}{Accepted (\%)} & \multicolumn{2}{c}{Median score} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+ & & at 0.90 & at 0.98 & Geometry & Semantics \\
+\midrule
+\multicolumn{6}{l}{\textit{Reference}} \\
+Correct edit (ground truth written again) & 160 & 100 & 100 & 1.000 & 1.000 \\
+Delete: correct deletion re-run on the source & 80 & 100 & 100 & 1.000 & 1.000 \\
+No edit (unedited source model) & 240 & 0 & 0 & 0.000 & 0.000 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Position}} \\
+Shift along the element axis, 5\,\% of its length & 160 & 98 & 6 & 0.962 & 1.000 \\
+Shift along the element axis, 10\,\% & 160 & 96 & 6 & 0.961 & 1.000 \\
+Shift along the element axis, 20\,\% & 160 & 92 & 6 & 0.958 & 1.000 \\
+Shift along the element axis, 50\,\% & 160 & 63 & 0 & 0.926 & 1.000 \\
+Door or window shifted 0.30\,m along its wall & 45 & 100 & 0 & 0.953 & 1.000 \\
+Opposite direction or other side & 76 & 12 & 1 & 0.000 & 0.000 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Dimension}} \\
+Width $\times$0.98 & 152 & 97 & 41 & 0.979 & 1.000 \\
+Width $\times$0.95 & 152 & 88 & 16 & 0.971 & 1.000 \\
+Width $\times$0.90 & 152 & 82 & 10 & 0.966 & 1.000 \\
+Width $\times$0.80 & 152 & 81 & 8 & 0.964 & 1.000 \\
+Height $\times$0.98 & 153 & 97 & 35 & 0.977 & 1.000 \\
+Height $\times$0.95 & 152 & 83 & 24 & 0.970 & 1.000 \\
+Height $\times$0.90 & 152 & 82 & 17 & 0.967 & 1.000 \\
+Height $\times$0.80 & 152 & 82 & 11 & 0.965 & 1.000 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Relation}} \\
+Door or window in the nearest other wall & 26 & 0 & 0 & 0.000 & 0.000 \\
+Storey containment removed & 160 & 26 & 0 & 1.000 & 1.000 \\
+Opening filling relation removed & 44 & 73 & 0 & 1.000 & 1.000 \\
+Type assignment removed & 63 & 62 & 62 & 1.000 & 1.000 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Attribute}} \\
+Name changed & 160 & 46 & 12 & 1.000 & 0.854 \\
+Object type changed & 43 & 60 & 30 & 1.000 & 0.976 \\
+Predefined type changed & 73 & 62 & 10 & 1.000 & 0.938 \\
+One property value raised by 20\,\% & 57 & 91 & 33 & 1.000 & 0.978 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Outside the target}} \\
+Unrelated element of the same class moved 0.5\,m & 144 & 100 & 100 & 1.000 & 1.000 \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Deletion}} \\
+Delete: nearest other element deleted instead & 79 & 0 & 0 & 0.000 & 0.000 \\
+Delete: one of several targets left in place & 15 & 7 & 0 & 0.500 & 0.500 \\
+Delete: target and an unrelated neighbour deleted & 79 & 4 & 0 & 1.000 & 1.000 \\
+\bottomrule
+\end{tabular}

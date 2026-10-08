@@ -1,0 +1,1163 @@
+{
+ "rule": "Classes (first match wins): completed (all axes >= 0.9); wrong commit (committed a file, not completed); then, for\nruns without a commit: sandbox crash (stop_reason sandbox_crash), tool timeout (stop_reason tool_timeout), model turn\ntruncated (stop_reason output_truncated, or last finish reason 'length'), context limit (stop_reason\ncontext_overflow), round budget exhausted (stop_reason budget_exhausted), provider error (any other non-empty error),\nreply without commit (stop_reason completed). A malformed tool call never ends a run in this harness (no stop reason\nfor it exists); malformed, non-compiling and failing calls are counted per run instead.",
+ "arms": {
+  "Final model, with library": {
+   "source": "runs_local/bench_v4/results/local108_lib_all/per_task_grpo_v10b_c10.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 105,
+    "wrong_commit": 2,
+    "round_budget": 1,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 0,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 0,
+   "wrong_commit_on_edit_task": 2,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.3333335,
+   "mean_tool_rounds_all": 4.1,
+   "mean_tool_rounds_failed": 10.33,
+   "mean_tool_rounds_completed": 3.92,
+   "tool_calls": 443,
+   "malformed_calls": 0,
+   "runs_with_malformed_call": 0,
+   "non_compiling_calls": 2,
+   "calls_failing_at_run_time": 3,
+   "share_of_calls_failing_at_run_time": 0.0068,
+   "runs_with_blocked_file_access": 2,
+   "blocked_file_access_events": 2,
+   "rows_reread_after_sandbox_crash": 0,
+   "stop_reason_counts": {
+    "completed": 107,
+    "budget_exhausted": 1
+   },
+   "committed_by_stop_reason_on_failures": {
+    "True|completed": 2,
+    "False|budget_exhausted": 1
+   },
+   "tool_rounds_histogram": {
+    "1": 11,
+    "3": 17,
+    "4": 50,
+    "5": 18,
+    "6": 9,
+    "7": 1,
+    "8": 1,
+    "22": 1
+   }
+  },
+  "Imitation, with library": {
+   "source": "runs_local/bench_v4/results/local108_lib_all/per_task_sft_v10.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 104,
+    "wrong_commit": 1,
+    "round_budget": 1,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 1,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 1,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 0,
+   "wrong_commit_on_edit_task": 1,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.0,
+   "mean_tool_rounds_all": 4.15,
+   "mean_tool_rounds_failed": 11.0,
+   "mean_tool_rounds_completed": 3.88,
+   "tool_calls": 448,
+   "malformed_calls": 0,
+   "runs_with_malformed_call": 0,
+   "non_compiling_calls": 3,
+   "calls_failing_at_run_time": 15,
+   "share_of_calls_failing_at_run_time": 0.0335,
+   "runs_with_blocked_file_access": 1,
+   "blocked_file_access_events": 2,
+   "rows_reread_after_sandbox_crash": 0,
+   "stop_reason_counts": {
+    "completed": 106,
+    "context_overflow": 1,
+    "budget_exhausted": 1
+   },
+   "committed_by_stop_reason_on_failures": {
+    "False|context_overflow": 1,
+    "False|budget_exhausted": 1,
+    "True|completed": 1,
+    "False|completed": 1
+   },
+   "tool_rounds_histogram": {
+    "1": 12,
+    "3": 17,
+    "4": 50,
+    "5": 17,
+    "6": 9,
+    "7": 1,
+    "17": 1,
+    "22": 1
+   }
+  },
+  "Imitation, alone": {
+   "source": "runs_local/bench_v4/results/local108_alone_all/per_task_sft_v10.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 18,
+    "wrong_commit": 11,
+    "round_budget": 78,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 1,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 0,
+   "wrong_commit_on_edit_task": 11,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.2567100909090909,
+   "mean_tool_rounds_all": 16.71,
+   "mean_tool_rounds_failed": 19.64,
+   "mean_tool_rounds_completed": 2.06,
+   "tool_calls": 1805,
+   "malformed_calls": 20,
+   "runs_with_malformed_call": 2,
+   "non_compiling_calls": 2,
+   "calls_failing_at_run_time": 1229,
+   "share_of_calls_failing_at_run_time": 0.6809,
+   "runs_with_blocked_file_access": 0,
+   "blocked_file_access_events": 0,
+   "rows_reread_after_sandbox_crash": 0,
+   "stop_reason_counts": {
+    "budget_exhausted": 78,
+    "completed": 30
+   },
+   "committed_by_stop_reason_on_failures": {
+    "False|budget_exhausted": 78,
+    "True|completed": 11,
+    "False|completed": 1
+   },
+   "tool_rounds_histogram": {
+    "1": 12,
+    "3": 3,
+    "4": 8,
+    "5": 6,
+    "6": 1,
+    "22": 78
+   }
+  },
+  "Preference stage, with library": {
+   "source": "runs_local/bench_v4/results/local108_lib_all/per_task_dpo_v10_c6.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 104,
+    "wrong_commit": 1,
+    "round_budget": 1,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 1,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 1,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 0,
+   "wrong_commit_on_edit_task": 1,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.258466,
+   "mean_tool_rounds_all": 4.2,
+   "mean_tool_rounds_failed": 12.75,
+   "mean_tool_rounds_completed": 3.88,
+   "tool_calls": 454,
+   "malformed_calls": 0,
+   "runs_with_malformed_call": 0,
+   "non_compiling_calls": 3,
+   "calls_failing_at_run_time": 4,
+   "share_of_calls_failing_at_run_time": 0.0088,
+   "runs_with_blocked_file_access": 1,
+   "blocked_file_access_events": 1,
+   "rows_reread_after_sandbox_crash": 0,
+   "stop_reason_counts": {
+    "completed": 106,
+    "budget_exhausted": 1,
+    "context_overflow": 1
+   },
+   "committed_by_stop_reason_on_failures": {
+    "True|completed": 1,
+    "False|budget_exhausted": 1,
+    "False|context_overflow": 1,
+    "False|completed": 1
+   },
+   "tool_rounds_histogram": {
+    "1": 12,
+    "3": 18,
+    "4": 48,
+    "5": 17,
+    "6": 10,
+    "7": 1,
+    "22": 2
+   }
+  },
+  "Untrained, alone": {
+   "source": "runs_local/bench_v4/results/local108_alone_all/per_task_Qwen3.5-9B.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 2,
+    "wrong_commit": 13,
+    "round_budget": 71,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 18,
+    "sandbox_crash": 2,
+    "provider_error": 0,
+    "reply_no_commit": 2,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 2,
+   "wrong_commit_on_edit_task": 11,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 8,
+   "wrong_commit_score_mean": 0.1698876153846154,
+   "mean_tool_rounds_all": 19.46,
+   "mean_tool_rounds_failed": 19.77,
+   "mean_tool_rounds_completed": 3.0,
+   "tool_calls": 2102,
+   "malformed_calls": 164,
+   "runs_with_malformed_call": 28,
+   "non_compiling_calls": 10,
+   "calls_failing_at_run_time": 724,
+   "share_of_calls_failing_at_run_time": 0.3444,
+   "runs_with_blocked_file_access": 80,
+   "blocked_file_access_events": 606,
+   "rows_reread_after_sandbox_crash": 0,
+   "stop_reason_counts": {
+    "budget_exhausted": 77,
+    "context_overflow": 19,
+    "completed": 10,
+    "sandbox_crash": 2
+   },
+   "committed_by_stop_reason_on_failures": {
+    "False|budget_exhausted": 71,
+    "False|context_overflow": 18,
+    "True|completed": 6,
+    "True|context_overflow": 1,
+    "True|budget_exhausted": 6,
+    "False|sandbox_crash": 2,
+    "False|completed": 2
+   },
+   "tool_rounds_histogram": {
+    "3": 3,
+    "4": 1,
+    "5": 2,
+    "7": 1,
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "12": 1,
+    "13": 2,
+    "14": 2,
+    "15": 2,
+    "16": 2,
+    "17": 3,
+    "18": 1,
+    "19": 1,
+    "20": 3,
+    "21": 2,
+    "22": 78
+   }
+  },
+  "Untrained, library note": {
+   "source": "runs_local/bench_v4/results/local108_libnote_all/per_task_Qwen3.5-9B.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 2,
+    "wrong_commit": 2,
+    "round_budget": 65,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 30,
+    "sandbox_crash": 3,
+    "provider_error": 0,
+    "reply_no_commit": 6,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 0,
+   "wrong_commit_on_edit_task": 2,
+   "reply_no_commit_on_clarification_task": 3,
+   "round_budget_on_clarification_task": 7,
+   "wrong_commit_score_mean": 0.9309514999999999,
+   "mean_tool_rounds_all": 19.54,
+   "mean_tool_rounds_failed": 19.6,
+   "mean_tool_rounds_completed": 16.0,
+   "tool_calls": 2110,
+   "malformed_calls": 141,
+   "runs_with_malformed_call": 42,
+   "non_compiling_calls": 3,
+   "calls_failing_at_run_time": 716,
+   "share_of_calls_failing_at_run_time": 0.3393,
+   "runs_with_blocked_file_access": 72,
+   "blocked_file_access_events": 491,
+   "rows_reread_after_sandbox_crash": 0,
+   "stop_reason_counts": {
+    "completed": 9,
+    "context_overflow": 31,
+    "budget_exhausted": 65,
+    "sandbox_crash": 3
+   },
+   "committed_by_stop_reason_on_failures": {
+    "False|context_overflow": 30,
+    "False|budget_exhausted": 65,
+    "False|completed": 6,
+    "False|sandbox_crash": 3,
+    "True|completed": 2
+   },
+   "tool_rounds_histogram": {
+    "6": 3,
+    "9": 2,
+    "10": 2,
+    "11": 2,
+    "12": 1,
+    "13": 3,
+    "14": 3,
+    "15": 5,
+    "18": 3,
+    "19": 10,
+    "20": 2,
+    "21": 4,
+    "22": 68
+   }
+  },
+  "GPT-5.6, with library": {
+   "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_gpt-5.6-luna.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 45,
+    "wrong_commit": 51,
+    "round_budget": 0,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 12,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 8,
+   "wrong_commit_on_edit_task": 43,
+   "reply_no_commit_on_clarification_task": 3,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.43381984313725486,
+   "mean_tool_rounds_all": 3.13,
+   "mean_tool_rounds_failed": 3.65,
+   "mean_tool_rounds_completed": 2.4,
+   "tool_calls": 338,
+   "malformed_calls": 15,
+   "runs_with_malformed_call": 14,
+   "non_compiling_calls": 4,
+   "calls_failing_at_run_time": 129,
+   "share_of_calls_failing_at_run_time": 0.3817,
+   "runs_with_blocked_file_access": 1,
+   "blocked_file_access_events": 1,
+   "rows_reread_after_sandbox_crash": 18,
+   "stop_reason_counts": {
+    "completed": 108
+   },
+   "committed_by_stop_reason_on_failures": {
+    "True|completed": 51,
+    "False|completed": 12
+   },
+   "tool_rounds_histogram": {
+    "1": 12,
+    "2": 39,
+    "3": 22,
+    "4": 18,
+    "5": 7,
+    "6": 4,
+    "7": 2,
+    "8": 1,
+    "9": 1,
+    "10": 2
+   }
+  },
+  "GPT-5.6, alone": {
+   "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_gpt-5.6-luna.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 27,
+    "wrong_commit": 73,
+    "round_budget": 0,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 8,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 11,
+   "wrong_commit_on_edit_task": 62,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.28724975342465753,
+   "mean_tool_rounds_all": 4.05,
+   "mean_tool_rounds_failed": 4.25,
+   "mean_tool_rounds_completed": 3.44,
+   "tool_calls": 438,
+   "malformed_calls": 8,
+   "runs_with_malformed_call": 8,
+   "non_compiling_calls": 1,
+   "calls_failing_at_run_time": 130,
+   "share_of_calls_failing_at_run_time": 0.2968,
+   "runs_with_blocked_file_access": 6,
+   "blocked_file_access_events": 53,
+   "rows_reread_after_sandbox_crash": 19,
+   "stop_reason_counts": {
+    "completed": 108
+   },
+   "committed_by_stop_reason_on_failures": {
+    "False|completed": 8,
+    "True|completed": 73
+   },
+   "tool_rounds_histogram": {
+    "1": 8,
+    "2": 19,
+    "3": 19,
+    "4": 26,
+    "5": 15,
+    "6": 7,
+    "7": 5,
+    "8": 4,
+    "9": 4,
+    "10": 1
+   }
+  },
+  "DeepSeek V4, with library": {
+   "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_deepseek-v4-pro.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 85,
+    "wrong_commit": 11,
+    "round_budget": 9,
+    "tool_timeout": 0,
+    "turn_truncated": 1,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 2,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 3,
+   "wrong_commit_on_edit_task": 8,
+   "reply_no_commit_on_clarification_task": 2,
+   "round_budget_on_clarification_task": 6,
+   "wrong_commit_score_mean": 0.6311634545454546,
+   "mean_tool_rounds_all": 9.69,
+   "mean_tool_rounds_failed": 14.52,
+   "mean_tool_rounds_completed": 8.39,
+   "tool_calls": 1047,
+   "malformed_calls": 10,
+   "runs_with_malformed_call": 9,
+   "non_compiling_calls": 3,
+   "calls_failing_at_run_time": 49,
+   "share_of_calls_failing_at_run_time": 0.0468,
+   "runs_with_blocked_file_access": 5,
+   "blocked_file_access_events": 8,
+   "rows_reread_after_sandbox_crash": 17,
+   "stop_reason_counts": {
+    "completed": 94,
+    "budget_exhausted": 13,
+    "output_truncated": 1
+   },
+   "committed_by_stop_reason_on_failures": {
+    "False|budget_exhausted": 9,
+    "True|completed": 9,
+    "False|completed": 2,
+    "True|budget_exhausted": 2,
+    "False|output_truncated": 1
+   },
+   "tool_rounds_histogram": {
+    "1": 2,
+    "2": 8,
+    "3": 9,
+    "4": 10,
+    "5": 7,
+    "6": 7,
+    "7": 8,
+    "8": 6,
+    "9": 8,
+    "10": 4,
+    "11": 3,
+    "12": 6,
+    "13": 3,
+    "14": 4,
+    "15": 2,
+    "16": 2,
+    "18": 1,
+    "19": 2,
+    "21": 1,
+    "22": 15
+   }
+  },
+  "DeepSeek V4, alone": {
+   "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_deepseek-v4-pro.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 58,
+    "wrong_commit": 20,
+    "round_budget": 29,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 1,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 4,
+   "wrong_commit_on_edit_task": 16,
+   "reply_no_commit_on_clarification_task": 1,
+   "round_budget_on_clarification_task": 6,
+   "wrong_commit_score_mean": 0.5724682999999999,
+   "mean_tool_rounds_all": 16.15,
+   "mean_tool_rounds_failed": 18.9,
+   "mean_tool_rounds_completed": 13.78,
+   "tool_calls": 1744,
+   "malformed_calls": 6,
+   "runs_with_malformed_call": 6,
+   "non_compiling_calls": 7,
+   "calls_failing_at_run_time": 104,
+   "share_of_calls_failing_at_run_time": 0.0596,
+   "runs_with_blocked_file_access": 8,
+   "blocked_file_access_events": 59,
+   "rows_reread_after_sandbox_crash": 14,
+   "stop_reason_counts": {
+    "completed": 66,
+    "budget_exhausted": 42
+   },
+   "committed_by_stop_reason_on_failures": {
+    "True|budget_exhausted": 6,
+    "False|budget_exhausted": 29,
+    "True|completed": 14,
+    "False|completed": 1
+   },
+   "tool_rounds_histogram": {
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 4,
+    "6": 2,
+    "7": 3,
+    "8": 8,
+    "9": 6,
+    "10": 2,
+    "11": 2,
+    "12": 3,
+    "13": 4,
+    "14": 5,
+    "15": 6,
+    "16": 1,
+    "17": 1,
+    "18": 2,
+    "19": 6,
+    "20": 2,
+    "21": 5,
+    "22": 43
+   }
+  },
+  "Claude Sonnet 5.5, with library": {
+   "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_claude-sonnet-5-5.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 92,
+    "wrong_commit": 14,
+    "round_budget": 0,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 2,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 9,
+   "wrong_commit_on_edit_task": 5,
+   "reply_no_commit_on_clarification_task": 2,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.19753814285714283,
+   "mean_tool_rounds_all": 3.63,
+   "mean_tool_rounds_failed": 6.12,
+   "mean_tool_rounds_completed": 3.2,
+   "tool_calls": 425,
+   "malformed_calls": 1,
+   "runs_with_malformed_call": 1,
+   "non_compiling_calls": 1,
+   "calls_failing_at_run_time": 15,
+   "share_of_calls_failing_at_run_time": 0.0353,
+   "runs_with_blocked_file_access": 1,
+   "blocked_file_access_events": 1,
+   "rows_reread_after_sandbox_crash": 7,
+   "stop_reason_counts": {
+    "completed": 108
+   },
+   "committed_by_stop_reason_on_failures": {
+    "True|completed": 14,
+    "False|completed": 2
+   },
+   "tool_rounds_histogram": {
+    "2": 41,
+    "3": 22,
+    "4": 21,
+    "5": 14,
+    "6": 4,
+    "8": 1,
+    "10": 2,
+    "11": 1,
+    "13": 1,
+    "14": 1
+   }
+  },
+  "Claude Sonnet 5.5, alone": {
+   "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_claude-sonnet-5-5.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 79,
+    "wrong_commit": 27,
+    "round_budget": 0,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 2,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 9,
+   "wrong_commit_on_edit_task": 18,
+   "reply_no_commit_on_clarification_task": 2,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.27085581481481485,
+   "mean_tool_rounds_all": 5.23,
+   "mean_tool_rounds_failed": 5.45,
+   "mean_tool_rounds_completed": 5.15,
+   "tool_calls": 605,
+   "malformed_calls": 0,
+   "runs_with_malformed_call": 0,
+   "non_compiling_calls": 2,
+   "calls_failing_at_run_time": 80,
+   "share_of_calls_failing_at_run_time": 0.1322,
+   "runs_with_blocked_file_access": 1,
+   "blocked_file_access_events": 1,
+   "rows_reread_after_sandbox_crash": 5,
+   "stop_reason_counts": {
+    "completed": 108
+   },
+   "committed_by_stop_reason_on_failures": {
+    "True|completed": 27,
+    "False|completed": 2
+   },
+   "tool_rounds_histogram": {
+    "2": 4,
+    "3": 23,
+    "4": 25,
+    "5": 18,
+    "6": 14,
+    "7": 6,
+    "8": 5,
+    "9": 5,
+    "10": 4,
+    "11": 2,
+    "12": 1,
+    "13": 1
+   }
+  },
+  "Gemini 3.8 Flash, with library": {
+   "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_gemini-3.8-flash.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 65,
+    "wrong_commit": 1,
+    "round_budget": 42,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 0,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 0,
+   "wrong_commit_on_edit_task": 1,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 11,
+   "wrong_commit_score_mean": 0.879643,
+   "mean_tool_rounds_all": 15.21,
+   "mean_tool_rounds_failed": 21.67,
+   "mean_tool_rounds_completed": 10.94,
+   "tool_calls": 1643,
+   "malformed_calls": 0,
+   "runs_with_malformed_call": 0,
+   "non_compiling_calls": 3,
+   "calls_failing_at_run_time": 147,
+   "share_of_calls_failing_at_run_time": 0.0895,
+   "runs_with_blocked_file_access": 20,
+   "blocked_file_access_events": 63,
+   "rows_reread_after_sandbox_crash": 2,
+   "stop_reason_counts": {
+    "completed": 65,
+    "budget_exhausted": 43
+   },
+   "committed_by_stop_reason_on_failures": {
+    "False|budget_exhausted": 42,
+    "True|completed": 1
+   },
+   "tool_rounds_histogram": {
+    "2": 2,
+    "3": 6,
+    "4": 2,
+    "5": 4,
+    "6": 8,
+    "7": 1,
+    "8": 3,
+    "9": 2,
+    "10": 5,
+    "11": 5,
+    "12": 1,
+    "13": 5,
+    "14": 2,
+    "15": 1,
+    "16": 5,
+    "17": 4,
+    "18": 4,
+    "20": 1,
+    "21": 3,
+    "22": 44
+   }
+  },
+  "Gemini 3.8 Flash, alone": {
+   "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_gemini-3.8-flash.jsonl",
+   "n": 108,
+   "classes": {
+    "completed": 20,
+    "wrong_commit": 3,
+    "round_budget": 85,
+    "tool_timeout": 0,
+    "turn_truncated": 0,
+    "context_limit": 0,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 0,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 1,
+   "wrong_commit_on_edit_task": 2,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 10,
+   "wrong_commit_score_mean": 0.6092136666666667,
+   "mean_tool_rounds_all": 20.93,
+   "mean_tool_rounds_failed": 21.82,
+   "mean_tool_rounds_completed": 17.0,
+   "tool_calls": 2260,
+   "malformed_calls": 0,
+   "runs_with_malformed_call": 0,
+   "non_compiling_calls": 1,
+   "calls_failing_at_run_time": 232,
+   "share_of_calls_failing_at_run_time": 0.1027,
+   "runs_with_blocked_file_access": 24,
+   "blocked_file_access_events": 88,
+   "rows_reread_after_sandbox_crash": 0,
+   "stop_reason_counts": {
+    "budget_exhausted": 88,
+    "completed": 20
+   },
+   "committed_by_stop_reason_on_failures": {
+    "False|budget_exhausted": 85,
+    "True|budget_exhausted": 1,
+    "True|completed": 2
+   },
+   "tool_rounds_histogram": {
+    "8": 1,
+    "9": 1,
+    "12": 2,
+    "13": 2,
+    "14": 1,
+    "16": 2,
+    "17": 4,
+    "19": 2,
+    "20": 2,
+    "21": 1,
+    "22": 90
+   }
+  },
+  "Final model, 2,100-task benchmark": {
+   "source": "runs_local/bench_v4/results/full_all/per_task_grpo_v10b_c10.jsonl",
+   "n": 2100,
+   "classes": {
+    "completed": 2016,
+    "wrong_commit": 39,
+    "round_budget": 24,
+    "tool_timeout": 1,
+    "turn_truncated": 0,
+    "context_limit": 6,
+    "sandbox_crash": 0,
+    "provider_error": 0,
+    "reply_no_commit": 14,
+    "other": 0
+   },
+   "wrong_commit_on_clarification_task": 1,
+   "wrong_commit_on_edit_task": 38,
+   "reply_no_commit_on_clarification_task": 0,
+   "round_budget_on_clarification_task": 0,
+   "wrong_commit_score_mean": 0.1485615897435897,
+   "mean_tool_rounds_all": 4.33,
+   "mean_tool_rounds_failed": 9.83,
+   "mean_tool_rounds_completed": 4.1,
+   "tool_calls": 9092,
+   "malformed_calls": 20,
+   "runs_with_malformed_call": 2,
+   "non_compiling_calls": 43,
+   "calls_failing_at_run_time": 311,
+   "share_of_calls_failing_at_run_time": 0.0342,
+   "runs_with_blocked_file_access": 28,
+   "blocked_file_access_events": 68,
+   "rows_reread_after_sandbox_crash": 0,
+   "stop_reason_counts": {
+    "completed": 2069,
+    "budget_exhausted": 24,
+    "context_overflow": 6,
+    "tool_timeout": 1
+   },
+   "committed_by_stop_reason_on_failures": {
+    "True|completed": 39,
+    "False|budget_exhausted": 24,
+    "False|completed": 14,
+    "False|context_overflow": 6,
+    "False|tool_timeout": 1
+   },
+   "tool_rounds_histogram": {
+    "1": 159,
+    "2": 7,
+    "3": 277,
+    "4": 971,
+    "5": 360,
+    "6": 261,
+    "7": 29,
+    "8": 6,
+    "9": 3,
+    "10": 1,
+    "11": 2,
+    "22": 24
+   }
+  }
+ },
+ "distinguishable": "Every class above is read from fields on the row. Two requested classes cannot occur as a run end in these files: 'malformed tool call / format error' (the harness answers a malformed call with an error message and the run goes on; such calls are counted per run) and 'provider error' (no row of the reported files carries an API error other than the context-length error, which is the context-limit class; rows whose sandbox crashed were re-read after the 2026-09-30 repair and carry the re-read outcome, counted in rows_reread_after_sandbox_crash).",
+ "split_by_task_kind": {
+  "Final model, with library": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 94,
+     "wrong_commit": 2,
+     "round_budget": 1
+    },
+    "mean_tool_rounds": 4.45
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "completed": 11
+    },
+    "mean_tool_rounds": 1.0
+   }
+  },
+  "Imitation, with library": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 93,
+     "context_limit": 1,
+     "round_budget": 1,
+     "wrong_commit": 1,
+     "reply_no_commit": 1
+    },
+    "mean_tool_rounds": 4.51
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "completed": 11
+    },
+    "mean_tool_rounds": 1.0
+   }
+  },
+  "Imitation, alone": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "round_budget": 78,
+     "completed": 7,
+     "wrong_commit": 11,
+     "reply_no_commit": 1
+    },
+    "mean_tool_rounds": 18.49
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "completed": 11
+    },
+    "mean_tool_rounds": 1.0
+   }
+  },
+  "Preference stage, with library": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 93,
+     "wrong_commit": 1,
+     "round_budget": 1,
+     "context_limit": 1,
+     "reply_no_commit": 1
+    },
+    "mean_tool_rounds": 4.57
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "completed": 11
+    },
+    "mean_tool_rounds": 1.0
+   }
+  },
+  "Untrained, alone": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "round_budget": 63,
+     "context_limit": 17,
+     "wrong_commit": 11,
+     "sandbox_crash": 2,
+     "reply_no_commit": 2,
+     "completed": 2
+    },
+    "mean_tool_rounds": 19.58
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "round_budget": 8,
+     "wrong_commit": 2,
+     "context_limit": 1
+    },
+    "mean_tool_rounds": 18.45
+   }
+  },
+  "Untrained, library note": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 2,
+     "context_limit": 29,
+     "round_budget": 58,
+     "reply_no_commit": 3,
+     "sandbox_crash": 3,
+     "wrong_commit": 2
+    },
+    "mean_tool_rounds": 19.79
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "round_budget": 7,
+     "context_limit": 1,
+     "reply_no_commit": 3
+    },
+    "mean_tool_rounds": 17.27
+   }
+  },
+  "GPT-5.6, with library": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 45,
+     "wrong_commit": 43,
+     "reply_no_commit": 9
+    },
+    "mean_tool_rounds": 3.09
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "wrong_commit": 8,
+     "reply_no_commit": 3
+    },
+    "mean_tool_rounds": 3.45
+   }
+  },
+  "GPT-5.6, alone": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "reply_no_commit": 8,
+     "wrong_commit": 62,
+     "completed": 27
+    },
+    "mean_tool_rounds": 4.16
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "wrong_commit": 11
+    },
+    "mean_tool_rounds": 3.0
+   }
+  },
+  "DeepSeek V4, with library": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 85,
+     "round_budget": 3,
+     "wrong_commit": 8,
+     "turn_truncated": 1
+    },
+    "mean_tool_rounds": 8.93
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "round_budget": 6,
+     "reply_no_commit": 2,
+     "wrong_commit": 3
+    },
+    "mean_tool_rounds": 16.45
+   }
+  },
+  "DeepSeek V4, alone": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 58,
+     "wrong_commit": 16,
+     "round_budget": 23
+    },
+    "mean_tool_rounds": 15.87
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "round_budget": 6,
+     "wrong_commit": 4,
+     "reply_no_commit": 1
+    },
+    "mean_tool_rounds": 18.64
+   }
+  },
+  "Claude Sonnet 5.5, with library": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 92,
+     "wrong_commit": 5
+    },
+    "mean_tool_rounds": 3.25
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "wrong_commit": 9,
+     "reply_no_commit": 2
+    },
+    "mean_tool_rounds": 7.0
+   }
+  },
+  "Claude Sonnet 5.5, alone": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 79,
+     "wrong_commit": 18
+    },
+    "mean_tool_rounds": 5.28
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "wrong_commit": 9,
+     "reply_no_commit": 2
+    },
+    "mean_tool_rounds": 4.82
+   }
+  },
+  "Gemini 3.8 Flash, with library": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "completed": 65,
+     "round_budget": 31,
+     "wrong_commit": 1
+    },
+    "mean_tool_rounds": 14.44
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "round_budget": 11
+    },
+    "mean_tool_rounds": 22.0
+   }
+  },
+  "Gemini 3.8 Flash, alone": {
+   "fully_specified": {
+    "n": 97,
+    "classes": {
+     "round_budget": 75,
+     "completed": 20,
+     "wrong_commit": 2
+    },
+    "mean_tool_rounds": 20.84
+   },
+   "under_specified": {
+    "n": 11,
+    "classes": {
+     "round_budget": 10,
+     "wrong_commit": 1
+    },
+    "mean_tool_rounds": 21.73
+   }
+  },
+  "Final model, 2,100-task benchmark": {
+   "fully_specified": {
+    "n": 1944,
+    "classes": {
+     "completed": 1861,
+     "wrong_commit": 38,
+     "round_budget": 24,
+     "reply_no_commit": 14,
+     "context_limit": 6,
+     "tool_timeout": 1
+    },
+    "mean_tool_rounds": 4.59
+   },
+   "under_specified": {
+    "n": 156,
+    "classes": {
+     "completed": 155,
+     "wrong_commit": 1
+    },
+    "mean_tool_rounds": 1.03
+   }
+  }
+ }
+}

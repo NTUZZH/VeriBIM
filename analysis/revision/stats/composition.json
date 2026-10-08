@@ -1,0 +1,1297 @@
+{
+ "source": "runs_local/bench_v4/tasks.v4c.jsonl (2,100 tasks, the file every result was scored against)",
+ "role_reconstruction": {
+  "IFC2X3": {
+   "rebuilt": 700,
+   "equal_to_selected": true,
+   "core": 432,
+   "core_chains": 108,
+   "layer": 195,
+   "top_up": 73,
+   "report_core_layer_topup": [
+    432,
+    195,
+    73
+   ]
+  },
+  "IFC4": {
+   "rebuilt": 700,
+   "equal_to_selected": true,
+   "core": 432,
+   "core_chains": 108,
+   "layer": 188,
+   "top_up": 80,
+   "report_core_layer_topup": [
+    432,
+    188,
+    80
+   ]
+  },
+  "IFC4X3": {
+   "rebuilt": 700,
+   "equal_to_selected": true,
+   "core": 432,
+   "core_chains": 108,
+   "layer": 189,
+   "top_up": 79,
+   "report_core_layer_topup": [
+    432,
+    189,
+    79
+   ]
+  }
+ },
+ "replacements_mapped": {
+  "v4b": 94,
+  "v4c": 8
+ },
+ "parts": {
+  "IFC2X3": {
+   "tasks": 700,
+   "single": 579,
+   "chains": 121,
+   "roles": {
+    "core_chain": 108,
+    "layer": 195,
+    "core_cell": 324,
+    "top_up": 73
+   },
+   "single_by_cell_all_roles": {
+    "create/direct": 65,
+    "create/spatial": 52,
+    "create/topological": 114,
+    "update/direct": 72,
+    "update/spatial": 53,
+    "update/topological": 56,
+    "delete/direct": 41,
+    "delete/spatial": 56,
+    "delete/topological": 70
+   },
+   "core_by_cell": {
+    "create/direct": 36,
+    "create/spatial": 36,
+    "create/topological": 36,
+    "update/direct": 36,
+    "update/spatial": 36,
+    "update/topological": 36,
+    "delete/direct": 36,
+    "delete/spatial": 36,
+    "delete/topological": 36
+   },
+   "chains_by_operation": {
+    "create": 50,
+    "delete": 62,
+    "update": 9
+   },
+   "chains_by_cell": {
+    "create/direct": 7,
+    "create/spatial": 16,
+    "create/topological": 27,
+    "delete/direct": 17,
+    "delete/spatial": 25,
+    "delete/topological": 20,
+    "update/direct": 3,
+    "update/topological": 6
+   },
+   "chains_by_edit_kind": {
+    "create_wall_with_door": 50,
+    "delete_wall_with_fillings": 62,
+    "move_space_with_bounding_walls": 9
+   },
+   "chains_by_role": {
+    "core_chain": 108,
+    "layer": 13
+   },
+   "operation_mix_all_tiers": {
+    "create": 281,
+    "delete": 229,
+    "update": 190
+   },
+   "category_mix_all_tiers": {
+    "direct": 205,
+    "spatial": 202,
+    "topological": 293
+   },
+   "underspecified": 56,
+   "underspecified_by_role": {
+    "top_up": 9,
+    "core_cell": 45,
+    "layer": 2
+   },
+   "underspecified_by_operation": {
+    "create": 4,
+    "update": 40,
+    "delete": 12
+   },
+   "origin": {
+    "native": 700
+   },
+   "buildings": 8,
+   "tasks_per_building": {
+    "BLD003": 147,
+    "BLD018": 102,
+    "BLD035": 54,
+    "BLD038": 58,
+    "BLD040": 45,
+    "BLD044": 91,
+    "BLD045": 89,
+    "GNI-project_7": 114
+   },
+   "origin_by_building": {
+    "BLD003|native": 147,
+    "BLD018|native": 102,
+    "BLD035|native": 54,
+    "BLD038|native": 58,
+    "BLD040|native": 45,
+    "BLD044|native": 91,
+    "BLD045|native": 89,
+    "GNI-project_7|native": 114
+   },
+   "layer_tasks": 195,
+   "layer_tasks_by_family_layer": {
+    "constraint": {
+     "families_present": 6,
+     "tasks_carrying_one": 66
+    },
+    "model_condition": {
+     "families_present": 8,
+     "tasks_carrying_one": 195
+    },
+    "operation": {
+     "families_present": 9,
+     "tasks_carrying_one": 62
+    },
+    "reference": {
+     "families_present": 13,
+     "tasks_carrying_one": 90
+    },
+    "scope": {
+     "families_present": 2,
+     "tasks_carrying_one": 15
+    },
+    "specification": {
+     "families_present": 9,
+     "tasks_carrying_one": 63
+    },
+    "wording": {
+     "families_present": 10,
+     "tasks_carrying_one": 156
+    }
+   },
+   "tasks_per_target_family_whole_part": {
+    "constraint.cascade.relations_consistent": 51,
+    "constraint.cascade.relations_preserved": 36,
+    "constraint.invariant.keep_placement": 12,
+    "constraint.invariant.keep_z": 12,
+    "constraint.relation_on_create.connection": 14,
+    "constraint.relation_on_create.space_boundary": 31,
+    "model.names.non_english": 132,
+    "model.placement.rotated_storey": 57,
+    "model.placement.site_offset": 305,
+    "model.representation.brep": 40,
+    "model.representation.mapped_item": 150,
+    "model.schema.ifc2x3": 700,
+    "model.units.imperial": 54,
+    "model.units.mm": 355,
+    "op.array": 14,
+    "op.copy": 19,
+    "op.replace": 30,
+    "op.update.material": 12,
+    "op.update.mirror": 15,
+    "op.update.pset": 12,
+    "op.update.rehost": 8,
+    "op.update.restorey": 26,
+    "op.update.rotate": 12,
+    "op.update.type_object": 12,
+    "ref.bounds_space": 10,
+    "ref.host_of_filling": 33,
+    "ref.joins_spaces": 2,
+    "ref.negation": 4,
+    "ref.ordinal": 11,
+    "ref.relative.above_below": 34,
+    "ref.relative.between": 14,
+    "ref.relative.nearest": 25,
+    "ref.relative.opposite": 7,
+    "ref.set": 36,
+    "ref.topological.separates": 12,
+    "ref.viewpoint.through_door": 15,
+    "ref.without_relation": 24,
+    "scope.batch": 36,
+    "scope.conditional": 12,
+    "spec.axis_dimensions": 14,
+    "spec.axis_displacement": 15,
+    "spec.compass_displacement": 15,
+    "spec.element_relative.against_room_wall": 12,
+    "spec.element_relative.aligned_with_filling": 1,
+    "spec.element_relative.centred_on_wall": 17,
+    "spec.element_relative.on_top_of": 22,
+    "spec.endpoints": 7,
+    "spec.world_frame": 43,
+    "wording.class_token": 97,
+    "wording.identifier_list": 30,
+    "wording.identifier_spelling": 232,
+    "wording.ifc_class_name": 12,
+    "wording.reference_by_id": 175,
+    "wording.relationship_named": 15,
+    "wording.request_form": 174,
+    "wording.synonym": 230,
+    "wording.underspecified": 56,
+    "wording.unit_spelling": 85
+   },
+   "target_families_by_layer": {
+    "constraint": {
+     "target_families": 6,
+     "present": 6,
+     "at_least_12_per_part": 6,
+     "tasks_carrying_one": 156
+    },
+    "model_condition": {
+     "target_families": 9,
+     "present": 8,
+     "at_least_12_per_part": 8,
+     "tasks_carrying_one": 700
+    },
+    "operation": {
+     "target_families": 10,
+     "present": 10,
+     "at_least_12_per_part": 9,
+     "tasks_carrying_one": 160
+    },
+    "reference": {
+     "target_families": 14,
+     "present": 13,
+     "at_least_12_per_part": 8,
+     "tasks_carrying_one": 227
+    },
+    "scope": {
+     "target_families": 3,
+     "present": 2,
+     "at_least_12_per_part": 2,
+     "tasks_carrying_one": 36
+    },
+    "specification": {
+     "target_families": 12,
+     "present": 9,
+     "at_least_12_per_part": 7,
+     "tasks_carrying_one": 125
+    },
+    "wording": {
+     "target_families": 10,
+     "present": 10,
+     "at_least_12_per_part": 10,
+     "tasks_carrying_one": 581
+    }
+   },
+   "families_below_12": {
+    "model.schema.ifc4x3": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "op.update.rehost": {
+     "tasks_v4c": 8,
+     "candidates_in_pool": 10,
+     "in_set_v4_selection": 10
+    },
+    "ref.bounds_space": {
+     "tasks_v4c": 10,
+     "candidates_in_pool": 13,
+     "in_set_v4_selection": 12
+    },
+    "ref.joins_spaces": {
+     "tasks_v4c": 2,
+     "candidates_in_pool": 2,
+     "in_set_v4_selection": 2
+    },
+    "ref.negation": {
+     "tasks_v4c": 4,
+     "candidates_in_pool": 4,
+     "in_set_v4_selection": 4
+    },
+    "ref.ordinal": {
+     "tasks_v4c": 11,
+     "candidates_in_pool": 12,
+     "in_set_v4_selection": 12
+    },
+    "ref.relative.opposite": {
+     "tasks_v4c": 7,
+     "candidates_in_pool": 36,
+     "in_set_v4_selection": 12
+    },
+    "ref.under_walls": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "scope.id_list": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.corner": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.element_relative.aligned_with_filling": {
+     "tasks_v4c": 1,
+     "candidates_in_pool": 3,
+     "in_set_v4_selection": 3
+    },
+    "spec.element_relative.fits_gap": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.element_relative.touching_slab_above": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.endpoints": {
+     "tasks_v4c": 7,
+     "candidates_in_pool": 7,
+     "in_set_v4_selection": 7
+    }
+   },
+   "note_layer_counts": "tasks_carrying_one counts every task of the part (any role) that carries at least one target family of that taxonomy layer; a task can carry families of several layers, so the counts overlap. at_least_12_per_part uses 36 for the total.",
+   "reconcile": "core cells 324 + core chains 108 + layer 195 + top-up 73 = 700"
+  },
+  "IFC4": {
+   "tasks": 700,
+   "single": 576,
+   "chains": 124,
+   "roles": {
+    "core_chain": 108,
+    "layer": 188,
+    "core_cell": 324,
+    "top_up": 80
+   },
+   "single_by_cell_all_roles": {
+    "create/direct": 52,
+    "create/spatial": 61,
+    "create/topological": 110,
+    "update/direct": 59,
+    "update/spatial": 62,
+    "update/topological": 66,
+    "delete/direct": 48,
+    "delete/spatial": 58,
+    "delete/topological": 60
+   },
+   "core_by_cell": {
+    "create/direct": 36,
+    "create/spatial": 36,
+    "create/topological": 36,
+    "update/direct": 36,
+    "update/spatial": 36,
+    "update/topological": 36,
+    "delete/direct": 36,
+    "delete/spatial": 36,
+    "delete/topological": 36
+   },
+   "chains_by_operation": {
+    "create": 52,
+    "delete": 66,
+    "update": 6
+   },
+   "chains_by_cell": {
+    "create/direct": 16,
+    "create/spatial": 13,
+    "create/topological": 23,
+    "delete/direct": 16,
+    "delete/spatial": 16,
+    "delete/topological": 34,
+    "update/direct": 1,
+    "update/topological": 5
+   },
+   "chains_by_edit_kind": {
+    "create_wall_with_door": 52,
+    "delete_wall_with_fillings": 66,
+    "move_space_with_bounding_walls": 6
+   },
+   "chains_by_role": {
+    "core_chain": 108,
+    "layer": 16
+   },
+   "operation_mix_all_tiers": {
+    "create": 275,
+    "delete": 232,
+    "update": 193
+   },
+   "category_mix_all_tiers": {
+    "direct": 192,
+    "spatial": 210,
+    "topological": 298
+   },
+   "underspecified": 51,
+   "underspecified_by_role": {
+    "core_cell": 47,
+    "layer": 1,
+    "top_up": 3
+   },
+   "underspecified_by_operation": {
+    "update": 44,
+    "delete": 6,
+    "create": 1
+   },
+   "origin": {
+    "native": 217,
+    "migrated": 483
+   },
+   "buildings": 12,
+   "tasks_per_building": {
+    "BLD003": 89,
+    "BLD018": 77,
+    "BLD029": 71,
+    "BLD031": 24,
+    "BLD035": 35,
+    "BLD038": 29,
+    "BLD040": 36,
+    "BLD042": 43,
+    "BLD044": 57,
+    "BLD045": 76,
+    "GNI-project_7": 84,
+    "GNI-project_8": 79
+   },
+   "origin_by_building": {
+    "BLD003|migrated": 89,
+    "BLD018|migrated": 77,
+    "BLD029|native": 71,
+    "BLD031|native": 24,
+    "BLD035|migrated": 35,
+    "BLD038|migrated": 29,
+    "BLD040|migrated": 36,
+    "BLD042|native": 43,
+    "BLD044|migrated": 57,
+    "BLD045|migrated": 76,
+    "GNI-project_7|migrated": 84,
+    "GNI-project_8|native": 79
+   },
+   "layer_tasks": 188,
+   "layer_tasks_by_family_layer": {
+    "constraint": {
+     "families_present": 6,
+     "tasks_carrying_one": 66
+    },
+    "model_condition": {
+     "families_present": 7,
+     "tasks_carrying_one": 161
+    },
+    "operation": {
+     "families_present": 9,
+     "tasks_carrying_one": 73
+    },
+    "reference": {
+     "families_present": 13,
+     "tasks_carrying_one": 89
+    },
+    "scope": {
+     "families_present": 2,
+     "tasks_carrying_one": 13
+    },
+    "specification": {
+     "families_present": 8,
+     "tasks_carrying_one": 57
+    },
+    "wording": {
+     "families_present": 10,
+     "tasks_carrying_one": 150
+    }
+   },
+   "tasks_per_target_family_whole_part": {
+    "constraint.cascade.relations_consistent": 51,
+    "constraint.cascade.relations_preserved": 45,
+    "constraint.invariant.keep_placement": 12,
+    "constraint.invariant.keep_z": 8,
+    "constraint.relation_on_create.connection": 14,
+    "constraint.relation_on_create.space_boundary": 18,
+    "model.names.non_english": 178,
+    "model.placement.rotated_storey": 72,
+    "model.placement.site_offset": 281,
+    "model.representation.brep": 76,
+    "model.representation.mapped_item": 150,
+    "model.units.imperial": 35,
+    "model.units.mm": 368,
+    "op.array": 14,
+    "op.copy": 21,
+    "op.replace": 36,
+    "op.update.material": 12,
+    "op.update.mirror": 12,
+    "op.update.pset": 12,
+    "op.update.rehost": 7,
+    "op.update.restorey": 33,
+    "op.update.rotate": 12,
+    "op.update.type_object": 12,
+    "ref.bounds_space": 10,
+    "ref.host_of_filling": 32,
+    "ref.negation": 12,
+    "ref.ordinal": 8,
+    "ref.relative.above_below": 18,
+    "ref.relative.between": 14,
+    "ref.relative.nearest": 30,
+    "ref.relative.opposite": 9,
+    "ref.set": 41,
+    "ref.topological.separates": 7,
+    "ref.under_walls": 4,
+    "ref.viewpoint.through_door": 10,
+    "ref.without_relation": 26,
+    "scope.batch": 41,
+    "scope.conditional": 12,
+    "spec.axis_dimensions": 13,
+    "spec.axis_displacement": 13,
+    "spec.compass_displacement": 18,
+    "spec.element_relative.against_room_wall": 12,
+    "spec.element_relative.centred_on_wall": 13,
+    "spec.element_relative.on_top_of": 16,
+    "spec.endpoints": 5,
+    "spec.world_frame": 40,
+    "wording.class_token": 96,
+    "wording.identifier_list": 30,
+    "wording.identifier_spelling": 231,
+    "wording.ifc_class_name": 12,
+    "wording.reference_by_id": 174,
+    "wording.relationship_named": 14,
+    "wording.request_form": 208,
+    "wording.synonym": 224,
+    "wording.underspecified": 51,
+    "wording.unit_spelling": 93
+   },
+   "target_families_by_layer": {
+    "constraint": {
+     "target_families": 6,
+     "present": 6,
+     "at_least_12_per_part": 5,
+     "tasks_carrying_one": 148
+    },
+    "model_condition": {
+     "target_families": 9,
+     "present": 7,
+     "at_least_12_per_part": 7,
+     "tasks_carrying_one": 602
+    },
+    "operation": {
+     "target_families": 10,
+     "present": 10,
+     "at_least_12_per_part": 9,
+     "tasks_carrying_one": 171
+    },
+    "reference": {
+     "target_families": 14,
+     "present": 13,
+     "at_least_12_per_part": 7,
+     "tasks_carrying_one": 221
+    },
+    "scope": {
+     "target_families": 3,
+     "present": 2,
+     "at_least_12_per_part": 2,
+     "tasks_carrying_one": 41
+    },
+    "specification": {
+     "target_families": 12,
+     "present": 8,
+     "at_least_12_per_part": 7,
+     "tasks_carrying_one": 112
+    },
+    "wording": {
+     "target_families": 10,
+     "present": 10,
+     "at_least_12_per_part": 10,
+     "tasks_carrying_one": 582
+    }
+   },
+   "families_below_12": {
+    "constraint.invariant.keep_z": {
+     "tasks_v4c": 8,
+     "candidates_in_pool": 8,
+     "in_set_v4_selection": 8
+    },
+    "model.schema.ifc2x3": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "model.schema.ifc4x3": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "op.update.rehost": {
+     "tasks_v4c": 7,
+     "candidates_in_pool": 7,
+     "in_set_v4_selection": 7
+    },
+    "ref.bounds_space": {
+     "tasks_v4c": 10,
+     "candidates_in_pool": 12,
+     "in_set_v4_selection": 12
+    },
+    "ref.joins_spaces": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "ref.ordinal": {
+     "tasks_v4c": 8,
+     "candidates_in_pool": 8,
+     "in_set_v4_selection": 8
+    },
+    "ref.relative.opposite": {
+     "tasks_v4c": 9,
+     "candidates_in_pool": 21,
+     "in_set_v4_selection": 12
+    },
+    "ref.topological.separates": {
+     "tasks_v4c": 7,
+     "candidates_in_pool": 7,
+     "in_set_v4_selection": 7
+    },
+    "ref.under_walls": {
+     "tasks_v4c": 4,
+     "candidates_in_pool": 4,
+     "in_set_v4_selection": 4
+    },
+    "ref.viewpoint.through_door": {
+     "tasks_v4c": 10,
+     "candidates_in_pool": 33,
+     "in_set_v4_selection": 12
+    },
+    "scope.id_list": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.corner": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.element_relative.aligned_with_filling": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 1,
+     "in_set_v4_selection": 1
+    },
+    "spec.element_relative.fits_gap": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.element_relative.touching_slab_above": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.endpoints": {
+     "tasks_v4c": 5,
+     "candidates_in_pool": 5,
+     "in_set_v4_selection": 5
+    }
+   },
+   "note_layer_counts": "tasks_carrying_one counts every task of the part (any role) that carries at least one target family of that taxonomy layer; a task can carry families of several layers, so the counts overlap. at_least_12_per_part uses 36 for the total.",
+   "reconcile": "core cells 324 + core chains 108 + layer 188 + top-up 80 = 700"
+  },
+  "IFC4X3": {
+   "tasks": 700,
+   "single": 578,
+   "chains": 122,
+   "roles": {
+    "core_chain": 108,
+    "layer": 189,
+    "core_cell": 324,
+    "top_up": 79
+   },
+   "single_by_cell_all_roles": {
+    "create/direct": 59,
+    "create/spatial": 60,
+    "create/topological": 121,
+    "update/direct": 68,
+    "update/spatial": 54,
+    "update/topological": 55,
+    "delete/direct": 41,
+    "delete/spatial": 59,
+    "delete/topological": 61
+   },
+   "core_by_cell": {
+    "create/direct": 36,
+    "create/spatial": 36,
+    "create/topological": 36,
+    "update/direct": 36,
+    "update/spatial": 36,
+    "update/topological": 36,
+    "delete/direct": 36,
+    "delete/spatial": 36,
+    "delete/topological": 36
+   },
+   "chains_by_operation": {
+    "delete": 110,
+    "update": 12
+   },
+   "chains_by_cell": {
+    "delete/direct": 28,
+    "delete/spatial": 26,
+    "delete/topological": 56,
+    "update/direct": 7,
+    "update/topological": 5
+   },
+   "chains_by_edit_kind": {
+    "delete_wall_with_fillings": 110,
+    "move_space_with_bounding_walls": 12
+   },
+   "chains_by_role": {
+    "core_chain": 108,
+    "layer": 14
+   },
+   "operation_mix_all_tiers": {
+    "delete": 271,
+    "update": 189,
+    "create": 240
+   },
+   "category_mix_all_tiers": {
+    "direct": 203,
+    "spatial": 199,
+    "topological": 298
+   },
+   "underspecified": 49,
+   "underspecified_by_role": {
+    "core_cell": 42,
+    "top_up": 5,
+    "layer": 2
+   },
+   "underspecified_by_operation": {
+    "create": 2,
+    "delete": 9,
+    "update": 38
+   },
+   "origin": {
+    "migrated": 700
+   },
+   "buildings": 12,
+   "tasks_per_building": {
+    "BLD003": 111,
+    "BLD018": 63,
+    "BLD029": 60,
+    "BLD031": 37,
+    "BLD035": 44,
+    "BLD038": 25,
+    "BLD040": 40,
+    "BLD042": 48,
+    "BLD044": 64,
+    "BLD045": 53,
+    "GNI-project_7": 91,
+    "GNI-project_8": 64
+   },
+   "origin_by_building": {
+    "BLD003|migrated": 111,
+    "BLD018|migrated": 63,
+    "BLD029|migrated": 60,
+    "BLD031|migrated": 37,
+    "BLD035|migrated": 44,
+    "BLD038|migrated": 25,
+    "BLD040|migrated": 40,
+    "BLD042|migrated": 48,
+    "BLD044|migrated": 64,
+    "BLD045|migrated": 53,
+    "GNI-project_7|migrated": 91,
+    "GNI-project_8|migrated": 64
+   },
+   "layer_tasks": 189,
+   "layer_tasks_by_family_layer": {
+    "constraint": {
+     "families_present": 6,
+     "tasks_carrying_one": 62
+    },
+    "model_condition": {
+     "families_present": 8,
+     "tasks_carrying_one": 189
+    },
+    "operation": {
+     "families_present": 8,
+     "tasks_carrying_one": 67
+    },
+    "reference": {
+     "families_present": 13,
+     "tasks_carrying_one": 81
+    },
+    "scope": {
+     "families_present": 2,
+     "tasks_carrying_one": 13
+    },
+    "specification": {
+     "families_present": 9,
+     "tasks_carrying_one": 57
+    },
+    "wording": {
+     "families_present": 10,
+     "tasks_carrying_one": 159
+    }
+   },
+   "tasks_per_target_family_whole_part": {
+    "constraint.cascade.relations_consistent": 36,
+    "constraint.cascade.relations_preserved": 40,
+    "constraint.invariant.keep_placement": 12,
+    "constraint.invariant.keep_z": 6,
+    "constraint.relation_on_create.connection": 15,
+    "constraint.relation_on_create.space_boundary": 25,
+    "model.names.non_english": 187,
+    "model.placement.rotated_storey": 72,
+    "model.placement.site_offset": 276,
+    "model.representation.brep": 106,
+    "model.representation.mapped_item": 173,
+    "model.schema.ifc4x3": 700,
+    "model.units.imperial": 44,
+    "model.units.mm": 352,
+    "op.array": 15,
+    "op.copy": 29,
+    "op.replace": 26,
+    "op.update.material": 12,
+    "op.update.mirror": 12,
+    "op.update.pset": 12,
+    "op.update.rehost": 4,
+    "op.update.restorey": 25,
+    "op.update.rotate": 14,
+    "op.update.type_object": 12,
+    "ref.bounds_space": 8,
+    "ref.host_of_filling": 57,
+    "ref.joins_spaces": 1,
+    "ref.negation": 11,
+    "ref.ordinal": 11,
+    "ref.relative.above_below": 17,
+    "ref.relative.between": 14,
+    "ref.relative.nearest": 24,
+    "ref.relative.opposite": 5,
+    "ref.set": 37,
+    "ref.topological.separates": 4,
+    "ref.under_walls": 3,
+    "ref.viewpoint.through_door": 15,
+    "ref.without_relation": 21,
+    "scope.batch": 37,
+    "scope.conditional": 14,
+    "spec.axis_dimensions": 14,
+    "spec.axis_displacement": 13,
+    "spec.compass_displacement": 22,
+    "spec.element_relative.against_room_wall": 15,
+    "spec.element_relative.aligned_with_filling": 2,
+    "spec.element_relative.centred_on_wall": 16,
+    "spec.element_relative.on_top_of": 15,
+    "spec.endpoints": 9,
+    "spec.world_frame": 46,
+    "wording.class_token": 86,
+    "wording.identifier_list": 23,
+    "wording.identifier_spelling": 229,
+    "wording.ifc_class_name": 8,
+    "wording.reference_by_id": 167,
+    "wording.relationship_named": 14,
+    "wording.request_form": 195,
+    "wording.synonym": 226,
+    "wording.underspecified": 49,
+    "wording.unit_spelling": 65
+   },
+   "target_families_by_layer": {
+    "constraint": {
+     "target_families": 6,
+     "present": 6,
+     "at_least_12_per_part": 5,
+     "tasks_carrying_one": 134
+    },
+    "model_condition": {
+     "target_families": 9,
+     "present": 8,
+     "at_least_12_per_part": 8,
+     "tasks_carrying_one": 700
+    },
+    "operation": {
+     "target_families": 10,
+     "present": 10,
+     "at_least_12_per_part": 9,
+     "tasks_carrying_one": 161
+    },
+    "reference": {
+     "target_families": 14,
+     "present": 14,
+     "at_least_12_per_part": 7,
+     "tasks_carrying_one": 228
+    },
+    "scope": {
+     "target_families": 3,
+     "present": 2,
+     "at_least_12_per_part": 2,
+     "tasks_carrying_one": 37
+    },
+    "specification": {
+     "target_families": 12,
+     "present": 9,
+     "at_least_12_per_part": 7,
+     "tasks_carrying_one": 129
+    },
+    "wording": {
+     "target_families": 10,
+     "present": 10,
+     "at_least_12_per_part": 9,
+     "tasks_carrying_one": 569
+    }
+   },
+   "families_below_12": {
+    "constraint.invariant.keep_z": {
+     "tasks_v4c": 6,
+     "candidates_in_pool": 7,
+     "in_set_v4_selection": 7
+    },
+    "model.schema.ifc2x3": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "op.update.rehost": {
+     "tasks_v4c": 4,
+     "candidates_in_pool": 4,
+     "in_set_v4_selection": 4
+    },
+    "ref.bounds_space": {
+     "tasks_v4c": 8,
+     "candidates_in_pool": 9,
+     "in_set_v4_selection": 9
+    },
+    "ref.joins_spaces": {
+     "tasks_v4c": 1,
+     "candidates_in_pool": 1,
+     "in_set_v4_selection": 1
+    },
+    "ref.negation": {
+     "tasks_v4c": 11,
+     "candidates_in_pool": 11,
+     "in_set_v4_selection": 11
+    },
+    "ref.ordinal": {
+     "tasks_v4c": 11,
+     "candidates_in_pool": 11,
+     "in_set_v4_selection": 11
+    },
+    "ref.relative.opposite": {
+     "tasks_v4c": 5,
+     "candidates_in_pool": 19,
+     "in_set_v4_selection": 12
+    },
+    "ref.topological.separates": {
+     "tasks_v4c": 4,
+     "candidates_in_pool": 4,
+     "in_set_v4_selection": 4
+    },
+    "ref.under_walls": {
+     "tasks_v4c": 3,
+     "candidates_in_pool": 3,
+     "in_set_v4_selection": 3
+    },
+    "scope.id_list": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.corner": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.element_relative.aligned_with_filling": {
+     "tasks_v4c": 2,
+     "candidates_in_pool": 2,
+     "in_set_v4_selection": 2
+    },
+    "spec.element_relative.fits_gap": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.element_relative.touching_slab_above": {
+     "tasks_v4c": 0,
+     "candidates_in_pool": 0,
+     "in_set_v4_selection": 0
+    },
+    "spec.endpoints": {
+     "tasks_v4c": 9,
+     "candidates_in_pool": 9,
+     "in_set_v4_selection": 9
+    },
+    "wording.ifc_class_name": {
+     "tasks_v4c": 8,
+     "candidates_in_pool": 15,
+     "in_set_v4_selection": 12
+    }
+   },
+   "note_layer_counts": "tasks_carrying_one counts every task of the part (any role) that carries at least one target family of that taxonomy layer; a task can carry families of several layers, so the counts overlap. at_least_12_per_part uses 36 for the total.",
+   "reconcile": "core cells 324 + core chains 108 + layer 189 + top-up 79 = 700"
+  },
+  "ALL": {
+   "tasks": 2100,
+   "single": 1733,
+   "chains": 367,
+   "roles": {
+    "core_chain": 324,
+    "layer": 572,
+    "core_cell": 972,
+    "top_up": 232
+   },
+   "single_by_cell_all_roles": {
+    "create/direct": 176,
+    "create/spatial": 173,
+    "create/topological": 345,
+    "update/direct": 199,
+    "update/spatial": 169,
+    "update/topological": 177,
+    "delete/direct": 130,
+    "delete/spatial": 173,
+    "delete/topological": 191
+   },
+   "core_by_cell": {
+    "create/direct": 108,
+    "create/spatial": 108,
+    "create/topological": 108,
+    "update/direct": 108,
+    "update/spatial": 108,
+    "update/topological": 108,
+    "delete/direct": 108,
+    "delete/spatial": 108,
+    "delete/topological": 108
+   },
+   "chains_by_operation": {
+    "create": 102,
+    "delete": 238,
+    "update": 27
+   },
+   "chains_by_cell": {
+    "create/direct": 23,
+    "create/spatial": 29,
+    "create/topological": 50,
+    "delete/direct": 61,
+    "delete/spatial": 67,
+    "delete/topological": 110,
+    "update/direct": 11,
+    "update/topological": 16
+   },
+   "chains_by_edit_kind": {
+    "create_wall_with_door": 102,
+    "delete_wall_with_fillings": 238,
+    "move_space_with_bounding_walls": 27
+   },
+   "chains_by_role": {
+    "core_chain": 324,
+    "layer": 43
+   },
+   "operation_mix_all_tiers": {
+    "create": 796,
+    "delete": 732,
+    "update": 572
+   },
+   "category_mix_all_tiers": {
+    "direct": 600,
+    "spatial": 611,
+    "topological": 889
+   },
+   "underspecified": 156,
+   "underspecified_by_role": {
+    "top_up": 17,
+    "core_cell": 134,
+    "layer": 5
+   },
+   "underspecified_by_operation": {
+    "create": 7,
+    "update": 122,
+    "delete": 27
+   },
+   "origin": {
+    "native": 917,
+    "migrated": 1183
+   },
+   "buildings": 12,
+   "tasks_per_building": {
+    "BLD003": 347,
+    "BLD018": 242,
+    "BLD029": 131,
+    "BLD031": 61,
+    "BLD035": 133,
+    "BLD038": 112,
+    "BLD040": 121,
+    "BLD042": 91,
+    "BLD044": 212,
+    "BLD045": 218,
+    "GNI-project_7": 289,
+    "GNI-project_8": 143
+   },
+   "origin_by_building": {
+    "BLD003|migrated": 200,
+    "BLD003|native": 147,
+    "BLD018|migrated": 140,
+    "BLD018|native": 102,
+    "BLD029|migrated": 60,
+    "BLD029|native": 71,
+    "BLD031|migrated": 37,
+    "BLD031|native": 24,
+    "BLD035|migrated": 79,
+    "BLD035|native": 54,
+    "BLD038|migrated": 54,
+    "BLD038|native": 58,
+    "BLD040|migrated": 76,
+    "BLD040|native": 45,
+    "BLD042|migrated": 48,
+    "BLD042|native": 43,
+    "BLD044|migrated": 121,
+    "BLD044|native": 91,
+    "BLD045|migrated": 129,
+    "BLD045|native": 89,
+    "GNI-project_7|migrated": 175,
+    "GNI-project_7|native": 114,
+    "GNI-project_8|migrated": 64,
+    "GNI-project_8|native": 79
+   },
+   "layer_tasks": 572,
+   "layer_tasks_by_family_layer": {
+    "constraint": {
+     "families_present": 6,
+     "tasks_carrying_one": 194
+    },
+    "model_condition": {
+     "families_present": 9,
+     "tasks_carrying_one": 545
+    },
+    "operation": {
+     "families_present": 9,
+     "tasks_carrying_one": 202
+    },
+    "reference": {
+     "families_present": 14,
+     "tasks_carrying_one": 260
+    },
+    "scope": {
+     "families_present": 2,
+     "tasks_carrying_one": 41
+    },
+    "specification": {
+     "families_present": 9,
+     "tasks_carrying_one": 177
+    },
+    "wording": {
+     "families_present": 10,
+     "tasks_carrying_one": 465
+    }
+   },
+   "tasks_per_target_family_whole_part": {
+    "constraint.cascade.relations_consistent": 138,
+    "constraint.cascade.relations_preserved": 121,
+    "constraint.invariant.keep_placement": 36,
+    "constraint.invariant.keep_z": 26,
+    "constraint.relation_on_create.connection": 43,
+    "constraint.relation_on_create.space_boundary": 74,
+    "model.names.non_english": 497,
+    "model.placement.rotated_storey": 201,
+    "model.placement.site_offset": 862,
+    "model.representation.brep": 222,
+    "model.representation.mapped_item": 473,
+    "model.schema.ifc2x3": 700,
+    "model.schema.ifc4x3": 700,
+    "model.units.imperial": 133,
+    "model.units.mm": 1075,
+    "op.array": 43,
+    "op.copy": 69,
+    "op.replace": 92,
+    "op.update.material": 36,
+    "op.update.mirror": 39,
+    "op.update.pset": 36,
+    "op.update.rehost": 19,
+    "op.update.restorey": 84,
+    "op.update.rotate": 38,
+    "op.update.type_object": 36,
+    "ref.bounds_space": 28,
+    "ref.host_of_filling": 122,
+    "ref.joins_spaces": 3,
+    "ref.negation": 27,
+    "ref.ordinal": 30,
+    "ref.relative.above_below": 69,
+    "ref.relative.between": 42,
+    "ref.relative.nearest": 79,
+    "ref.relative.opposite": 21,
+    "ref.set": 114,
+    "ref.topological.separates": 23,
+    "ref.under_walls": 7,
+    "ref.viewpoint.through_door": 40,
+    "ref.without_relation": 71,
+    "scope.batch": 114,
+    "scope.conditional": 38,
+    "spec.axis_dimensions": 41,
+    "spec.axis_displacement": 41,
+    "spec.compass_displacement": 55,
+    "spec.element_relative.against_room_wall": 39,
+    "spec.element_relative.aligned_with_filling": 3,
+    "spec.element_relative.centred_on_wall": 46,
+    "spec.element_relative.on_top_of": 53,
+    "spec.endpoints": 21,
+    "spec.world_frame": 129,
+    "wording.class_token": 279,
+    "wording.identifier_list": 83,
+    "wording.identifier_spelling": 692,
+    "wording.ifc_class_name": 32,
+    "wording.reference_by_id": 516,
+    "wording.relationship_named": 43,
+    "wording.request_form": 577,
+    "wording.synonym": 680,
+    "wording.underspecified": 156,
+    "wording.unit_spelling": 243
+   },
+   "target_families_by_layer": {
+    "constraint": {
+     "target_families": 6,
+     "present": 6,
+     "at_least_12_per_part": 5,
+     "tasks_carrying_one": 438
+    },
+    "model_condition": {
+     "target_families": 9,
+     "present": 9,
+     "at_least_12_per_part": 9,
+     "tasks_carrying_one": 2002
+    },
+    "operation": {
+     "target_families": 10,
+     "present": 10,
+     "at_least_12_per_part": 9,
+     "tasks_carrying_one": 492
+    },
+    "reference": {
+     "target_families": 14,
+     "present": 14,
+     "at_least_12_per_part": 7,
+     "tasks_carrying_one": 676
+    },
+    "scope": {
+     "target_families": 3,
+     "present": 2,
+     "at_least_12_per_part": 2,
+     "tasks_carrying_one": 114
+    },
+    "specification": {
+     "target_families": 12,
+     "present": 9,
+     "at_least_12_per_part": 7,
+     "tasks_carrying_one": 366
+    },
+    "wording": {
+     "target_families": 10,
+     "present": 10,
+     "at_least_12_per_part": 9,
+     "tasks_carrying_one": 1732
+    }
+   },
+   "note_layer_counts": "tasks_carrying_one counts every task of the part (any role) that carries at least one target family of that taxonomy layer; a task can carry families of several layers, so the counts overlap. at_least_12_per_part uses 36 for the total."
+  }
+ },
+ "reviewer_arithmetic": {
+  "cells_times_36": 972,
+  "chains_all_parts": 367,
+  "remainder": 761,
+  "explanation": "The 972 core single tasks (36 per operation x category cell, 9 cells, 3 parts) and the 367 chains (324 core chains, 108 per part, plus chains taken by the layer cells) leave 761 tasks; these are the single tasks taken to bring each of the 64 requirement families to 12 tasks (layer cells) and the zero-floor single tasks that bring each part to 700 (size top-up).",
+  "roles_all_parts": {
+   "core_chain": 324,
+   "layer": 572,
+   "core_cell": 972,
+   "top_up": 232
+  }
+ }
+}

@@ -1,0 +1,561 @@
+{
+ "definition": "Comprehensive off-target diff of completed edits against the ground truth.\n\nFor every completed edit (C = 1: geometry, semantics and topology all >= 0.9 in\nthe run's own per-task record) of one arm, the edited model E is compared with\nthe ground-truth model G over all entities, with the source model I as the\nreference for what the ground truth itself changes.\n\nWhat is compared (entities matched by GlobalId):\n  objects     every IfcObjectDefinition (products, type objects, groups, ...):\n              presence, world placement, representation (products), and every\n              direct attribute (Name, ObjectType, PredefinedType, Tag and the rest)\n  relations   every IfcRelationship except IfcRelDefinesByProperties, read as\n              edges (relation class, relating end, related end, other attributes);\n              an end that has no GlobalId (a material, a layer set) is read\n              through its content; relationship GlobalIds are not compared\n  properties  every property set, quantity set and property-set definition\n              attached through IfcRelDefinesByProperties or a type's\n              HasPropertySets, read per element as (set name, property name) ->\n              value; property-set GlobalIds are not compared\n  listed only header (FILE_NAME, FILE_DESCRIPTION), owner histories, and\n              relationship / property-set GlobalIds that differ while the content\n              is equal; these are reported and never counted\n\nOff-target, per class:\n  geometry/placement  a product outside the exclusion set that E adds, removes,\n                      or places or shapes differently from G\n  attribute           an object outside the exclusion set with a direct attribute\n                      that differs between E and G\n  relation            a relation edge present in only one of E and G, that the\n                      ground truth did not itself change, with no end in the\n                      exclusion set and no end that E added or removed (those\n                      edges are attributed to the added or removed object)\n  property            an element outside the exclusion set whose property map\n                      differs between E and G\n  other objects       a non-product object (type object, group) E adds or removes\n\nExclusion set: the task's target GlobalIds and edit_guids (target, touched,\ncreated, removed) from the task record, every object the ground truth creates,\ndeletes or modifies (placement, representation, attribute), and for the\nproperty class every element whose properties the ground truth changes.\n\nObjects E creates are paired with objects G creates, by class family (StandardCase\nand ElementedCase suffixes dropped) and nearest placement origin, and then\nspeak under G's GlobalId; a pairing with a target that E removed and re-created\nunder a new GlobalId is listed as 'target re-identified' and not counted.\nAny other changed GlobalId is a removal plus an addition.",
+ "completed_rule": "geometry, semantics and topology all >= 0.9 in the run's per-task record",
+ "arms": {
+  "final_full": {
+   "label": "Proposed model, all 2,100 tasks",
+   "n_completed": 2016,
+   "n_evaluated": 2016,
+   "status": {
+    "ok": 2016
+   },
+   "n_with_any": 0,
+   "share_with_any": 0.0,
+   "median_count_per_affected_file": null,
+   "max_count": 0,
+   "by_class": {
+    "geometry": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "relation": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "property": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "attribute": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null,
+     "n_files_named": 0
+    },
+    "other_objects": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    }
+   },
+   "listed_not_counted": {
+    "header_differs": 0,
+    "owner_history_differs": 0,
+    "relationship_ids_only": 0,
+    "property_set_ids_only": 0,
+    "target_reidentified": 0,
+    "edges_of_added_removed_files": 0
+   },
+   "by_operation": {
+    "create": {
+     "n": 769,
+     "n_with_any": 0
+    },
+    "update": {
+     "n": 540,
+     "n_with_any": 0
+    },
+    "delete": {
+     "n": 707,
+     "n_with_any": 0
+    }
+   },
+   "what_changed": {
+    "relation_classes": {},
+    "geometry_class_kind": {},
+    "attributes": {},
+    "property_sets": {}
+   },
+   "affected_tasks": []
+  },
+  "final_108": {
+   "label": "Proposed model, 108-task subset",
+   "n_completed": 105,
+   "n_evaluated": 105,
+   "status": {
+    "ok": 105
+   },
+   "n_with_any": 0,
+   "share_with_any": 0.0,
+   "median_count_per_affected_file": null,
+   "max_count": 0,
+   "by_class": {
+    "geometry": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "relation": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "property": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "attribute": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null,
+     "n_files_named": 0
+    },
+    "other_objects": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    }
+   },
+   "listed_not_counted": {
+    "header_differs": 0,
+    "owner_history_differs": 0,
+    "relationship_ids_only": 0,
+    "property_set_ids_only": 0,
+    "target_reidentified": 0,
+    "edges_of_added_removed_files": 0
+   },
+   "by_operation": {
+    "create": {
+     "n": 36,
+     "n_with_any": 0
+    },
+    "update": {
+     "n": 33,
+     "n_with_any": 0
+    },
+    "delete": {
+     "n": 36,
+     "n_with_any": 0
+    }
+   },
+   "what_changed": {
+    "relation_classes": {},
+    "geometry_class_kind": {},
+    "attributes": {},
+    "property_sets": {}
+   },
+   "affected_tasks": []
+  },
+  "imitation_108": {
+   "label": "Imitation-only model, 108-task subset",
+   "n_completed": 104,
+   "n_evaluated": 104,
+   "status": {
+    "ok": 104
+   },
+   "n_with_any": 0,
+   "share_with_any": 0.0,
+   "median_count_per_affected_file": null,
+   "max_count": 0,
+   "by_class": {
+    "geometry": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "relation": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "property": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "attribute": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null,
+     "n_files_named": 0
+    },
+    "other_objects": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    }
+   },
+   "listed_not_counted": {
+    "header_differs": 0,
+    "owner_history_differs": 0,
+    "relationship_ids_only": 0,
+    "property_set_ids_only": 0,
+    "target_reidentified": 0,
+    "edges_of_added_removed_files": 0
+   },
+   "by_operation": {
+    "create": {
+     "n": 36,
+     "n_with_any": 0
+    },
+    "update": {
+     "n": 33,
+     "n_with_any": 0
+    },
+    "delete": {
+     "n": 35,
+     "n_with_any": 0
+    }
+   },
+   "what_changed": {
+    "relation_classes": {},
+    "geometry_class_kind": {},
+    "attributes": {},
+    "property_sets": {}
+   },
+   "affected_tasks": []
+  },
+  "claude-sonnet-5-5_108": {
+   "label": "Claude Sonnet 5.5 with the library",
+   "n_completed": 92,
+   "n_evaluated": 92,
+   "status": {
+    "ok": 92
+   },
+   "n_with_any": 2,
+   "share_with_any": 0.0217,
+   "median_count_per_affected_file": 1.0,
+   "max_count": 1,
+   "by_class": {
+    "geometry": {
+     "n_files": 2,
+     "n_items": 2,
+     "median_per_affected_file": 1.0
+    },
+    "relation": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "property": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "attribute": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null,
+     "n_files_named": 0
+    },
+    "other_objects": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    }
+   },
+   "listed_not_counted": {
+    "header_differs": 0,
+    "owner_history_differs": 18,
+    "relationship_ids_only": 1,
+    "property_set_ids_only": 0,
+    "target_reidentified": 0,
+    "edges_of_added_removed_files": 0
+   },
+   "by_operation": {
+    "create": {
+     "n": 35,
+     "n_with_any": 0
+    },
+    "update": {
+     "n": 23,
+     "n_with_any": 2
+    },
+    "delete": {
+     "n": 34,
+     "n_with_any": 0
+    }
+   },
+   "what_changed": {
+    "relation_classes": {},
+    "geometry_class_kind": {
+     "IfcOpeningElement/modified": 2
+    },
+    "attributes": {},
+    "property_sets": {}
+   },
+   "affected_tasks": [
+    {
+     "task_id": "DOR-UPD-TOP-B24m4X3-060",
+     "edit_kind": "resize_overall",
+     "n_any": 1,
+     "n_geometry": 1,
+     "n_relation": 0,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    },
+    {
+     "task_id": "WIN-UPD-DIR-B16m4X3-003",
+     "edit_kind": "resize_overall",
+     "n_any": 1,
+     "n_geometry": 1,
+     "n_relation": 0,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    }
+   ]
+  },
+  "gpt-5.6-luna_108": {
+   "label": "GPT-5.6 Luna with the library",
+   "n_completed": 45,
+   "n_evaluated": 45,
+   "status": {
+    "ok": 45
+   },
+   "n_with_any": 2,
+   "share_with_any": 0.0444,
+   "median_count_per_affected_file": 1.0,
+   "max_count": 1,
+   "by_class": {
+    "geometry": {
+     "n_files": 1,
+     "n_items": 1,
+     "median_per_affected_file": 1
+    },
+    "relation": {
+     "n_files": 1,
+     "n_items": 1,
+     "median_per_affected_file": 1
+    },
+    "property": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "attribute": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null,
+     "n_files_named": 0
+    },
+    "other_objects": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    }
+   },
+   "listed_not_counted": {
+    "header_differs": 0,
+    "owner_history_differs": 7,
+    "relationship_ids_only": 0,
+    "property_set_ids_only": 0,
+    "target_reidentified": 0,
+    "edges_of_added_removed_files": 0
+   },
+   "by_operation": {
+    "create": {
+     "n": 18,
+     "n_with_any": 0
+    },
+    "update": {
+     "n": 9,
+     "n_with_any": 1
+    },
+    "delete": {
+     "n": 18,
+     "n_with_any": 1
+    }
+   },
+   "what_changed": {
+    "relation_classes": {
+     "IfcRelAssociatesMaterial": 1
+    },
+    "geometry_class_kind": {
+     "IfcOpeningElement/modified": 1
+    },
+    "attributes": {},
+    "property_sets": {}
+   },
+   "affected_tasks": [
+    {
+     "task_id": "DOR-DEL-TOP-B02-006",
+     "edit_kind": "delete",
+     "n_any": 1,
+     "n_geometry": 0,
+     "n_relation": 1,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    },
+    {
+     "task_id": "WIN-UPD-DIR-B16m4X3-003",
+     "edit_kind": "resize_overall",
+     "n_any": 1,
+     "n_geometry": 1,
+     "n_relation": 0,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    }
+   ]
+  },
+  "gemini-3.8-flash_108": {
+   "label": "Gemini 3.8 Flash with the library",
+   "n_completed": 65,
+   "n_evaluated": 65,
+   "status": {
+    "ok": 65
+   },
+   "n_with_any": 0,
+   "share_with_any": 0.0,
+   "median_count_per_affected_file": null,
+   "max_count": 0,
+   "by_class": {
+    "geometry": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "relation": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "property": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "attribute": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null,
+     "n_files_named": 0
+    },
+    "other_objects": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    }
+   },
+   "listed_not_counted": {
+    "header_differs": 0,
+    "owner_history_differs": 6,
+    "relationship_ids_only": 0,
+    "property_set_ids_only": 0,
+    "target_reidentified": 0,
+    "edges_of_added_removed_files": 0
+   },
+   "by_operation": {
+    "create": {
+     "n": 31,
+     "n_with_any": 0
+    },
+    "update": {
+     "n": 11,
+     "n_with_any": 0
+    },
+    "delete": {
+     "n": 23,
+     "n_with_any": 0
+    }
+   },
+   "what_changed": {
+    "relation_classes": {},
+    "geometry_class_kind": {},
+    "attributes": {},
+    "property_sets": {}
+   },
+   "affected_tasks": []
+  },
+  "deepseek-v4-pro_108": {
+   "label": "DeepSeek V4 Pro with the library",
+   "n_completed": 85,
+   "n_evaluated": 85,
+   "status": {
+    "ok": 85
+   },
+   "n_with_any": 2,
+   "share_with_any": 0.0235,
+   "median_count_per_affected_file": 1.5,
+   "max_count": 2,
+   "by_class": {
+    "geometry": {
+     "n_files": 2,
+     "n_items": 3,
+     "median_per_affected_file": 1.5
+    },
+    "relation": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "property": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    },
+    "attribute": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null,
+     "n_files_named": 0
+    },
+    "other_objects": {
+     "n_files": 0,
+     "n_items": 0,
+     "median_per_affected_file": null
+    }
+   },
+   "listed_not_counted": {
+    "header_differs": 0,
+    "owner_history_differs": 18,
+    "relationship_ids_only": 1,
+    "property_set_ids_only": 0,
+    "target_reidentified": 0,
+    "edges_of_added_removed_files": 0
+   },
+   "by_operation": {
+    "create": {
+     "n": 33,
+     "n_with_any": 0
+    },
+    "update": {
+     "n": 20,
+     "n_with_any": 2
+    },
+    "delete": {
+     "n": 32,
+     "n_with_any": 0
+    }
+   },
+   "what_changed": {
+    "relation_classes": {},
+    "geometry_class_kind": {
+     "IfcOpeningElement/modified": 2,
+     "IfcWall/modified": 1
+    },
+    "attributes": {},
+    "property_sets": {}
+   },
+   "affected_tasks": [
+    {
+     "task_id": "DOR-UPD-TOP-B24m4X3-060",
+     "edit_kind": "resize_overall",
+     "n_any": 2,
+     "n_geometry": 2,
+     "n_relation": 0,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    },
+    {
+     "task_id": "WIN-UPD-DIR-B16m4X3-003",
+     "edit_kind": "resize_overall",
+     "n_any": 1,
+     "n_geometry": 1,
+     "n_relation": 0,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    }
+   ]
+  }
+ }
+}

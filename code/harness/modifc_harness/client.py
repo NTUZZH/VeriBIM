@@ -132,6 +132,21 @@ class ChatClient:
         elif style == "anthropic":
             payload.pop("temperature", None)
             payload.pop("top_p", None)
+        # Local sampling knobs (base-model re-read with the model card's
+        # recommended settings). Every knob is opt-in through the environment, so a
+        # run that sets none of them sends exactly the request above.
+        if not style:
+            for env, key, cast in (("VERIBIM_LOCAL_TEMPERATURE", "temperature", float),
+                                   ("VERIBIM_LOCAL_TOP_P", "top_p", float),
+                                   ("VERIBIM_LOCAL_TOP_K", "top_k", int),
+                                   ("VERIBIM_LOCAL_PRESENCE_PENALTY", "presence_penalty", float),
+                                   ("VERIBIM_LOCAL_SEED", "seed", int)):
+                val = os.environ.get(env, "")
+                if val:
+                    payload[key] = cast(val)
+            kwargs = os.environ.get("VERIBIM_CHAT_TEMPLATE_KWARGS", "")
+            if kwargs:
+                payload["chat_template_kwargs"] = json.loads(kwargs)
         if tools:
             payload["tools"] = tools
             payload["tool_choice"] = "auto"

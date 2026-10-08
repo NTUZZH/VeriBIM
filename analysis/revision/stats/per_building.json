@@ -1,0 +1,1236 @@
+{
+ "rule": "completion = all three axes >= 0.9; one row per held-out building; base measured on the 108 subset only",
+ "arms": {
+  "108": {
+   "ours": {
+    "source": "runs_local/bench_v4/results/local108_lib_all/per_task_grpo_v10b_c10.jsonl",
+    "label": "Final model, with the library"
+   },
+   "imitation": {
+    "source": "runs_local/bench_v4/results/local108_lib_all/per_task_sft_v10.jsonl",
+    "label": "Imitation, with the library"
+   },
+   "base_note": {
+    "source": "runs_local/bench_v4/results/local108_libnote_all/per_task_Qwen3.5-9B.jsonl",
+    "label": "Untrained Qwen3.5-9B, with the library note"
+   },
+   "base_alone": {
+    "source": "runs_local/bench_v4/results/local108_alone_all/per_task_Qwen3.5-9B.jsonl",
+    "label": "Untrained Qwen3.5-9B, alone"
+   },
+   "gpt-5.6-luna_lib": {
+    "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_gpt-5.6-luna.jsonl",
+    "label": "GPT-5.6, with the library"
+   },
+   "deepseek-v4-pro_lib": {
+    "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_deepseek-v4-pro.jsonl",
+    "label": "DeepSeek V4, with the library"
+   },
+   "claude-sonnet-5-5_lib": {
+    "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_claude-sonnet-5-5.jsonl",
+    "label": "Claude Sonnet 5.5, with the library"
+   },
+   "gemini-3.8-flash_lib": {
+    "source": "runs_local/bench_v4/results/hosted108_lib_all/per_task_gemini-3.8-flash.jsonl",
+    "label": "Gemini 3.8 Flash, with the library"
+   },
+   "gpt-5.6-luna_alone": {
+    "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_gpt-5.6-luna.jsonl",
+    "label": "GPT-5.6, alone"
+   },
+   "deepseek-v4-pro_alone": {
+    "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_deepseek-v4-pro.jsonl",
+    "label": "DeepSeek V4, alone"
+   },
+   "claude-sonnet-5-5_alone": {
+    "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_claude-sonnet-5-5.jsonl",
+    "label": "Claude Sonnet 5.5, alone"
+   },
+   "gemini-3.8-flash_alone": {
+    "source": "runs_local/bench_v4/results/hosted108_alone_all/per_task_gemini-3.8-flash.jsonl",
+    "label": "Gemini 3.8 Flash, alone"
+   }
+  },
+  "324": {
+   "ours": {
+    "source": "runs_local/bench_v4/results/local324_lib_all/per_task_grpo_v10b_c10.jsonl",
+    "label": "Final model, with the library"
+   },
+   "imitation": {
+    "source": "runs_local/bench_v4/results/local324_lib_all/per_task_sft_v10.jsonl",
+    "label": "Imitation, with the library"
+   },
+   "claude-sonnet-5-5_lib": {
+    "source": "runs_local/bench_v4/results/hosted324_lib_all/per_task_claude-sonnet-5-5.jsonl",
+    "label": "Claude Sonnet 5.5, with the library"
+   },
+   "claude-sonnet-5-5_alone": {
+    "source": "runs_local/bench_v4/results/hosted324_alone_all/per_task_claude-sonnet-5-5.jsonl",
+    "label": "Claude Sonnet 5.5, alone"
+   }
+  },
+  "2100": {
+   "ours": {
+    "source": "runs_local/bench_v4/results/full_all/per_task_grpo_v10b_c10.jsonl",
+    "label": "Final model"
+   },
+   "imitation": {
+    "source": "runs_local/bench_v4/results/full_all/per_task_sft_v10.jsonl",
+    "label": "Imitation"
+   },
+   "preference": {
+    "source": "runs_local/bench_v4/results/full_all/per_task_dpo_v10_c6.jsonl",
+    "label": "Preference snapshot"
+   }
+  }
+ },
+ "buildings": {
+  "BLD003": {
+   "versions": [
+    "IFC2X3",
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 12,
+    "ours": 0.916667,
+    "imitation": 0.916667,
+    "base_note": 0.0,
+    "base_alone": 0.083333,
+    "gpt-5.6-luna_lib": 0.416667,
+    "deepseek-v4-pro_lib": 0.916667,
+    "claude-sonnet-5-5_lib": 0.916667,
+    "gemini-3.8-flash_lib": 0.583333,
+    "gpt-5.6-luna_alone": 0.333333,
+    "deepseek-v4-pro_alone": 0.583333,
+    "claude-sonnet-5-5_alone": 0.833333,
+    "gemini-3.8-flash_alone": 0.25,
+    "ours_done": 11,
+    "imitation_done": 11,
+    "base_note_done": 0,
+    "base_alone_done": 1,
+    "gpt-5.6-luna_lib_done": 5,
+    "deepseek-v4-pro_lib_done": 11,
+    "claude-sonnet-5-5_lib_done": 11,
+    "gemini-3.8-flash_lib_done": 7,
+    "gpt-5.6-luna_alone_done": 4,
+    "deepseek-v4-pro_alone_done": 7,
+    "claude-sonnet-5-5_alone_done": 10,
+    "gemini-3.8-flash_alone_done": 3
+   },
+   "324": {
+    "n": 34,
+    "ours": 0.941176,
+    "imitation": 0.941176,
+    "claude-sonnet-5-5_lib": 0.911765,
+    "claude-sonnet-5-5_alone": 0.764706,
+    "ours_done": 32,
+    "imitation_done": 32,
+    "claude-sonnet-5-5_lib_done": 31,
+    "claude-sonnet-5-5_alone_done": 26
+   },
+   "2100": {
+    "n": 347,
+    "ours": 0.951009,
+    "imitation": 0.956772,
+    "preference": 0.95389,
+    "ours_done": 330,
+    "imitation_done": 332,
+    "preference_done": 331
+   }
+  },
+  "BLD018": {
+   "versions": [
+    "IFC2X3",
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 8,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.25,
+    "deepseek-v4-pro_lib": 0.5,
+    "claude-sonnet-5-5_lib": 0.5,
+    "gemini-3.8-flash_lib": 0.5,
+    "gpt-5.6-luna_alone": 0.25,
+    "deepseek-v4-pro_alone": 0.375,
+    "claude-sonnet-5-5_alone": 0.375,
+    "gemini-3.8-flash_alone": 0.125,
+    "ours_done": 8,
+    "imitation_done": 8,
+    "base_note_done": 0,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 2,
+    "deepseek-v4-pro_lib_done": 4,
+    "claude-sonnet-5-5_lib_done": 4,
+    "gemini-3.8-flash_lib_done": 4,
+    "gpt-5.6-luna_alone_done": 2,
+    "deepseek-v4-pro_alone_done": 3,
+    "claude-sonnet-5-5_alone_done": 3,
+    "gemini-3.8-flash_alone_done": 1
+   },
+   "324": {
+    "n": 33,
+    "ours": 0.969697,
+    "imitation": 0.969697,
+    "claude-sonnet-5-5_lib": 0.757576,
+    "claude-sonnet-5-5_alone": 0.69697,
+    "ours_done": 32,
+    "imitation_done": 32,
+    "claude-sonnet-5-5_lib_done": 25,
+    "claude-sonnet-5-5_alone_done": 23
+   },
+   "2100": {
+    "n": 242,
+    "ours": 0.979339,
+    "imitation": 0.979339,
+    "preference": 0.979339,
+    "ours_done": 237,
+    "imitation_done": 237,
+    "preference_done": 237
+   }
+  },
+  "BLD029": {
+   "versions": [
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 10,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.4,
+    "deepseek-v4-pro_lib": 0.9,
+    "claude-sonnet-5-5_lib": 0.9,
+    "gemini-3.8-flash_lib": 0.7,
+    "gpt-5.6-luna_alone": 0.5,
+    "deepseek-v4-pro_alone": 0.9,
+    "claude-sonnet-5-5_alone": 0.9,
+    "gemini-3.8-flash_alone": 0.3,
+    "ours_done": 10,
+    "imitation_done": 10,
+    "base_note_done": 0,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 4,
+    "deepseek-v4-pro_lib_done": 9,
+    "claude-sonnet-5-5_lib_done": 9,
+    "gemini-3.8-flash_lib_done": 7,
+    "gpt-5.6-luna_alone_done": 5,
+    "deepseek-v4-pro_alone_done": 9,
+    "claude-sonnet-5-5_alone_done": 9,
+    "gemini-3.8-flash_alone_done": 3
+   },
+   "324": {
+    "n": 19,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.894737,
+    "claude-sonnet-5-5_alone": 0.736842,
+    "ours_done": 19,
+    "imitation_done": 19,
+    "claude-sonnet-5-5_lib_done": 17,
+    "claude-sonnet-5-5_alone_done": 14
+   },
+   "2100": {
+    "n": 131,
+    "ours": 0.938931,
+    "imitation": 0.931298,
+    "preference": 0.946565,
+    "ours_done": 123,
+    "imitation_done": 122,
+    "preference_done": 124
+   }
+  },
+  "BLD031": {
+   "versions": [
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 3,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.0,
+    "deepseek-v4-pro_lib": 0.333333,
+    "claude-sonnet-5-5_lib": 0.333333,
+    "gemini-3.8-flash_lib": 0.0,
+    "gpt-5.6-luna_alone": 0.333333,
+    "deepseek-v4-pro_alone": 0.333333,
+    "claude-sonnet-5-5_alone": 0.333333,
+    "gemini-3.8-flash_alone": 0.0,
+    "ours_done": 3,
+    "imitation_done": 3,
+    "base_note_done": 0,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 0,
+    "deepseek-v4-pro_lib_done": 1,
+    "claude-sonnet-5-5_lib_done": 1,
+    "gemini-3.8-flash_lib_done": 0,
+    "gpt-5.6-luna_alone_done": 1,
+    "deepseek-v4-pro_alone_done": 1,
+    "claude-sonnet-5-5_alone_done": 1,
+    "gemini-3.8-flash_alone_done": 0
+   },
+   "324": {
+    "n": 11,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.545455,
+    "claude-sonnet-5-5_alone": 0.545455,
+    "ours_done": 11,
+    "imitation_done": 11,
+    "claude-sonnet-5-5_lib_done": 6,
+    "claude-sonnet-5-5_alone_done": 6
+   },
+   "2100": {
+    "n": 61,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "preference": 1.0,
+    "ours_done": 61,
+    "imitation_done": 61,
+    "preference_done": 61
+   }
+  },
+  "BLD035": {
+   "versions": [
+    "IFC2X3",
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 8,
+    "ours": 0.875,
+    "imitation": 0.75,
+    "base_note": 0.0,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.25,
+    "deepseek-v4-pro_lib": 1.0,
+    "claude-sonnet-5-5_lib": 1.0,
+    "gemini-3.8-flash_lib": 0.5,
+    "gpt-5.6-luna_alone": 0.0,
+    "deepseek-v4-pro_alone": 0.625,
+    "claude-sonnet-5-5_alone": 0.875,
+    "gemini-3.8-flash_alone": 0.125,
+    "ours_done": 7,
+    "imitation_done": 6,
+    "base_note_done": 0,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 2,
+    "deepseek-v4-pro_lib_done": 8,
+    "claude-sonnet-5-5_lib_done": 8,
+    "gemini-3.8-flash_lib_done": 4,
+    "gpt-5.6-luna_alone_done": 0,
+    "deepseek-v4-pro_alone_done": 5,
+    "claude-sonnet-5-5_alone_done": 7,
+    "gemini-3.8-flash_alone_done": 1
+   },
+   "324": {
+    "n": 28,
+    "ours": 0.75,
+    "imitation": 0.714286,
+    "claude-sonnet-5-5_lib": 1.0,
+    "claude-sonnet-5-5_alone": 0.785714,
+    "ours_done": 21,
+    "imitation_done": 20,
+    "claude-sonnet-5-5_lib_done": 28,
+    "claude-sonnet-5-5_alone_done": 22
+   },
+   "2100": {
+    "n": 133,
+    "ours": 0.75188,
+    "imitation": 0.676692,
+    "preference": 0.721805,
+    "ours_done": 100,
+    "imitation_done": 90,
+    "preference_done": 96
+   }
+  },
+  "BLD038": {
+   "versions": [
+    "IFC2X3",
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 14,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.071429,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.428571,
+    "deepseek-v4-pro_lib": 0.785714,
+    "claude-sonnet-5-5_lib": 0.642857,
+    "gemini-3.8-flash_lib": 0.642857,
+    "gpt-5.6-luna_alone": 0.214286,
+    "deepseek-v4-pro_alone": 0.285714,
+    "claude-sonnet-5-5_alone": 0.571429,
+    "gemini-3.8-flash_alone": 0.0,
+    "ours_done": 14,
+    "imitation_done": 14,
+    "base_note_done": 1,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 6,
+    "deepseek-v4-pro_lib_done": 11,
+    "claude-sonnet-5-5_lib_done": 9,
+    "gemini-3.8-flash_lib_done": 9,
+    "gpt-5.6-luna_alone_done": 3,
+    "deepseek-v4-pro_alone_done": 4,
+    "claude-sonnet-5-5_alone_done": 8,
+    "gemini-3.8-flash_alone_done": 0
+   },
+   "324": {
+    "n": 37,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.783784,
+    "claude-sonnet-5-5_alone": 0.756757,
+    "ours_done": 37,
+    "imitation_done": 37,
+    "claude-sonnet-5-5_lib_done": 29,
+    "claude-sonnet-5-5_alone_done": 28
+   },
+   "2100": {
+    "n": 112,
+    "ours": 0.991071,
+    "imitation": 0.991071,
+    "preference": 1.0,
+    "ours_done": 111,
+    "imitation_done": 111,
+    "preference_done": 112
+   }
+  },
+  "BLD040": {
+   "versions": [
+    "IFC2X3",
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 3,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.666667,
+    "deepseek-v4-pro_lib": 1.0,
+    "claude-sonnet-5-5_lib": 1.0,
+    "gemini-3.8-flash_lib": 0.666667,
+    "gpt-5.6-luna_alone": 0.333333,
+    "deepseek-v4-pro_alone": 1.0,
+    "claude-sonnet-5-5_alone": 1.0,
+    "gemini-3.8-flash_alone": 0.0,
+    "ours_done": 3,
+    "imitation_done": 3,
+    "base_note_done": 0,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 2,
+    "deepseek-v4-pro_lib_done": 3,
+    "claude-sonnet-5-5_lib_done": 3,
+    "gemini-3.8-flash_lib_done": 2,
+    "gpt-5.6-luna_alone_done": 1,
+    "deepseek-v4-pro_alone_done": 3,
+    "claude-sonnet-5-5_alone_done": 3,
+    "gemini-3.8-flash_alone_done": 0
+   },
+   "324": {
+    "n": 16,
+    "ours": 0.9375,
+    "imitation": 0.9375,
+    "claude-sonnet-5-5_lib": 0.875,
+    "claude-sonnet-5-5_alone": 0.75,
+    "ours_done": 15,
+    "imitation_done": 15,
+    "claude-sonnet-5-5_lib_done": 14,
+    "claude-sonnet-5-5_alone_done": 12
+   },
+   "2100": {
+    "n": 121,
+    "ours": 0.92562,
+    "imitation": 0.917355,
+    "preference": 0.92562,
+    "ours_done": 112,
+    "imitation_done": 111,
+    "preference_done": 112
+   }
+  },
+  "BLD042": {
+   "versions": [
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 11,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.454545,
+    "deepseek-v4-pro_lib": 0.727273,
+    "claude-sonnet-5-5_lib": 0.909091,
+    "gemini-3.8-flash_lib": 0.727273,
+    "gpt-5.6-luna_alone": 0.181818,
+    "deepseek-v4-pro_alone": 0.272727,
+    "claude-sonnet-5-5_alone": 0.727273,
+    "gemini-3.8-flash_alone": 0.272727,
+    "ours_done": 11,
+    "imitation_done": 11,
+    "base_note_done": 0,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 5,
+    "deepseek-v4-pro_lib_done": 8,
+    "claude-sonnet-5-5_lib_done": 10,
+    "gemini-3.8-flash_lib_done": 8,
+    "gpt-5.6-luna_alone_done": 2,
+    "deepseek-v4-pro_alone_done": 3,
+    "claude-sonnet-5-5_alone_done": 8,
+    "gemini-3.8-flash_alone_done": 3
+   },
+   "324": {
+    "n": 20,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.9,
+    "claude-sonnet-5-5_alone": 0.75,
+    "ours_done": 20,
+    "imitation_done": 20,
+    "claude-sonnet-5-5_lib_done": 18,
+    "claude-sonnet-5-5_alone_done": 15
+   },
+   "2100": {
+    "n": 91,
+    "ours": 1.0,
+    "imitation": 0.989011,
+    "preference": 1.0,
+    "ours_done": 91,
+    "imitation_done": 90,
+    "preference_done": 91
+   }
+  },
+  "BLD044": {
+   "versions": [
+    "IFC2X3",
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 10,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.1,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.4,
+    "deepseek-v4-pro_lib": 0.8,
+    "claude-sonnet-5-5_lib": 0.8,
+    "gemini-3.8-flash_lib": 0.7,
+    "gpt-5.6-luna_alone": 0.2,
+    "deepseek-v4-pro_alone": 0.5,
+    "claude-sonnet-5-5_alone": 0.6,
+    "gemini-3.8-flash_alone": 0.2,
+    "ours_done": 10,
+    "imitation_done": 10,
+    "base_note_done": 1,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 4,
+    "deepseek-v4-pro_lib_done": 8,
+    "claude-sonnet-5-5_lib_done": 8,
+    "gemini-3.8-flash_lib_done": 7,
+    "gpt-5.6-luna_alone_done": 2,
+    "deepseek-v4-pro_alone_done": 5,
+    "claude-sonnet-5-5_alone_done": 6,
+    "gemini-3.8-flash_alone_done": 2
+   },
+   "324": {
+    "n": 35,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.8,
+    "claude-sonnet-5-5_alone": 0.657143,
+    "ours_done": 35,
+    "imitation_done": 35,
+    "claude-sonnet-5-5_lib_done": 28,
+    "claude-sonnet-5-5_alone_done": 23
+   },
+   "2100": {
+    "n": 212,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "preference": 1.0,
+    "ours_done": 212,
+    "imitation_done": 212,
+    "preference_done": 212
+   }
+  },
+  "BLD045": {
+   "versions": [
+    "IFC2X3",
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 10,
+    "ours": 0.9,
+    "imitation": 0.9,
+    "base_note": 0.0,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.7,
+    "deepseek-v4-pro_lib": 0.8,
+    "claude-sonnet-5-5_lib": 1.0,
+    "gemini-3.8-flash_lib": 0.4,
+    "gpt-5.6-luna_alone": 0.2,
+    "deepseek-v4-pro_alone": 0.6,
+    "claude-sonnet-5-5_alone": 0.7,
+    "gemini-3.8-flash_alone": 0.0,
+    "ours_done": 9,
+    "imitation_done": 9,
+    "base_note_done": 0,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 7,
+    "deepseek-v4-pro_lib_done": 8,
+    "claude-sonnet-5-5_lib_done": 10,
+    "gemini-3.8-flash_lib_done": 4,
+    "gpt-5.6-luna_alone_done": 2,
+    "deepseek-v4-pro_alone_done": 6,
+    "claude-sonnet-5-5_alone_done": 7,
+    "gemini-3.8-flash_alone_done": 0
+   },
+   "324": {
+    "n": 37,
+    "ours": 0.945946,
+    "imitation": 0.945946,
+    "claude-sonnet-5-5_lib": 0.918919,
+    "claude-sonnet-5-5_alone": 0.783784,
+    "ours_done": 35,
+    "imitation_done": 35,
+    "claude-sonnet-5-5_lib_done": 34,
+    "claude-sonnet-5-5_alone_done": 29
+   },
+   "2100": {
+    "n": 218,
+    "ours": 0.981651,
+    "imitation": 0.977064,
+    "preference": 0.977064,
+    "ours_done": 214,
+    "imitation_done": 213,
+    "preference_done": 213
+   }
+  },
+  "GNI-project_7": {
+   "versions": [
+    "IFC2X3",
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 11,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "base_alone": 0.0,
+    "gpt-5.6-luna_lib": 0.363636,
+    "deepseek-v4-pro_lib": 0.727273,
+    "claude-sonnet-5-5_lib": 1.0,
+    "gemini-3.8-flash_lib": 0.636364,
+    "gpt-5.6-luna_alone": 0.181818,
+    "deepseek-v4-pro_alone": 0.454545,
+    "claude-sonnet-5-5_alone": 0.818182,
+    "gemini-3.8-flash_alone": 0.272727,
+    "ours_done": 11,
+    "imitation_done": 11,
+    "base_note_done": 0,
+    "base_alone_done": 0,
+    "gpt-5.6-luna_lib_done": 4,
+    "deepseek-v4-pro_lib_done": 8,
+    "claude-sonnet-5-5_lib_done": 11,
+    "gemini-3.8-flash_lib_done": 7,
+    "gpt-5.6-luna_alone_done": 2,
+    "deepseek-v4-pro_alone_done": 5,
+    "claude-sonnet-5-5_alone_done": 9,
+    "gemini-3.8-flash_alone_done": 3
+   },
+   "324": {
+    "n": 32,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.875,
+    "claude-sonnet-5-5_alone": 0.75,
+    "ours_done": 32,
+    "imitation_done": 32,
+    "claude-sonnet-5-5_lib_done": 28,
+    "claude-sonnet-5-5_alone_done": 24
+   },
+   "2100": {
+    "n": 289,
+    "ours": 0.975779,
+    "imitation": 0.961938,
+    "preference": 0.961938,
+    "ours_done": 282,
+    "imitation_done": 278,
+    "preference_done": 278
+   }
+  },
+  "GNI-project_8": {
+   "versions": [
+    "IFC4",
+    "IFC4X3"
+   ],
+   "origins": [
+    "migrated",
+    "native"
+   ],
+   "108": {
+    "n": 8,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "base_alone": 0.125,
+    "gpt-5.6-luna_lib": 0.5,
+    "deepseek-v4-pro_lib": 0.75,
+    "claude-sonnet-5-5_lib": 1.0,
+    "gemini-3.8-flash_lib": 0.75,
+    "gpt-5.6-luna_alone": 0.375,
+    "deepseek-v4-pro_alone": 0.875,
+    "claude-sonnet-5-5_alone": 1.0,
+    "gemini-3.8-flash_alone": 0.5,
+    "ours_done": 8,
+    "imitation_done": 8,
+    "base_note_done": 0,
+    "base_alone_done": 1,
+    "gpt-5.6-luna_lib_done": 4,
+    "deepseek-v4-pro_lib_done": 6,
+    "claude-sonnet-5-5_lib_done": 8,
+    "gemini-3.8-flash_lib_done": 6,
+    "gpt-5.6-luna_alone_done": 3,
+    "deepseek-v4-pro_alone_done": 7,
+    "claude-sonnet-5-5_alone_done": 8,
+    "gemini-3.8-flash_alone_done": 4
+   },
+   "324": {
+    "n": 22,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.954545,
+    "claude-sonnet-5-5_alone": 0.863636,
+    "ours_done": 22,
+    "imitation_done": 22,
+    "claude-sonnet-5-5_lib_done": 21,
+    "claude-sonnet-5-5_alone_done": 19
+   },
+   "2100": {
+    "n": 143,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "preference": 1.0,
+    "ours_done": 143,
+    "imitation_done": 143,
+    "preference_done": 143
+   }
+  }
+ },
+ "spread": {
+  "108/ours": {
+   "min": 0.875,
+   "min_building": "BLD035",
+   "max": 1.0,
+   "max_building": "BLD038",
+   "median": 1.0,
+   "sd_between_buildings": 0.0473,
+   "buildings": 12
+  },
+  "108/imitation": {
+   "min": 0.75,
+   "min_building": "BLD035",
+   "max": 1.0,
+   "max_building": "BLD038",
+   "median": 1.0,
+   "sd_between_buildings": 0.0762,
+   "buildings": 12
+  },
+  "108/base_note": {
+   "min": 0.0,
+   "min_building": "BLD031",
+   "max": 0.1,
+   "max_building": "BLD044",
+   "median": 0.0,
+   "sd_between_buildings": 0.0339,
+   "buildings": 12
+  },
+  "108/base_alone": {
+   "min": 0.0,
+   "min_building": "BLD031",
+   "max": 0.125,
+   "max_building": "GNI-project_8",
+   "median": 0.0,
+   "sd_between_buildings": 0.0415,
+   "buildings": 12
+  },
+  "108/gpt-5.6-luna_lib": {
+   "min": 0.0,
+   "min_building": "BLD031",
+   "max": 0.7,
+   "max_building": "BLD045",
+   "median": 0.4083335,
+   "sd_between_buildings": 0.1862,
+   "buildings": 12
+  },
+  "108/deepseek-v4-pro_lib": {
+   "min": 0.333333,
+   "min_building": "BLD031",
+   "max": 1.0,
+   "max_building": "BLD035",
+   "median": 0.792857,
+   "sd_between_buildings": 0.194,
+   "buildings": 12
+  },
+  "108/claude-sonnet-5-5_lib": {
+   "min": 0.333333,
+   "min_building": "BLD031",
+   "max": 1.0,
+   "max_building": "GNI-project_7",
+   "median": 0.912879,
+   "sd_between_buildings": 0.2245,
+   "buildings": 12
+  },
+  "108/gemini-3.8-flash_lib": {
+   "min": 0.0,
+   "min_building": "BLD031",
+   "max": 0.75,
+   "max_building": "GNI-project_8",
+   "median": 0.6396105000000001,
+   "sd_between_buildings": 0.2075,
+   "buildings": 12
+  },
+  "108/gpt-5.6-luna_alone": {
+   "min": 0.0,
+   "min_building": "BLD035",
+   "max": 0.5,
+   "max_building": "BLD029",
+   "median": 0.232143,
+   "sd_between_buildings": 0.1265,
+   "buildings": 12
+  },
+  "108/deepseek-v4-pro_alone": {
+   "min": 0.272727,
+   "min_building": "BLD042",
+   "max": 1.0,
+   "max_building": "BLD040",
+   "median": 0.5416665,
+   "sd_between_buildings": 0.2472,
+   "buildings": 12
+  },
+  "108/claude-sonnet-5-5_alone": {
+   "min": 0.333333,
+   "min_building": "BLD031",
+   "max": 1.0,
+   "max_building": "GNI-project_8",
+   "median": 0.7727275,
+   "sd_between_buildings": 0.2217,
+   "buildings": 12
+  },
+  "108/gemini-3.8-flash_alone": {
+   "min": 0.0,
+   "min_building": "BLD031",
+   "max": 0.5,
+   "max_building": "GNI-project_8",
+   "median": 0.1625,
+   "sd_between_buildings": 0.1578,
+   "buildings": 12
+  },
+  "324/ours": {
+   "min": 0.75,
+   "min_building": "BLD035",
+   "max": 1.0,
+   "max_building": "BLD038",
+   "median": 1.0,
+   "sd_between_buildings": 0.0716,
+   "buildings": 12
+  },
+  "324/imitation": {
+   "min": 0.714286,
+   "min_building": "BLD035",
+   "max": 1.0,
+   "max_building": "BLD038",
+   "median": 1.0,
+   "sd_between_buildings": 0.0813,
+   "buildings": 12
+  },
+  "324/claude-sonnet-5-5_lib": {
+   "min": 0.545455,
+   "min_building": "BLD031",
+   "max": 1.0,
+   "max_building": "BLD035",
+   "median": 0.8848685000000001,
+   "sd_between_buildings": 0.119,
+   "buildings": 12
+  },
+  "324/claude-sonnet-5-5_alone": {
+   "min": 0.545455,
+   "min_building": "BLD031",
+   "max": 0.863636,
+   "max_building": "GNI-project_8",
+   "median": 0.75,
+   "sd_between_buildings": 0.078,
+   "buildings": 12
+  },
+  "2100/ours": {
+   "min": 0.75188,
+   "min_building": "BLD035",
+   "max": 1.0,
+   "max_building": "BLD044",
+   "median": 0.980495,
+   "sd_between_buildings": 0.0697,
+   "buildings": 12
+  },
+  "2100/imitation": {
+   "min": 0.676692,
+   "min_building": "BLD035",
+   "max": 1.0,
+   "max_building": "BLD044",
+   "median": 0.9782015,
+   "sd_between_buildings": 0.0897,
+   "buildings": 12
+  },
+  "2100/preference": {
+   "min": 0.721805,
+   "min_building": "BLD035",
+   "max": 1.0,
+   "max_building": "BLD044",
+   "median": 0.9782015,
+   "sd_between_buildings": 0.0778,
+   "buildings": 12
+  }
+ },
+ "final_vs_sonnet_lib_108": {
+  "buildings_final_higher": 6,
+  "buildings_equal": 4,
+  "buildings_sonnet_higher": 2
+ },
+ "final_vs_sonnet_lib_324": {
+  "buildings_final_higher": 11,
+  "buildings_equal": 0,
+  "buildings_sonnet_higher": 1
+ },
+ "fully_specified": {
+  "BLD003": {
+   "108": {
+    "n": 12,
+    "ours": 0.916667,
+    "imitation": 0.916667,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 0.916667
+   },
+   "324": {
+    "n": 32,
+    "ours": 0.9375,
+    "imitation": 0.9375,
+    "claude-sonnet-5-5_lib": 0.96875
+   },
+   "2100": {
+    "n": 335,
+    "ours": 0.949254,
+    "imitation": 0.955224
+   }
+  },
+  "BLD018": {
+   "108": {
+    "n": 5,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 0.8
+   },
+   "324": {
+    "n": 28,
+    "ours": 0.964286,
+    "imitation": 0.964286,
+    "claude-sonnet-5-5_lib": 0.892857
+   },
+   "2100": {
+    "n": 209,
+    "ours": 0.976077,
+    "imitation": 0.976077
+   }
+  },
+  "BLD029": {
+   "108": {
+    "n": 10,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 0.9
+   },
+   "324": {
+    "n": 19,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.894737
+   },
+   "2100": {
+    "n": 118,
+    "ours": 0.940678,
+    "imitation": 0.932203
+   }
+  },
+  "BLD031": {
+   "108": {
+    "n": 1,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "324": {
+    "n": 6,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "2100": {
+    "n": 49,
+    "ours": 1.0,
+    "imitation": 1.0
+   }
+  },
+  "BLD035": {
+   "108": {
+    "n": 8,
+    "ours": 0.875,
+    "imitation": 0.75,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "324": {
+    "n": 28,
+    "ours": 0.75,
+    "imitation": 0.714286,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "2100": {
+    "n": 130,
+    "ours": 0.746154,
+    "imitation": 0.669231
+   }
+  },
+  "BLD038": {
+   "108": {
+    "n": 11,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.090909,
+    "claude-sonnet-5-5_lib": 0.818182
+   },
+   "324": {
+    "n": 32,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.90625
+   },
+   "2100": {
+    "n": 103,
+    "ours": 0.990291,
+    "imitation": 0.990291
+   }
+  },
+  "BLD040": {
+   "108": {
+    "n": 3,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "324": {
+    "n": 15,
+    "ours": 0.933333,
+    "imitation": 0.933333,
+    "claude-sonnet-5-5_lib": 0.933333
+   },
+   "2100": {
+    "n": 113,
+    "ours": 0.920354,
+    "imitation": 0.911504
+   }
+  },
+  "BLD042": {
+   "108": {
+    "n": 10,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "324": {
+    "n": 18,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "2100": {
+    "n": 85,
+    "ours": 1.0,
+    "imitation": 0.988235
+   }
+  },
+  "BLD044": {
+   "108": {
+    "n": 8,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.125,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "324": {
+    "n": 28,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "2100": {
+    "n": 186,
+    "ours": 1.0,
+    "imitation": 1.0
+   }
+  },
+  "BLD045": {
+   "108": {
+    "n": 10,
+    "ours": 0.9,
+    "imitation": 0.9,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "324": {
+    "n": 36,
+    "ours": 0.944444,
+    "imitation": 0.944444,
+    "claude-sonnet-5-5_lib": 0.944444
+   },
+   "2100": {
+    "n": 204,
+    "ours": 0.980392,
+    "imitation": 0.97549
+   }
+  },
+  "GNI-project_7": {
+   "108": {
+    "n": 11,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "324": {
+    "n": 31,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.903226
+   },
+   "2100": {
+    "n": 272,
+    "ours": 0.974265,
+    "imitation": 0.963235
+   }
+  },
+  "GNI-project_8": {
+   "108": {
+    "n": 8,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "base_note": 0.0,
+    "claude-sonnet-5-5_lib": 1.0
+   },
+   "324": {
+    "n": 22,
+    "ours": 1.0,
+    "imitation": 1.0,
+    "claude-sonnet-5-5_lib": 0.954545
+   },
+   "2100": {
+    "n": 140,
+    "ours": 1.0,
+    "imitation": 1.0
+   }
+  },
+  "ALL": {
+   "108": {
+    "n": 97,
+    "ours": 0.969072,
+    "imitation": 0.958763,
+    "base_note": 0.020619,
+    "claude-sonnet-5-5_lib": 0.948454
+   },
+   "324": {
+    "n": 295,
+    "ours": 0.955932,
+    "imitation": 0.952542,
+    "claude-sonnet-5-5_lib": 0.945763
+   },
+   "2100": {
+    "n": 1944,
+    "ours": 0.957305,
+    "imitation": 0.949588
+   }
+  },
+  "final_vs_sonnet_lib_108": {
+   "final_higher": 3,
+   "equal": 7,
+   "sonnet_higher": 2
+  },
+  "final_vs_sonnet_lib_324": {
+   "final_higher": 5,
+   "equal": 5,
+   "sonnet_higher": 2
+  }
+ }
+}

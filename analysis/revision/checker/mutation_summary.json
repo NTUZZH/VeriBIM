@@ -1,0 +1,1111 @@
+{
+ "n_tasks_sampled": 240,
+ "n_tasks_with_rows": 240,
+ "verdict_rule": "C = 1[min(geometry, semantics, topology) >= t], t = 0.90 (reported) and 0.98",
+ "crashes": [],
+ "undo_clean": {
+  "True": 240
+ },
+ "perturbations": [
+  {
+   "class": "control",
+   "magnitude": "round trip",
+   "label": "Correct edit (ground truth written again)",
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 1.0,
+   "accept_098": 1.0,
+   "median_geometry": 1.0,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 1.0,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 1.0,
+     "accept_098": 1.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 80,
+     "accept_090": 1.0,
+     "accept_098": 1.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "control",
+   "magnitude": "gold script re-run",
+   "label": "Delete: correct deletion re-run on the source",
+   "n_rows": 80,
+   "n_applied": 80,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 1.0,
+   "accept_098": 1.0,
+   "median_geometry": 1.0,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 1.0,
+   "by_operation": {
+    "delete": {
+     "n": 80,
+     "accept_090": 1.0,
+     "accept_098": 1.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "null_edit",
+   "magnitude": "source model",
+   "label": "No edit (unedited source model)",
+   "n_rows": 240,
+   "n_applied": 240,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.0,
+   "accept_098": 0.0,
+   "median_geometry": 0.0,
+   "median_semantics": 0.0,
+   "median_topology": 0.0,
+   "median_final": 0.0,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 0.0,
+     "median_semantics": 0.0,
+     "median_topology": 0.0
+    },
+    "update": {
+     "n": 80,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 0.9792,
+     "median_semantics": 0.7646,
+     "median_topology": 0.0
+    },
+    "delete": {
+     "n": 80,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 0.0,
+     "median_semantics": 0.0,
+     "median_topology": 0.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "a_shift",
+   "magnitude": "5 %",
+   "label": "Shift along the element axis, 5\\,\\% of its length",
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.975,
+   "accept_098": 0.0563,
+   "median_geometry": 0.9616,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.987,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 1.0,
+     "accept_098": 0.0625,
+     "median_geometry": 0.9609,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 80,
+     "accept_090": 0.95,
+     "accept_098": 0.05,
+     "median_geometry": 0.9624,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "a_shift",
+   "magnitude": "10 %",
+   "label": "Shift along the element axis, 10\\,\\%",
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.9563,
+   "accept_098": 0.0563,
+   "median_geometry": 0.9607,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9868,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 1.0,
+     "accept_098": 0.0625,
+     "median_geometry": 0.9607,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 80,
+     "accept_090": 0.9125,
+     "accept_098": 0.05,
+     "median_geometry": 0.9614,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "a_shift",
+   "magnitude": "20 %",
+   "label": "Shift along the element axis, 20\\,\\%",
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.925,
+   "accept_098": 0.0563,
+   "median_geometry": 0.9583,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9859,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.9875,
+     "accept_098": 0.0625,
+     "median_geometry": 0.9583,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 80,
+     "accept_090": 0.8625,
+     "accept_098": 0.05,
+     "median_geometry": 0.9585,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "a_shift",
+   "magnitude": "50 %",
+   "label": "Shift along the element axis, 50\\,\\%",
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.6312,
+   "accept_098": 0.0,
+   "median_geometry": 0.9257,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9741,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.7125,
+     "accept_098": 0.0,
+     "median_geometry": 0.9257,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 80,
+     "accept_090": 0.55,
+     "accept_098": 0.0,
+     "median_geometry": 0.9251,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "a_shift",
+   "magnitude": "0.30 m",
+   "label": "Door or window shifted 0.30\\,m along its wall",
+   "n_rows": 160,
+   "n_applied": 45,
+   "n_not_applicable": 115,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 1.0,
+   "accept_098": 0.0,
+   "median_geometry": 0.9525,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9842,
+   "by_operation": {
+    "create": {
+     "n": 24,
+     "accept_090": 1.0,
+     "accept_098": 0.0,
+     "median_geometry": 0.9517,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 21,
+     "accept_090": 1.0,
+     "accept_098": 0.0,
+     "median_geometry": 0.9536,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {
+    "absolute 0.30 m shift is for doors and windows": 115
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "c_direction",
+   "magnitude": "opposite",
+   "label": "Opposite direction or other side",
+   "n_rows": 160,
+   "n_applied": 76,
+   "n_not_applicable": 84,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.1184,
+   "accept_098": 0.0132,
+   "median_geometry": 0.0,
+   "median_semantics": 0.0,
+   "median_topology": 0.0,
+   "median_final": 0.0,
+   "by_operation": {
+    "create": {
+     "n": 48,
+     "accept_090": 0.1667,
+     "accept_098": 0.0,
+     "median_geometry": 0.0,
+     "median_semantics": 0.0,
+     "median_topology": 0.0
+    },
+    "update": {
+     "n": 28,
+     "accept_090": 0.0357,
+     "accept_098": 0.0357,
+     "median_geometry": 0.0,
+     "median_semantics": 0.0,
+     "median_topology": 0.0
+    }
+   },
+   "not_applicable_reasons": {
+    "box placed by absolute coordinates; no side to mirror": 20,
+    "no direction to reverse for update/move_to_storey": 14,
+    "no direction to reverse for create/replace_filling": 12,
+    "no direction to reverse for update/assign_type": 9,
+    "no direction to reverse for update/mirror": 7,
+    "no direction to reverse for update/resize_overall": 5
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "b_width",
+   "magnitude": "x0.98",
+   "label": "Width $\\times$0.98",
+   "n_rows": 160,
+   "n_applied": 152,
+   "n_not_applicable": 0,
+   "n_build_error": 8,
+   "n_score_error": 0,
+   "accept_090": 0.9737,
+   "accept_098": 0.4079,
+   "median_geometry": 0.9789,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9928,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 1.0,
+     "accept_098": 0.4125,
+     "median_geometry": 0.9781,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 72,
+     "accept_090": 0.9444,
+     "accept_098": 0.4028,
+     "median_geometry": 0.9797,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {
+    "RuntimeError: scaled body does not have the intended extent": 8
+   }
+  },
+  {
+   "class": "b_width",
+   "magnitude": "x0.95",
+   "label": "Width $\\times$0.95",
+   "n_rows": 160,
+   "n_applied": 152,
+   "n_not_applicable": 0,
+   "n_build_error": 8,
+   "n_score_error": 0,
+   "accept_090": 0.875,
+   "accept_098": 0.1579,
+   "median_geometry": 0.9706,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9896,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.8125,
+     "accept_098": 0.1875,
+     "median_geometry": 0.9693,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 72,
+     "accept_090": 0.9444,
+     "accept_098": 0.125,
+     "median_geometry": 0.9712,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {
+    "RuntimeError: scaled body does not have the intended extent": 8
+   }
+  },
+  {
+   "class": "b_width",
+   "magnitude": "x0.90",
+   "label": "Width $\\times$0.90",
+   "n_rows": 160,
+   "n_applied": 152,
+   "n_not_applicable": 0,
+   "n_build_error": 8,
+   "n_score_error": 0,
+   "accept_090": 0.8158,
+   "accept_098": 0.0987,
+   "median_geometry": 0.9661,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9882,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.7,
+     "accept_098": 0.125,
+     "median_geometry": 0.9655,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 72,
+     "accept_090": 0.9444,
+     "accept_098": 0.0694,
+     "median_geometry": 0.967,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {
+    "RuntimeError: scaled body does not have the intended extent": 8
+   }
+  },
+  {
+   "class": "b_width",
+   "magnitude": "x0.80",
+   "label": "Width $\\times$0.80",
+   "n_rows": 160,
+   "n_applied": 152,
+   "n_not_applicable": 0,
+   "n_build_error": 8,
+   "n_score_error": 0,
+   "accept_090": 0.8092,
+   "accept_098": 0.0789,
+   "median_geometry": 0.9639,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9868,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.7,
+     "accept_098": 0.0875,
+     "median_geometry": 0.963,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 72,
+     "accept_090": 0.9306,
+     "accept_098": 0.0694,
+     "median_geometry": 0.9647,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {
+    "RuntimeError: scaled body does not have the intended extent": 8
+   }
+  },
+  {
+   "class": "b_height",
+   "magnitude": "x0.98",
+   "label": "Height $\\times$0.98",
+   "n_rows": 160,
+   "n_applied": 153,
+   "n_not_applicable": 0,
+   "n_build_error": 7,
+   "n_score_error": 0,
+   "accept_090": 0.9673,
+   "accept_098": 0.3464,
+   "median_geometry": 0.9771,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9922,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 1.0,
+     "accept_098": 0.3875,
+     "median_geometry": 0.9773,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 73,
+     "accept_090": 0.9315,
+     "accept_098": 0.3014,
+     "median_geometry": 0.9767,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {
+    "RuntimeError: scaled body does not have the intended extent": 7
+   }
+  },
+  {
+   "class": "b_height",
+   "magnitude": "x0.95",
+   "label": "Height $\\times$0.95",
+   "n_rows": 160,
+   "n_applied": 152,
+   "n_not_applicable": 0,
+   "n_build_error": 8,
+   "n_score_error": 0,
+   "accept_090": 0.8289,
+   "accept_098": 0.2434,
+   "median_geometry": 0.9698,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9894,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.725,
+     "accept_098": 0.3,
+     "median_geometry": 0.9695,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 72,
+     "accept_090": 0.9444,
+     "accept_098": 0.1806,
+     "median_geometry": 0.9699,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {
+    "RuntimeError: scaled body does not have the intended extent": 8
+   }
+  },
+  {
+   "class": "b_height",
+   "magnitude": "x0.90",
+   "label": "Height $\\times$0.90",
+   "n_rows": 160,
+   "n_applied": 152,
+   "n_not_applicable": 0,
+   "n_build_error": 8,
+   "n_score_error": 0,
+   "accept_090": 0.8158,
+   "accept_098": 0.1711,
+   "median_geometry": 0.9672,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9879,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.7,
+     "accept_098": 0.2125,
+     "median_geometry": 0.9667,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 72,
+     "accept_090": 0.9444,
+     "accept_098": 0.125,
+     "median_geometry": 0.9677,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {
+    "RuntimeError: scaled body does not have the intended extent": 8
+   }
+  },
+  {
+   "class": "b_height",
+   "magnitude": "x0.80",
+   "label": "Height $\\times$0.80",
+   "n_rows": 160,
+   "n_applied": 152,
+   "n_not_applicable": 0,
+   "n_build_error": 8,
+   "n_score_error": 0,
+   "accept_090": 0.8158,
+   "accept_098": 0.1053,
+   "median_geometry": 0.9647,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 0.9873,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.7,
+     "accept_098": 0.125,
+     "median_geometry": 0.9646,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 72,
+     "accept_090": 0.9444,
+     "accept_098": 0.0833,
+     "median_geometry": 0.9652,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {
+    "RuntimeError: scaled body does not have the intended extent": 8
+   }
+  },
+  {
+   "class": "d_wrong_host",
+   "magnitude": "nearest other wall",
+   "label": "Door or window in the nearest other wall",
+   "n_rows": 160,
+   "n_applied": 26,
+   "n_not_applicable": 134,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.0,
+   "accept_098": 0.0,
+   "median_geometry": 0.0,
+   "median_semantics": 0.0,
+   "median_topology": 0.0,
+   "median_final": 0.0,
+   "by_operation": {
+    "create": {
+     "n": 24,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 0.0,
+     "median_semantics": 0.0,
+     "median_topology": 0.0
+    },
+    "update": {
+     "n": 2,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 0.0,
+     "median_semantics": 0.0,
+     "median_topology": 0.0
+    }
+   },
+   "not_applicable_reasons": {
+    "not a hosted door or window edit": 134
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "e_relation",
+   "magnitude": "containment",
+   "label": "Storey containment removed",
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.2625,
+   "accept_098": 0.0,
+   "median_geometry": 1.0,
+   "median_semantics": 1.0,
+   "median_topology": 0.4714,
+   "median_final": 0.8238,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.3375,
+     "accept_098": 0.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 0.4714
+    },
+    "update": {
+     "n": 80,
+     "accept_090": 0.1875,
+     "accept_098": 0.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 0.4714
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "e_relation",
+   "magnitude": "filling",
+   "label": "Opening filling relation removed",
+   "n_rows": 160,
+   "n_applied": 44,
+   "n_not_applicable": 116,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.7273,
+   "accept_098": 0.0,
+   "median_geometry": 1.0,
+   "median_semantics": 1.0,
+   "median_topology": 0.9038,
+   "median_final": 0.9679,
+   "by_operation": {
+    "create": {
+     "n": 24,
+     "accept_090": 1.0,
+     "accept_098": 0.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 0.9493
+    },
+    "update": {
+     "n": 20,
+     "accept_090": 0.4,
+     "accept_098": 0.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 0.4714
+    }
+   },
+   "not_applicable_reasons": {
+    "target has no filling relation in the ground truth": 116
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "e_relation",
+   "magnitude": "type",
+   "label": "Type assignment removed",
+   "n_rows": 160,
+   "n_applied": 63,
+   "n_not_applicable": 97,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.619,
+   "accept_098": 0.619,
+   "median_geometry": 1.0,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 1.0,
+   "by_operation": {
+    "update": {
+     "n": 63,
+     "accept_090": 0.619,
+     "accept_098": 0.619,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {
+    "target has no type relation in the ground truth": 97
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "f_attribute",
+   "magnitude": "Name",
+   "label": "Name changed",
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.4625,
+   "accept_098": 0.1187,
+   "median_geometry": 1.0,
+   "median_semantics": 0.8542,
+   "median_topology": 1.0,
+   "median_final": 0.9444,
+   "by_operation": {
+    "create": {
+     "n": 80,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 1.0,
+     "median_semantics": 0.75,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 80,
+     "accept_090": 0.925,
+     "accept_098": 0.2375,
+     "median_geometry": 1.0,
+     "median_semantics": 0.9697,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {},
+   "build_error_reasons": {}
+  },
+  {
+   "class": "f_attribute",
+   "magnitude": "ObjectType",
+   "label": "Object type changed",
+   "n_rows": 160,
+   "n_applied": 43,
+   "n_not_applicable": 117,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.6047,
+   "accept_098": 0.3023,
+   "median_geometry": 1.0,
+   "median_semantics": 0.9762,
+   "median_topology": 1.0,
+   "median_final": 0.9917,
+   "by_operation": {
+    "create": {
+     "n": 13,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 1.0,
+     "median_semantics": 0.75,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 30,
+     "accept_090": 0.8667,
+     "accept_098": 0.4333,
+     "median_geometry": 1.0,
+     "median_semantics": 0.9783,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {
+    "ObjectType is empty in the ground truth": 117
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "f_attribute",
+   "magnitude": "PredefinedType",
+   "label": "Predefined type changed",
+   "n_rows": 160,
+   "n_applied": 73,
+   "n_not_applicable": 87,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.6164,
+   "accept_098": 0.0959,
+   "median_geometry": 1.0,
+   "median_semantics": 0.9375,
+   "median_topology": 1.0,
+   "median_final": 0.9792,
+   "by_operation": {
+    "create": {
+     "n": 28,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 1.0,
+     "median_semantics": 0.75,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 45,
+     "accept_090": 1.0,
+     "accept_098": 0.1556,
+     "median_geometry": 1.0,
+     "median_semantics": 0.9688,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {
+    "PredefinedType is empty in the ground truth": 42,
+    "IfcWallStandardCase has no PredefinedType in this schema": 13,
+    "IfcColumn has no PredefinedType in this schema": 9,
+    "IfcDoor has no PredefinedType in this schema": 8,
+    "IfcWindow has no PredefinedType in this schema": 7,
+    "IfcSpace has no PredefinedType in this schema": 6
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "f_attribute",
+   "magnitude": "property value x1.2",
+   "label": "One property value raised by 20\\,\\%",
+   "n_rows": 160,
+   "n_applied": 57,
+   "n_not_applicable": 103,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.9123,
+   "accept_098": 0.3333,
+   "median_geometry": 1.0,
+   "median_semantics": 0.9783,
+   "median_topology": 1.0,
+   "median_final": 0.9921,
+   "by_operation": {
+    "update": {
+     "n": 57,
+     "accept_090": 0.9123,
+     "accept_098": 0.3333,
+     "median_geometry": 1.0,
+     "median_semantics": 0.9783,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {
+    "target has no numeric property or quantity of its own": 103
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "x_offtarget",
+   "magnitude": "nearest same-class element moved 0.5 m",
+   "label": "Unrelated element of the same class moved 0.5\\,m",
+   "n_rows": 160,
+   "n_applied": 144,
+   "n_not_applicable": 16,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 1.0,
+   "accept_098": 1.0,
+   "median_geometry": 1.0,
+   "median_semantics": 1.0,
+   "median_topology": 1.0,
+   "median_final": 1.0,
+   "by_operation": {
+    "create": {
+     "n": 65,
+     "accept_090": 1.0,
+     "accept_098": 1.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    },
+    "update": {
+     "n": 79,
+     "accept_090": 1.0,
+     "accept_098": 1.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 1.0
+    }
+   },
+   "not_applicable_reasons": {
+    "no other element of the target class": 16
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "g_wrong_element",
+   "magnitude": "nearest same-class element deleted instead",
+   "label": "Delete: nearest other element deleted instead",
+   "n_rows": 80,
+   "n_applied": 79,
+   "n_not_applicable": 1,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.0,
+   "accept_098": 0.0,
+   "median_geometry": 0.0,
+   "median_semantics": 0.0,
+   "median_topology": 0.0,
+   "median_final": 0.0,
+   "by_operation": {
+    "delete": {
+     "n": 79,
+     "accept_090": 0.0,
+     "accept_098": 0.0,
+     "median_geometry": 0.0,
+     "median_semantics": 0.0,
+     "median_topology": 0.0
+    }
+   },
+   "not_applicable_reasons": {
+    "not enough other elements of the class": 1
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "g_partial",
+   "magnitude": "one of several targets left",
+   "label": "Delete: one of several targets left in place",
+   "n_rows": 80,
+   "n_applied": 15,
+   "n_not_applicable": 65,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.0667,
+   "accept_098": 0.0,
+   "median_geometry": 0.5,
+   "median_semantics": 0.5,
+   "median_topology": 0.7705,
+   "median_final": 0.5902,
+   "by_operation": {
+    "delete": {
+     "n": 15,
+     "accept_090": 0.0667,
+     "accept_098": 0.0,
+     "median_geometry": 0.5,
+     "median_semantics": 0.5,
+     "median_topology": 0.7705
+    }
+   },
+   "not_applicable_reasons": {
+    "single-target delete": 65
+   },
+   "build_error_reasons": {}
+  },
+  {
+   "class": "g_extra",
+   "magnitude": "target and nearest same-class element deleted",
+   "label": "Delete: target and an unrelated neighbour deleted",
+   "n_rows": 80,
+   "n_applied": 79,
+   "n_not_applicable": 1,
+   "n_build_error": 0,
+   "n_score_error": 0,
+   "accept_090": 0.038,
+   "accept_098": 0.0,
+   "median_geometry": 1.0,
+   "median_semantics": 1.0,
+   "median_topology": 0.7143,
+   "median_final": 0.9048,
+   "by_operation": {
+    "delete": {
+     "n": 79,
+     "accept_090": 0.038,
+     "accept_098": 0.0,
+     "median_geometry": 1.0,
+     "median_semantics": 1.0,
+     "median_topology": 0.7143
+    }
+   },
+   "not_applicable_reasons": {
+    "no other element of the class": 1
+   },
+   "build_error_reasons": {}
+  }
+ ],
+ "self_score": {
+  "n": 239,
+  "median": 0.9649,
+  "min": 0.9494214828651788,
+  "max": 0.9888904131667459,
+  "share_below_0.98": 0.9414,
+  "share_below_0.90": 0.0,
+  "by_operation": {
+   "create": 0.9633,
+   "update": 0.9665,
+   "delete": 0.9646
+  }
+ },
+ "semantic_keys": {
+  "n_tasks": 160,
+  "median": 3.5,
+  "share_ge_5": 0.4875,
+  "share_ge_25": 0.125,
+  "rule": "one wrong key among n gives semantics 0.5*(1 + (n-1)/n); >= 0.90 iff n >= 5, >= 0.98 iff n >= 25"
+ },
+ "attribute_by_keys": [
+  {
+   "keys": "1-4",
+   "n": 126,
+   "accept_090": 0.0,
+   "accept_098": 0.0
+  },
+  {
+   "keys": "5-9",
+   "n": 32,
+   "accept_090": 0.9375,
+   "accept_098": 0.0
+  },
+  {
+   "keys": "10-24",
+   "n": 114,
+   "accept_090": 0.9561,
+   "accept_098": 0.0
+  },
+  {
+   "keys": "25-more",
+   "n": 61,
+   "accept_090": 0.9508,
+   "accept_098": 0.9508
+  }
+ ]
+}

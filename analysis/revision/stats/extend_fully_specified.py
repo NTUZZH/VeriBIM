@@ -1,0 +1,130 @@
+"""Follow-up: fully specified tasks only (clarification tasks removed). Extends threshold.json, clarification.json,
+per_building.json and failure_ends.json in place (new keys only), keeps the all-task per-building table as
+tab_per_building_all.tex and rewrites tab_per_building.tex on fully specified tasks.
+
+    taskset -c 8-9 env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 \
+        python analysis/revision/stats/extend_fully_specified.py
+"""
+import json, os, sys
+from collections import Counter
+sys.dont_write_bytecode = True
+sys.path.insert(0, 'analysis/revision/stats')
+import numpy as np
+from common import *          # noqa: F401,F403
+import failure_ends as FE     # re-runs failure_ends.py (same output), gives end_class and ARMS
+
+T, S108, S324 = load_tasks()
+rows, sets = load_all(T, S108, S324)
+CL = {t: T[t]['building_id'] for t in T}
+LAB = {k: v[2] for k, v in arm_paths().items()}
+UND = {t for t in T if T[t]['clarification']}
+FS = {n: sorted(t for t in sets[n] if t not in UND) for n in sets}
+assert (len(FS[108]), len(FS[324]), len(FS[2100])) == (97, 295, 1944)
+TH = [0.85, 0.90, 0.95, 0.98]
+SON = 'claude-sonnet-5-5'
+
+
+def comp(r, ids, t=0.9):
+    return float(np.mean([done_at(r[x], t) for x in ids]))
+
+
+def paired(a, b, ids, t):
+    d = [done_at(rows[a][x], t) - done_at(rows[b][x], t) for x in ids]
+    tb, cb = boot(d), cboot(d, ids, CL)
+    return {'n': len(ids), 'diff': round(tb[0], 6), 'task_level': [round(tb[1], 6), round(tb[2], 6)],
+            'cluster': [round(cb[1], 6), round(cb[2], 6)], 'n_buildings': cb[3],
+            'a_only': sum(1 for x in d if x > 0), 'b_only': sum(1 for x in d if x < 0)}
+
+
+# (1)+(2)+(3) threshold.json
+th = json.load(open(f'{OUT}/threshold.json'))
+fsd = {'definition': 'fully specified = tasks without the wording.underspecified family (97 of 108, 295 of 324, '
+                     '1,944 of 2,100)', 'arms': {}, 'paired': {}, 'paired_other_commercial_t090_108': {}}
+for k in arm_paths():
+    ids = FS[k[0]]
+    fsd['arms']['|'.join(map(str, k))] = {'set': k[0], 'n': len(ids), 'label': LAB[k],
+                                          **{f'{t:.2f}': {'completion': round(comp(rows[k], ids, t), 6),
+                                                          'done': int(sum(done_at(rows[k][x], t) for x in ids))}
+                                             for t in TH}}
+for n in (108, 324):
+    for arm in ('lib', 'alone'):
+        a, b = (n, 'ours'), (n, SON, arm)
+        fsd['paired'][f'{n}: {LAB[a]} minus {LAB[b]}'] = {f'{t:.2f}': paired(a, b, FS[n], t) for t in TH}
+for mid, nm, _ in COMMERCIAL:
+    if mid == SON:
+        continue
+    a, b = (108, 'ours'), (108, mid, 'lib')
+    fsd['paired_other_commercial_t090_108'][f'108: {LAB[a]} minus {LAB[b]}'] = paired(a, b, FS[108], 0.9)
+th['fully_specified'] = fsd
+json.dump(th, open(f'{OUT}/threshold.json', 'w'), indent=1)
+
+# clarification.json: pointer plus the same paired block at t = 0.90
+cl = json.load(open(f'{OUT}/clarification.json'))
+cl['fully_specified_paired_t090'] = {k: v['0.90'] for k, v in fsd['paired'].items()}
+cl['fully_specified_paired_t090'].update(fsd['paired_other_commercial_t090_108'])
+cl['fully_specified_by_threshold'] = 'see threshold.json, key fully_specified'
+json.dump(cl, open(f'{OUT}/clarification.json', 'w'), indent=1)
+
+# (4) per building on fully specified tasks
+pb = json.load(open(f'{OUT}/per_building.json'))
+ARMS = {108: [('ours', (108, 'ours')), ('imitation', (108, 'sft', 'lib')), ('base_note', (108, 'base', 'libnote')),
+              (f'{SON}_lib', (108, SON, 'lib'))],
+        324: [('ours', (324, 'ours')), ('imitation', (324, 'sft', 'lib')), (f'{SON}_lib', (324, SON, 'lib'))],
+        2100: [('ours', (2100, 'ours')), ('imitation', (2100, 'sft'))]}
+BLD = sorted({T[t]['building_id'] for t in T})
+fpb = {}
+for b in BLD + ['ALL']:
+    fpb[b] = {}
+    for n, L in ARMS.items():
+        ids = [t for t in FS[n] if b == 'ALL' or CL[t] == b]
+        fpb[b][str(n)] = {'n': len(ids), **{a: (round(comp(rows[k], ids), 6) if ids else None) for a, k in L}}
+pb['fully_specified'] = fpb
+for n in (108, 324):
+    d = [fpb[b][str(n)]['ours'] - fpb[b][str(n)][f'{SON}_lib'] for b in BLD if fpb[b][str(n)]['n']]
+    pb['fully_specified'][f'final_vs_sonnet_lib_{n}'] = {'final_higher': sum(x > 0 for x in d),
+                                                         'equal': sum(x == 0 for x in d), 'sonnet_higher': sum(x < 0 for x in d)}
+json.dump(pb, open(f'{OUT}/per_building.json', 'w'), indent=1)
+HEAD = {'ours': 'Final model', 'imitation': 'Imitation',
+        'base_note': r'\begin{tabular}[b]{@{}c@{}}Untrained,\\library note\end{tabular}',
+        f'{SON}_lib': r'\begin{tabular}[b]{@{}c@{}}Claude Sonnet 5.5\\with library\end{tabular}'}
+
+
+def cells(vals):
+    best = max(v for v in vals if v is not None)
+    return [(rf'\textbf{{{f3(v)}}}' if abs(v - best) < 1e-12 else f3(v)) for v in vals]
+
+
+L = [r'% Generated by analysis/revision/stats/extend_fully_specified.py (fully specified tasks only);',
+     r'% the all-task version is tab_per_building_all.tex.',
+     r'\begin{table}[htbp]', r'\centering',
+     r'\caption{Completion per held-out building on the fully specified tasks of the 108-task subset, the 324-task '
+     r'subset and the 2,100-task benchmark. Bold marks the highest completion in each row within each task set.}',
+     r'\label{tab:perbuilding}', r'\footnotesize', r'\setlength{\tabcolsep}{3pt}',
+     r'\begin{tabular}{@{}l' + 'r' * 12 + r'@{}}', r'\toprule',
+     r' & \multicolumn{5}{c}{108-task subset} & \multicolumn{4}{c}{324-task subset} & \multicolumn{3}{c}{2,100-task benchmark} \\',
+     r'\cmidrule(lr){2-6}\cmidrule(lr){7-10}\cmidrule(l){11-13}',
+     'Building & ' + ' & '.join('Tasks & ' + ' & '.join(HEAD[a] for a, _ in ARMS[n]) for n in (108, 324, 2100)) + r' \\',
+     r'\midrule']
+for b in BLD + ['ALL']:
+    if b == 'ALL':
+        L.append(r'\midrule')
+    parts = ['All buildings' if b == 'ALL' else b.replace('GNI-project_', 'GNI project ')]
+    for n in (108, 324, 2100):
+        e = fpb[b][str(n)]
+        parts += [f"{e['n']:,}"] + (cells([e[a] for a, _ in ARMS[n]]) if e['n'] else ['--'] * len(ARMS[n]))
+    L.append(' & '.join(parts) + r' \\')
+L += [r'\bottomrule', r'\end{tabular}', r'\end{table}', '']
+open(f'{OUT}/tab_per_building.tex', 'w').write('\n'.join(L))
+
+# (5) failure ends split by task kind
+fe = json.load(open(f'{OUT}/failure_ends.json'))
+fe['split_by_task_kind'] = {}
+for lab, k in FE.ARMS:
+    ids = sorted(sets[k[0]])
+    fe['split_by_task_kind'][lab] = {
+        kind: {'n': len(sel), 'classes': {c: n for c, n in Counter(FE.end_class(rows[k][t]) for t in sel).items()},
+               'mean_tool_rounds': round(float(np.mean([rows[k][t].get('tool_rounds') or 0 for t in sel])), 2)}
+        for kind, sel in (('fully_specified', [t for t in ids if t not in UND]),
+                          ('under_specified', [t for t in ids if t in UND]))}
+json.dump(fe, open(f'{OUT}/failure_ends.json', 'w'), indent=1)
+print('extended')
