@@ -47,7 +47,8 @@ results/
   training/         counts of the preference-pair construction
   bimedit/          per-task BIM-Edit scores of the trained models
 analysis/
-  revision/         scripts and outputs of the analyses added in release v1.1.0 (see "Release v1.1.0")
+  revision/         scripts and outputs of the analyses added in releases v1.1.0 and v1.1.1 (see "Release v1.1.0"
+                    and "Release v1.1.1")
 weights/            adapter of the final model (see "Adapter weights")
 ```
 
@@ -120,6 +121,22 @@ layout. In that layout, `runs_local/bench_v4/results/` corresponds to `results/b
 `runs_local/bench_v4/tasks.v4c.jsonl` to `tasks/benchmark/tasks.v4c.jsonl` in this repository. As for every other
 run, the transcripts and the edited models of the new runs are not released.
 
+## Release v1.1.1
+
+Release v1.1.1 adds one run and its analysis.
+
+- The documented commercial setting of release v1.1.0 was also run on the 216 tasks of the 324-task subset that
+  the 108-task subset does not contain. `tasks/benchmark/subset_324_rest216.v4c.json` lists these tasks, and their
+  per-task results are in `results/benchmark/hosted324rest_informed_all/`. These results and the 108-task results
+  in `results/benchmark/hosted108_informed_all/` cover the whole 324-task subset.
+- The analysis tests whether VeriBIM-9B and the documented setting are equivalent in completion on these 216 tasks.
+  The equivalence margin of 5 percentage points was fixed before the run. The two count as equivalent when the
+  90 % paired bootstrap interval of their difference in completion lies within this margin.
+  `analysis/revision/equivalence/analyze_216.py` computes the test and its secondary comparisons, and
+  `equiv_216.json` holds the output. `eval_informed216.sh` in the same folder is the launcher of the run
+  (`SUBSET=rest216 ARM=informed`). Both scripts use the paths of the project's working layout, as described
+  under "Release v1.1.0".
+
 ## Requirements
 
 The paper's runs used three conda environments on one workstation with one 48 GB GPU.
@@ -177,6 +194,7 @@ checksum of the ground-truth model that script produces (`verification.gold_sha2
 version. `subset_108_hosted.v4c.json` lists the 108-task subset (36 tasks per IFC version) on which all four
 commercial models were run. `subset_324.v4c.json` lists the 324-task subset that contains it, on which
 VeriBIM-9B and the strongest commercial model were also run.
+`subset_324_rest216.v4c.json` lists the 216 tasks of the 324-task subset that are not in the 108-task subset.
 `library_note.md` is the description of the helper library given to models that were not trained with it.
 
 Ground-truth models are not distributed. The evaluation rebuilds each one from its source model and the

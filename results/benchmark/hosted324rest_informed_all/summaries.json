@@ -1,0 +1,69 @@
+[
+  {
+    "adapter": "claude-sonnet-5-5",
+    "n_tasks": 216,
+    "n_scored": 216,
+    "n_unscorable": 0,
+    "unscorable_ids": [],
+    "mean_final": 0.988458,
+    "by_operation": {
+      "create": {
+        "n": 72,
+        "n_scored": 72,
+        "mean": 0.994517
+      },
+      "delete": {
+        "n": 72,
+        "n_scored": 72,
+        "mean": 1.0
+      },
+      "update": {
+        "n": 72,
+        "n_scored": 72,
+        "mean": 0.970857
+      }
+    },
+    "by_category": {
+      "direct": 0.999331,
+      "spatial": 0.982529,
+      "topological": 0.983513
+    },
+    "axis_means": {
+      "geometry": 0.986031,
+      "semantics": 0.99053,
+      "topology": 0.988812
+    },
+    "schema_validity": 0.9954,
+    "code_valid": 0.9939,
+    "code_run": 0.9893,
+    "commit_rate": 0.9167,
+    "tasks_with_any_tool_call": 216,
+    "mean_tool_rounds": 2.931,
+    "total_tool_calls": 656,
+    "stop_reasons": {
+      "completed": 216
+    },
+    "hit_output_cap": 0,
+    "mean_output_tokens": 1346.0,
+    "wall_seconds": 3695.9,
+    "resolved_agent_config": {
+      "max_tool_rounds": 22,
+      "tool_timeout": 420.0,
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 8192,
+      "max_tool_output_chars": 16000,
+      "max_recorded_output_chars": 4000,
+      "capture_stdout": true,
+      "max_transcript_tokens": 0,
+      "min_turn_tokens": 256,
+      "dup_stop": 0
+    },
+    "per_task_file": "runs_local/bench_v4/results/hosted324rest_informed_all/per_task_claude-sonnet-5-5.jsonl",
+    "subset": "runs_local/bench_v4/subset_324_rest216.v4c.json",
+    "scorer_reading": "family",
+    "label": "VeriBIM-Bench v4 hosted324rest_informed all, claude-sonnet-5-5, family reading",
+    "protocol_conformant": true,
+    "finished_at": "2026-10-08T16:23:04"
+  }
+]
