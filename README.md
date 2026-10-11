@@ -47,8 +47,8 @@ results/
   training/         counts of the preference-pair construction
   bimedit/          per-task BIM-Edit scores of the trained models
 analysis/
-  revision/         scripts and outputs of the analyses added in releases v1.1.0 and v1.1.1 (see "Release v1.1.0"
-                    and "Release v1.1.1")
+  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.2 (see "Release v1.1.0",
+                    "Release v1.1.1" and "Release v1.1.2")
 weights/            adapter of the final model (see "Adapter weights")
 ```
 
@@ -65,8 +65,24 @@ percentile bootstrap intervals over tasks (10,000 resamples, seed 20260929).
 |---|---|---|
 | 2,100-task benchmark | VeriBIM-9B | completion 0.960 (0.951 to 0.968), 2,016 tasks completed, mean score 0.964 |
 | 108-task subset | VeriBIM-9B | completion 0.972 (0.935 to 1.000), 105 of 108 |
-| 108-task subset | best commercial model: Claude Sonnet 5.5, with the library | completion 0.852, 92 of 108 |
+| 108-task subset | Claude Sonnet 5.5, documented setting | completion 0.991, VeriBIM-9B minus this setting -0.019 (-0.056 to 0.019) |
+| 108-task subset | best commercial model: Claude Sonnet 5.5, with the library and its short note | completion 0.852, 92 of 108 |
+| 324-task subset | VeriBIM-9B | completion 0.960 (0.938 to 0.978), 311 of 324 |
+| 324-task subset | Claude Sonnet 5.5, documented setting | completion 0.981, VeriBIM-9B minus this setting -0.022 (-0.046 to 0.003) |
 | BIM-Edit, 324 tasks | VeriBIM-9B | mean score 0.411 under the benchmark's own scoring rules |
+
+The documented setting gives the strongest commercial model the helper library with its full documentation (see
+"Release v1.1.0"). In its rows, the difference is the completion of VeriBIM-9B minus that of the setting, paired
+over tasks, with its 95 % interval. Both intervals contain zero, so neither difference is statistically significant. A
+pre-specified test on the 216 tasks of the 324-task subset outside the 108-task subset does not establish
+equivalence within 5 percentage points. On these tasks VeriBIM-9B completes 0.954 and the documented setting
+0.977, and the 90 % interval of the difference runs from -0.051 to 0.005 (`analysis/revision/equivalence/equiv_216.json`).
+
+At list prices, the 1,620 commercial task runs reported in the paper cost about US$166.
+`analysis/revision/spend/spend_reported.py` computes this cost from the token counts in the per-task result files
+and the prices in `code/tables/hosted_cost.py`. All commercial-model calls of the study, including connectivity
+tests, repeated runs and runs during development, cost about US$243. Some of these calls have no
+released records, so this total cannot be recomputed from the repository.
 
 VeriBIM-9B is the reinforcement-stage snapshot, named `grpo_v10b_c10` in the result files and the release asset.
 The other runs in the paper
@@ -136,6 +152,13 @@ Release v1.1.1 adds one run and its analysis.
   `equiv_216.json` holds the output. `eval_informed216.sh` in the same folder is the launcher of the run
   (`SUBSET=rest216 ARM=informed`). Both scripts use the paths of the project's working layout, as described
   under "Release v1.1.0".
+
+## Release v1.1.2
+
+Release v1.1.2 adds no run. `analysis/revision/spend/` computes the list-price cost of the reported commercial
+runs, and `spend_reported.json` holds the cost per run. The README adds the documented setting and the
+equivalence test to "Results summary" and maps the output files of the table script to the paper's tables and
+figures in "Reproducing the paper's tables".
 
 ## Requirements
 
@@ -436,8 +459,8 @@ along the path of the model).
 
 ## Reproducing the paper's tables
 
-`code/tables/make_results_exhibits.py` rebuilds Tables 3, 3b, 4, 5, 6 and E1, the results macro file and the
-figure data from the released result files, and draws Figs. 8 to 10 and the cost figure.
+`code/tables/make_results_exhibits.py` rebuilds the tables and figures of the main runs, the results macro file
+and the figure data from the released result files.
 
 ```bash
 python code/tables/make_results_exhibits.py            # writes exhibits/tables and exhibits/figures
@@ -446,13 +469,37 @@ python code/tables/make_results_exhibits.py            # writes exhibits/tables 
 The script reads every input from the repository layout above; `VERIBIM_ROOT` overrides the repository root
 and `VERIBIM_EXHIBITS_DIR` the output directory. `results/benchmark/FINAL_ARTIFACT` names the final model.
 `exhibits/tables/REPORT.txt` lists every input read and every value left pending. With the released files
-the script reproduces all six tables and the four figures exactly. Three groups of macro values need files
-that are not distributed: the data-separation counts of Appendix F need the stage-2 training task file
+the script reproduces its tables and figures exactly. Three groups of macro values need files
+that are not distributed: the data-separation counts of Appendix E need the stage-2 training task file
 (`VERIBIM_TRAIN_TASKS`, written by the generator), the split of wall-clock time between the model and the
 tools needs the run transcripts, and the number of tasks in flight during the 108-task run needs its run
 log. The figures use the Liberation Serif fonts in
 `/usr/share/fonts/truetype/liberation`. This copy of the script differs from the one used for the paper only
 in its input and output paths and in treating the manuscript's macro file as optional.
+
+The names of the output files do not follow the paper's numbering. The table below gives the source of every
+table and figure of the paper that reports a result of this repository. Files without a folder are written by the
+script into `exhibits/tables/` or `exhibits/figures/`.
+
+| Paper | Content | Source |
+|---|---|---|
+| Table 3 | 108-task subset | `tab3_main.tex`; the documented setting from `results/benchmark/hosted108_informed_all/`; completion on fully specified and under-specified tasks from `analysis/revision/stats/clarification.json`; intervals over buildings from `analysis/revision/stats/cluster_boot.json` |
+| Table 4 | how each run on the 108-task subset ended | `analysis/revision/stats/failure_ends.json` |
+| Table 5 | 324-task subset | `tab3b_324.tex`; the documented setting from `results/benchmark/hosted108_informed_all/` and `hosted324rest_informed_all/`, compared in `analysis/revision/equivalence/equiv_216.json`; the two analysis files of Table 3 |
+| Table 6 | training chain on the 2,100-task benchmark | `tab4_ablation.tex` |
+| Table 7 | chain trained on ten buildings | `results/val_hard/ten_building_chain/` and the `*_small*` files in `results/benchmark/full_all/` |
+| Table 8 | outcome of every benchmark task | `tab5_failures.tex` |
+| Table 9 | BIM-Edit | `results/bimedit/scores_bench_grpo_v10b_c10.csv` for VeriBIM-9B; `results/benchmark/local324_lib_all/per_task_sft_extA.jsonl` for the continued model on the 324-task subset |
+| Table 10 | cost of an edit | `tab6_cost.tex` |
+| Fig. 7 | main result | `fig08_main/fig08_main_B.pdf` |
+| Fig. 8 | completion after each training stage | `fig09_ablation/fig09_ablation.pdf` |
+| Fig. 9 | hard-validation curves of the last two stages | `fig10_curve/fig10_curve.pdf` |
+| Fig. 10 | time and price per task | `fig_cost/fig_cost.pdf` |
+| Table A.3 | mutation study | `analysis/revision/checker/mutation_summary.json` |
+| Table B.1 | composition of the benchmark | `analysis/revision/stats/composition.json` |
+| Table F.1 | completion per held-out building | `analysis/revision/stats/per_building.json` |
+| Table F.2 | completion at four verdict thresholds | `analysis/revision/stats/threshold.json` |
+| Table F.3 | changes outside the ground-truth edit | `analysis/revision/checker/offtarget_summary.json` |
 
 ## Adapter weights
 

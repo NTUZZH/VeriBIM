@@ -1,0 +1,78 @@
+{
+ "task_runs": 1620,
+ "usd": 165.66,
+ "runs": [
+  {
+   "file": "results/benchmark/hosted108_alone_all/per_task_claude-sonnet-5-5.jsonl",
+   "model": "claude-sonnet-5-5",
+   "task_runs": 108,
+   "usd": 5.95
+  },
+  {
+   "file": "results/benchmark/hosted108_alone_all/per_task_deepseek-v4-pro.jsonl",
+   "model": "deepseek-v4-pro",
+   "task_runs": 108,
+   "usd": 49.44
+  },
+  {
+   "file": "results/benchmark/hosted108_alone_all/per_task_gemini-3.8-flash.jsonl",
+   "model": "gemini-3.8-flash",
+   "task_runs": 108,
+   "usd": 21.4
+  },
+  {
+   "file": "results/benchmark/hosted108_alone_all/per_task_gpt-5.6-luna.jsonl",
+   "model": "gpt-5.6-luna",
+   "task_runs": 108,
+   "usd": 0.47
+  },
+  {
+   "file": "results/benchmark/hosted108_lib_all/per_task_claude-sonnet-5-5.jsonl",
+   "model": "claude-sonnet-5-5",
+   "task_runs": 108,
+   "usd": 3.36
+  },
+  {
+   "file": "results/benchmark/hosted108_lib_all/per_task_deepseek-v4-pro.jsonl",
+   "model": "deepseek-v4-pro",
+   "task_runs": 108,
+   "usd": 24.25
+  },
+  {
+   "file": "results/benchmark/hosted108_lib_all/per_task_gemini-3.8-flash.jsonl",
+   "model": "gemini-3.8-flash",
+   "task_runs": 108,
+   "usd": 12.81
+  },
+  {
+   "file": "results/benchmark/hosted108_lib_all/per_task_gpt-5.6-luna.jsonl",
+   "model": "gpt-5.6-luna",
+   "task_runs": 108,
+   "usd": 0.37
+  },
+  {
+   "file": "results/benchmark/hosted216_alone_all/per_task_claude-sonnet-5-5.jsonl",
+   "model": "claude-sonnet-5-5",
+   "task_runs": 216,
+   "usd": 13.87
+  },
+  {
+   "file": "results/benchmark/hosted216_lib_all/per_task_claude-sonnet-5-5.jsonl",
+   "model": "claude-sonnet-5-5",
+   "task_runs": 216,
+   "usd": 7.42
+  },
+  {
+   "file": "results/benchmark/hosted108_informed_all/per_task_claude-sonnet-5-5.jsonl",
+   "model": "claude-sonnet-5-5",
+   "task_runs": 108,
+   "usd": 8.58
+  },
+  {
+   "file": "results/benchmark/hosted324rest_informed_all/per_task_claude-sonnet-5-5.jsonl",
+   "model": "claude-sonnet-5-5",
+   "task_runs": 216,
+   "usd": 17.75
+  }
+ ]
+}
