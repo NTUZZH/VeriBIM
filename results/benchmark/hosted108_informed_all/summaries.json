@@ -1,51 +1,53 @@
 [
   {
-    "adapter": "claude-sonnet-5-5",
+    "adapter": "deepseek-v4-pro",
     "n_tasks": 108,
     "n_scored": 108,
     "n_unscorable": 0,
     "unscorable_ids": [],
-    "mean_final": 0.990163,
+    "mean_final": 0.945052,
     "by_operation": {
       "create": {
         "n": 36,
         "n_scored": 36,
-        "mean": 0.999397
+        "mean": 0.888285
       },
       "delete": {
         "n": 36,
         "n_scored": 36,
-        "mean": 1.0
+        "mean": 0.998258
       },
       "update": {
         "n": 36,
         "n_scored": 36,
-        "mean": 0.971094
+        "mean": 0.948612
       }
     },
     "by_category": {
-      "direct": 0.999026,
-      "spatial": 0.971909,
-      "topological": 0.999555
+      "direct": 0.906675,
+      "spatial": 0.935401,
+      "topological": 0.99308
     },
     "axis_means": {
-      "geometry": 0.989009,
-      "semantics": 0.990741,
-      "topology": 0.990741
+      "geometry": 0.951845,
+      "semantics": 0.953704,
+      "topology": 0.929608
     },
-    "schema_validity": 1.0,
-    "code_valid": 1.0,
-    "code_run": 0.9969,
-    "commit_rate": 0.8981,
+    "schema_validity": 0.986,
+    "code_valid": 0.986,
+    "code_run": 0.958,
+    "commit_rate": 0.8889,
     "tasks_with_any_tool_call": 108,
-    "mean_tool_rounds": 2.815,
-    "total_tool_calls": 323,
+    "mean_tool_rounds": 5.954,
+    "total_tool_calls": 643,
     "stop_reasons": {
-      "completed": 108
+      "completed": 106,
+      "budget_exhausted": 1,
+      "tool_timeout": 1
     },
     "hit_output_cap": 0,
-    "mean_output_tokens": 1176.3,
-    "wall_seconds": 4001.1,
+    "mean_output_tokens": 5336.0,
+    "wall_seconds": 12741.3,
     "resolved_agent_config": {
       "max_tool_rounds": 22,
       "tool_timeout": 420.0,
@@ -59,11 +61,11 @@
       "min_turn_tokens": 256,
       "dup_stop": 0
     },
-    "per_task_file": "runs_local/bench_v4/results/hosted108_informed_all/per_task_claude-sonnet-5-5.jsonl",
+    "per_task_file": "runs_local/bench_v4/results/hosted108_informed_all/per_task_deepseek-v4-pro.jsonl",
     "subset": "runs_local/bench_v4/subset_108_hosted.v4c.json",
     "scorer_reading": "family",
-    "label": "VeriBIM-Bench v4 hosted108_informed all, claude-sonnet-5-5, family reading",
+    "label": "VeriBIM-Bench v4 hosted108_informed all, deepseek-v4-pro, family reading",
     "protocol_conformant": true,
-    "finished_at": "2026-10-07T16:41:09"
+    "finished_at": "2026-10-12T16:57:12"
   }
 ]

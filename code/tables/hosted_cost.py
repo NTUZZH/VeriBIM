@@ -6,9 +6,10 @@ upper bound where a provider caches prompt prefixes.
 import glob, json, os, sys
 PRICE = {  # model id: (input, output) USD per million tokens
     "gpt-5.6-luna": (0.20, 1.20), "gpt-5.6-sol": (4.0, 20.0), "gpt-5.5": (1.25, 10.0),
-    "claude-sonnet-5-5": (2.0, 10.0), "claude-sonnet-5": (2.0, 10.0),
+    "claude-sonnet-5-5": (2.0, 10.0), "claude-sonnet-5": (2.0, 10.0), "claude-opus-5-5": (4.0, 20.0),
     "gemini-3.8-flash": (0.75, 3.75), "deepseek-v4-pro": (1.32, 3.96), "deepseek-flash": (0.30, 1.20),
 }
+CACHE_READ = {"claude-opus-5-5": 0.05}   # cache-read price as a fraction of the input price; 0.1 for every other model
 root = sys.argv[1] if len(sys.argv) > 1 else "results/benchmark"
 rows = []
 for p in sorted(glob.glob(os.path.join(root, "hosted108_*_all", "per_task_*.jsonl"))):
@@ -21,7 +22,7 @@ for p in sorted(glob.glob(os.path.join(root, "hosted108_*_all", "per_task_*.json
     err = sum(1 for r in recs if r.get("stop_reason") == "inference_error")
     pi, po = PRICE.get(model, (float("nan"),) * 2)
     # cache reads at 0.1x and cache writes at 1.25x the base input price (Anthropic); input_tokens already includes both
-    cost = (tin - cread - cwrite) / 1e6 * pi + cread / 1e6 * pi * 0.1 + cwrite / 1e6 * pi * 1.25 + tout / 1e6 * po
+    cost = (tin - cread - cwrite) / 1e6 * pi + cread / 1e6 * pi * CACHE_READ.get(model, 0.1) + cwrite / 1e6 * pi * 1.25 + tout / 1e6 * po
     rows.append((arm, model, len(recs), done, err, tin, cread, tout, cost, cost / max(1, len(recs))))
 print(f"{'arm':22} {'model':20} {'n':>4} {'done':>4} {'err':>3} {'in_tok':>10} {'cached':>9} {'out_tok':>9} {'USD':>7} {'USD/task':>8}")
 for r in rows:

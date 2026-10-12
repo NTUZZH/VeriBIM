@@ -1,6 +1,6 @@
 {
- "task_runs": 1620,
- "usd": 165.66,
+ "task_runs": 2052,
+ "usd": 230.83,
  "runs": [
   {
    "file": "results/benchmark/hosted108_alone_all/per_task_claude-sonnet-5-5.jsonl",
@@ -67,6 +67,30 @@
    "model": "claude-sonnet-5-5",
    "task_runs": 108,
    "usd": 8.58
+  },
+  {
+   "file": "results/benchmark/hosted108_informed_all/per_task_deepseek-v4-pro.jsonl",
+   "model": "deepseek-v4-pro",
+   "task_runs": 108,
+   "usd": 24.65
+  },
+  {
+   "file": "results/benchmark/hosted108_informed_all/per_task_gemini-3.8-flash.jsonl",
+   "model": "gemini-3.8-flash",
+   "task_runs": 108,
+   "usd": 23.53
+  },
+  {
+   "file": "results/benchmark/hosted108_informed_all/per_task_gpt-5.6-luna.jsonl",
+   "model": "gpt-5.6-luna",
+   "task_runs": 108,
+   "usd": 1.21
+  },
+  {
+   "file": "results/benchmark/hosted108_informed_all/per_task_claude-opus-5-5.jsonl",
+   "model": "claude-opus-5-5",
+   "task_runs": 108,
+   "usd": 15.79
   },
   {
    "file": "results/benchmark/hosted324rest_informed_all/per_task_claude-sonnet-5-5.jsonl",

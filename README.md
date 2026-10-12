@@ -47,8 +47,8 @@ results/
   training/         counts of the preference-pair construction
   bimedit/          per-task BIM-Edit scores of the trained models
 analysis/
-  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.2 (see "Release v1.1.0",
-                    "Release v1.1.1" and "Release v1.1.2")
+  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.3 (see "Release v1.1.0"
+                    to "Release v1.1.3")
 weights/            adapter of the final model (see "Adapter weights")
 ```
 
@@ -66,22 +66,27 @@ percentile bootstrap intervals over tasks (10,000 resamples, seed 20260929).
 | 2,100-task benchmark | VeriBIM-9B | completion 0.960 (0.951 to 0.968), 2,016 tasks completed, mean score 0.964 |
 | 108-task subset | VeriBIM-9B | completion 0.972 (0.935 to 1.000), 105 of 108 |
 | 108-task subset | Claude Sonnet 5.5, documented setting | completion 0.991, VeriBIM-9B minus this setting -0.019 (-0.056 to 0.019) |
+| 108-task subset | Claude Opus 5.5, documented setting | completion 0.954, VeriBIM-9B minus this setting 0.019 (-0.028 to 0.074) |
+| 108-task subset | DeepSeek V4, documented setting | completion 0.898, VeriBIM-9B minus this setting 0.074 (0.019 to 0.130) |
+| 108-task subset | Gemini 3.8 Flash, documented setting | completion 0.769, VeriBIM-9B minus this setting 0.204 (0.130 to 0.278) |
+| 108-task subset | GPT-5.6, documented setting | completion 0.639, VeriBIM-9B minus this setting 0.333 (0.250 to 0.426) |
 | 108-task subset | best commercial model: Claude Sonnet 5.5, with the library and its short note | completion 0.852, 92 of 108 |
 | 324-task subset | VeriBIM-9B | completion 0.960 (0.938 to 0.978), 311 of 324 |
 | 324-task subset | Claude Sonnet 5.5, documented setting | completion 0.981, VeriBIM-9B minus this setting -0.022 (-0.046 to 0.003) |
 | BIM-Edit, 324 tasks | VeriBIM-9B | mean score 0.411 under the benchmark's own scoring rules |
 
-The documented setting gives the strongest commercial model the helper library with its full documentation (see
-"Release v1.1.0"). In its rows, the difference is the completion of VeriBIM-9B minus that of the setting, paired
-over tasks, with its 95 % interval. Both intervals contain zero, so neither difference is statistically significant. A
-pre-specified test on the 216 tasks of the 324-task subset outside the 108-task subset does not establish
-equivalence within 5 percentage points. On these tasks VeriBIM-9B completes 0.954 and the documented setting
-0.977, and the 90 % interval of the difference runs from -0.051 to 0.005 (`analysis/revision/equivalence/equiv_216.json`).
+The documented setting gives a commercial model the helper library with its full documentation (see
+"Release v1.1.0" and "Release v1.1.3"). In its rows, the difference is the completion of VeriBIM-9B minus that of
+the setting, paired over tasks, with its 95 % interval. The intervals of Claude Sonnet 5.5 and Claude Opus 5.5
+contain zero, so neither of these differences is statistically significant, and the intervals of the other three
+models lie above zero. A pre-specified test on the 216 tasks of the 324-task subset outside the 108-task subset does not establish
+equivalence within 5 percentage points. On these tasks VeriBIM-9B completes 0.954 and Claude Sonnet 5.5
+in the documented setting 0.977, and the 90 % interval of the difference runs from -0.051 to 0.005 (`analysis/revision/equivalence/equiv_216.json`).
 
-At list prices, the 1,620 commercial task runs reported in the paper cost about US$166.
+At list prices, the 2,052 commercial task runs reported in the paper cost about US$231.
 `analysis/revision/spend/spend_reported.py` computes this cost from the token counts in the per-task result files
 and the prices in `code/tables/hosted_cost.py`. All commercial-model calls of the study, including connectivity
-tests, repeated runs and runs during development, cost about US$243. Some of these calls have no
+tests, repeated runs and runs during development, cost about US$309. Some of these calls have no
 released records, so this total cannot be recomputed from the repository.
 
 VeriBIM-9B is the reinforcement-stage snapshot, named `grpo_v10b_c10` in the result files and the release asset.
@@ -152,6 +157,19 @@ Release v1.1.1 adds one run and its analysis.
   `equiv_216.json` holds the output. `eval_informed216.sh` in the same folder is the launcher of the run
   (`SUBSET=rest216 ARM=informed`). Both scripts use the paths of the project's working layout, as described
   under "Release v1.1.0".
+
+## Release v1.1.3
+
+Release v1.1.3 adds the documented setting of release v1.1.0 for every commercial model on the 108-task subset:
+GPT-5.6, DeepSeek V4 and Gemini 3.8 Flash, which had run alone and with the library, and Claude Opus 5.5, which
+runs in the documented setting only. Their per-task results are in `results/benchmark/hosted108_informed_all/`
+next to the Claude Sonnet 5.5 file. `analysis/revision/documented/analyze_informed4.py` computes, for every
+documented run, the completion with its interval, the split between fully specified and under-specified tasks, the
+completion at the 0.98 threshold, the rounds, the list-price cost, and the paired differences from VeriBIM-9B and
+from the documented Claude Sonnet 5.5 run at task and building level. `informed4.json` holds its output, and
+`eval_informed4.sh` is the launcher (`SUBSET=hosted ARM=informed`). The GPT-5.6 run sets
+`VERIBIM_REASONING_EFFORT=none`, because its chat-completions endpoint refuses function tools unless reasoning is
+off. `analysis/revision/spend/` and the "Results summary" cover these runs.
 
 ## Release v1.1.2
 
@@ -483,7 +501,7 @@ script into `exhibits/tables/` or `exhibits/figures/`.
 
 | Paper | Content | Source |
 |---|---|---|
-| Table 3 | 108-task subset | `tab3_main.tex`; the documented setting from `results/benchmark/hosted108_informed_all/`; completion on fully specified and under-specified tasks from `analysis/revision/stats/clarification.json`; intervals over buildings from `analysis/revision/stats/cluster_boot.json` |
+| Table 3 | 108-task subset | `tab3_main.tex`; the documented settings from `results/benchmark/hosted108_informed_all/` and `analysis/revision/documented/informed4.json`; completion on fully specified and under-specified tasks from `analysis/revision/stats/clarification.json`; intervals over buildings from `analysis/revision/stats/cluster_boot.json` |
 | Table 4 | how each run on the 108-task subset ended | `analysis/revision/stats/failure_ends.json` |
 | Table 5 | 324-task subset | `tab3b_324.tex`; the documented setting from `results/benchmark/hosted108_informed_all/` and `hosted324rest_informed_all/`, compared in `analysis/revision/equivalence/equiv_216.json`; the two analysis files of Table 3 |
 | Table 6 | training chain on the 2,100-task benchmark | `tab4_ablation.tex` |
