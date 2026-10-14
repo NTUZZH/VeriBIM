@@ -45,10 +45,11 @@ results/
   val_500/          selection curve of the preference stage on the 500-task validation set
   repeatability/    changed outcomes between two identical runs of the same model
   training/         counts of the preference-pair construction
-  bimedit/          per-task BIM-Edit scores of the trained models
+  bimedit/          per-task BIM-Edit scores of the trained models, of the untrained base model, and of
+                    Claude Sonnet 5.5 in two arms (sonnet_alone/, sonnet_lib/)
 analysis/
-  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.3 (see "Release v1.1.0"
-                    to "Release v1.1.3")
+  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.4 (see "Release v1.1.0"
+                    to "Release v1.1.4")
 weights/            adapter of the final model (see "Adapter weights")
 ```
 
@@ -70,18 +71,27 @@ percentile bootstrap intervals over tasks (10,000 resamples, seed 20260929).
 | 108-task subset | DeepSeek V4, documented setting | completion 0.898, VeriBIM-9B minus this setting 0.074 (0.019 to 0.130) |
 | 108-task subset | Gemini 3.8 Flash, documented setting | completion 0.769, VeriBIM-9B minus this setting 0.204 (0.130 to 0.278) |
 | 108-task subset | GPT-5.6, documented setting | completion 0.639, VeriBIM-9B minus this setting 0.333 (0.250 to 0.426) |
+| 108-task subset | Qwen3.5-9B (untrained base), documented library | completion 0.639, VeriBIM-9B minus this setting 0.333 (0.250 to 0.417) |
 | 108-task subset | best commercial model: Claude Sonnet 5.5, with the library and its short note | completion 0.852, 92 of 108 |
 | 324-task subset | VeriBIM-9B | completion 0.960 (0.938 to 0.978), 311 of 324 |
 | 324-task subset | Claude Sonnet 5.5, documented setting | completion 0.981, VeriBIM-9B minus this setting -0.022 (-0.046 to 0.003) |
-| BIM-Edit, 324 tasks | VeriBIM-9B | mean score 0.411 under the benchmark's own scoring rules |
+| BIM-Edit, 324 tasks | VeriBIM-9B | mean score 0.411, under the benchmark's own scoring rules, in this paper's test setup |
+| BIM-Edit, 324 tasks | Qwen3.5-9B (untrained base) | mean score 0.291, this arm minus VeriBIM-9B -0.119 (-0.151 to -0.089), under the benchmark's own scoring rules, in this paper's test setup |
+| BIM-Edit, 324 tasks | Claude Sonnet 5.5, alone | mean score 0.731, this arm minus VeriBIM-9B 0.320 (0.280 to 0.361), under the benchmark's own scoring rules, in this paper's test setup |
+| BIM-Edit, 324 tasks | Claude Sonnet 5.5, with the library and its short note | mean score 0.735, this arm minus VeriBIM-9B 0.324 (0.285 to 0.362), under the benchmark's own scoring rules, in this paper's test setup |
 
-The documented setting gives a commercial model the helper library with its full documentation (see
-"Release v1.1.0" and "Release v1.1.3"). In its rows, the difference is the completion of VeriBIM-9B minus that of
+The documented setting gives a model the helper library with its full documentation (see "Release v1.1.0",
+"Release v1.1.3" and "Release v1.1.4"). In its rows, the difference is the completion of VeriBIM-9B minus that of
 the setting, paired over tasks, with its 95 % interval. The intervals of Claude Sonnet 5.5 and Claude Opus 5.5
 contain zero, so neither of these differences is statistically significant, and the intervals of the other three
-models lie above zero. A pre-specified test on the 216 tasks of the 324-task subset outside the 108-task subset does not establish
+commercial models and of the untrained base model lie above zero. A pre-specified test on the 216 tasks of the 324-task subset outside the 108-task subset does not establish
 equivalence within 5 percentage points. On these tasks VeriBIM-9B completes 0.954 and Claude Sonnet 5.5
 in the documented setting 0.977, and the 90 % interval of the difference runs from -0.051 to 0.005 (`analysis/revision/equivalence/equiv_216.json`).
+
+In the BIM-Edit rows, the difference has the opposite sign: it is the mean score of the arm minus that of
+VeriBIM-9B, paired over the 324 tasks, with its 95 % interval. All four BIM-Edit arms ran in this paper's test setup
+(at most 22 tool rounds, 8,192 output tokens per turn, 420 s per tool call) and were scored by the published
+BIM-Edit rules (`analysis/revision/bimedit_arms/bimedit_arms.json`).
 
 At list prices, the 2,052 commercial task runs reported in the paper cost about US$231.
 `analysis/revision/spend/spend_reported.py` computes this cost from the token counts in the per-task result files
@@ -157,6 +167,31 @@ Release v1.1.1 adds one run and its analysis.
   `equiv_216.json` holds the output. `eval_informed216.sh` in the same folder is the launcher of the run
   (`SUBSET=rest216 ARM=informed`). Both scripts use the paths of the project's working layout, as described
   under "Release v1.1.0".
+
+## Release v1.1.4
+
+Release v1.1.4 adds two sets of runs and their analyses.
+
+- The untrained Qwen3.5-9B was run on the 108-task subset in the documented setting of release v1.1.0, with the
+  helper library and its full documentation. Its per-task results are in
+  `results/benchmark/local108_informed_all/`. `analysis/revision/base_documented/analyze_base_informed.py`
+  computes the completion with its interval, the split between fully specified and under-specified tasks, the
+  completion at the 0.98 threshold, the rounds, and the paired differences from VeriBIM-9B, from the base model with
+  the short library note, from the base model alone and from the documented Claude Sonnet 5.5 run.
+  `base_informed.json` holds its output. `run_local108_informed.sh` is the launcher; it takes the served model name,
+  an adapter path (empty for the base model) and the arm, and the run used `Qwen3.5-9B "" informed`. Both scripts
+  use the paths of the project's working layout, as described under "Release v1.1.0".
+- Three further arms ran on all 324 BIM-Edit tasks in this paper's test setup (at most 22 tool rounds, 8,192
+  output tokens per turn, 420 s per tool call) and were scored by the published BIM-Edit rules. Claude Sonnet 5.5
+  ran alone and with the library and its short note, and its per-task scores are in `results/bimedit/sonnet_alone/`
+  and `results/bimedit/sonnet_lib/`. The untrained base model was run again in the same setup, and its
+  `scores_bench_Qwen3.5-9B.csv` and `summary_bench_Qwen3.5-9B.json` in `results/bimedit/` replace the files of the
+  earlier run. `analysis/revision/bimedit_arms/analyze_bimedit_arms.py` computes, for each arm, the mean score by
+  operation and category, the full solves, the rounds and the list-price cost, and a paired task-level bootstrap of
+  the arm minus VeriBIM-9B (10,000 resamples, seed 20260929). Its output is `bimedit_arms.json` in the same folder,
+  and `bimedit_ids_324.json` lists the task ids in the order the bootstrap uses. The script reads the repository
+  layout. It needs the per-task BIM-Edit records, which are not redistributed, so it documents the computation and
+  its output file holds the result. `write_summary_bench.py` writes the `summary_bench_<model>.json` file of an arm.
 
 ## Release v1.1.3
 
@@ -394,7 +429,8 @@ BIM-Edit is not redistributed. Obtain the benchmark from its authors (Nithyanant
 Sesterhenn, T., Telgmann, S., Nedungadi, A., Plönnigs, J., Bartelt, C., Lüdtke, S. (2026). BIM-Edit: Benchmarking Large Language Models for IFC-Based Building Information Modeling. arXiv:2606.20146, https://arxiv.org/abs/2606.20146) and place it under `data/bimedit/`, with the task file at
 `data/bimedit/BIM-Edit-Tasks/tasks.jsonl` and the scenes at `data/bimedit/BIM-Edit/` (folders `simple/` and
 `complex/`). No script from the paper's own BIM-Edit runs is shipped; the procedure below uses only the
-released code.
+released code. `analysis/revision/bimedit_arms/analyze_bimedit_arms.py` is an analysis script, not a run script: it
+compares the BIM-Edit arms from per-task records that are not redistributed, and `bimedit_arms.json` holds its output.
 
 1. Write a copy of the task file whose IFC paths point at the local scenes, with the harness's own path
    mapping, and a list of the 324 task ids:
@@ -438,7 +474,9 @@ released code.
    ```
 
 4. Compare with `results/bimedit/scores_bench_<model>.csv`, the per-task scores of the trained models and
-   of the untrained base model from the same two steps; `summary_bench_<model>.json` holds their means.
+   of the untrained base model from the same two steps; `summary_bench_<model>.json` holds their means. The
+   subfolders `sonnet_alone/` and `sonnet_lib/` hold the scores and means of Claude Sonnet 5.5, alone and with the
+   library and its short note, in the same test setup.
 
 ## Training
 
@@ -501,22 +539,21 @@ script into `exhibits/tables/` or `exhibits/figures/`.
 
 | Paper | Content | Source |
 |---|---|---|
-| Table 3 | 108-task subset | `tab3_main.tex`; the documented settings from `results/benchmark/hosted108_informed_all/` and `analysis/revision/documented/informed4.json`; completion on fully specified and under-specified tasks from `analysis/revision/stats/clarification.json`; intervals over buildings from `analysis/revision/stats/cluster_boot.json` |
+| Table 3 | 108-task subset | `tab3_main.tex`; the documented settings from `results/benchmark/hosted108_informed_all/` and `analysis/revision/documented/informed4.json`; the untrained base model in the documented setting from `results/benchmark/local108_informed_all/` and `analysis/revision/base_documented/base_informed.json`; completion on fully specified and under-specified tasks from `analysis/revision/stats/clarification.json`; intervals over buildings from `analysis/revision/stats/cluster_boot.json` |
 | Table 4 | how each run on the 108-task subset ended | `analysis/revision/stats/failure_ends.json` |
 | Table 5 | 324-task subset | `tab3b_324.tex`; the documented setting from `results/benchmark/hosted108_informed_all/` and `hosted324rest_informed_all/`, compared in `analysis/revision/equivalence/equiv_216.json`; the two analysis files of Table 3 |
 | Table 6 | training chain on the 2,100-task benchmark | `tab4_ablation.tex` |
 | Table 7 | chain trained on ten buildings | `results/val_hard/ten_building_chain/` and the `*_small*` files in `results/benchmark/full_all/` |
 | Table 8 | outcome of every benchmark task | `tab5_failures.tex` |
-| Table 9 | BIM-Edit | `results/bimedit/scores_bench_grpo_v10b_c10.csv` for VeriBIM-9B; `results/benchmark/local324_lib_all/per_task_sft_extA.jsonl` for the continued model on the 324-task subset |
+| Table 9 | BIM-Edit | `results/bimedit/scores_bench_grpo_v10b_c10.csv` for VeriBIM-9B, `scores_bench_Qwen3.5-9B.csv` for the untrained base model and `sonnet_alone/` and `sonnet_lib/` for Claude Sonnet 5.5, compared in `analysis/revision/bimedit_arms/bimedit_arms.json`; `results/benchmark/local324_lib_all/per_task_sft_extA.jsonl` for the continued model on the 324-task subset |
 | Table 10 | cost of an edit | `tab6_cost.tex` |
 | Fig. 7 | main result | `fig08_main/fig08_main_B.pdf` |
-| Fig. 8 | completion after each training stage | `fig09_ablation/fig09_ablation.pdf` |
-| Fig. 9 | hard-validation curves of the last two stages | `fig10_curve/fig10_curve.pdf` |
-| Fig. 10 | time and price per task | `fig_cost/fig_cost.pdf` |
+| Fig. 8 | hard-validation curves of the last two stages | `fig10_curve/fig10_curve.pdf` |
+| Fig. 9 | time and price per task | `fig_cost/fig_cost.pdf` |
 | Table A.3 | mutation study | `analysis/revision/checker/mutation_summary.json` |
 | Table B.1 | composition of the benchmark | `analysis/revision/stats/composition.json` |
 | Table F.1 | completion per held-out building | `analysis/revision/stats/per_building.json` |
-| Table F.2 | completion at four verdict thresholds | `analysis/revision/stats/threshold.json` |
+| Table F.2 | completion at four verdict thresholds | `analysis/revision/stats/threshold.json`; the untrained base model in the documented setting from `results/benchmark/local108_informed_all/` |
 | Table F.3 | changes outside the ground-truth edit | `analysis/revision/checker/offtarget_summary.json` |
 
 ## Adapter weights

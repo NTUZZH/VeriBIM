@@ -1,0 +1,251 @@
+{
+ "final": {
+  "n": 324,
+  "mean": 0.4107179589771328,
+  "by_operation": {
+   "create": 0.15666514647832092,
+   "update": 0.5862283073662324,
+   "delete": 0.48926042308684503
+  },
+  "by_category": {
+   "direct": 0.5590056438554035,
+   "spatial": 0.3166877508612885,
+   "topological": 0.35646048221470644
+  },
+  "axes": {
+   "geometry": 0.4792402194826826,
+   "semantics": 0.41331018518518514,
+   "topology": 0.33960347226353044
+  },
+  "full_solves": 10,
+  "full_solves_by_operation": {
+   "create": 0,
+   "update": 10,
+   "delete": 0
+  },
+  "create_committed": 46,
+  "create_committed_mean": 0.3678225178186665,
+  "create_budget_stops": 48,
+  "create_reply_only": 14,
+  "budget_stops": 83,
+  "committed": 197,
+  "stops": {
+   "completed": 241,
+   "budget_exhausted": 83
+  },
+  "rounds": 8.756172839506172,
+  "seconds": 79.2024074074074,
+  "guard_blocked_tasks": 121,
+  "score_errors": 0
+ },
+ "base": {
+  "n": 324,
+  "mean": 0.29139681810741563,
+  "by_operation": {
+   "create": 0.0,
+   "update": 0.5038456782484201,
+   "delete": 0.3703447760738269
+  },
+  "by_category": {
+   "direct": 0.3052813460571387,
+   "spatial": 0.2895213477863243,
+   "topological": 0.27938776047878383
+  },
+  "axes": {
+   "geometry": 0.26165542251649765,
+   "semantics": 0.5059027777777778,
+   "topology": 0.1066322540279715
+  },
+  "full_solves": 2,
+  "full_solves_by_operation": {
+   "create": 0,
+   "update": 2,
+   "delete": 0
+  },
+  "create_committed": 0,
+  "create_committed_mean": 0.0,
+  "create_budget_stops": 102,
+  "create_reply_only": 6,
+  "budget_stops": 255,
+  "committed": 22,
+  "stops": {
+   "budget_exhausted": 254,
+   "output_truncated": 33,
+   "completed": 30,
+   "tool_timeout": 1,
+   "sandbox_crash": 6
+  },
+  "rounds": 19.91358024691358,
+  "seconds": 331.66645061728394,
+  "guard_blocked_tasks": 281,
+  "score_errors": 0,
+  "this_minus_final": {
+   "point": -0.11932114086971712,
+   "ci95": [
+    -0.15060896192412937,
+    -0.08875732476938097
+   ],
+   "wins": 16,
+   "losses": 109,
+   "by_operation": {
+    "create": [
+     -0.15666514647832092,
+     -0.2173705761776834,
+     -0.10011917640938778
+    ],
+    "update": [
+     -0.08238262911781236,
+     -0.1468131945648116,
+     -0.022009552858196564
+    ],
+    "delete": [
+     -0.11891564701301816,
+     -0.1498427787541877,
+     -0.08869597096564384
+    ]
+   }
+  }
+ },
+ "sonnet_alone": {
+  "n": 324,
+  "mean": 0.7311489744951246,
+  "by_operation": {
+   "create": 0.7087172016089183,
+   "update": 0.865950595152814,
+   "delete": 0.6187791267236415
+  },
+  "by_category": {
+   "direct": 0.7508262426267535,
+   "spatial": 0.7279614156076641,
+   "topological": 0.7146592652509562
+  },
+  "axes": {
+   "geometry": 0.9100971293746776,
+   "semantics": 0.4974112264621524,
+   "topology": 0.7859385676485436
+  },
+  "full_solves": 32,
+  "full_solves_by_operation": {
+   "create": 0,
+   "update": 32,
+   "delete": 0
+  },
+  "create_committed": 108,
+  "create_committed_mean": 0.7087172016089183,
+  "create_budget_stops": 0,
+  "create_reply_only": 0,
+  "budget_stops": 1,
+  "committed": 320,
+  "stops": {
+   "completed": 322,
+   "output_truncated": 1,
+   "tool_timeout": 1
+  },
+  "rounds": 5.8580246913580245,
+  "seconds": 46.80348765432099,
+  "guard_blocked_tasks": 98,
+  "score_errors": 0,
+  "list_cost_usd": 35.322725250000005,
+  "this_minus_final": {
+   "point": 0.3204310155179917,
+   "ci95": [
+    0.28031548162882525,
+    0.3608344037006543
+   ],
+   "wins": 239,
+   "losses": 20,
+   "by_operation": {
+    "create": [
+     0.5520520551305971,
+     0.4772136756052858,
+     0.6223615502324847
+    ],
+    "update": [
+     0.27972228778658154,
+     0.20910086141746478,
+     0.35277733162868474
+    ],
+    "delete": [
+     0.12951870363679654,
+     0.09991511515847981,
+     0.1584030237678281
+    ]
+   }
+  }
+ },
+ "sonnet_lib": {
+  "n": 324,
+  "mean": 0.734768561504229,
+  "by_operation": {
+   "create": 0.6899441204084091,
+   "update": 0.8924467945439047,
+   "delete": 0.6219147695603731
+  },
+  "by_category": {
+   "direct": 0.7561565128890975,
+   "spatial": 0.7202299295486079,
+   "topological": 0.7279192420749817
+  },
+  "axes": {
+   "geometry": 0.9177664610217032,
+   "semantics": 0.48876418506048147,
+   "topology": 0.7977750384305023
+  },
+  "full_solves": 32,
+  "full_solves_by_operation": {
+   "create": 0,
+   "update": 32,
+   "delete": 0
+  },
+  "create_committed": 107,
+  "create_committed_mean": 0.6963921963000765,
+  "create_budget_stops": 0,
+  "create_reply_only": 1,
+  "budget_stops": 0,
+  "committed": 320,
+  "stops": {
+   "completed": 323,
+   "output_truncated": 1
+  },
+  "rounds": 4.021604938271605,
+  "seconds": 28.748117283950616,
+  "guard_blocked_tasks": 45,
+  "score_errors": 0,
+  "list_cost_usd": 22.954425449999984,
+  "this_minus_final": {
+   "point": 0.32405060252709617,
+   "ci95": [
+    0.2847933691053608,
+    0.36245320099444733
+   ],
+   "wins": 235,
+   "losses": 15,
+   "by_operation": {
+    "create": [
+     0.5332789739300882,
+     0.4606546211345947,
+     0.602117809618335
+    ],
+    "update": [
+     0.30621848717767225,
+     0.238295526327027,
+     0.37653929290776184
+    ],
+    "delete": [
+     0.13265434647352797,
+     0.10114961603146913,
+     0.1630670248491081
+    ]
+   }
+  },
+  "this_minus_alone": {
+   "point": 0.0036195870091044156,
+   "ci95": [
+    -0.01376874871726719,
+    0.021313159078214433
+   ],
+   "wins": 65,
+   "losses": 85
+  }
+ }
+}
