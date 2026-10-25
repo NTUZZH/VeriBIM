@@ -52,15 +52,164 @@
    "net_total_count": 172
   }
  },
+ "v4d_recomputed_tasks": 69,
+ "v4d_recomputed_date": "2026-10-16",
+ "v4d_update": {
+  "note": "Ground truths of 69 tasks regenerated (gt_fix/affected_tasks.txt) and re-run model outputs (gt_fix/rerun_list.csv): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/full_all/per_task_sft_v10.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-DIR-B02-001",
+   "CHN-DWF-DIR-B02-002",
+   "CHN-DWF-DIR-B02m4X3-001",
+   "CHN-DWF-SPA-B02-001",
+   "CHN-DWF-SPA-B02-002",
+   "CHN-DWF-SPA-B02-003",
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-SPA-B02-005",
+   "CHN-DWF-SPA-B02-006",
+   "CHN-DWF-SPA-B02-007",
+   "CHN-DWF-SPA-B02m4-001",
+   "CHN-DWF-TOP-B02m4-003",
+   "CHN-DWF-TOP-B02m4-006",
+   "CHN-DWF-TOP-B02m4-008",
+   "CHN-DWF-TOP-B02m4-009",
+   "CHN-DWF-TOP-B02m4X3-001",
+   "CHN-DWF-TOP-B02m4X3-002",
+   "CHN-DWF-TOP-B02m4X3-003",
+   "CHN-DWF-TOP-B02m4X3-004",
+   "CHN-DWF-TOP-B02m4X3-005",
+   "CHN-DWF-TOP-B02m4X3-006",
+   "CHN-DWF-TOP-B02m4X3-007",
+   "CHN-DWF-TOP-B02m4X3-008",
+   "CHN-DWF-TOP-B02m4X3-009",
+   "CHN-DWF-TOP-B02m4X3-010",
+   "CHN-DWF-TOP-B02m4X3-011",
+   "COL-DEL-DIR-B46-015",
+   "COL-DEL-DIR-B46-084",
+   "COL-DEL-DIR-B46m4-002",
+   "COL-DEL-DIR-B46m4-022",
+   "COL-DEL-DIR-B46m4X3-024",
+   "COL-DEL-SPA-B46-004",
+   "COL-DEL-SPA-B46m4X3-010",
+   "DOR-UPD-DIR-B02m4X3-003",
+   "DOR-UPD-DIR-G7arc-001",
+   "DOR-UPD-DIR-G7arc-002",
+   "DOR-UPD-DIR-G7arc-004",
+   "DOR-UPD-DIR-G7arc-006",
+   "DOR-UPD-DIR-G7arc-007",
+   "DOR-UPD-DIR-G7arcm4-003",
+   "DOR-UPD-DIR-G7arcm4X3-004",
+   "DOR-UPD-SPA-G7arcm4X3-003",
+   "DOR-UPD-TOP-G7arc-004",
+   "DOR-UPD-TOP-G7arc-010",
+   "DOR-UPD-TOP-G7arc-011",
+   "DOR-UPD-TOP-G7arcm4-007",
+   "DOR-UPD-TOP-G7arcm4-010",
+   "DOR-UPD-TOP-G7arcm4-011",
+   "DOR-UPD-TOP-G7arcm4-014",
+   "DOR-UPD-TOP-G7arcm4-015",
+   "DOR-UPD-TOP-G7arcm4-016",
+   "DOR-UPD-TOP-G7arcm4X3-003",
+   "SPC-DEL-DIR-B27-001",
+   "SPC-DEL-DIR-B27m4-004",
+   "SPC-DEL-DIR-B27m4X3-007",
+   "SPC-DEL-SPA-B27-008",
+   "SPC-DEL-SPA-B27m4-003",
+   "SPC-DEL-SPA-B27m4X3-001",
+   "SPC-DEL-SPA-B27m4X3-004",
+   "WAL-DEL-DIR-B02-002",
+   "WAL-DEL-DIR-B02m4-001",
+   "WAL-DEL-SPA-B02-002",
+   "WAL-DEL-SPA-B27-007",
+   "WAL-DEL-TOP-B02-003",
+   "WAL-DEL-TOP-B02-005",
+   "WAL-DEL-TOP-B02-006",
+   "WAL-DEL-TOP-B02-007",
+   "WAL-DEL-TOP-B02m4X3-001",
+   "WIN-CRE-SPA-B02m4X3-002"
+  ],
+  "kept_task_ids_no_stored_model": [],
+  "edited_sources": {
+   "archive": 40,
+   "file": 19
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/full_all/offtarget_sft_v10",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4d",
+   "summary_backup": "offtarget_summary.json.pre_v4d"
+  }
+ },
+ "v4e_recomputed_tasks": 37,
+ "v4e_recomputed_date": "2026-10-16",
+ "v4e_update": {
+  "note": "Deletion tasks whose outputs were re-run with the repaired library (gt_fix/rerun_list_delete_v2.csv, geom_call_ran_clean=1; spliced as v4e): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file, reading the re-run edited models from <run>/<model>/edited_v4e.tar.gz; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/full_all/per_task_sft_v10.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-DIR-B02-001",
+   "CHN-DWF-DIR-B02-002",
+   "CHN-DWF-DIR-B02m4X3-001",
+   "CHN-DWF-SPA-B02-001",
+   "CHN-DWF-SPA-B02-002",
+   "CHN-DWF-SPA-B02-003",
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-SPA-B02-005",
+   "CHN-DWF-SPA-B02-006",
+   "CHN-DWF-SPA-B02-007",
+   "CHN-DWF-SPA-B02m4-001",
+   "CHN-DWF-TOP-B02m4-006",
+   "CHN-DWF-TOP-B02m4X3-001",
+   "CHN-DWF-TOP-B02m4X3-004",
+   "CHN-DWF-TOP-B02m4X3-005",
+   "CHN-DWF-TOP-B02m4X3-008",
+   "COL-DEL-DIR-B46-015",
+   "COL-DEL-DIR-B46-084",
+   "COL-DEL-DIR-B46m4-002",
+   "COL-DEL-DIR-B46m4-022",
+   "COL-DEL-DIR-B46m4X3-024",
+   "COL-DEL-SPA-B46-004",
+   "COL-DEL-SPA-B46m4X3-010",
+   "SPC-DEL-DIR-B27-001",
+   "SPC-DEL-DIR-B27m4-004",
+   "SPC-DEL-DIR-B27m4X3-007",
+   "SPC-DEL-SPA-B27-008",
+   "SPC-DEL-SPA-B27m4-003",
+   "SPC-DEL-SPA-B27m4X3-001",
+   "SPC-DEL-SPA-B27m4X3-004",
+   "WAL-DEL-DIR-B02-002",
+   "WAL-DEL-DIR-B02m4-001",
+   "WAL-DEL-SPA-B02-002",
+   "WAL-DEL-SPA-B27-007",
+   "WAL-DEL-TOP-B02-003",
+   "WAL-DEL-TOP-B02-005",
+   "WAL-DEL-TOP-B02-007"
+  ],
+  "not_committed_task_ids": [
+   "CHN-DWF-TOP-B02m4X3-001",
+   "CHN-DWF-TOP-B02m4X3-004",
+   "CHN-DWF-TOP-B02m4X3-005",
+   "WAL-DEL-TOP-B02-003"
+  ],
+  "edited_sources": {
+   "archive full_all/sft_v10/edited_v4e.tar.gz": 33,
+   "not committed": 4
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/full_all/offtarget_sft_v10",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4e",
+   "summary_backup": "offtarget_summary.json.pre_v4e"
+  }
+ },
  "definition": "off_target(E) = changed(I->E) - changed(I->G) - GlobalIds of build_edit_set(I, E, operation, entity_type, target_guids); changed = IfcProducts created, deleted, or with a different placement / representation / direct-attribute hash (OwnerHistory ignored)",
  "completed_rule": "geometry, semantics and topology all >= 0.9",
  "n_rows": 2100,
  "status": {
-  "ok": 1898,
-  "no_edited_model": 202
+  "ok": 1894,
+  "no_edited_model": 206
  },
- "n_no_edited_model": 202,
- "n_edit_set_type_aliased": 103,
+ "n_no_edited_model": 206,
+ "n_edit_set_type_aliased": 100,
  "edit_set_surplus": {
   "n_tasks": 0,
   "total": 0,
@@ -68,24 +217,23 @@
  },
  "n_underspecified": 2,
  "gold_source": {
-  "rebuilt": 1792,
-  "lookup_sha256": 106
+  "rebuilt": 1737,
+  "lookup_sha256": 157
  },
  "all_evaluated": {
   "off_target_count": {
-   "n": 1898,
-   "n_with_off_target": 314,
-   "share_with_off_target": 0.1654,
-   "mean_count": 0.1834,
+   "n": 1894,
+   "n_with_off_target": 310,
+   "share_with_off_target": 0.1637,
+   "mean_count": 0.169,
    "median_count": 0.0,
-   "max_count": 24,
-   "total_count": 348,
+   "max_count": 3,
+   "total_count": 320,
    "count_histogram": {
     "0": 1584,
-    "1": 304,
-    "2": 7,
-    "3": 2,
-    "10": 1
+    "1": 303,
+    "2": 4,
+    "3": 3
    },
    "by_operation": {
     "create": {
@@ -102,19 +250,18 @@
      }
     },
     "delete": {
-     "n": 688,
-     "n_with_off_target": 10,
-     "share_with_off_target": 0.0145,
-     "mean_count": 0.0596,
+     "n": 684,
+     "n_with_off_target": 6,
+     "share_with_off_target": 0.0088,
+     "mean_count": 0.019,
      "median_count": 0.0,
-     "max_count": 24,
-     "total_count": 41,
+     "max_count": 3,
+     "total_count": 13,
      "count_histogram": {
       "0": 678,
-      "1": 2,
-      "2": 6,
-      "3": 1,
-      "10": 1
+      "1": 1,
+      "2": 3,
+      "3": 2
      }
     },
     "update": {
@@ -163,34 +310,29 @@
      }
     },
     "topological": {
-     "n": 804,
-     "n_with_off_target": 149,
-     "share_with_off_target": 0.1853,
-     "mean_count": 0.2214,
+     "n": 800,
+     "n_with_off_target": 145,
+     "share_with_off_target": 0.1812,
+     "mean_count": 0.1875,
      "median_count": 0.0,
-     "max_count": 24,
-     "total_count": 178,
+     "max_count": 3,
+     "total_count": 150,
      "count_histogram": {
       "0": 655,
-      "1": 143,
-      "2": 4,
-      "3": 1,
-      "10": 1
+      "1": 142,
+      "2": 1,
+      "3": 2
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 310,
-     "entities": 321
+     "tasks": 307,
+     "entities": 307
     },
     "IfcDoor": {
-     "tasks": 9,
-     "entities": 20
-    },
-    "IfcBuildingElementProxy": {
-     "tasks": 2,
-     "entities": 2
+     "tasks": 7,
+     "entities": 7
     },
     "IfcSlab": {
      "tasks": 2,
@@ -200,6 +342,10 @@
      "tasks": 2,
      "entities": 2
     },
+    "IfcBuildingElementProxy": {
+     "tasks": 1,
+     "entities": 1
+    },
     "IfcWall": {
      "tasks": 1,
      "entities": 1
@@ -207,19 +353,18 @@
    }
   },
   "off_target_count_net": {
-   "n": 1898,
-   "n_with_off_target": 14,
-   "share_with_off_target": 0.0074,
-   "mean_count": 0.0253,
+   "n": 1894,
+   "n_with_off_target": 10,
+   "share_with_off_target": 0.0053,
+   "mean_count": 0.0106,
    "median_count": 0.0,
-   "max_count": 24,
-   "total_count": 48,
+   "max_count": 3,
+   "total_count": 20,
    "count_histogram": {
     "0": 1884,
-    "1": 4,
-    "2": 7,
-    "3": 2,
-    "10": 1
+    "1": 3,
+    "2": 4,
+    "3": 3
    },
    "by_operation": {
     "create": {
@@ -235,19 +380,18 @@
      }
     },
     "delete": {
-     "n": 688,
-     "n_with_off_target": 10,
-     "share_with_off_target": 0.0145,
-     "mean_count": 0.0596,
+     "n": 684,
+     "n_with_off_target": 6,
+     "share_with_off_target": 0.0088,
+     "mean_count": 0.019,
      "median_count": 0.0,
-     "max_count": 24,
-     "total_count": 41,
+     "max_count": 3,
+     "total_count": 13,
      "count_histogram": {
       "0": 678,
-      "1": 2,
-      "2": 6,
-      "3": 1,
-      "10": 1
+      "1": 1,
+      "2": 3,
+      "3": 2
      }
     },
     "update": {
@@ -295,34 +439,29 @@
      }
     },
     "topological": {
-     "n": 804,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.01,
-     "mean_count": 0.046,
+     "n": 800,
+     "n_with_off_target": 4,
+     "share_with_off_target": 0.005,
+     "mean_count": 0.0112,
      "median_count": 0.0,
-     "max_count": 24,
-     "total_count": 37,
+     "max_count": 3,
+     "total_count": 9,
      "count_histogram": {
       "0": 796,
-      "1": 2,
-      "2": 4,
-      "3": 1,
-      "10": 1
+      "1": 1,
+      "2": 1,
+      "3": 2
      }
     }
    },
    "types": {
-    "IfcOpeningElement": {
-     "tasks": 10,
-     "entities": 21
-    },
     "IfcDoor": {
-     "tasks": 9,
-     "entities": 20
+     "tasks": 7,
+     "entities": 7
     },
-    "IfcBuildingElementProxy": {
-     "tasks": 2,
-     "entities": 2
+    "IfcOpeningElement": {
+     "tasks": 7,
+     "entities": 7
     },
     "IfcSlab": {
      "tasks": 2,
@@ -332,6 +471,10 @@
      "tasks": 2,
      "entities": 2
     },
+    "IfcBuildingElementProxy": {
+     "tasks": 1,
+     "entities": 1
+    },
     "IfcWall": {
      "tasks": 1,
      "entities": 1
@@ -339,19 +482,18 @@
    }
   },
   "off_target_count_direct": {
-   "n": 1898,
-   "n_with_off_target": 14,
-   "share_with_off_target": 0.0074,
-   "mean_count": 0.0237,
+   "n": 1894,
+   "n_with_off_target": 10,
+   "share_with_off_target": 0.0053,
+   "mean_count": 0.009,
    "median_count": 0.0,
-   "max_count": 24,
-   "total_count": 45,
+   "max_count": 3,
+   "total_count": 17,
    "count_histogram": {
     "0": 1884,
-    "1": 6,
-    "2": 6,
-    "3": 1,
-    "10": 1
+    "1": 5,
+    "2": 3,
+    "3": 2
    },
    "by_operation": {
     "create": {
@@ -367,19 +509,18 @@
      }
     },
     "delete": {
-     "n": 688,
-     "n_with_off_target": 10,
-     "share_with_off_target": 0.0145,
-     "mean_count": 0.0596,
+     "n": 684,
+     "n_with_off_target": 6,
+     "share_with_off_target": 0.0088,
+     "mean_count": 0.019,
      "median_count": 0.0,
-     "max_count": 24,
-     "total_count": 41,
+     "max_count": 3,
+     "total_count": 13,
      "count_histogram": {
       "0": 678,
-      "1": 2,
-      "2": 6,
-      "3": 1,
-      "10": 1
+      "1": 1,
+      "2": 3,
+      "3": 2
      }
     },
     "update": {
@@ -425,33 +566,29 @@
      }
     },
     "topological": {
-     "n": 804,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.01,
-     "mean_count": 0.0435,
+     "n": 800,
+     "n_with_off_target": 4,
+     "share_with_off_target": 0.005,
+     "mean_count": 0.0088,
      "median_count": 0.0,
-     "max_count": 24,
-     "total_count": 35,
+     "max_count": 3,
+     "total_count": 7,
      "count_histogram": {
       "0": 796,
-      "1": 3,
-      "2": 4,
-      "10": 1
+      "1": 2,
+      "2": 1,
+      "3": 1
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 9,
-     "entities": 20
+     "tasks": 6,
+     "entities": 6
     },
     "IfcDoor": {
-     "tasks": 7,
-     "entities": 18
-    },
-    "IfcBuildingElementProxy": {
-     "tasks": 2,
-     "entities": 2
+     "tasks": 5,
+     "entities": 5
     },
     "IfcSlab": {
      "tasks": 2,
@@ -460,6 +597,10 @@
     "IfcWallStandardCase": {
      "tasks": 2,
      "entities": 2
+    },
+    "IfcBuildingElementProxy": {
+     "tasks": 1,
+     "entities": 1
     },
     "IfcWall": {
      "tasks": 1,
@@ -470,7 +611,7 @@
   "kinds": {
    "created": 300,
    "modified": 7,
-   "deleted": 41
+   "deleted": 13
   },
   "parts": {
    "placement_carried": 3,
@@ -479,15 +620,15 @@
  },
  "completed": {
   "off_target_count": {
-   "n": 1846,
+   "n": 1845,
    "n_with_off_target": 293,
-   "share_with_off_target": 0.1587,
-   "mean_count": 0.1587,
-   "median_count": 0.0,
+   "share_with_off_target": 0.1588,
+   "mean_count": 0.1588,
+   "median_count": 0,
    "max_count": 1,
    "total_count": 293,
    "count_histogram": {
-    "0": 1553,
+    "0": 1552,
     "1": 293
    },
    "by_operation": {
@@ -517,29 +658,29 @@
      }
     },
     "update": {
-     "n": 415,
+     "n": 414,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 415
+      "0": 414
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 541,
+     "n": 540,
      "n_with_off_target": 75,
-     "share_with_off_target": 0.1386,
-     "mean_count": 0.1386,
-     "median_count": 0,
+     "share_with_off_target": 0.1389,
+     "mean_count": 0.1389,
+     "median_count": 0.0,
      "max_count": 1,
      "total_count": 75,
      "count_histogram": {
-      "0": 466,
+      "0": 465,
       "1": 75
      }
     },
@@ -578,15 +719,15 @@
    }
   },
   "off_target_count_net": {
-   "n": 1846,
+   "n": 1845,
    "n_with_off_target": 0,
    "share_with_off_target": 0.0,
    "mean_count": 0.0,
-   "median_count": 0.0,
+   "median_count": 0,
    "max_count": 0,
    "total_count": 0,
    "count_histogram": {
-    "0": 1846
+    "0": 1845
    },
    "by_operation": {
     "create": {
@@ -614,29 +755,29 @@
      }
     },
     "update": {
-     "n": 415,
+     "n": 414,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 415
+      "0": 414
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 541,
+     "n": 540,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 541
+      "0": 540
      }
     },
     "spatial": {
@@ -667,15 +808,15 @@
    "types": {}
   },
   "off_target_count_direct": {
-   "n": 1846,
+   "n": 1845,
    "n_with_off_target": 0,
    "share_with_off_target": 0.0,
    "mean_count": 0.0,
-   "median_count": 0.0,
+   "median_count": 0,
    "max_count": 0,
    "total_count": 0,
    "count_histogram": {
-    "0": 1846
+    "0": 1845
    },
    "by_operation": {
     "create": {
@@ -703,29 +844,29 @@
      }
     },
     "update": {
-     "n": 415,
+     "n": 414,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 415
+      "0": 414
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 541,
+     "n": 540,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 541
+      "0": 540
      }
     },
     "spatial": {
@@ -762,19 +903,18 @@
  },
  "not_completed": {
   "off_target_count": {
-   "n": 52,
-   "n_with_off_target": 21,
-   "share_with_off_target": 0.4038,
-   "mean_count": 1.0577,
-   "median_count": 0.0,
-   "max_count": 24,
-   "total_count": 55,
+   "n": 49,
+   "n_with_off_target": 17,
+   "share_with_off_target": 0.3469,
+   "mean_count": 0.551,
+   "median_count": 0,
+   "max_count": 3,
+   "total_count": 27,
    "count_histogram": {
-    "0": 31,
-    "1": 11,
-    "2": 7,
-    "3": 2,
-    "10": 1
+    "0": 32,
+    "1": 10,
+    "2": 4,
+    "3": 3
    },
    "by_operation": {
     "create": {
@@ -791,31 +931,30 @@
      }
     },
     "delete": {
-     "n": 17,
-     "n_with_off_target": 10,
-     "share_with_off_target": 0.5882,
-     "mean_count": 2.4118,
-     "median_count": 1,
-     "max_count": 24,
-     "total_count": 41,
+     "n": 13,
+     "n_with_off_target": 6,
+     "share_with_off_target": 0.4615,
+     "mean_count": 1.0,
+     "median_count": 0,
+     "max_count": 3,
+     "total_count": 13,
      "count_histogram": {
       "0": 7,
-      "1": 2,
-      "2": 6,
-      "3": 1,
-      "10": 1
+      "1": 1,
+      "2": 3,
+      "3": 2
      }
     },
     "update": {
-     "n": 22,
+     "n": 23,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.1818,
-     "mean_count": 0.3182,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1739,
+     "mean_count": 0.3043,
+     "median_count": 0,
      "max_count": 3,
      "total_count": 7,
      "count_histogram": {
-      "0": 18,
+      "0": 19,
       "1": 2,
       "2": 1,
       "3": 1
@@ -824,15 +963,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 6,
+     "n": 7,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0.0,
+     "median_count": 0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 6
+      "0": 7
      }
     },
     "spatial": {
@@ -851,34 +990,29 @@
      }
     },
     "topological": {
-     "n": 27,
-     "n_with_off_target": 14,
-     "share_with_off_target": 0.5185,
-     "mean_count": 1.5926,
-     "median_count": 1,
-     "max_count": 24,
-     "total_count": 43,
+     "n": 23,
+     "n_with_off_target": 10,
+     "share_with_off_target": 0.4348,
+     "mean_count": 0.6522,
+     "median_count": 0,
+     "max_count": 3,
+     "total_count": 15,
      "count_histogram": {
       "0": 13,
-      "1": 8,
-      "2": 4,
-      "3": 1,
-      "10": 1
+      "1": 7,
+      "2": 1,
+      "3": 2
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 17,
-     "entities": 28
+     "tasks": 14,
+     "entities": 14
     },
     "IfcDoor": {
-     "tasks": 9,
-     "entities": 20
-    },
-    "IfcBuildingElementProxy": {
-     "tasks": 2,
-     "entities": 2
+     "tasks": 7,
+     "entities": 7
     },
     "IfcSlab": {
      "tasks": 2,
@@ -888,6 +1022,10 @@
      "tasks": 2,
      "entities": 2
     },
+    "IfcBuildingElementProxy": {
+     "tasks": 1,
+     "entities": 1
+    },
     "IfcWall": {
      "tasks": 1,
      "entities": 1
@@ -895,19 +1033,18 @@
    }
   },
   "off_target_count_net": {
-   "n": 52,
-   "n_with_off_target": 14,
-   "share_with_off_target": 0.2692,
-   "mean_count": 0.9231,
-   "median_count": 0.0,
-   "max_count": 24,
-   "total_count": 48,
+   "n": 49,
+   "n_with_off_target": 10,
+   "share_with_off_target": 0.2041,
+   "mean_count": 0.4082,
+   "median_count": 0,
+   "max_count": 3,
+   "total_count": 20,
    "count_histogram": {
-    "0": 38,
-    "1": 4,
-    "2": 7,
-    "3": 2,
-    "10": 1
+    "0": 39,
+    "1": 3,
+    "2": 4,
+    "3": 3
    },
    "by_operation": {
     "create": {
@@ -923,31 +1060,30 @@
      }
     },
     "delete": {
-     "n": 17,
-     "n_with_off_target": 10,
-     "share_with_off_target": 0.5882,
-     "mean_count": 2.4118,
-     "median_count": 1,
-     "max_count": 24,
-     "total_count": 41,
+     "n": 13,
+     "n_with_off_target": 6,
+     "share_with_off_target": 0.4615,
+     "mean_count": 1.0,
+     "median_count": 0,
+     "max_count": 3,
+     "total_count": 13,
      "count_histogram": {
       "0": 7,
-      "1": 2,
-      "2": 6,
-      "3": 1,
-      "10": 1
+      "1": 1,
+      "2": 3,
+      "3": 2
      }
     },
     "update": {
-     "n": 22,
+     "n": 23,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.1818,
-     "mean_count": 0.3182,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1739,
+     "mean_count": 0.3043,
+     "median_count": 0,
      "max_count": 3,
      "total_count": 7,
      "count_histogram": {
-      "0": 18,
+      "0": 19,
       "1": 2,
       "2": 1,
       "3": 1
@@ -956,15 +1092,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 6,
+     "n": 7,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0.0,
+     "median_count": 0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 6
+      "0": 7
      }
     },
     "spatial": {
@@ -983,34 +1119,29 @@
      }
     },
     "topological": {
-     "n": 27,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.2963,
-     "mean_count": 1.3704,
+     "n": 23,
+     "n_with_off_target": 4,
+     "share_with_off_target": 0.1739,
+     "mean_count": 0.3913,
      "median_count": 0,
-     "max_count": 24,
-     "total_count": 37,
+     "max_count": 3,
+     "total_count": 9,
      "count_histogram": {
       "0": 19,
-      "1": 2,
-      "2": 4,
-      "3": 1,
-      "10": 1
+      "1": 1,
+      "2": 1,
+      "3": 2
      }
     }
    },
    "types": {
-    "IfcOpeningElement": {
-     "tasks": 10,
-     "entities": 21
-    },
     "IfcDoor": {
-     "tasks": 9,
-     "entities": 20
+     "tasks": 7,
+     "entities": 7
     },
-    "IfcBuildingElementProxy": {
-     "tasks": 2,
-     "entities": 2
+    "IfcOpeningElement": {
+     "tasks": 7,
+     "entities": 7
     },
     "IfcSlab": {
      "tasks": 2,
@@ -1020,6 +1151,10 @@
      "tasks": 2,
      "entities": 2
     },
+    "IfcBuildingElementProxy": {
+     "tasks": 1,
+     "entities": 1
+    },
     "IfcWall": {
      "tasks": 1,
      "entities": 1
@@ -1027,19 +1162,18 @@
    }
   },
   "off_target_count_direct": {
-   "n": 52,
-   "n_with_off_target": 14,
-   "share_with_off_target": 0.2692,
-   "mean_count": 0.8654,
-   "median_count": 0.0,
-   "max_count": 24,
-   "total_count": 45,
+   "n": 49,
+   "n_with_off_target": 10,
+   "share_with_off_target": 0.2041,
+   "mean_count": 0.3469,
+   "median_count": 0,
+   "max_count": 3,
+   "total_count": 17,
    "count_histogram": {
-    "0": 38,
-    "1": 6,
-    "2": 6,
-    "3": 1,
-    "10": 1
+    "0": 39,
+    "1": 5,
+    "2": 3,
+    "3": 2
    },
    "by_operation": {
     "create": {
@@ -1055,46 +1189,45 @@
      }
     },
     "delete": {
-     "n": 17,
-     "n_with_off_target": 10,
-     "share_with_off_target": 0.5882,
-     "mean_count": 2.4118,
-     "median_count": 1,
-     "max_count": 24,
-     "total_count": 41,
+     "n": 13,
+     "n_with_off_target": 6,
+     "share_with_off_target": 0.4615,
+     "mean_count": 1.0,
+     "median_count": 0,
+     "max_count": 3,
+     "total_count": 13,
      "count_histogram": {
       "0": 7,
-      "1": 2,
-      "2": 6,
-      "3": 1,
-      "10": 1
+      "1": 1,
+      "2": 3,
+      "3": 2
      }
     },
     "update": {
-     "n": 22,
+     "n": 23,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.1818,
-     "mean_count": 0.1818,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1739,
+     "mean_count": 0.1739,
+     "median_count": 0,
      "max_count": 1,
      "total_count": 4,
      "count_histogram": {
-      "0": 18,
+      "0": 19,
       "1": 4
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 6,
+     "n": 7,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0.0,
+     "median_count": 0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 6
+      "0": 7
      }
     },
     "spatial": {
@@ -1113,33 +1246,29 @@
      }
     },
     "topological": {
-     "n": 27,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.2963,
-     "mean_count": 1.2963,
+     "n": 23,
+     "n_with_off_target": 4,
+     "share_with_off_target": 0.1739,
+     "mean_count": 0.3043,
      "median_count": 0,
-     "max_count": 24,
-     "total_count": 35,
+     "max_count": 3,
+     "total_count": 7,
      "count_histogram": {
       "0": 19,
-      "1": 3,
-      "2": 4,
-      "10": 1
+      "1": 2,
+      "2": 1,
+      "3": 1
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 9,
-     "entities": 20
+     "tasks": 6,
+     "entities": 6
     },
     "IfcDoor": {
-     "tasks": 7,
-     "entities": 18
-    },
-    "IfcBuildingElementProxy": {
-     "tasks": 2,
-     "entities": 2
+     "tasks": 5,
+     "entities": 5
     },
     "IfcSlab": {
      "tasks": 2,
@@ -1148,6 +1277,10 @@
     "IfcWallStandardCase": {
      "tasks": 2,
      "entities": 2
+    },
+    "IfcBuildingElementProxy": {
+     "tasks": 1,
+     "entities": 1
     },
     "IfcWall": {
      "tasks": 1,
@@ -1158,7 +1291,7 @@
   "kinds": {
    "created": 7,
    "modified": 7,
-   "deleted": 41
+   "deleted": 13
   },
   "parts": {
    "placement_carried": 3,
@@ -1166,10 +1299,10 @@
   }
  },
  "timing": {
-  "mean_seconds": 7.63,
-  "median_seconds": 4.13,
-  "p95_seconds": 41.96,
-  "max_seconds": 66.78,
+  "mean_seconds": 7.89,
+  "median_seconds": 4.16,
+  "p95_seconds": 41.94,
+  "max_seconds": 128.14,
   "peak_rss_mb_max": 2531.1
  }
 }

@@ -1,0 +1,389 @@
+[
+ {
+  "run": "full_all",
+  "model": "dpo_small_c12",
+  "rows": 2100,
+  "rerun_tasks": 40,
+  "completed_before": 1541,
+  "completed_after": 1538,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "full_all",
+  "model": "dpo_v10_c3",
+  "rows": 2100,
+  "rerun_tasks": 39,
+  "completed_before": 2006,
+  "completed_after": 2003,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "full_all",
+  "model": "dpo_v10_c6",
+  "rows": 2100,
+  "rerun_tasks": 30,
+  "completed_before": 2009,
+  "completed_after": 2008,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "full_all",
+  "model": "dpo_v9_c10",
+  "rows": 2100,
+  "rerun_tasks": 35,
+  "completed_before": 1923,
+  "completed_after": 1921,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "full_all",
+  "model": "grpo_small_c10",
+  "rows": 2100,
+  "rerun_tasks": 40,
+  "completed_before": 1543,
+  "completed_after": 1541,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "full_all",
+  "model": "grpo_v10_c50",
+  "rows": 2100,
+  "rerun_tasks": 41,
+  "completed_before": 2010,
+  "completed_after": 2007,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "full_all",
+  "model": "grpo_v10b_c10",
+  "rows": 2100,
+  "rerun_tasks": 44,
+  "completed_before": 2013,
+  "completed_after": 2010,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "full_all",
+  "model": "sft_small",
+  "rows": 2100,
+  "rerun_tasks": 37,
+  "completed_before": 1514,
+  "completed_after": 1513,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "full_all",
+  "model": "sft_v10",
+  "rows": 2100,
+  "rerun_tasks": 37,
+  "completed_before": 1999,
+  "completed_after": 1999,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_informed_all",
+  "model": "claude-opus-5-5",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 103,
+  "completed_after": 103,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_informed_all",
+  "model": "claude-sonnet-5-5",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 107,
+  "completed_after": 107,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_informed_all",
+  "model": "deepseek-v4-pro",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 97,
+  "completed_after": 97,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_informed_all",
+  "model": "gemini-3.8-flash",
+  "rows": 108,
+  "rerun_tasks": 2,
+  "completed_before": 83,
+  "completed_after": 81,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_informed_all",
+  "model": "gpt-5.6-luna",
+  "rows": 108,
+  "rerun_tasks": 1,
+  "completed_before": 69,
+  "completed_after": 69,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_informed_rep2_all",
+  "model": "claude-sonnet-5-5",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 107,
+  "completed_after": 107,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_informed_rep3_all",
+  "model": "claude-sonnet-5-5",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 107,
+  "completed_after": 107,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_lib_all",
+  "model": "claude-sonnet-5-5",
+  "rows": 108,
+  "rerun_tasks": 2,
+  "completed_before": 92,
+  "completed_after": 92,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_lib_all",
+  "model": "deepseek-v4-pro",
+  "rows": 108,
+  "rerun_tasks": 1,
+  "completed_before": 85,
+  "completed_after": 85,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_lib_all",
+  "model": "gemini-3.8-flash",
+  "rows": 108,
+  "rerun_tasks": 2,
+  "completed_before": 65,
+  "completed_after": 63,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_asknote_all",
+  "model": "claude-sonnet-5-5",
+  "rows": 108,
+  "rerun_tasks": 1,
+  "completed_before": 102,
+  "completed_after": 103,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_asknote_all",
+  "model": "deepseek-v4-pro",
+  "rows": 108,
+  "rerun_tasks": 1,
+  "completed_before": 88,
+  "completed_after": 88,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_asknote_all",
+  "model": "gemini-3.8-flash",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 65,
+  "completed_after": 63,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted108_asknote_all",
+  "model": "gpt-5.6-luna",
+  "rows": 108,
+  "rerun_tasks": 1,
+  "completed_before": 45,
+  "completed_after": 45,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted216_lib_all",
+  "model": "claude-sonnet-5-5",
+  "rows": 216,
+  "rerun_tasks": 2,
+  "completed_before": 188,
+  "completed_after": 188,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted324rest_informed_all",
+  "model": "claude-sonnet-5-5",
+  "rows": 216,
+  "rerun_tasks": 6,
+  "completed_before": 211,
+  "completed_after": 211,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_informed_all",
+  "model": "Qwen3.5-9B",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 69,
+  "completed_after": 70,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_informed_all",
+  "model": "gemma-4-31b-it-awq",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 77,
+  "completed_after": 76,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_lib_all",
+  "model": "dpo_v10_c6",
+  "rows": 108,
+  "rerun_tasks": 2,
+  "completed_before": 104,
+  "completed_after": 104,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_lib_all",
+  "model": "grpo_v10_c50",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 105,
+  "completed_after": 105,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_lib_all",
+  "model": "grpo_v10b_c10",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 105,
+  "completed_after": 105,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_lib_all",
+  "model": "sft_v10",
+  "rows": 108,
+  "rerun_tasks": 2,
+  "completed_before": 104,
+  "completed_after": 104,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_lib_solo",
+  "model": "grpo_v10_c50",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 105,
+  "completed_after": 105,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_lib_solo",
+  "model": "grpo_v10b_c10",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 105,
+  "completed_after": 105,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_libnote_all",
+  "model": "Qwen3.5-9B",
+  "rows": 108,
+  "rerun_tasks": 1,
+  "completed_before": 2,
+  "completed_after": 2,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_retrieval_all",
+  "model": "Qwen3.5-9B",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 95,
+  "completed_after": 95,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local108_retrievalshort_all",
+  "model": "Qwen3.5-9B",
+  "rows": 108,
+  "rerun_tasks": 3,
+  "completed_before": 97,
+  "completed_after": 97,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local324_lib_all",
+  "model": "dpo_v10_c6",
+  "rows": 324,
+  "rerun_tasks": 9,
+  "completed_before": 309,
+  "completed_after": 309,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local324_lib_all",
+  "model": "dpo_v9_c10",
+  "rows": 324,
+  "rerun_tasks": 7,
+  "completed_before": 301,
+  "completed_after": 300,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local324_lib_all",
+  "model": "grpo_v10_c50",
+  "rows": 324,
+  "rerun_tasks": 9,
+  "completed_before": 311,
+  "completed_after": 310,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local324_lib_all",
+  "model": "grpo_v10b_c10",
+  "rows": 324,
+  "rerun_tasks": 9,
+  "completed_before": 311,
+  "completed_after": 311,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local324_lib_all",
+  "model": "sft_extA",
+  "rows": 324,
+  "rerun_tasks": 8,
+  "completed_before": 300,
+  "completed_after": 299,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "local324_lib_all",
+  "model": "sft_v10",
+  "rows": 324,
+  "rerun_tasks": 9,
+  "completed_before": 310,
+  "completed_after": 310,
+  "edited": "archive edited_v4e.tar.gz"
+ },
+ {
+  "run": "hosted324_lib_all",
+  "model": "claude-sonnet-5-5",
+  "rows": 324,
+  "rerun_tasks": 4,
+  "completed_before": 280,
+  "completed_after": 280,
+  "edited": "source arms: hosted108_lib_all, hosted216_lib_all"
+ }
+]

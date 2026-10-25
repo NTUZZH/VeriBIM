@@ -1,0 +1,121 @@
+task_id,operation,edit_kind,completed,model,element,element_class,other,other_class,other_name,volume_m3,not_in_gt,overlap_box_m
+CHN-CWD-TOP-B38-002,create,create_wall_with_door,True,ground truth,1i_7YcarTI_S_YN7YBCuqs,IfcWall,0NwXg6Ayr9z88KpqSjw_9L,IfcBeam,M_K-Series Bar Joist-Rod Web:14K1:14K1:185740,0.000746,,0.074x0.2x0.356
+CHN-CWD-TOP-B38-002,create,create_wall_with_door,True,ground truth,1i_7YcarTI_S_YN7YBCuqs,IfcWall,2t9idiDlv0ZBWxqSNhKYKb,IfcBeam,M_W-Wide Flange:W460X60:W460X60:177894,0.003182,,0.153x0.2x0.455
+CHN-CWD-TOP-B38-002,create,create_wall_with_door,True,ground truth,1i_7YcarTI_S_YN7YBCuqs,IfcWall,0NwXg6Ayr9z88KpqSjw_91,IfcBeam,M_K-Series Bar Joist-Rod Web:14K1:14K1:185752,0.000746,,0.074x0.2x0.356
+CHN-CWD-TOP-B38-002,create,create_wall_with_door,True,ground truth,1i_7YcarTI_S_YN7YBCuqs,IfcWall,0NwXg6Ayr9z88KpqSjw_9K,IfcBeam,M_K-Series Bar Joist-Rod Web:14K1:14K1:185741,0.000746,,0.074x0.2x0.356
+CHN-CWD-TOP-B38-002,create,create_wall_with_door,True,output,1xZJNoo6r3D9u2miVsxvLg,IfcWall,0NwXg6Ayr9z88KpqSjw_9L,IfcBeam,M_K-Series Bar Joist-Rod Web:14K1:14K1:185740,0.000746,False,0.074x0.2x0.356
+CHN-CWD-TOP-B38-002,create,create_wall_with_door,True,output,1xZJNoo6r3D9u2miVsxvLg,IfcWall,2t9idiDlv0ZBWxqSNhKYKb,IfcBeam,M_W-Wide Flange:W460X60:W460X60:177894,0.003182,False,0.153x0.2x0.455
+CHN-CWD-TOP-B38-002,create,create_wall_with_door,True,output,1xZJNoo6r3D9u2miVsxvLg,IfcWall,0NwXg6Ayr9z88KpqSjw_91,IfcBeam,M_K-Series Bar Joist-Rod Web:14K1:14K1:185752,0.000746,False,0.074x0.2x0.356
+CHN-CWD-TOP-B38-002,create,create_wall_with_door,True,output,1xZJNoo6r3D9u2miVsxvLg,IfcWall,0NwXg6Ayr9z88KpqSjw_9K,IfcBeam,M_K-Series Bar Joist-Rod Web:14K1:14K1:185741,0.000746,False,0.074x0.2x0.356
+SLB-UPD-DIR-B46-009,update,rotate,True,ground truth,0ntjBJrNL7yBb0$5x0_urT,IfcSlab,2LLoUPgij6aQ8CjujSIisv,IfcSlab,PRECAST,0.002381,,0.027x0.1x2.63
+SLB-UPD-DIR-B46-009,update,rotate,True,output,0ntjBJrNL7yBb0$5x0_urT,IfcSlab,2LLoUPgij6aQ8CjujSIisv,IfcSlab,PRECAST,0.002381,False,0.027x0.1x2.63
+CHN-CWD-SPA-G7arc-001,create,create_wall_with_door,True,ground truth,1lg23MLA41QlVuLAYTRde7,IfcWall,2JDc3ri9vEJQLDK2OVf3eg,IfcCovering,复合天花板:Plain:753871,0.013828,,1.82x0.2x0.057
+CHN-CWD-SPA-G7arc-001,create,create_wall_with_door,True,ground truth,1lg23MLA41QlVuLAYTRde7,IfcWall,0MowCSAMj8LeTOFbCXxKSh,IfcSlab,楼板:Generic 150mm:369228,0.04,,4.0x0.2x0.05
+CHN-CWD-SPA-G7arc-001,create,create_wall_with_door,True,ground truth,1lg23MLA41QlVuLAYTRde7,IfcWall,2JDc3ri9vEJQLDK2OVf3eb,IfcCovering,复合天花板:Plain:753856,0.012772,,1.68x0.2x0.057
+CHN-CWD-SPA-G7arc-001,create,create_wall_with_door,True,output,3BzpUQyoX9NR38Vqo52yIg,IfcWall,2JDc3ri9vEJQLDK2OVf3eg,IfcCovering,复合天花板:Plain:753871,0.013828,False,1.82x0.2x0.057
+CHN-CWD-SPA-G7arc-001,create,create_wall_with_door,True,output,3BzpUQyoX9NR38Vqo52yIg,IfcWall,0MowCSAMj8LeTOFbCXxKSh,IfcSlab,楼板:Generic 150mm:369228,0.04,False,4.0x0.2x0.05
+CHN-CWD-SPA-G7arc-001,create,create_wall_with_door,True,output,3BzpUQyoX9NR38Vqo52yIg,IfcWall,2JDc3ri9vEJQLDK2OVf3eb,IfcCovering,复合天花板:Plain:753856,0.012772,False,1.68x0.2x0.057
+SLB-CRE-TOP-G7arcm4X3-005,create,copy_element,True,ground truth,3EK1unum8787XwGWbweKqc,IfcSlab,1qsMZPk2LE8BdVb89WT9rW,IfcBuildingElementProxy,Surround-east-2:Surround-east-2:837642,3.071212,,1.161x17.636x0.15
+SLB-CRE-TOP-G7arcm4X3-005,create,copy_element,True,ground truth,3EK1unum8787XwGWbweKqc,IfcSlab,1qsMZPk2LE8BdVb89WT9AH,IfcBuildingElementProxy,Surrounding1:Surrounding1:837627,33.35117,,16.023x17.636x0.15
+SLB-CRE-TOP-G7arcm4X3-005,create,copy_element,True,output,2WT5H$MSr1C8iPGm6lFvO1,IfcSlab,1qsMZPk2LE8BdVb89WT9rW,IfcBuildingElementProxy,Surround-east-2:Surround-east-2:837642,3.071212,False,1.161x17.636x0.15
+SLB-CRE-TOP-G7arcm4X3-005,create,copy_element,True,output,2WT5H$MSr1C8iPGm6lFvO1,IfcSlab,1qsMZPk2LE8BdVb89WT9AH,IfcBuildingElementProxy,Surrounding1:Surrounding1:837627,33.35117,False,16.023x17.636x0.15
+SPC-CRE-DIR-G7arcm4X3-002,create,create_box,True,ground truth,0b_rkS4ufyqM9ZJVy8zorX,IfcSpace,3YGEx$KmPDJfbqowFvCGHs,IfcSpace,1,2.134573,,0.44x1.438x3.5
+SPC-CRE-DIR-G7arcm4X3-002,create,create_box,True,ground truth,0b_rkS4ufyqM9ZJVy8zorX,IfcSpace,3YGEx$KmPDJfbqowFvCGHd,IfcSpace,6,19.6,,4.0x3.0x3.5
+SPC-CRE-DIR-G7arcm4X3-002,create,create_box,True,ground truth,0b_rkS4ufyqM9ZJVy8zorX,IfcSpace,3YGEx$KmPDJfbqowFvCGHx,IfcSpace,2,17.312565,,3.46x1.438x3.5
+SPC-CRE-DIR-G7arcm4X3-002,create,create_box,True,output,08bQskIazBBAM91QaXEtJ4,IfcSpace,3YGEx$KmPDJfbqowFvCGHs,IfcSpace,1,2.134573,False,0.44x1.438x3.5
+SPC-CRE-DIR-G7arcm4X3-002,create,create_box,True,output,08bQskIazBBAM91QaXEtJ4,IfcSpace,3YGEx$KmPDJfbqowFvCGHd,IfcSpace,6,19.6,False,4.0x3.0x3.5
+SPC-CRE-DIR-G7arcm4X3-002,create,create_box,True,output,08bQskIazBBAM91QaXEtJ4,IfcSpace,3YGEx$KmPDJfbqowFvCGHx,IfcSpace,2,17.312565,False,3.46x1.438x3.5
+SLB-CRE-DIR-B38-008,create,create_box,True,ground truth,050xJ0zlA5z0_FzPDz9kyk,IfcSlab,3saVcraO9CJRqkF0xoeCu3,IfcColumn,M_W-Wide Flange-Column:W250X67:W250X67:162673,0.00118,,0.257x0.204x0.2
+SLB-CRE-DIR-B38-008,create,create_box,True,ground truth,050xJ0zlA5z0_FzPDz9kyk,IfcSlab,31f4fEYc5F6fw4dve_O27F,IfcWallStandardCase,Basic Wall:Foundation - Concrete (264mm):223413,0.06072,,0.264x1.15x0.2
+SLB-CRE-DIR-B38-008,create,create_box,True,output,3NMdldkt58heh6m37Bu2qN,IfcSlab,3saVcraO9CJRqkF0xoeCu3,IfcColumn,M_W-Wide Flange-Column:W250X67:W250X67:162673,0.00118,False,0.257x0.204x0.2
+SLB-CRE-DIR-B38-008,create,create_box,True,output,3NMdldkt58heh6m37Bu2qN,IfcSlab,31f4fEYc5F6fw4dve_O27F,IfcWallStandardCase,Basic Wall:Foundation - Concrete (264mm):223413,0.06072,False,0.264x1.15x0.2
+WAL-CRE-SPA-B16m4X3-006,create,create_box,True,ground truth,3Q1iYBXeDq6D2HtOUSDY0X,IfcWall,1xKUj$3In5$eFOxdJ0_vqN,IfcSlab,Dach-3,0.064,,4.0x0.2x0.08
+WAL-CRE-SPA-B16m4X3-006,create,create_box,True,ground truth,3Q1iYBXeDq6D2HtOUSDY0X,IfcWall,3lHxqH6h5Dpwq4bDNU70r_,IfcWall,2OG-I-3-3,0.0504,,0.1x0.2x2.52
+WAL-CRE-SPA-B16m4X3-006,create,create_box,True,output,0h$0NYrJ9DdhhWKiQf_h5o,IfcWall,1xKUj$3In5$eFOxdJ0_vqN,IfcSlab,Dach-3,0.064,False,4.0x0.2x0.08
+WAL-CRE-SPA-B16m4X3-006,create,create_box,True,output,0h$0NYrJ9DdhhWKiQf_h5o,IfcWall,3lHxqH6h5Dpwq4bDNU70r_,IfcWall,2OG-I-3-3,0.0504,False,0.1x0.2x2.52
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,ground truth,0jXSZrCV7p5ii8O7x3Uqij,IfcWall,3Em6$4_g8HvuAYhFtEXer5,IfcSlab,-Enkel 80 mm plate på mark,0.0096,,4.0x0.2x0.015
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,ground truth,0jXSZrCV7p5ii8O7x3Uqij,IfcWall,1Uc9jg_lKHvx5B$4tKFMih,IfcBuildingElementPart,Gipsplate,0.000919,,0.012x0.2x2.45
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,ground truth,0jXSZrCV7p5ii8O7x3Uqij,IfcWall,2jT9fw_fyHvuAYhFtEXer5,IfcSlab,Bjelkelag masonite HB 400,0.25,,4.0x0.2x0.312
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,ground truth,0jXSZrCV7p5ii8O7x3Uqij,IfcWall,1PRr4EztmHvwqN64yoyo96,IfcDoor,D-01 890X2090,0.025903,,0.186x0.2x2.09
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,ground truth,0jXSZrCV7p5ii8O7x3Uqij,IfcWall,1DK6OZ_IGHvwqN64yoyo96,IfcDoor,YD-02 990X2090 - E30 CSa,0.000202,,0.029x0.2x2.09
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,ground truth,0jXSZrCV7p5ii8O7x3Uqij,IfcWall,1Uc9ik_lKHvx5B$4tKFMih,IfcBuildingElementPart,Bindingsverk tre,0.007305,,0.1x0.2x2.435
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,ground truth,0jXSZrCV7p5ii8O7x3Uqij,IfcWall,1Uc9hs_lKHvx5B$4tKFMih,IfcBuildingElementPart,Gipsplate,0.000919,,0.012x0.2x2.45
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,ground truth,1esoj8dj$xBxrRxmfNPZcI,IfcDoor,3Em6$4_g8HvuAYhFtEXer5,IfcSlab,-Enkel 80 mm plate på mark,0.0027,,0.9x0.2x0.015
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,output,3QD3GWKLn3EQDRFt8cfMoS,IfcWall,3Em6$4_g8HvuAYhFtEXer5,IfcSlab,-Enkel 80 mm plate på mark,0.0096,False,4.0x0.2x0.015
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,output,3QD3GWKLn3EQDRFt8cfMoS,IfcWall,1Uc9jg_lKHvx5B$4tKFMih,IfcBuildingElementPart,Gipsplate,0.000919,False,0.012x0.2x2.45
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,output,3QD3GWKLn3EQDRFt8cfMoS,IfcWall,2jT9fw_fyHvuAYhFtEXer5,IfcSlab,Bjelkelag masonite HB 400,0.25,False,4.0x0.2x0.312
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,output,3QD3GWKLn3EQDRFt8cfMoS,IfcWall,1PRr4EztmHvwqN64yoyo96,IfcDoor,D-01 890X2090,0.025903,False,0.186x0.2x2.09
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,output,3QD3GWKLn3EQDRFt8cfMoS,IfcWall,1DK6OZ_IGHvwqN64yoyo96,IfcDoor,YD-02 990X2090 - E30 CSa,0.000202,False,0.029x0.2x2.09
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,output,3QD3GWKLn3EQDRFt8cfMoS,IfcWall,1Uc9ik_lKHvx5B$4tKFMih,IfcBuildingElementPart,Bindingsverk tre,0.007305,False,0.1x0.2x2.435
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,output,3QD3GWKLn3EQDRFt8cfMoS,IfcWall,1Uc9hs_lKHvx5B$4tKFMih,IfcBuildingElementPart,Gipsplate,0.000919,False,0.012x0.2x2.45
+CHN-CWD-DIR-B27-003,create,create_wall_with_door,True,output,37YibfynD08R2sT$YWk7li,IfcDoor,3Em6$4_g8HvuAYhFtEXer5,IfcSlab,-Enkel 80 mm plate på mark,0.0027,False,0.9x0.2x0.015
+SLB-CRE-TOP-G7arc-007,create,create_box,True,ground truth,1N0fxLLeMN64JluGWZQwxB,IfcSlab,05vdPKANH9oxQp6HLYv7eS,IfcRoof,基本屋顶:Generic - 50mm:774350,0.0003,,0.3x3.6x0.05
+SLB-CRE-TOP-G7arc-007,create,create_box,True,ground truth,1N0fxLLeMN64JluGWZQwxB,IfcSlab,05vdPKANH9oxQp6HLYv7e4,IfcRoof,基本屋顶:Generic - 50mm:774358,0.0003,,0.3x3.6x0.05
+SLB-CRE-TOP-G7arc-007,create,create_box,True,output,2_1KlkHGDFs87t528Ai0qx,IfcSlab,05vdPKANH9oxQp6HLYv7eS,IfcRoof,基本屋顶:Generic - 50mm:774350,0.0003,False,0.3x3.6x0.05
+SLB-CRE-TOP-G7arc-007,create,create_box,True,output,2_1KlkHGDFs87t528Ai0qx,IfcSlab,05vdPKANH9oxQp6HLYv7e4,IfcRoof,基本屋顶:Generic - 50mm:774358,0.0006,False,0.3x3.6x0.05
+COL-CRE-TOP-G7arc-003,create,create_box,True,ground truth,3cZBqza$OL2aaUya3qRl9H,IfcColumn,0yTpreYuD8dBBMAeDhcaUR,IfcColumn,M_Rectangular Column:A-Col-300x300:814301,0.2988,,0.3x0.298x3.35
+COL-CRE-TOP-G7arc-003,create,create_box,True,output,1QbeHuaAT58eqzSmNPQlz6,IfcColumn,0yTpreYuD8dBBMAeDhcaUR,IfcColumn,M_Rectangular Column:A-Col-300x300:814301,0.3015,False,0.3x0.3x3.35
+SLB-CRE-DIR-B04-004,create,array_elements,True,ground truth,2D6AIswE9nwiMZChvE0Xf_,IfcSlab,1fHiHOQc96BfECgdroyoJa,IfcAirTerminal,Воздухораспределитель - Диффузор круглый D125,0.000999,,0.17x0.167x0.071
+SLB-CRE-DIR-B04-004,create,array_elements,True,output,0pfrAxgW5EN8cOhf$vsCkZ,IfcSlab,1fHiHOQc96BfECgdroyoJa,IfcAirTerminal,Воздухораспределитель - Диффузор круглый D125,0.000999,False,0.17x0.167x0.071
+WIN-CRE-SPA-B25-006,create,create_filling,True,ground truth,0KoyRjhqx8SFxlZXnfwlpL,IfcWindow,0bpfxAz3XBrAx$RjFuHvoh,IfcPlate,System Panel:Glazed:Glazed:284573,0.01557,,0.025x0.692x0.9
+WIN-CRE-SPA-B25-006,create,create_filling,True,ground truth,0KoyRjhqx8SFxlZXnfwlpL,IfcWindow,0bpfxAz3XBrAx$RjFuHvoG,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284582,0.004152,,0.12x0.692x0.05
+WIN-CRE-SPA-B25-006,create,create_filling,True,ground truth,0KoyRjhqx8SFxlZXnfwlpL,IfcWindow,0bpfxAz3XBrAx$RjFuHvok,IfcPlate,System Panel:Glazed:Glazed:284568,0.009405,,0.025x0.418x0.9
+WIN-CRE-SPA-B25-006,create,create_filling,True,ground truth,0KoyRjhqx8SFxlZXnfwlpL,IfcWindow,0bpfxAz3XBrAx$RjFuHvoR,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284589,0.006,,0.12x0.05x1.0
+WIN-CRE-SPA-B25-006,create,create_filling,True,ground truth,0KoyRjhqx8SFxlZXnfwlpL,IfcWindow,0bpfxAz3XBrAx$RjFuHvoJ,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284581,0.002508,,0.12x0.418x0.05
+WIN-CRE-SPA-B25-006,create,create_filling,True,ground truth,0KoyRjhqx8SFxlZXnfwlpL,IfcWindow,0bpfxAz3XBrAx$RjFuHvoI,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284580,0.002508,,0.12x0.418x0.05
+WIN-CRE-SPA-B25-006,create,create_filling,True,ground truth,0KoyRjhqx8SFxlZXnfwlpL,IfcWindow,0bpfxAz3XBrAx$RjFuHvoH,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284583,0.0048,,0.12x0.04x1.0
+WIN-CRE-SPA-B25-006,create,create_filling,True,ground truth,0KoyRjhqx8SFxlZXnfwlpL,IfcWindow,0bpfxAz3XBrAx$RjFuHvoL,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284579,0.004152,,0.12x0.692x0.05
+WIN-CRE-SPA-B25-006,create,create_filling,True,output,0qkFKaSkDFpAJoOsLfTQqX,IfcWindow,0bpfxAz3XBrAx$RjFuHvoh,IfcPlate,System Panel:Glazed:Glazed:284573,0.01557,False,0.025x0.692x0.9
+WIN-CRE-SPA-B25-006,create,create_filling,True,output,0qkFKaSkDFpAJoOsLfTQqX,IfcWindow,0bpfxAz3XBrAx$RjFuHvoG,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284582,0.00429,False,0.124x0.692x0.05
+WIN-CRE-SPA-B25-006,create,create_filling,True,output,0qkFKaSkDFpAJoOsLfTQqX,IfcWindow,0bpfxAz3XBrAx$RjFuHvok,IfcPlate,System Panel:Glazed:Glazed:284568,0.009405,False,0.025x0.418x0.9
+WIN-CRE-SPA-B25-006,create,create_filling,True,output,0qkFKaSkDFpAJoOsLfTQqX,IfcWindow,0bpfxAz3XBrAx$RjFuHvoR,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284589,0.0062,False,0.124x0.05x1.0
+WIN-CRE-SPA-B25-006,create,create_filling,True,output,0qkFKaSkDFpAJoOsLfTQqX,IfcWindow,0bpfxAz3XBrAx$RjFuHvoJ,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284581,0.002592,False,0.124x0.418x0.05
+WIN-CRE-SPA-B25-006,create,create_filling,True,output,0qkFKaSkDFpAJoOsLfTQqX,IfcWindow,0bpfxAz3XBrAx$RjFuHvoI,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284580,0.002592,False,0.124x0.418x0.05
+WIN-CRE-SPA-B25-006,create,create_filling,True,output,0qkFKaSkDFpAJoOsLfTQqX,IfcWindow,0bpfxAz3XBrAx$RjFuHvoH,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284583,0.00496,False,0.124x0.04x1.0
+WIN-CRE-SPA-B25-006,create,create_filling,True,output,0qkFKaSkDFpAJoOsLfTQqX,IfcWindow,0bpfxAz3XBrAx$RjFuHvoL,IfcMember,Rectangular Mullion:50 x 150mm:50 x 150mm:284579,0.00429,False,0.124x0.692x0.05
+WAL-CRE-TOP-B27-003,create,create_box,True,ground truth,350qXb6pmxB6xH_kDNhEc7,IfcWall,1rt9LK_lKHvx5B$4tKFMih,IfcBuildingElementPart,GU plate,0.001,,0.01x0.2x0.5
+WAL-CRE-TOP-B27-003,create,create_box,True,ground truth,350qXb6pmxB6xH_kDNhEc7,IfcWall,1rt9KV_lKHvx5B$4tKFMih,IfcBuildingElementPart,Luft,0.0035,,0.035x0.2x0.5
+WAL-CRE-TOP-B27-003,create,create_box,True,ground truth,350qXb6pmxB6xH_kDNhEc7,IfcWall,1rt9Jg_lKHvx5B$4tKFMih,IfcBuildingElementPart,Luft,0.005,,0.05x0.2x0.5
+WAL-CRE-TOP-B27-003,create,create_box,True,ground truth,350qXb6pmxB6xH_kDNhEc7,IfcWall,1PRr5PztmHvwqN64yoyo96,IfcSlab,Bjelkelag masonite HB 400 med 100 mm isolasjon,0.002363,,0.537x0.2x0.022
+WAL-CRE-TOP-B27-003,create,create_box,True,ground truth,350qXb6pmxB6xH_kDNhEc7,IfcWall,1rt9N6_lKHvx5B$4tKFMih,IfcBuildingElementPart,Kryssfiner,0.000821,,0.018x0.2x0.228
+WAL-CRE-TOP-B27-003,create,create_box,True,ground truth,350qXb6pmxB6xH_kDNhEc7,IfcWall,1rt9MD_lKHvx5B$4tKFMih,IfcBuildingElementPart,Bindingsverk tre,0.00684,,0.15x0.2x0.228
+WAL-CRE-TOP-B27-003,create,create_box,True,ground truth,350qXb6pmxB6xH_kDNhEc7,IfcWall,36uR7b_lKHvx5B$4tKFMih,IfcRoof,IfcRoof,0.003341,,0.687x0.2x0.152
+WAL-CRE-TOP-B27-003,create,create_box,True,ground truth,350qXb6pmxB6xH_kDNhEc7,IfcWall,1rt9Ir_lKHvx5B$4tKFMih,IfcBuildingElementPart,Puss,0.0015,,0.015x0.2x0.5
+WAL-CRE-TOP-B27-003,create,create_box,True,output,0WeHYGafr6URDxe4EwjAo4,IfcWall,1rt9LK_lKHvx5B$4tKFMih,IfcBuildingElementPart,GU plate,0.001,False,0.01x0.2x0.5
+WAL-CRE-TOP-B27-003,create,create_box,True,output,0WeHYGafr6URDxe4EwjAo4,IfcWall,1rt9KV_lKHvx5B$4tKFMih,IfcBuildingElementPart,Luft,0.0035,False,0.035x0.2x0.5
+WAL-CRE-TOP-B27-003,create,create_box,True,output,0WeHYGafr6URDxe4EwjAo4,IfcWall,1rt9Jg_lKHvx5B$4tKFMih,IfcBuildingElementPart,Luft,0.005,False,0.05x0.2x0.5
+WAL-CRE-TOP-B27-003,create,create_box,True,output,0WeHYGafr6URDxe4EwjAo4,IfcWall,1PRr5PztmHvwqN64yoyo96,IfcSlab,Bjelkelag masonite HB 400 med 100 mm isolasjon,0.002363,False,0.537x0.2x0.022
+WAL-CRE-TOP-B27-003,create,create_box,True,output,0WeHYGafr6URDxe4EwjAo4,IfcWall,1rt9N6_lKHvx5B$4tKFMih,IfcBuildingElementPart,Kryssfiner,0.000821,False,0.018x0.2x0.228
+WAL-CRE-TOP-B27-003,create,create_box,True,output,0WeHYGafr6URDxe4EwjAo4,IfcWall,1rt9MD_lKHvx5B$4tKFMih,IfcBuildingElementPart,Bindingsverk tre,0.00684,False,0.15x0.2x0.228
+WAL-CRE-TOP-B27-003,create,create_box,True,output,0WeHYGafr6URDxe4EwjAo4,IfcWall,36uR7b_lKHvx5B$4tKFMih,IfcRoof,IfcRoof,0.003341,False,0.687x0.2x0.152
+WAL-CRE-TOP-B27-003,create,create_box,True,output,0WeHYGafr6URDxe4EwjAo4,IfcWall,1rt9Ir_lKHvx5B$4tKFMih,IfcBuildingElementPart,Puss,0.0015,False,0.015x0.2x0.5
+WAL-CRE-TOP-G7structure-013,create,create_box,True,ground truth,1IqilCc2sZs5OeM270TjA8,IfcWall,01hwXlAc9ETh7yIVLSEnpQ,IfcWallStandardCase,Basic Wall:Lift wall - 200mm Concrete 2:562655,0.001541,,0.2x0.002x3.5
+WAL-CRE-TOP-G7structure-013,create,create_box,True,ground truth,1IqilCc2sZs5OeM270TjA8,IfcWall,01hwXlAc9ETh7yIVLSEnpR,IfcWallStandardCase,Basic Wall:Lift wall - 300mm Concrete:562654,0.002299,,0.298x0.002x3.5
+WAL-CRE-TOP-G7structure-013,create,create_box,True,ground truth,1IqilCc2sZs5OeM270TjA8,IfcWall,0BDyj5EsX8WAinUKJqtXR0,IfcFooting,Wall Foundation:Lift wall foundation - 300 x 600 x 300:595143,0.027069,,0.602x0.3x0.15
+WAL-CRE-TOP-G7structure-013,create,create_box,True,ground truth,1IqilCc2sZs5OeM270TjA8,IfcWall,01hwXlAc9ETh7yIVLSEnpU,IfcWallStandardCase,Basic Wall:Lift wall - 300mm Concrete:562651,2.444704,,3.608x0.298x3.5
+WAL-CRE-TOP-G7structure-013,create,create_box,True,ground truth,1IqilCc2sZs5OeM270TjA8,IfcWall,1OOhHoqNX4MfYY0TbOyjsc,IfcSlab,Foundation Slab:150mm Floor Slab:451648,0.018953,,3.61x0.3x0.05
+WAL-CRE-TOP-G7structure-013,create,create_box,True,output,0xraBpJ_f7uws1g9ZX4WfD,IfcWall,0BDyj5EsX8WAinUKJqtXR0,IfcFooting,Wall Foundation:Lift wall foundation - 300 x 600 x 300:595143,0.027,False,0.6x0.3x0.15
+WAL-CRE-TOP-G7structure-013,create,create_box,True,output,0xraBpJ_f7uws1g9ZX4WfD,IfcWall,01hwXlAc9ETh7yIVLSEnpU,IfcWallStandardCase,Basic Wall:Lift wall - 300mm Concrete:562651,2.463825,False,3.61x0.3x3.5
+WAL-CRE-TOP-G7structure-013,create,create_box,True,output,0xraBpJ_f7uws1g9ZX4WfD,IfcWall,1OOhHoqNX4MfYY0TbOyjsc,IfcSlab,Foundation Slab:150mm Floor Slab:451648,0.018952,False,3.61x0.3x0.05
+COL-CRE-TOP-G7arcm4X3-001,create,create_box,True,ground truth,0H4vNkm9lBr$e0ZGzYEJt1,IfcColumn,0yTpreYuD8dBBMAeDhcaUp,IfcColumn,M_Rectangular Column:A-Col-300x300:814325,0.2988,,0.3x0.298x3.35
+COL-CRE-TOP-G7arcm4X3-001,create,create_box,True,ground truth,0H4vNkm9lBr$e0ZGzYEJt1,IfcColumn,0MowCSAMj8LeTOFbCXxKSh,IfcSlab,楼板:Generic 150mm:369228,0.0135,,0.3x0.3x0.15
+COL-CRE-TOP-G7arcm4X3-001,create,create_box,True,output,1d0ZBRDj54lvxCDn1EmWg8,IfcColumn,0yTpreYuD8dBBMAeDhcaUp,IfcColumn,M_Rectangular Column:A-Col-300x300:814325,0.3015,False,0.3x0.3x3.35
+COL-CRE-TOP-G7arcm4X3-001,create,create_box,True,output,1d0ZBRDj54lvxCDn1EmWg8,IfcColumn,0MowCSAMj8LeTOFbCXxKSh,IfcSlab,楼板:Generic 150mm:369228,0.0135,False,0.3x0.3x0.15
+CHN-MSW-TOP-B25-036,update,move_space_with_bounding_walls,True,ground truth,35QeWibpT4DfyH3NIf2o$C,IfcWallStandardCase,3LbNSBzHHBSuzhUUvuwATn,IfcWallStandardCase,Basic Wall:Exterior - Insul Panel on Mtl. Stud:145867,0.083363,,0.267x0.124x4.578
+CHN-MSW-TOP-B25-036,update,move_space_with_bounding_walls,True,ground truth,35QeWibpT4DfyH3NIf2o$C,IfcWallStandardCase,3LbNSBzHHBSuzhUUvuwBLq,IfcWallStandardCase,Basic Wall:Exterior - Insul Panel on Mtl. Stud:142286,0.01513,,0.267x0.124x0.457
+CHN-MSW-TOP-B25-036,update,move_space_with_bounding_walls,True,ground truth,35QeWibpT4DfyH3NIf2o$C,IfcWallStandardCase,3Egy$LBd99weR14rW4bsCG,IfcWallStandardCase,Basic Wall:Interior - Rated 1-HR (92mm Stud):190562,0.038715,,0.124x0.124x4.578
+CHN-MSW-TOP-B25-036,update,move_space_with_bounding_walls,True,output,35QeWibpT4DfyH3NIf2o$C,IfcWallStandardCase,3LbNSBzHHBSuzhUUvuwATn,IfcWallStandardCase,Basic Wall:Exterior - Insul Panel on Mtl. Stud:145867,0.083363,False,0.267x0.124x4.578
+CHN-MSW-TOP-B25-036,update,move_space_with_bounding_walls,True,output,35QeWibpT4DfyH3NIf2o$C,IfcWallStandardCase,3LbNSBzHHBSuzhUUvuwBLq,IfcWallStandardCase,Basic Wall:Exterior - Insul Panel on Mtl. Stud:142286,0.01513,False,0.267x0.124x0.457
+CHN-MSW-TOP-B25-036,update,move_space_with_bounding_walls,True,output,35QeWibpT4DfyH3NIf2o$C,IfcWallStandardCase,3Egy$LBd99weR14rW4bsCG,IfcWallStandardCase,Basic Wall:Interior - Rated 1-HR (92mm Stud):190562,0.038715,False,0.124x0.124x4.578
+WAL-UPD-SPA-B16-010,update,translate,True,ground truth,0MO2gzN1TC9BiMbAFPJvbe,IfcWallStandardCase,0KNhV1SR51W8eTSS3M565D,IfcDoor,1OG-Tür-4-2,0.005712,,0.1x0.085x2.52
+WAL-UPD-SPA-B16-010,update,translate,True,output,0MO2gzN1TC9BiMbAFPJvbe,IfcWallStandardCase,0KNhV1SR51W8eTSS3M565D,IfcDoor,1OG-Tür-4-2,0.005712,False,0.1x0.085x2.52
+WAL-UPD-TOP-G7arc-013,update,mirror,False,ground truth,2nVBJqVR50F8uPaySnTAmU,IfcWallStandardCase,2nVBJqVR50F8uPaySnTAmY,IfcFlowTerminal,梳妆台_带桌上盆:标准:710499,0.00894,,0.9x0.104x0.865
+WAL-UPD-TOP-G7arc-013,update,mirror,False,output,2nVBJqVR50F8uPaySnTAmU,IfcWallStandardCase,3I0wxCgvnC7efwtBBI6Upl,IfcPlate,System Panel:Glazed:583232,0.036195,True,0.795x0.2x3.15
+CHN-CWD-TOP-B06-002,create,create_wall_with_door,True,ground truth,2LFGiW2nBbpOZBbdKdIOmU,IfcWall,2ZUXnUmAr4Zgl2drdbjb0q,IfcSlab,Бетонное основание кровли,0.08,,4.0x0.2x0.1
+CHN-CWD-TOP-B06-002,create,create_wall_with_door,True,ground truth,2LFGiW2nBbpOZBbdKdIOmU,IfcWall,0BSzC1A0H4ygxpv98ibumq,IfcAirTerminal,Воздухораспределитель - Потолочный диффузор 600х600,0.0012,,0.11x0.2x0.1
+CHN-CWD-TOP-B06-002,create,create_wall_with_door,True,output,1SC$k7Yz5EE9dDSsilMaV9,IfcWall,2ZUXnUmAr4Zgl2drdbjb0q,IfcSlab,Бетонное основание кровли,0.08,False,4.0x0.2x0.1
+CHN-CWD-TOP-B06-002,create,create_wall_with_door,True,output,1SC$k7Yz5EE9dDSsilMaV9,IfcWall,0BSzC1A0H4ygxpv98ibumq,IfcAirTerminal,Воздухораспределитель - Потолочный диффузор 600х600,0.0012,False,0.11x0.2x0.1
+WAL-CRE-DIR-B38-016,create,copy_element,True,ground truth,2sgvT2h9gjxhct0LoWGy6Y,IfcWallStandardCase,04P9YDzmrE2hYqZJi1w5iG,IfcSlab,Floor:150mm Slab on Grade:235000,0.100316,,2.235x0.3x0.15
+WAL-CRE-DIR-B38-016,create,copy_element,True,output,3H1bHNSafDyQ3z4l0EIiYI,IfcWallStandardCase,04P9YDzmrE2hYqZJi1w5iG,IfcSlab,Floor:150mm Slab on Grade:235000,0.100316,False,2.235x0.3x0.15
+WAL-CRE-TOP-B07-001,create,create_box,True,ground truth,0tZr39e4dcmz6JnTJKvkkP,IfcWall,2ZUXnUmAr4Zgl2drdbjb0q,IfcSlab,Бетонное основание кровли,0.08,,4.0x0.2x0.1
+WAL-CRE-TOP-B07-001,create,create_box,True,output,16rJW_Za9BXujJIfnUS61Q,IfcWall,2ZUXnUmAr4Zgl2drdbjb0q,IfcSlab,Бетонное основание кровли,0.08,False,4.0x0.2x0.1

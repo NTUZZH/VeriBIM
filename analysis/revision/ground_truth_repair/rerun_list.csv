@@ -1,0 +1,177 @@
+run,model,task,helper,old_completed,new_completed,transcript
+full_all,dpo_small_c12,DOR-UPD-DIR-G7arc-004,move_filling,False,False,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,dpo_small_c12,DOR-UPD-TOP-G7arc-010,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-TOP-G7arc-010.json
+full_all,dpo_small_c12,DOR-UPD-TOP-G7arc-011,move_filling,True,True,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,dpo_small_c12,DOR-UPD-TOP-G7arcm4-007,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-TOP-G7arcm4-007.json
+full_all,dpo_small_c12,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+full_all,dpo_small_c12,DOR-UPD-TOP-G7arcm4-014,move_filling,True,True,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-TOP-G7arcm4-014.json
+full_all,dpo_small_c12,DOR-UPD-TOP-G7arcm4-015,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-TOP-G7arcm4-015.json
+full_all,dpo_small_c12,DOR-UPD-TOP-G7arcm4-016,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-TOP-G7arcm4-016.json
+full_all,dpo_small_c12,DOR-UPD-TOP-G7arcm4X3-003,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_small_c12/transcripts/DOR-UPD-TOP-G7arcm4X3-003.json
+full_all,dpo_v10_c3,DOR-UPD-DIR-G7arc-001,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-DIR-G7arc-001.json
+full_all,dpo_v10_c3,DOR-UPD-DIR-G7arc-002,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-DIR-G7arc-002.json
+full_all,dpo_v10_c3,DOR-UPD-DIR-G7arc-004,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,dpo_v10_c3,DOR-UPD-DIR-G7arc-006,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-DIR-G7arc-006.json
+full_all,dpo_v10_c3,DOR-UPD-DIR-G7arc-007,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-DIR-G7arc-007.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arc-004,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arc-004.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arc-010,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arc-010.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arc-011,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,dpo_v10_c3,DOR-UPD-DIR-G7arcm4-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-DIR-G7arcm4-003.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arcm4-007,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arcm4-007.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arcm4-010,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arcm4-011,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arcm4-011.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arcm4-014,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arcm4-014.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arcm4-015,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arcm4-015.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arcm4-016,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arcm4-016.json
+full_all,dpo_v10_c3,DOR-UPD-DIR-B02m4X3-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+full_all,dpo_v10_c3,DOR-UPD-DIR-G7arcm4X3-004,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-DIR-G7arcm4X3-004.json
+full_all,dpo_v10_c3,DOR-UPD-SPA-G7arcm4X3-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+full_all,dpo_v10_c3,DOR-UPD-TOP-G7arcm4X3-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v10_c3/transcripts/DOR-UPD-TOP-G7arcm4X3-003.json
+full_all,dpo_v10_c6,DOR-UPD-DIR-G7arc-001,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-G7arc-001.json
+full_all,dpo_v10_c6,DOR-UPD-DIR-G7arc-002,move_filling,True,True,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-G7arc-002.json
+full_all,dpo_v10_c6,DOR-UPD-DIR-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,dpo_v10_c6,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-G7arc-006.json
+full_all,dpo_v10_c6,DOR-UPD-DIR-G7arc-007,move_filling,True,True,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-G7arc-007.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arc-004.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arc-010,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arc-010.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arc-011,move_filling,True,True,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,dpo_v10_c6,DOR-UPD-DIR-G7arcm4-003,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-G7arcm4-003.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arcm4-007,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arcm4-007.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arcm4-011,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arcm4-011.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arcm4-014,move_filling,True,True,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arcm4-014.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arcm4-015,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arcm4-015.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arcm4-016,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arcm4-016.json
+full_all,dpo_v10_c6,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+full_all,dpo_v10_c6,DOR-UPD-DIR-G7arcm4X3-004,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-G7arcm4X3-004.json
+full_all,dpo_v10_c6,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+full_all,dpo_v10_c6,DOR-UPD-TOP-G7arcm4X3-003,move_filling,True,False,runs_local/bench_v4/results/full_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arcm4X3-003.json
+full_all,dpo_v9_c10,DOR-UPD-DIR-G7arc-001,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-G7arc-001.json
+full_all,dpo_v9_c10,DOR-UPD-DIR-G7arc-002,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-G7arc-002.json
+full_all,dpo_v9_c10,DOR-UPD-DIR-G7arc-004,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,dpo_v9_c10,DOR-UPD-DIR-G7arc-006,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-G7arc-006.json
+full_all,dpo_v9_c10,DOR-UPD-DIR-G7arc-007,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-G7arc-007.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arc-004,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arc-004.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arc-010,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arc-010.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arc-011,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,dpo_v9_c10,DOR-UPD-DIR-G7arcm4-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-G7arcm4-003.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arcm4-007,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arcm4-007.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arcm4-010,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arcm4-011,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arcm4-011.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arcm4-014,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arcm4-014.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arcm4-015,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arcm4-015.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arcm4-016,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arcm4-016.json
+full_all,dpo_v9_c10,DOR-UPD-DIR-B02m4X3-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+full_all,dpo_v9_c10,DOR-UPD-DIR-G7arcm4X3-004,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-G7arcm4X3-004.json
+full_all,dpo_v9_c10,DOR-UPD-SPA-G7arcm4X3-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+full_all,dpo_v9_c10,DOR-UPD-TOP-G7arcm4X3-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/full_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arcm4X3-003.json
+full_all,grpo_small_c10,DOR-UPD-DIR-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_small_c10/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,grpo_small_c10,DOR-UPD-TOP-G7arc-011,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_small_c10/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,grpo_small_c10,DOR-UPD-TOP-G7arcm4-015,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_small_c10/transcripts/DOR-UPD-TOP-G7arcm4-015.json
+full_all,grpo_small_c10,DOR-UPD-DIR-G7arcm4X3-004,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_small_c10/transcripts/DOR-UPD-DIR-G7arcm4X3-004.json
+full_all,grpo_v10_c50,DOR-UPD-DIR-G7arc-001,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-G7arc-001.json
+full_all,grpo_v10_c50,DOR-UPD-DIR-G7arc-002,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-G7arc-002.json
+full_all,grpo_v10_c50,DOR-UPD-DIR-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,grpo_v10_c50,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-G7arc-006.json
+full_all,grpo_v10_c50,DOR-UPD-DIR-G7arc-007,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-G7arc-007.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arc-004.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arc-010,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arc-010.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arc-011,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,grpo_v10_c50,DOR-UPD-DIR-G7arcm4-003,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-G7arcm4-003.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arcm4-007,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arcm4-007.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arcm4-011,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arcm4-011.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arcm4-014,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arcm4-014.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arcm4-015,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arcm4-015.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arcm4-016,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arcm4-016.json
+full_all,grpo_v10_c50,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+full_all,grpo_v10_c50,DOR-UPD-DIR-G7arcm4X3-004,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-G7arcm4X3-004.json
+full_all,grpo_v10_c50,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+full_all,grpo_v10_c50,DOR-UPD-TOP-G7arcm4X3-003,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arcm4X3-003.json
+full_all,grpo_v10b_c10,DOR-UPD-DIR-G7arc-001,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-G7arc-001.json
+full_all,grpo_v10b_c10,DOR-UPD-DIR-G7arc-002,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-G7arc-002.json
+full_all,grpo_v10b_c10,DOR-UPD-DIR-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,grpo_v10b_c10,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-G7arc-006.json
+full_all,grpo_v10b_c10,DOR-UPD-DIR-G7arc-007,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-G7arc-007.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arc-004.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arc-010,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arc-010.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arc-011,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,grpo_v10b_c10,DOR-UPD-DIR-G7arcm4-003,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-G7arcm4-003.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arcm4-007,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arcm4-007.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arcm4-011,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arcm4-011.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arcm4-014,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arcm4-014.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arcm4-015,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arcm4-015.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arcm4-016,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arcm4-016.json
+full_all,grpo_v10b_c10,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+full_all,grpo_v10b_c10,DOR-UPD-DIR-G7arcm4X3-004,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-G7arcm4X3-004.json
+full_all,grpo_v10b_c10,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+full_all,grpo_v10b_c10,DOR-UPD-TOP-G7arcm4X3-003,move_filling,True,False,runs_local/bench_v4/results/full_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arcm4X3-003.json
+full_all,sft_small,DOR-UPD-DIR-G7arc-002,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-DIR-G7arc-002.json
+full_all,sft_small,DOR-UPD-DIR-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,sft_small,DOR-UPD-DIR-G7arc-007,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-DIR-G7arc-007.json
+full_all,sft_small,DOR-UPD-TOP-G7arc-011,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,sft_small,DOR-UPD-DIR-G7arcm4-003,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-DIR-G7arcm4-003.json
+full_all,sft_small,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+full_all,sft_small,DOR-UPD-TOP-G7arcm4-014,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-TOP-G7arcm4-014.json
+full_all,sft_small,DOR-UPD-TOP-G7arcm4-016,move_filling,False,False,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-TOP-G7arcm4-016.json
+full_all,sft_small,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+full_all,sft_small,DOR-UPD-DIR-G7arcm4X3-004,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-DIR-G7arcm4X3-004.json
+full_all,sft_small,DOR-UPD-SPA-G7arcm4X3-003,move_filling,False,False,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+full_all,sft_small,DOR-UPD-TOP-G7arcm4X3-003,move_filling,False,False,runs_local/bench_v4/results/full_all/sft_small/transcripts/DOR-UPD-TOP-G7arcm4X3-003.json
+full_all,sft_v10,DOR-UPD-DIR-G7arc-001,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-DIR-G7arc-001.json
+full_all,sft_v10,DOR-UPD-DIR-G7arc-002,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-DIR-G7arc-002.json
+full_all,sft_v10,DOR-UPD-DIR-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-DIR-G7arc-004.json
+full_all,sft_v10,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-DIR-G7arc-006.json
+full_all,sft_v10,DOR-UPD-DIR-G7arc-007,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-DIR-G7arc-007.json
+full_all,sft_v10,DOR-UPD-TOP-G7arc-004,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arc-004.json
+full_all,sft_v10,DOR-UPD-TOP-G7arc-010,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arc-010.json
+full_all,sft_v10,DOR-UPD-TOP-G7arc-011,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arc-011.json
+full_all,sft_v10,DOR-UPD-DIR-G7arcm4-003,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-DIR-G7arcm4-003.json
+full_all,sft_v10,DOR-UPD-TOP-G7arcm4-007,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arcm4-007.json
+full_all,sft_v10,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+full_all,sft_v10,DOR-UPD-TOP-G7arcm4-011,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arcm4-011.json
+full_all,sft_v10,DOR-UPD-TOP-G7arcm4-014,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arcm4-014.json
+full_all,sft_v10,DOR-UPD-TOP-G7arcm4-015,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arcm4-015.json
+full_all,sft_v10,DOR-UPD-TOP-G7arcm4-016,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arcm4-016.json
+full_all,sft_v10,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+full_all,sft_v10,DOR-UPD-DIR-G7arcm4X3-004,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-DIR-G7arcm4X3-004.json
+full_all,sft_v10,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+full_all,sft_v10,DOR-UPD-TOP-G7arcm4X3-003,move_filling,True,False,runs_local/bench_v4/results/full_all/sft_v10/transcripts/DOR-UPD-TOP-G7arcm4X3-003.json
+full_note_all,Qwen3.5-9B,DOR-UPD-DIR-G7arc-006,move_filling,False,False,runs_local/bench_v4/results/full_note_all/Qwen3.5-9B/transcripts/DOR-UPD-DIR-G7arc-006.json
+hosted216_lib_all,claude-sonnet-5-5,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/hosted216_lib_all/claude-sonnet-5-5/transcripts/DOR-UPD-DIR-G7arc-006.json
+hosted216_lib_all,claude-sonnet-5-5,DOR-UPD-TOP-G7arcm4-010,move_filling,False,True,runs_local/bench_v4/results/hosted216_lib_all/claude-sonnet-5-5/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+hosted216_lib_all,claude-sonnet-5-5,DOR-UPD-DIR-B02m4X3-003,move_filling,True,True,runs_local/bench_v4/results/hosted216_lib_all/claude-sonnet-5-5/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+hosted216_lib_all,claude-sonnet-5-5,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/hosted216_lib_all/claude-sonnet-5-5/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+hosted324_lib_all,claude-sonnet-5-5,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/hosted216_lib_all/claude-sonnet-5-5/transcripts/DOR-UPD-DIR-G7arc-006.json
+hosted324_lib_all,claude-sonnet-5-5,DOR-UPD-TOP-G7arcm4-010,move_filling,False,True,runs_local/bench_v4/results/hosted216_lib_all/claude-sonnet-5-5/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+hosted324_lib_all,claude-sonnet-5-5,DOR-UPD-DIR-B02m4X3-003,move_filling,True,True,runs_local/bench_v4/results/hosted216_lib_all/claude-sonnet-5-5/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+hosted324_lib_all,claude-sonnet-5-5,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/hosted216_lib_all/claude-sonnet-5-5/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+hosted324rest_informed_all,claude-sonnet-5-5,DOR-UPD-DIR-B02m4X3-003,move_filling,True,True,runs_local/bench_v4/results/hosted324rest_informed_all/claude-sonnet-5-5/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+hosted324rest_informed_all,claude-sonnet-5-5,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/hosted324rest_informed_all/claude-sonnet-5-5/transcripts/DOR-UPD-DIR-G7arc-006.json
+hosted324rest_informed_all,claude-sonnet-5-5,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/hosted324rest_informed_all/claude-sonnet-5-5/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+hosted324rest_informed_all,claude-sonnet-5-5,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/hosted324rest_informed_all/claude-sonnet-5-5/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+local324_lib_all,dpo_v10_c6,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-G7arc-006.json
+local324_lib_all,dpo_v10_c6,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/local324_lib_all/dpo_v10_c6/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+local324_lib_all,dpo_v10_c6,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/local324_lib_all/dpo_v10_c6/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+local324_lib_all,dpo_v10_c6,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/dpo_v10_c6/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+local324_lib_all,dpo_v9_c10,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-G7arc-006.json
+local324_lib_all,dpo_v9_c10,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/local324_lib_all/dpo_v9_c10/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+local324_lib_all,dpo_v9_c10,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/local324_lib_all/dpo_v9_c10/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+local324_lib_all,dpo_v9_c10,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/dpo_v9_c10/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+local324_lib_all,grpo_v10_c50,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-G7arc-006.json
+local324_lib_all,grpo_v10_c50,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/local324_lib_all/grpo_v10_c50/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+local324_lib_all,grpo_v10_c50,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/local324_lib_all/grpo_v10_c50/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+local324_lib_all,grpo_v10_c50,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/grpo_v10_c50/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+local324_lib_all,grpo_v10b_c10,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-G7arc-006.json
+local324_lib_all,grpo_v10b_c10,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/local324_lib_all/grpo_v10b_c10/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+local324_lib_all,grpo_v10b_c10,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/local324_lib_all/grpo_v10b_c10/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+local324_lib_all,grpo_v10b_c10,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/grpo_v10b_c10/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+local324_lib_all,sft_extA,DOR-UPD-DIR-G7arc-006,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/local324_lib_all/sft_extA/transcripts/DOR-UPD-DIR-G7arc-006.json
+local324_lib_all,sft_extA,DOR-UPD-TOP-G7arcm4-010,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/local324_lib_all/sft_extA/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+local324_lib_all,sft_extA,DOR-UPD-DIR-B02m4X3-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/local324_lib_all/sft_extA/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+local324_lib_all,sft_extA,DOR-UPD-SPA-G7arcm4X3-003,move_filling,not rescored (no stored model),,runs_local/bench_v4/results/local324_lib_all/sft_extA/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json
+local324_lib_all,sft_v10,DOR-UPD-DIR-G7arc-006,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/sft_v10/transcripts/DOR-UPD-DIR-G7arc-006.json
+local324_lib_all,sft_v10,DOR-UPD-TOP-G7arcm4-010,move_filling,True,False,runs_local/bench_v4/results/local324_lib_all/sft_v10/transcripts/DOR-UPD-TOP-G7arcm4-010.json
+local324_lib_all,sft_v10,DOR-UPD-DIR-B02m4X3-003,move_filling,False,False,runs_local/bench_v4/results/local324_lib_all/sft_v10/transcripts/DOR-UPD-DIR-B02m4X3-003.json
+local324_lib_all,sft_v10,DOR-UPD-SPA-G7arcm4X3-003,move_filling,True,True,runs_local/bench_v4/results/local324_lib_all/sft_v10/transcripts/DOR-UPD-SPA-G7arcm4X3-003.json

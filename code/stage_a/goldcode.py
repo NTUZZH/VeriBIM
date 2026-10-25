@@ -1303,7 +1303,26 @@ def _geom_add_filling(em: "_Emitter", kw: dict) -> None:
     centre = _centre_along(em, kw)
     keyword: list[tuple[str, str]] = [("width", _gnum(kw["width"])),
                                       ("height", _gnum(kw["height"]))]
-    if centre is None:
+    coordinate = (em.params or {}).get("coordinate_opening")
+    if coordinate:
+        # Round-4 extension (2026-10-20): the instruction gives the lower corner
+        # of the opening as a point in project or storey coordinates. The
+        # library reads that point in the wall's own frame, the position along
+        # the wall and the height above its base are printed, and the filling
+        # is placed from them.
+        slot = em.fresh(s.name("slot"))
+        point = ", ".join(_gnum(v) for v in coordinate["point"])
+        if s.comments:
+            em.lines.append("# where the stated corner falls in the wall")
+        em.lines.append(f"{slot} = geom.along_from_point({host}, ({point}),"
+                        f" frame={s.string(coordinate['frame'])})")
+        em.lines.append(f"print('opening corner in the wall (m):',"
+                        f" {{k: round({slot}[k], 3) for k in"
+                        f" ({s.string('along')}, {s.string('sill')},"
+                        f" {s.string('across')})}})")
+        keyword.append(("along", f"{slot}[{s.string('along')}]"))
+        keyword.append(("sill", f"{slot}[{s.string('sill')}]"))
+    elif centre is None:
         keyword.append(("along", _gnum(kw["along"])))
     else:
         # The distance is measured from where the wall's body starts, so the
@@ -1312,7 +1331,8 @@ def _geom_add_filling(em: "_Emitter", kw: dict) -> None:
         em.lines.append(f"{box} = geom.wall_box({host})")
         keyword.append(("along", f"{box}[{s.string('start')}] + {_gnum(centre)}"))
         keyword.append(("along_is_centre", "True"))
-    keyword.append(("sill", _gnum(kw["sill"])))
+    if not coordinate:
+        keyword.append(("sill", _gnum(kw["sill"])))
     stated = _stated_type(em, kw.get("predefined_type"))
     if stated is not None:
         keyword.append(("predefined_type", s.string(stated)))
@@ -1367,6 +1387,40 @@ def _box_corner(em: "_Emitter", kw: dict, frame: str,
     kind = placement.get("kind")
     size = [_gnum(kw["length"]), _gnum(kw["width"]), _gnum(kw["height"])]
     plain = ([], [_gnum(kw["x"]), _gnum(kw["y"]), _gnum(kw["z"])], size)
+
+    line = params.get("coordinate_line")
+    if line:
+        # Round-4 extension (2026-10-20): a wall stated as the line it is set
+        # out along. The library turns the two ends, the side, the thickness
+        # and the height into the box, so the edit holds only the numbers the
+        # instruction states, and the box is printed before the wall is built.
+        corner = em.fresh(s.name("corner"))
+        extent = em.fresh("size")
+        start = ", ".join(_gnum(v) for v in line["start"])
+        end = ", ".join(_gnum(v) for v in line["end"])
+        lines = (["# the box follows from the line, its side, its thickness"
+                  " and its height"] if s.comments else [])
+        # The side or the face is written the way the instruction words it:
+        # "on the -Y side of that line" is side='-Y', "whose +Y face runs" is
+        # face='+Y', and "whose centre line runs" is side='centre'.
+        side = str(line["side"])
+        if side == "centre":
+            where = ("side", s.string("centre"))
+        elif line.get("form") == "face":
+            where = ("face", s.string(("-" if side[0] == "+" else "+")
+                                      + side[1:].upper()))
+        else:
+            where = ("side", s.string(side[0] + side[1:].upper()))
+        lines.append(_geom_call(
+            "box_from_line", [f"({start})", f"({end})"],
+            [("thickness", _gnum(line["thickness"])),
+             ("height", _gnum(line["height"])), where],
+            lead=f"{corner}, {extent} = "))
+        lines.append(f"print('wall box from the line (m):',"
+                     f" [round(v, 3) for v in {corner}],"
+                     f" [round(v, 3) for v in {extent}])")
+        return (lines, [f"{corner}[0]", f"{corner}[1]", f"{corner}[2]"],
+                [f"{extent}[0]", f"{extent}[1]", f"{extent}[2]"])
 
     offset = params.get("offset") or {}
     if frame == "storey" and offset.get("reference_guid"):

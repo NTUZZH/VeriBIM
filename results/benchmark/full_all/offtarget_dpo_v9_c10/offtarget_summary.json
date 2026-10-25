@@ -52,14 +52,158 @@
    "net_total_count": 173
   }
  },
+ "v4d_recomputed_tasks": 28,
+ "v4d_recomputed_date": "2026-10-16",
+ "v4d_update": {
+  "note": "Ground truths of 69 tasks regenerated (gt_fix/affected_tasks.txt) and re-run model outputs (gt_fix/rerun_list.csv): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/full_all/per_task_dpo_v9_c10.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-TOP-B02m4-003",
+   "CHN-DWF-TOP-B02m4X3-004",
+   "CHN-DWF-TOP-B02m4X3-009",
+   "CHN-DWF-TOP-B02m4X3-010",
+   "CHN-DWF-TOP-B02m4X3-011",
+   "DOR-UPD-DIR-B02m4X3-003",
+   "DOR-UPD-DIR-G7arc-001",
+   "DOR-UPD-DIR-G7arc-002",
+   "DOR-UPD-DIR-G7arc-004",
+   "DOR-UPD-DIR-G7arc-006",
+   "DOR-UPD-DIR-G7arc-007",
+   "DOR-UPD-DIR-G7arcm4-003",
+   "DOR-UPD-DIR-G7arcm4X3-004",
+   "DOR-UPD-SPA-G7arcm4X3-003",
+   "DOR-UPD-TOP-G7arc-004",
+   "DOR-UPD-TOP-G7arc-010",
+   "DOR-UPD-TOP-G7arc-011",
+   "DOR-UPD-TOP-G7arcm4-007",
+   "DOR-UPD-TOP-G7arcm4-010",
+   "DOR-UPD-TOP-G7arcm4-011",
+   "DOR-UPD-TOP-G7arcm4-014",
+   "DOR-UPD-TOP-G7arcm4-015",
+   "DOR-UPD-TOP-G7arcm4-016",
+   "DOR-UPD-TOP-G7arcm4X3-003",
+   "WAL-DEL-TOP-B02-003",
+   "WAL-DEL-TOP-B02-005",
+   "WAL-DEL-TOP-B02m4X3-001",
+   "WIN-CRE-SPA-B02m4X3-002"
+  ],
+  "kept_task_ids_no_stored_model": [
+   "CHN-DWF-DIR-B02-001",
+   "CHN-DWF-DIR-B02-002",
+   "CHN-DWF-DIR-B02m4X3-001",
+   "CHN-DWF-SPA-B02-001",
+   "CHN-DWF-SPA-B02-002",
+   "CHN-DWF-SPA-B02-003",
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-SPA-B02-005",
+   "CHN-DWF-SPA-B02-006",
+   "CHN-DWF-SPA-B02-007",
+   "CHN-DWF-SPA-B02m4-001",
+   "CHN-DWF-TOP-B02m4-006",
+   "CHN-DWF-TOP-B02m4-008",
+   "CHN-DWF-TOP-B02m4-009",
+   "CHN-DWF-TOP-B02m4X3-001",
+   "CHN-DWF-TOP-B02m4X3-002",
+   "CHN-DWF-TOP-B02m4X3-003",
+   "CHN-DWF-TOP-B02m4X3-005",
+   "CHN-DWF-TOP-B02m4X3-006",
+   "CHN-DWF-TOP-B02m4X3-007",
+   "CHN-DWF-TOP-B02m4X3-008",
+   "COL-DEL-DIR-B46-015",
+   "COL-DEL-DIR-B46-084",
+   "COL-DEL-DIR-B46m4-002",
+   "COL-DEL-DIR-B46m4-022",
+   "COL-DEL-DIR-B46m4X3-024",
+   "COL-DEL-SPA-B46-004",
+   "COL-DEL-SPA-B46m4X3-010",
+   "SPC-DEL-DIR-B27-001",
+   "SPC-DEL-DIR-B27m4-004",
+   "SPC-DEL-DIR-B27m4X3-007",
+   "SPC-DEL-SPA-B27-008",
+   "SPC-DEL-SPA-B27m4-003",
+   "SPC-DEL-SPA-B27m4X3-001",
+   "SPC-DEL-SPA-B27m4X3-004",
+   "WAL-DEL-DIR-B02-002",
+   "WAL-DEL-DIR-B02m4-001",
+   "WAL-DEL-SPA-B02-002",
+   "WAL-DEL-SPA-B27-007",
+   "WAL-DEL-TOP-B02-006",
+   "WAL-DEL-TOP-B02-007"
+  ],
+  "edited_sources": {
+   "file": 18
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/full_all/offtarget_dpo_v9_c10",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4d",
+   "summary_backup": "offtarget_summary.json.pre_v4d"
+  }
+ },
+ "v4e_recomputed_tasks": 35,
+ "v4e_recomputed_date": "2026-10-16",
+ "v4e_update": {
+  "note": "Deletion tasks whose outputs were re-run with the repaired library (gt_fix/rerun_list_delete_v2.csv, geom_call_ran_clean=1; spliced as v4e): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file, reading the re-run edited models from <run>/<model>/edited_v4e.tar.gz; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/full_all/per_task_dpo_v9_c10.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-DIR-B02-001",
+   "CHN-DWF-DIR-B02-002",
+   "CHN-DWF-DIR-B02m4X3-001",
+   "CHN-DWF-SPA-B02-001",
+   "CHN-DWF-SPA-B02-002",
+   "CHN-DWF-SPA-B02-003",
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-SPA-B02-005",
+   "CHN-DWF-SPA-B02-006",
+   "CHN-DWF-SPA-B02-007",
+   "CHN-DWF-SPA-B02m4-001",
+   "CHN-DWF-TOP-B02m4-008",
+   "CHN-DWF-TOP-B02m4-009",
+   "CHN-DWF-TOP-B02m4X3-005",
+   "CHN-DWF-TOP-B02m4X3-007",
+   "COL-DEL-DIR-B46-015",
+   "COL-DEL-DIR-B46-084",
+   "COL-DEL-DIR-B46m4-002",
+   "COL-DEL-DIR-B46m4-022",
+   "COL-DEL-DIR-B46m4X3-024",
+   "COL-DEL-SPA-B46-004",
+   "COL-DEL-SPA-B46m4X3-010",
+   "SPC-DEL-DIR-B27-001",
+   "SPC-DEL-DIR-B27m4-004",
+   "SPC-DEL-DIR-B27m4X3-007",
+   "SPC-DEL-SPA-B27-008",
+   "SPC-DEL-SPA-B27m4-003",
+   "SPC-DEL-SPA-B27m4X3-001",
+   "SPC-DEL-SPA-B27m4X3-004",
+   "WAL-DEL-DIR-B02-002",
+   "WAL-DEL-DIR-B02m4-001",
+   "WAL-DEL-SPA-B02-002",
+   "WAL-DEL-SPA-B27-007",
+   "WAL-DEL-TOP-B02-006",
+   "WAL-DEL-TOP-B02-007"
+  ],
+  "not_committed_task_ids": [
+   "WAL-DEL-TOP-B02-007"
+  ],
+  "edited_sources": {
+   "archive full_all/dpo_v9_c10/edited_v4e.tar.gz": 34,
+   "not committed": 1
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/full_all/offtarget_dpo_v9_c10",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4e",
+   "summary_backup": "offtarget_summary.json.pre_v4e"
+  }
+ },
  "definition": "off_target(E) = changed(I->E) - changed(I->G) - GlobalIds of build_edit_set(I, E, operation, entity_type, target_guids); changed = IfcProducts created, deleted, or with a different placement / representation / direct-attribute hash (OwnerHistory ignored)",
  "completed_rule": "geometry, semantics and topology all >= 0.9",
  "n_rows": 2100,
  "status": {
-  "ok": 1870,
-  "no_edited_model": 230
+  "ok": 1868,
+  "no_edited_model": 232
  },
- "n_no_edited_model": 230,
+ "n_no_edited_model": 232,
  "n_edit_set_type_aliased": 89,
  "edit_set_surplus": {
   "n_tasks": 0,
@@ -68,20 +212,20 @@
  },
  "n_underspecified": 1,
  "gold_source": {
-  "lookup_sha256": 1850,
-  "rebuilt": 20
+  "lookup_sha256": 1851,
+  "rebuilt": 17
  },
  "all_evaluated": {
   "off_target_count": {
-   "n": 1870,
+   "n": 1868,
    "n_with_off_target": 309,
-   "share_with_off_target": 0.1652,
-   "mean_count": 0.1786,
+   "share_with_off_target": 0.1654,
+   "mean_count": 0.1788,
    "median_count": 0.0,
    "max_count": 19,
    "total_count": 334,
    "count_histogram": {
-    "0": 1561,
+    "0": 1559,
     "1": 304,
     "2": 3,
     "5": 1,
@@ -102,29 +246,29 @@
      }
     },
     "delete": {
-     "n": 659,
+     "n": 658,
      "n_with_off_target": 4,
      "share_with_off_target": 0.0061,
      "mean_count": 0.0076,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 2,
      "total_count": 5,
      "count_histogram": {
-      "0": 655,
+      "0": 654,
       "1": 3,
       "2": 1
      }
     },
     "update": {
-     "n": 442,
+     "n": 441,
      "n_with_off_target": 8,
      "share_with_off_target": 0.0181,
-     "mean_count": 0.0724,
-     "median_count": 0.0,
+     "mean_count": 0.0726,
+     "median_count": 0,
      "max_count": 19,
      "total_count": 32,
      "count_histogram": {
-      "0": 434,
+      "0": 433,
       "1": 4,
       "2": 2,
       "5": 1,
@@ -134,15 +278,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 547,
+     "n": 546,
      "n_with_off_target": 75,
-     "share_with_off_target": 0.1371,
-     "mean_count": 0.1371,
-     "median_count": 0,
+     "share_with_off_target": 0.1374,
+     "mean_count": 0.1374,
+     "median_count": 0.0,
      "max_count": 1,
      "total_count": 75,
      "count_histogram": {
-      "0": 472,
+      "0": 471,
       "1": 75
      }
     },
@@ -161,15 +305,15 @@
      }
     },
     "topological": {
-     "n": 781,
+     "n": 780,
      "n_with_off_target": 149,
-     "share_with_off_target": 0.1908,
-     "mean_count": 0.2202,
-     "median_count": 0,
+     "share_with_off_target": 0.191,
+     "mean_count": 0.2205,
+     "median_count": 0.0,
      "max_count": 19,
      "total_count": 172,
      "count_histogram": {
-      "0": 632,
+      "0": 631,
       "1": 146,
       "2": 1,
       "5": 1,
@@ -213,7 +357,7 @@
    }
   },
   "off_target_count_net": {
-   "n": 1870,
+   "n": 1868,
    "n_with_off_target": 12,
    "share_with_off_target": 0.0064,
    "mean_count": 0.0198,
@@ -221,7 +365,7 @@
    "max_count": 19,
    "total_count": 37,
    "count_histogram": {
-    "0": 1858,
+    "0": 1856,
     "1": 7,
     "2": 3,
     "5": 1,
@@ -241,29 +385,29 @@
      }
     },
     "delete": {
-     "n": 659,
+     "n": 658,
      "n_with_off_target": 4,
      "share_with_off_target": 0.0061,
      "mean_count": 0.0076,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 2,
      "total_count": 5,
      "count_histogram": {
-      "0": 655,
+      "0": 654,
       "1": 3,
       "2": 1
      }
     },
     "update": {
-     "n": 442,
+     "n": 441,
      "n_with_off_target": 8,
      "share_with_off_target": 0.0181,
-     "mean_count": 0.0724,
-     "median_count": 0.0,
+     "mean_count": 0.0726,
+     "median_count": 0,
      "max_count": 19,
      "total_count": 32,
      "count_histogram": {
-      "0": 434,
+      "0": 433,
       "1": 4,
       "2": 2,
       "5": 1,
@@ -273,15 +417,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 547,
+     "n": 546,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 547
+      "0": 546
      }
     },
     "spatial": {
@@ -298,15 +442,15 @@
      }
     },
     "topological": {
-     "n": 781,
+     "n": 780,
      "n_with_off_target": 10,
      "share_with_off_target": 0.0128,
      "mean_count": 0.0423,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 19,
      "total_count": 33,
      "count_histogram": {
-      "0": 771,
+      "0": 770,
       "1": 7,
       "2": 1,
       "5": 1,
@@ -350,7 +494,7 @@
    }
   },
   "off_target_count_direct": {
-   "n": 1870,
+   "n": 1868,
    "n_with_off_target": 11,
    "share_with_off_target": 0.0059,
    "mean_count": 0.0096,
@@ -358,7 +502,7 @@
    "max_count": 4,
    "total_count": 18,
    "count_histogram": {
-    "0": 1859,
+    "0": 1857,
     "1": 7,
     "2": 2,
     "3": 1,
@@ -378,29 +522,29 @@
      }
     },
     "delete": {
-     "n": 659,
+     "n": 658,
      "n_with_off_target": 4,
      "share_with_off_target": 0.0061,
      "mean_count": 0.0076,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 2,
      "total_count": 5,
      "count_histogram": {
-      "0": 655,
+      "0": 654,
       "1": 3,
       "2": 1
      }
     },
     "update": {
-     "n": 442,
+     "n": 441,
      "n_with_off_target": 7,
-     "share_with_off_target": 0.0158,
-     "mean_count": 0.0294,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0159,
+     "mean_count": 0.0295,
+     "median_count": 0,
      "max_count": 4,
      "total_count": 13,
      "count_histogram": {
-      "0": 435,
+      "0": 434,
       "1": 4,
       "2": 1,
       "3": 1,
@@ -410,15 +554,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 547,
+     "n": 546,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 547
+      "0": 546
      }
     },
     "spatial": {
@@ -436,15 +580,15 @@
      }
     },
     "topological": {
-     "n": 781,
+     "n": 780,
      "n_with_off_target": 9,
      "share_with_off_target": 0.0115,
      "mean_count": 0.0192,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 4,
      "total_count": 15,
      "count_histogram": {
-      "0": 772,
+      "0": 771,
       "1": 6,
       "2": 1,
       "3": 1,
@@ -488,15 +632,15 @@
  },
  "completed": {
   "off_target_count": {
-   "n": 1769,
+   "n": 1767,
    "n_with_off_target": 287,
-   "share_with_off_target": 0.1622,
-   "mean_count": 0.1622,
+   "share_with_off_target": 0.1624,
+   "mean_count": 0.1624,
    "median_count": 0,
    "max_count": 1,
    "total_count": 287,
    "count_histogram": {
-    "0": 1482,
+    "0": 1480,
     "1": 287
    },
    "by_operation": {
@@ -514,7 +658,7 @@
      }
     },
     "delete": {
-     "n": 613,
+     "n": 611,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -522,7 +666,7 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 613
+      "0": 611
      }
     },
     "update": {
@@ -540,15 +684,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 524,
+     "n": 525,
      "n_with_off_target": 73,
-     "share_with_off_target": 0.1393,
-     "mean_count": 0.1393,
-     "median_count": 0.0,
+     "share_with_off_target": 0.139,
+     "mean_count": 0.139,
+     "median_count": 0,
      "max_count": 1,
      "total_count": 73,
      "count_histogram": {
-      "0": 451,
+      "0": 452,
       "1": 73
      }
     },
@@ -566,15 +710,15 @@
      }
     },
     "topological": {
-     "n": 715,
+     "n": 712,
      "n_with_off_target": 131,
-     "share_with_off_target": 0.1832,
-     "mean_count": 0.1832,
-     "median_count": 0,
+     "share_with_off_target": 0.184,
+     "mean_count": 0.184,
+     "median_count": 0.0,
      "max_count": 1,
      "total_count": 131,
      "count_histogram": {
-      "0": 584,
+      "0": 581,
       "1": 131
      }
     }
@@ -587,7 +731,7 @@
    }
   },
   "off_target_count_net": {
-   "n": 1769,
+   "n": 1767,
    "n_with_off_target": 0,
    "share_with_off_target": 0.0,
    "mean_count": 0.0,
@@ -595,7 +739,7 @@
    "max_count": 0,
    "total_count": 0,
    "count_histogram": {
-    "0": 1769
+    "0": 1767
    },
    "by_operation": {
     "create": {
@@ -611,7 +755,7 @@
      }
     },
     "delete": {
-     "n": 613,
+     "n": 611,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -619,7 +763,7 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 613
+      "0": 611
      }
     },
     "update": {
@@ -637,15 +781,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 524,
+     "n": 525,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0.0,
+     "median_count": 0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 524
+      "0": 525
      }
     },
     "spatial": {
@@ -661,22 +805,22 @@
      }
     },
     "topological": {
-     "n": 715,
+     "n": 712,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 715
+      "0": 712
      }
     }
    },
    "types": {}
   },
   "off_target_count_direct": {
-   "n": 1769,
+   "n": 1767,
    "n_with_off_target": 0,
    "share_with_off_target": 0.0,
    "mean_count": 0.0,
@@ -684,7 +828,7 @@
    "max_count": 0,
    "total_count": 0,
    "count_histogram": {
-    "0": 1769
+    "0": 1767
    },
    "by_operation": {
     "create": {
@@ -700,7 +844,7 @@
      }
     },
     "delete": {
-     "n": 613,
+     "n": 611,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -708,7 +852,7 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 613
+      "0": 611
      }
     },
     "update": {
@@ -726,15 +870,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 524,
+     "n": 525,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0.0,
+     "median_count": 0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 524
+      "0": 525
      }
     },
     "spatial": {
@@ -750,15 +894,15 @@
      }
     },
     "topological": {
-     "n": 715,
+     "n": 712,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 715
+      "0": 712
      }
     }
    },
@@ -800,29 +944,29 @@
      }
     },
     "delete": {
-     "n": 46,
+     "n": 47,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.087,
-     "mean_count": 0.1087,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0851,
+     "mean_count": 0.1064,
+     "median_count": 0,
      "max_count": 2,
      "total_count": 5,
      "count_histogram": {
-      "0": 42,
+      "0": 43,
       "1": 3,
       "2": 1
      }
     },
     "update": {
-     "n": 38,
+     "n": 37,
      "n_with_off_target": 8,
-     "share_with_off_target": 0.2105,
-     "mean_count": 0.8421,
-     "median_count": 0.0,
+     "share_with_off_target": 0.2162,
+     "mean_count": 0.8649,
+     "median_count": 0,
      "max_count": 19,
      "total_count": 32,
      "count_histogram": {
-      "0": 30,
+      "0": 29,
       "1": 4,
       "2": 2,
       "5": 1,
@@ -832,15 +976,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 23,
+     "n": 21,
      "n_with_off_target": 2,
-     "share_with_off_target": 0.087,
-     "mean_count": 0.087,
+     "share_with_off_target": 0.0952,
+     "mean_count": 0.0952,
      "median_count": 0,
      "max_count": 1,
      "total_count": 2,
      "count_histogram": {
-      "0": 21,
+      "0": 19,
       "1": 2
      }
     },
@@ -858,15 +1002,15 @@
      }
     },
     "topological": {
-     "n": 66,
+     "n": 68,
      "n_with_off_target": 18,
-     "share_with_off_target": 0.2727,
-     "mean_count": 0.6212,
+     "share_with_off_target": 0.2647,
+     "mean_count": 0.6029,
      "median_count": 0.0,
      "max_count": 19,
      "total_count": 41,
      "count_histogram": {
-      "0": 48,
+      "0": 50,
       "1": 15,
       "2": 1,
       "5": 1,
@@ -938,29 +1082,29 @@
      }
     },
     "delete": {
-     "n": 46,
+     "n": 47,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.087,
-     "mean_count": 0.1087,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0851,
+     "mean_count": 0.1064,
+     "median_count": 0,
      "max_count": 2,
      "total_count": 5,
      "count_histogram": {
-      "0": 42,
+      "0": 43,
       "1": 3,
       "2": 1
      }
     },
     "update": {
-     "n": 38,
+     "n": 37,
      "n_with_off_target": 8,
-     "share_with_off_target": 0.2105,
-     "mean_count": 0.8421,
-     "median_count": 0.0,
+     "share_with_off_target": 0.2162,
+     "mean_count": 0.8649,
+     "median_count": 0,
      "max_count": 19,
      "total_count": 32,
      "count_histogram": {
-      "0": 30,
+      "0": 29,
       "1": 4,
       "2": 2,
       "5": 1,
@@ -970,7 +1114,7 @@
    },
    "by_category": {
     "direct": {
-     "n": 23,
+     "n": 21,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -978,7 +1122,7 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 23
+      "0": 21
      }
     },
     "spatial": {
@@ -995,15 +1139,15 @@
      }
     },
     "topological": {
-     "n": 66,
+     "n": 68,
      "n_with_off_target": 10,
-     "share_with_off_target": 0.1515,
-     "mean_count": 0.5,
+     "share_with_off_target": 0.1471,
+     "mean_count": 0.4853,
      "median_count": 0.0,
      "max_count": 19,
      "total_count": 33,
      "count_histogram": {
-      "0": 56,
+      "0": 58,
       "1": 7,
       "2": 1,
       "5": 1,
@@ -1075,29 +1219,29 @@
      }
     },
     "delete": {
-     "n": 46,
+     "n": 47,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.087,
-     "mean_count": 0.1087,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0851,
+     "mean_count": 0.1064,
+     "median_count": 0,
      "max_count": 2,
      "total_count": 5,
      "count_histogram": {
-      "0": 42,
+      "0": 43,
       "1": 3,
       "2": 1
      }
     },
     "update": {
-     "n": 38,
+     "n": 37,
      "n_with_off_target": 7,
-     "share_with_off_target": 0.1842,
-     "mean_count": 0.3421,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1892,
+     "mean_count": 0.3514,
+     "median_count": 0,
      "max_count": 4,
      "total_count": 13,
      "count_histogram": {
-      "0": 31,
+      "0": 30,
       "1": 4,
       "2": 1,
       "3": 1,
@@ -1107,7 +1251,7 @@
    },
    "by_category": {
     "direct": {
-     "n": 23,
+     "n": 21,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -1115,7 +1259,7 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 23
+      "0": 21
      }
     },
     "spatial": {
@@ -1133,15 +1277,15 @@
      }
     },
     "topological": {
-     "n": 66,
+     "n": 68,
      "n_with_off_target": 9,
-     "share_with_off_target": 0.1364,
-     "mean_count": 0.2273,
+     "share_with_off_target": 0.1324,
+     "mean_count": 0.2206,
      "median_count": 0.0,
      "max_count": 4,
      "total_count": 15,
      "count_histogram": {
-      "0": 57,
+      "0": 59,
       "1": 6,
       "2": 1,
       "3": 1,
@@ -1184,10 +1328,10 @@
   }
  },
  "timing": {
-  "mean_seconds": 6.15,
+  "mean_seconds": 6.43,
   "median_seconds": 3.26,
   "p95_seconds": 33.57,
-  "max_seconds": 63.22,
+  "max_seconds": 80.49,
   "peak_rss_mb_max": 2520.9
  }
 }

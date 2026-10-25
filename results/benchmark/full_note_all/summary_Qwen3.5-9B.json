@@ -4,7 +4,7 @@
   "n_scored": 982,
   "n_unscorable": 0,
   "unscorable_ids": [],
-  "mean_final": 0.095907,
+  "mean_final": 0.095679,
   "by_operation": {
     "create": {
       "n": 409,
@@ -14,41 +14,41 @@
     "delete": {
       "n": 346,
       "n_scored": 346,
-      "mean": 0.050023
+      "mean": 0.047133
     },
     "update": {
       "n": 227,
       "n_scored": 227,
-      "mean": 0.29771
+      "mean": 0.30113
     }
   },
   "by_category": {
-    "direct": 0.155251,
+    "direct": 0.158653,
     "spatial": 0.082745,
-    "topological": 0.062378
+    "topological": 0.059407
   },
   "axis_means": {
     "geometry": 0.117514,
-    "semantics": 0.114531,
-    "topology": 0.055678
+    "semantics": 0.114385,
+    "topology": 0.05514
   },
-  "schema_validity": 0.952,
-  "code_valid": 0.9481,
-  "code_run": 0.6436,
-  "commit_rate": 0.0418,
+  "schema_validity": 0.9511,
+  "code_valid": 0.9471,
+  "code_run": 0.6432,
+  "commit_rate": 0.0428,
   "tasks_with_any_tool_call": 982,
-  "mean_tool_rounds": 19.386,
-  "total_tool_calls": 19037,
+  "mean_tool_rounds": 19.392,
+  "total_tool_calls": 19043,
   "stop_reasons": {
-    "budget_exhausted": 576,
-    "context_overflow": 299,
-    "completed": 72,
-    "sandbox_crash": 34,
+    "budget_exhausted": 578,
+    "context_overflow": 297,
+    "completed": 73,
+    "sandbox_crash": 33,
     "output_truncated": 1
   },
   "hit_output_cap": 1,
-  "mean_output_tokens": 15277.5,
-  "wall_seconds": 717975.8,
+  "mean_output_tokens": 15271.0,
+  "wall_seconds": 713476.0,
   "resolved_agent_config": {
     "max_tool_rounds": 22,
     "tool_timeout": 420.0,
@@ -68,17 +68,6 @@
   "label": "untrained base with the library note, full read stopped at 982 tasks; rows rebuilt offline",
   "protocol_conformant": true,
   "finished_at": "2026-09-30T17:01:12",
-  "rebuilt_offline": {
-    "script": "code/stage_a/rescore_run.py",
-    "closing_turn_tokens": "server tokenizer",
-    "estimated_fields": [
-      "commits",
-      "committed",
-      "duration_seconds"
-    ],
-    "notes_file": "runs_local/bench_v4/results/full_note_all/rescore_notes_Qwen3.5-9B.json",
-    "missing_transcripts": [],
-    "wall_seconds": 5580.6,
-    "peak_rss_mb": 11306.1
-  }
+  "v4d_finalized_at": "2026-10-16T08:28:33",
+  "v4d_rerun_tasks": 1
 }

@@ -1,0 +1,58 @@
+run,model,n_tasks,n_affected,n_rescored,n_not_rescored,not_rescored_reason,lost,gained,completed_before,completed_after,completion_before,completion_after
+full_all,dpo_small_c12,2100,69,69,0,,6,0,1541,1535,0.7338,0.731
+full_all,dpo_v10_c3,2100,69,0,69,archive missing,0,0,2009,2009,0.9567,0.9567
+full_all,dpo_v10_c6,2100,69,69,0,,12,0,2010,1998,0.9571,0.9514
+full_all,dpo_v9_c10,2100,69,0,69,archive missing,0,0,1923,1923,0.9157,0.9157
+full_all,grpo_small_c10,2100,69,69,0,,3,0,1546,1543,0.7362,0.7348
+full_all,grpo_v10_c50,2100,69,69,0,,12,0,2013,2001,0.9586,0.9529
+full_all,grpo_v10b_c10,2100,69,69,0,,12,0,2016,2004,0.96,0.9543
+full_all,sft_small,2100,69,69,0,,4,0,1518,1514,0.7229,0.721
+full_all,sft_v10,2100,69,69,0,,12,0,2000,1988,0.9524,0.9467
+full_note_all,Qwen3.5-9B,982,36,36,0,,0,0,20,20,0.0204,0.0204
+hosted108_alone_all,claude-sonnet-5-5,108,3,3,0,,0,0,79,79,0.7315,0.7315
+hosted108_alone_all,deepseek-v4-pro,108,3,3,0,,0,0,58,58,0.537,0.537
+hosted108_alone_all,gemini-3.8-flash,108,3,3,0,,0,0,20,20,0.1852,0.1852
+hosted108_alone_all,gpt-5.6-luna,108,3,3,0,,0,0,27,27,0.25,0.25
+hosted108_informed_all,claude-opus-5-5,108,3,3,0,,0,0,103,103,0.9537,0.9537
+hosted108_informed_all,claude-sonnet-5-5,108,3,3,0,,0,0,107,107,0.9907,0.9907
+hosted108_informed_all,deepseek-v4-pro,108,3,3,0,,0,0,97,97,0.8981,0.8981
+hosted108_informed_all,gemini-3.8-flash,108,3,3,0,,0,0,83,83,0.7685,0.7685
+hosted108_informed_all,gpt-5.6-luna,108,3,3,0,,0,0,69,69,0.6389,0.6389
+hosted108_informed_rep2_all,claude-sonnet-5-5,108,3,3,0,,0,0,107,107,0.9907,0.9907
+hosted108_informed_rep3_all,claude-sonnet-5-5,108,3,3,0,,0,0,107,107,0.9907,0.9907
+hosted108_lib_all,claude-sonnet-5-5,108,3,3,0,,0,0,92,92,0.8519,0.8519
+hosted108_lib_all,deepseek-v4-pro,108,3,3,0,,0,0,85,85,0.787,0.787
+hosted108_lib_all,gemini-3.8-flash,108,3,3,0,,0,0,65,65,0.6019,0.6019
+hosted108_lib_all,gpt-5.6-luna,108,3,3,0,,0,0,45,45,0.4167,0.4167
+hosted108_asknote_all,claude-sonnet-5-5,108,3,3,0,,0,0,102,102,0.9444,0.9444
+hosted108_asknote_all,deepseek-v4-pro,108,3,3,0,,0,0,88,88,0.8148,0.8148
+hosted108_asknote_all,gemini-3.8-flash,108,3,3,0,,0,0,65,65,0.6019,0.6019
+hosted108_asknote_all,gpt-5.6-luna,108,3,3,0,,0,0,45,45,0.4167,0.4167
+hosted216_alone_all,claude-sonnet-5-5,216,10,10,0,,0,1,162,163,0.75,0.7546
+hosted216_lib_all,claude-sonnet-5-5,216,10,10,0,,0,1,187,188,0.8657,0.8704
+hosted324_alone_all,claude-sonnet-5-5,324,13,13,0,,0,1,241,242,0.7438,0.7469
+hosted324_lib_all,claude-sonnet-5-5,324,13,13,0,,0,1,279,280,0.8611,0.8642
+hosted324rest_informed_all,claude-sonnet-5-5,216,10,10,0,,1,0,211,210,0.9769,0.9722
+local108_alone_all,Qwen3.5-9B,108,3,3,0,,0,0,2,2,0.0185,0.0185
+local108_alone_all,sft_v10,108,3,3,0,,0,0,18,18,0.1667,0.1667
+local108_alone_sampled_all,Qwen3.5-9B,108,3,3,0,,0,0,3,3,0.0278,0.0278
+local108_alone_thinking_all,Qwen3.5-9B,108,3,3,0,,0,0,2,2,0.0185,0.0185
+local108_informed_all,Qwen3.5-9B,108,3,3,0,,0,0,69,69,0.6389,0.6389
+local108_informed_all,gemma-4-31b-it-awq,108,3,3,0,,0,0,77,77,0.713,0.713
+local108_lib_all,dpo_v10_c6,108,3,3,0,,0,0,104,104,0.963,0.963
+local108_lib_all,grpo_v10_c50,108,3,3,0,,0,0,105,105,0.9722,0.9722
+local108_lib_all,grpo_v10b_c10,108,3,3,0,,0,0,105,105,0.9722,0.9722
+local108_lib_all,sft_v10,108,3,3,0,,0,0,104,104,0.963,0.963
+local108_lib_solo,grpo_v10_c50,108,3,0,3,archive missing,0,0,105,105,0.9722,0.9722
+local108_lib_solo,grpo_v10b_c10,108,3,0,3,archive missing,0,0,105,105,0.9722,0.9722
+local108_lib_solo_cpu_contended_20261002,grpo_v10_c50,108,3,0,3,archive missing,0,0,105,105,0.9722,0.9722
+local108_libnote_all,Qwen3.5-9B,108,3,3,0,,0,0,2,2,0.0185,0.0185
+local108_retrieval_all,Qwen3.5-9B,108,3,3,0,,0,0,95,95,0.8796,0.8796
+local108_retrievalshort_all,Qwen3.5-9B,108,3,3,0,,0,0,97,97,0.8981,0.8981
+local324_alone_all,sft_v10,324,13,13,0,,0,0,54,54,0.1667,0.1667
+local324_lib_all,dpo_v10_c6,324,13,13,0,,1,0,309,308,0.9537,0.9506
+local324_lib_all,dpo_v9_c10,324,13,13,0,,1,0,301,300,0.929,0.9259
+local324_lib_all,grpo_v10_c50,324,13,13,0,,1,0,311,310,0.9599,0.9568
+local324_lib_all,grpo_v10b_c10,324,13,13,0,,1,0,311,310,0.9599,0.9568
+local324_lib_all,sft_extA,324,13,0,13,archive missing,0,0,300,300,0.9259,0.9259
+local324_lib_all,sft_v10,324,13,13,0,,1,0,310,309,0.9568,0.9537

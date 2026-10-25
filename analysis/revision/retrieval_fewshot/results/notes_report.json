@@ -1,0 +1,22 @@
+{
+ "budget_tokens": 20000,
+ "calibration": {
+  "task_id": "CHN-CWD-DIR-B45m4-003",
+  "tokenizer_count": 15557,
+  "server_count": 15557
+ },
+ "documented_note_rebuilt_byte_identical": true,
+ "notes": {
+  "min": 12425,
+  "median": 14535,
+  "max": 18517
+ },
+ "notes_short": {
+  "min": 2560,
+  "median": 4670,
+  "max": 8652
+ },
+ "prompts_shortened": [],
+ "tool_results_cut_at_1500_chars": 12,
+ "tool_results_total": 1155
+}

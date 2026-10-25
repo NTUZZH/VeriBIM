@@ -1,6 +1,7 @@
 """Cost of each hosted arm from the per-task token counts and the providers' list prices (USD per million tokens,
-recorded 2026-09-29). Input tokens are charged at the uncached rate, so the figures are an
-upper bound where a provider caches prompt prefixes.
+recorded 2026-09-29). This standalone summary applies the providers' prompt-cache billing (cache reads at a
+fraction of the input price, cache writes at 1.25x). The manuscript reports every commercial cost at the uncached
+list price (input tokens x input price + output tokens x output price; see writing/tables/make_results_exhibits.py).
     python hosted_cost.py [results_dir]
 """
 import glob, json, os, sys

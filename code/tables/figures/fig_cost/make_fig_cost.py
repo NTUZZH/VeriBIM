@@ -1,6 +1,6 @@
 """Cost of an edit on the 108-task subset: (a) mean wall-clock seconds per task, with the mean tool rounds
-in an aligned column, and (b) the mean price per task at the providers' list prices (hosted_cost.py
-formula); VeriBIM-9B runs locally and has no price per call. Rows as in Fig. 8 variant A.
+in an aligned column, and (b) the mean price per task at the providers' uncached list prices (input tokens x input
+price + output tokens x output price); VeriBIM-9B runs locally and has no price per call. Rows as in Fig. 8 variant A.
     python make_fig_cost.py ../../tables/exhibit_data.json [--outdir DIR] [--preview]
 """
 import os, sys

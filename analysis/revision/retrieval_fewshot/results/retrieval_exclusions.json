@@ -1,0 +1,240 @@
+[
+ {
+  "task_id": "WIN-UPD-TOP-B45-007",
+  "instruction": "Change the external flag of the window in Pset_WindowCommon from true to false.",
+  "excluded": [
+   {
+    "row": 1162,
+    "task_id": "WIN-UPD-SPA-B13-011",
+    "source": "gold"
+   },
+   {
+    "row": 60667,
+    "task_id": "WIN-UPD-TOP-G79-001-x4",
+    "source": "gold"
+   }
+  ]
+ },
+ {
+  "task_id": "DOR-DEL-SPA-B24-005",
+  "instruction": "Delete the door from the model, together with the relationships that depend on it.",
+  "excluded": [
+   {
+    "row": 2369,
+    "task_id": "DOR-DEL-SPA-B01-003",
+    "source": "gold"
+   },
+   {
+    "row": 4364,
+    "task_id": "DOR-DEL-TOP-G188m4X3-002-x3",
+    "source": "gold"
+   },
+   {
+    "row": 12588,
+    "task_id": "DOR-DEL-TOP-G144-002-x4",
+    "source": "gold"
+   },
+   {
+    "row": 14502,
+    "task_id": "DOR-DEL-TOP-G32m4X3-002-x3",
+    "source": "gold"
+   },
+   {
+    "row": 16647,
+    "task_id": "DOR-DEL-DIR-B14-035",
+    "source": "gold"
+   },
+   {
+    "row": 17679,
+    "task_id": "DOR-DEL-TOP-G132-003-x4",
+    "source": "gold"
+   },
+   {
+    "row": 19126,
+    "task_id": "DOR-DEL-TOP-G75-002-x4",
+    "source": "gold"
+   },
+   {
+    "row": 20814,
+    "task_id": "DOR-DEL-SPA-G3m4X3-003-x3",
+    "source": "gold"
+   },
+   {
+    "row": 21994,
+    "task_id": "DOR-DEL-DIR-G13m4X3-004-x3",
+    "source": "gold"
+   },
+   {
+    "row": 22827,
+    "task_id": "DOR-DEL-TOP-G13-002-x4",
+    "source": "gold"
+   },
+   {
+    "row": 22872,
+    "task_id": "DOR-DEL-TOP-G147m4X3-003-x3",
+    "source": "gold"
+   },
+   {
+    "row": 23677,
+    "task_id": "DOR-DEL-SPA-G83m4X3-001-x3",
+    "source": "gold"
+   },
+   {
+    "row": 26618,
+    "task_id": "DOR-DEL-SPA-B21-002",
+    "source": "gold"
+   },
+   {
+    "row": 26895,
+    "task_id": "DOR-DEL-SPA-G189-002-x2g",
+    "source": "gold"
+   },
+   {
+    "row": 28798,
+    "task_id": "DOR-DEL-TOP-G15m4X3-003-x3",
+    "source": "gold"
+   },
+   {
+    "row": 28920,
+    "task_id": "DOR-DEL-TOP-G137m4X3-006-x3",
+    "source": "gold"
+   },
+   {
+    "row": 29967,
+    "task_id": "DOR-DEL-TOP-G53m4X3-007-x3",
+    "source": "gold"
+   },
+   {
+    "row": 30335,
+    "task_id": "DOR-DEL-TOP-G11m4X3-002-x3",
+    "source": "gold"
+   },
+   {
+    "row": 30899,
+    "task_id": "DOR-DEL-DIR-G27-003-x4",
+    "source": "gold"
+   },
+   {
+    "row": 34695,
+    "task_id": "DOR-DEL-DIR-G27m4X3-002-x3",
+    "source": "gold"
+   },
+   {
+    "row": 43157,
+    "task_id": "DOR-DEL-DIR-B12-091",
+    "source": "gold"
+   },
+   {
+    "row": 43442,
+    "task_id": "DOR-DEL-DIR-B28-028",
+    "source": "gold"
+   },
+   {
+    "row": 47281,
+    "task_id": "DOR-DEL-SPA-B15-013",
+    "source": "gold"
+   },
+   {
+    "row": 47391,
+    "task_id": "DOR-DEL-TOP-G138m4X3-002-x3",
+    "source": "gold"
+   },
+   {
+    "row": 47650,
+    "task_id": "DOR-DEL-TOP-B08-001",
+    "source": "gold"
+   },
+   {
+    "row": 47982,
+    "task_id": "DOR-DEL-TOP-G148m4-005-x4",
+    "source": "gold"
+   },
+   {
+    "row": 48039,
+    "task_id": "DOR-DEL-TOP-G112m4X3-001-x3",
+    "source": "gold"
+   },
+   {
+    "row": 55936,
+    "task_id": "DOR-DEL-TOP-G53m4-002-x4",
+    "source": "gold"
+   },
+   {
+    "row": 57808,
+    "task_id": "DOR-DEL-TOP-G162m4X3-001-x3",
+    "source": "gold"
+   },
+   {
+    "row": 59960,
+    "task_id": "DOR-DEL-TOP-G71-001-x4",
+    "source": "gold"
+   },
+   {
+    "row": 60253,
+    "task_id": "DOR-DEL-TOP-B14m4X3-003-x3",
+    "source": "gold"
+   },
+   {
+    "row": 61237,
+    "task_id": "DOR-DEL-SPA-G83-001-x4",
+    "source": "gold"
+   },
+   {
+    "row": 62249,
+    "task_id": "DOR-DEL-SPA-G12-001-x4",
+    "source": "gold"
+   },
+   {
+    "row": 64769,
+    "task_id": "DOR-DEL-SPA-G145-001-x4",
+    "source": "gold"
+   },
+   {
+    "row": 65759,
+    "task_id": "DOR-DEL-TOP-G195m4X3-003-x3",
+    "source": "gold"
+   },
+   {
+    "row": 67669,
+    "task_id": "DOR-DEL-DIR-B05-010",
+    "source": "gold"
+   },
+   {
+    "row": 71646,
+    "task_id": "DOR-DEL-SPA-G189m4-003-x4",
+    "source": "gold"
+   },
+   {
+    "row": 71755,
+    "task_id": "DOR-DEL-SPA-G174-004-x2g",
+    "source": "gold"
+   },
+   {
+    "row": 73401,
+    "task_id": "DOR-DEL-TOP-G97m4X3-005-x3",
+    "source": "gold"
+   },
+   {
+    "row": 74716,
+    "task_id": "DOR-DEL-SPA-B12m4-001-x4",
+    "source": "gold"
+   },
+   {
+    "row": 75636,
+    "task_id": "DOR-DEL-TOP-G97-001-x4",
+    "source": "gold"
+   }
+  ]
+ },
+ {
+  "task_id": "DOR-UPD-TOP-B11m4-003",
+  "instruction": "Assign the material 'Aluminium' to the door.",
+  "excluded": [
+   {
+    "row": 6308,
+    "task_id": "DOR-UPD-TOP-B15-142",
+    "source": "gold"
+   }
+  ]
+ }
+]

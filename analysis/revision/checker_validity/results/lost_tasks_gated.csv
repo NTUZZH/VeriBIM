@@ -1,0 +1,7 @@
+arm,task_id,operation,edit_kind,lost_under,reasons
+sonnet_alone_108,CHN-DWF-SPA-B02-004,delete,delete_wall_with_fillings,gate,new dangling relationship(s): ['IfcRelAssociatesClassification.RelatedObjects']
+sonnet_alone_108,DOR-CRE-SPA-B39m4X3-002,create,create_filling,gate,IfcDoor: not contained in any spatial structure (ground truth: ['0rQ0$3ud12PPPt3OEdBjN8'])
+sonnet_alone_108,CHN-DWF-TOP-B02m4X3-008,delete,delete_wall_with_fillings,gate,new dangling relationship(s): ['IfcRelAssociatesClassification.RelatedObjects']
+sonnet_lib_108,CHN-DWF-SPA-B02-004,delete,delete_wall_with_fillings,gate,new dangling relationship(s): ['IfcRelAssociatesClassification.RelatedObjects']
+sonnet_lib_108,CHN-DWF-TOP-B02m4X3-008,delete,delete_wall_with_fillings,gate,new dangling relationship(s): ['IfcRelAssociatesClassification.RelatedObjects']
+gpt_documented_108,COL-DEL-DIR-B46m4-002,delete,delete,gate,"new dangling relationship(s): ['IfcRelCoversBldgElements.RelatingBuildingElement', 'IfcRelCoversBldgElements.RelatingBuildingElement']"

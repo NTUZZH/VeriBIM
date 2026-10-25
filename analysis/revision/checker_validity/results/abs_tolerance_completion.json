@@ -1,0 +1,200 @@
+{
+ "veribim9b_108": {
+  "n_tasks": 108,
+  "completed": 105,
+  "completed_within_1cm": 105,
+  "lost_at_1cm": [],
+  "completed_within_2cm": 105,
+  "lost_at_2cm": [],
+  "completed_within_5cm": 105,
+  "lost_at_5cm": [],
+  "completed_within_10cm": 105,
+  "lost_at_10cm": []
+ },
+ "base9b_libnote_108": {
+  "n_tasks": 108,
+  "completed": 2,
+  "completed_within_1cm": 2,
+  "lost_at_1cm": [],
+  "completed_within_2cm": 2,
+  "lost_at_2cm": [],
+  "completed_within_5cm": 2,
+  "lost_at_5cm": [],
+  "completed_within_10cm": 2,
+  "lost_at_10cm": []
+ },
+ "sonnet_alone_108": {
+  "n_tasks": 108,
+  "completed": 79,
+  "completed_within_1cm": 74,
+  "lost_at_1cm": [
+   "DOR-CRE-SPA-B16-001",
+   "WIN-CRE-SPA-B16m4-001",
+   "WIN-UPD-DIR-B16m4X3-003",
+   "WIN-CRE-DIR-B11m4-008",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_2cm": 74,
+  "lost_at_2cm": [
+   "DOR-CRE-SPA-B16-001",
+   "WIN-CRE-SPA-B16m4-001",
+   "WIN-UPD-DIR-B16m4X3-003",
+   "WIN-CRE-DIR-B11m4-008",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_5cm": 75,
+  "lost_at_5cm": [
+   "WIN-CRE-SPA-B16m4-001",
+   "WIN-UPD-DIR-B16m4X3-003",
+   "WIN-CRE-DIR-B11m4-008",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_10cm": 76,
+  "lost_at_10cm": [
+   "WIN-CRE-SPA-B16m4-001",
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ]
+ },
+ "sonnet_lib_108": {
+  "n_tasks": 108,
+  "completed": 92,
+  "completed_within_1cm": 90,
+  "lost_at_1cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_2cm": 90,
+  "lost_at_2cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_5cm": 90,
+  "lost_at_5cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_10cm": 90,
+  "lost_at_10cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ]
+ },
+ "sonnet_documented_108": {
+  "n_tasks": 108,
+  "completed": 107,
+  "completed_within_1cm": 104,
+  "lost_at_1cm": [
+   "WAL-UPD-DIR-B16-001",
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_2cm": 105,
+  "lost_at_2cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_5cm": 105,
+  "lost_at_5cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_10cm": 105,
+  "lost_at_10cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ]
+ },
+ "gpt_documented_108": {
+  "n_tasks": 108,
+  "completed": 69,
+  "completed_within_1cm": 68,
+  "lost_at_1cm": [
+   "SPC-CRE-TOP-B04-004"
+  ],
+  "completed_within_2cm": 68,
+  "lost_at_2cm": [
+   "SPC-CRE-TOP-B04-004"
+  ],
+  "completed_within_5cm": 68,
+  "lost_at_5cm": [
+   "SPC-CRE-TOP-B04-004"
+  ],
+  "completed_within_10cm": 68,
+  "lost_at_10cm": [
+   "SPC-CRE-TOP-B04-004"
+  ]
+ },
+ "gemini_documented_108": {
+  "n_tasks": 108,
+  "completed": 81,
+  "completed_within_1cm": 81,
+  "lost_at_1cm": [],
+  "completed_within_2cm": 81,
+  "lost_at_2cm": [],
+  "completed_within_5cm": 81,
+  "lost_at_5cm": [],
+  "completed_within_10cm": 81,
+  "lost_at_10cm": []
+ },
+ "deepseek_documented_108": {
+  "n_tasks": 108,
+  "completed": 97,
+  "completed_within_1cm": 95,
+  "lost_at_1cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_2cm": 95,
+  "lost_at_2cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_5cm": 95,
+  "lost_at_5cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_10cm": 95,
+  "lost_at_10cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ]
+ },
+ "opus_documented_108": {
+  "n_tasks": 108,
+  "completed": 103,
+  "completed_within_1cm": 101,
+  "lost_at_1cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_2cm": 101,
+  "lost_at_2cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_5cm": 101,
+  "lost_at_5cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ],
+  "completed_within_10cm": 101,
+  "lost_at_10cm": [
+   "WIN-UPD-DIR-B16m4X3-003",
+   "DOR-UPD-TOP-B24m4X3-060"
+  ]
+ },
+ "veribim9b_2100": {
+  "n_tasks": 2100,
+  "completed": 2010,
+  "completed_within_1cm": 2010,
+  "lost_at_1cm": [],
+  "completed_within_2cm": 2010,
+  "lost_at_2cm": [],
+  "completed_within_5cm": 2010,
+  "lost_at_5cm": [],
+  "completed_within_10cm": 2010,
+  "lost_at_10cm": []
+ }
+}

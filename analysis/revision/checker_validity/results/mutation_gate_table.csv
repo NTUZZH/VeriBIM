@@ -1,0 +1,7 @@
+perturbation,applied,accepted_at_0.90_checker,accepted_at_0.90_gated,accepted_at_0.90_gated_strict
+control,160,1.0,1.0,1.0
+containment,160,0.2625,0.0,0.0
+filling,44,0.7272727272727273,0.0,0.0
+wrong_host,26,0.0,0.0,0.0
+del_control,80,1.0,1.0,1.0
+del_naive,80,0.6125,0.0,0.0

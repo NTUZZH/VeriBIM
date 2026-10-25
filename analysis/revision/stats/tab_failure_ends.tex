@@ -5,17 +5,17 @@
 \label{tab:failureends}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
-\begin{tabular}{@{}lrrrrrrrr@{}}
+\begin{tabular}{@{}lrrrrrrrrr@{}}
 \toprule
-Model and arm & Completed & \begin{tabular}[b]{@{}c@{}}Wrong\\commit\end{tabular} & \begin{tabular}[b]{@{}c@{}}Round\\budget\end{tabular} & \begin{tabular}[b]{@{}c@{}}Truncated\\turn\end{tabular} & \begin{tabular}[b]{@{}c@{}}Context\\limit\end{tabular} & \begin{tabular}[b]{@{}c@{}}Sandbox\\crash\end{tabular} & \begin{tabular}[b]{@{}c@{}}Reply,\\no commit\end{tabular} & Rounds \\
+Model and arm & Completed & \begin{tabular}[b]{@{}c@{}}Wrong\\commit\end{tabular} & \begin{tabular}[b]{@{}c@{}}Round\\budget\end{tabular} & \begin{tabular}[b]{@{}c@{}}Truncated\\turn\end{tabular} & \begin{tabular}[b]{@{}c@{}}Context\\limit\end{tabular} & \begin{tabular}[b]{@{}c@{}}Sandbox\\crash\end{tabular} & \begin{tabular}[b]{@{}c@{}}Provider\\error\end{tabular} & \begin{tabular}[b]{@{}c@{}}Reply,\\no commit\end{tabular} & Rounds \\
 \midrule
-Final model, with library & 105 & 2 & 1 & 0 & 0 & 0 & 0 & 4.10 \\
-Imitation, with library & 104 & 1 & 1 & 0 & 1 & 0 & 1 & 4.15 \\
-Untrained, library note & 2 & 2 & 65 & 0 & 30 & 3 & 6 & 19.54 \\
-GPT-5.6, with library & 45 & 51 & 0 & 0 & 0 & 0 & 12 & 3.13 \\
-DeepSeek V4, with library & 85 & 11 & 9 & 1 & 0 & 0 & 2 & 9.69 \\
-Claude Sonnet 5.5, with library & 92 & 14 & 0 & 0 & 0 & 0 & 2 & 3.63 \\
-Gemini 3.8 Flash, with library & 65 & 1 & 42 & 0 & 0 & 0 & 0 & 15.21 \\
+Final model, with library & 105 & 2 & 1 & 0 & 0 & 0 & 0 & 0 & 4.10 \\
+Imitation, with library & 104 & 1 & 1 & 0 & 1 & 0 & 0 & 1 & 4.15 \\
+Untrained, library note & 2 & 2 & 65 & 0 & 31 & 3 & 0 & 5 & 19.61 \\
+GPT-5.6, with library & 45 & 51 & 0 & 0 & 0 & 0 & 0 & 12 & 3.13 \\
+DeepSeek V4, with library & 85 & 11 & 9 & 1 & 0 & 0 & 0 & 2 & 9.72 \\
+Claude Sonnet 5.5, with library & 92 & 14 & 0 & 0 & 0 & 0 & 0 & 2 & 3.62 \\
+Gemini 3.8 Flash, with library & 63 & 1 & 42 & 0 & 0 & 0 & 2 & 0 & 14.96 \\
 \bottomrule
 \end{tabular}
 \end{table}

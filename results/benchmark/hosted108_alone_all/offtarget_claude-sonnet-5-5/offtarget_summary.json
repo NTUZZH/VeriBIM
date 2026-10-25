@@ -7,14 +7,49 @@
  "n_evaluated_this_invocation": 108,
  "inputs_checked": 110,
  "inputs_modified": [],
+ "v4d_recomputed_tasks": 3,
+ "v4d_recomputed_date": "2026-10-16",
+ "v4d_update": {
+  "note": "Ground truths of 69 tasks regenerated (gt_fix/affected_tasks.txt) and re-run model outputs (gt_fix/rerun_list.csv): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/hosted108_alone_all/per_task_claude-sonnet-5-5.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-TOP-B02m4X3-008",
+   "COL-DEL-DIR-B46m4-002"
+  ],
+  "kept_task_ids_no_stored_model": [],
+  "edited_sources": {
+   "archive": 3
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/hosted108_alone_all/offtarget_claude-sonnet-5-5",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4d",
+   "summary_backup": "offtarget_summary.json.pre_v4d"
+  }
+ },
+ "stale_refresh": {
+  "date": "2026-10-16",
+  "note": "Rows whose stored committed flag, score or edited model disagreed with the final per-task row (outputs re-read after the off-target count) were recomputed with gt_fix/offtarget_subset.py against tasks.v4d.jsonl and the edited model the final per-task row names; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "n_rows_recomputed": 5,
+  "recomputed_task_ids": [
+   "COL-UPD-SPA-G7structure-002",
+   "COL-UPD-TOP-G7structure-007",
+   "WAL-CRE-SPA-B11m4X3-002",
+   "WAL-DEL-SPA-B06-001",
+   "WIN-DEL-SPA-B45m4X3-005"
+  ],
+  "rows_backup": "offtarget_per_task.jsonl.pre_stale",
+  "summary_backup": "offtarget_summary.json.pre_stale"
+ },
  "definition": "off_target(E) = changed(I->E) - changed(I->G) - GlobalIds of build_edit_set(I, E, operation, entity_type, target_guids); changed = IfcProducts created, deleted, or with a different placement / representation / direct-attribute hash (OwnerHistory ignored)",
  "completed_rule": "geometry, semantics and topology all >= 0.9",
  "n_rows": 108,
  "status": {
-  "ok": 102,
-  "no_edited_model": 6
+  "ok": 106,
+  "no_edited_model": 2
  },
- "n_no_edited_model": 6,
+ "n_no_edited_model": 2,
  "n_edit_set_type_aliased": 4,
  "edit_set_surplus": {
   "n_tasks": 2,
@@ -26,20 +61,20 @@
  },
  "n_underspecified": 9,
  "gold_source": {
-  "lookup_sha256": 92,
-  "rebuilt": 10
+  "lookup_sha256": 95,
+  "rebuilt": 11
  },
  "all_evaluated": {
   "off_target_count": {
-   "n": 102,
+   "n": 106,
    "n_with_off_target": 22,
-   "share_with_off_target": 0.2157,
-   "mean_count": 0.6078,
+   "share_with_off_target": 0.2075,
+   "mean_count": 0.5849,
    "median_count": 0.0,
    "max_count": 19,
    "total_count": 62,
    "count_histogram": {
-    "0": 80,
+    "0": 84,
     "1": 19,
     "6": 1,
     "10": 2
@@ -59,30 +94,30 @@
      }
     },
     "delete": {
-     "n": 34,
+     "n": 36,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.1176,
-     "mean_count": 0.7941,
+     "share_with_off_target": 0.1111,
+     "mean_count": 0.75,
      "median_count": 0.0,
      "max_count": 19,
      "total_count": 27,
      "count_histogram": {
-      "0": 30,
+      "0": 32,
       "1": 2,
       "6": 1,
       "10": 1
      }
     },
     "update": {
-     "n": 32,
+     "n": 34,
      "n_with_off_target": 5,
-     "share_with_off_target": 0.1562,
-     "mean_count": 0.6875,
+     "share_with_off_target": 0.1471,
+     "mean_count": 0.6471,
      "median_count": 0.0,
      "max_count": 18,
      "total_count": 22,
      "count_histogram": {
-      "0": 27,
+      "0": 29,
       "1": 4,
       "10": 1
      }
@@ -104,29 +139,29 @@
      }
     },
     "spatial": {
-     "n": 32,
+     "n": 35,
      "n_with_off_target": 10,
-     "share_with_off_target": 0.3125,
-     "mean_count": 0.875,
-     "median_count": 0.0,
+     "share_with_off_target": 0.2857,
+     "mean_count": 0.8,
+     "median_count": 0,
      "max_count": 19,
      "total_count": 28,
      "count_histogram": {
-      "0": 22,
+      "0": 25,
       "1": 9,
       "10": 1
      }
     },
     "topological": {
-     "n": 35,
+     "n": 36,
      "n_with_off_target": 5,
-     "share_with_off_target": 0.1429,
-     "mean_count": 0.2857,
-     "median_count": 0,
+     "share_with_off_target": 0.1389,
+     "mean_count": 0.2778,
+     "median_count": 0.0,
      "max_count": 6,
      "total_count": 10,
      "count_histogram": {
-      "0": 30,
+      "0": 31,
       "1": 4,
       "6": 1
      }
@@ -160,15 +195,15 @@
    }
   },
   "off_target_count_net": {
-   "n": 102,
+   "n": 106,
    "n_with_off_target": 9,
-   "share_with_off_target": 0.0882,
-   "mean_count": 0.4804,
+   "share_with_off_target": 0.0849,
+   "mean_count": 0.4623,
    "median_count": 0.0,
    "max_count": 19,
    "total_count": 49,
    "count_histogram": {
-    "0": 93,
+    "0": 97,
     "1": 6,
     "6": 1,
     "10": 2
@@ -187,30 +222,30 @@
      }
     },
     "delete": {
-     "n": 34,
+     "n": 36,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.1176,
-     "mean_count": 0.7941,
+     "share_with_off_target": 0.1111,
+     "mean_count": 0.75,
      "median_count": 0.0,
      "max_count": 19,
      "total_count": 27,
      "count_histogram": {
-      "0": 30,
+      "0": 32,
       "1": 2,
       "6": 1,
       "10": 1
      }
     },
     "update": {
-     "n": 32,
+     "n": 34,
      "n_with_off_target": 5,
-     "share_with_off_target": 0.1562,
-     "mean_count": 0.6875,
+     "share_with_off_target": 0.1471,
+     "mean_count": 0.6471,
      "median_count": 0.0,
      "max_count": 18,
      "total_count": 22,
      "count_histogram": {
-      "0": 27,
+      "0": 29,
       "1": 4,
       "10": 1
      }
@@ -232,29 +267,29 @@
      }
     },
     "spatial": {
-     "n": 32,
+     "n": 35,
      "n_with_off_target": 3,
-     "share_with_off_target": 0.0938,
-     "mean_count": 0.6562,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0857,
+     "mean_count": 0.6,
+     "median_count": 0,
      "max_count": 19,
      "total_count": 21,
      "count_histogram": {
-      "0": 29,
+      "0": 32,
       "1": 2,
       "10": 1
      }
     },
     "topological": {
-     "n": 35,
+     "n": 36,
      "n_with_off_target": 3,
-     "share_with_off_target": 0.0857,
-     "mean_count": 0.2286,
-     "median_count": 0,
+     "share_with_off_target": 0.0833,
+     "mean_count": 0.2222,
+     "median_count": 0.0,
      "max_count": 6,
      "total_count": 8,
      "count_histogram": {
-      "0": 32,
+      "0": 33,
       "1": 2,
       "6": 1
      }
@@ -288,15 +323,15 @@
    }
   },
   "off_target_count_direct": {
-   "n": 102,
+   "n": 106,
    "n_with_off_target": 9,
-   "share_with_off_target": 0.0882,
-   "mean_count": 0.4804,
+   "share_with_off_target": 0.0849,
+   "mean_count": 0.4623,
    "median_count": 0.0,
    "max_count": 19,
    "total_count": 49,
    "count_histogram": {
-    "0": 93,
+    "0": 97,
     "1": 6,
     "6": 1,
     "10": 2
@@ -315,30 +350,30 @@
      }
     },
     "delete": {
-     "n": 34,
+     "n": 36,
      "n_with_off_target": 4,
-     "share_with_off_target": 0.1176,
-     "mean_count": 0.7941,
+     "share_with_off_target": 0.1111,
+     "mean_count": 0.75,
      "median_count": 0.0,
      "max_count": 19,
      "total_count": 27,
      "count_histogram": {
-      "0": 30,
+      "0": 32,
       "1": 2,
       "6": 1,
       "10": 1
      }
     },
     "update": {
-     "n": 32,
+     "n": 34,
      "n_with_off_target": 5,
-     "share_with_off_target": 0.1562,
-     "mean_count": 0.6875,
+     "share_with_off_target": 0.1471,
+     "mean_count": 0.6471,
      "median_count": 0.0,
      "max_count": 18,
      "total_count": 22,
      "count_histogram": {
-      "0": 27,
+      "0": 29,
       "1": 4,
       "10": 1
      }
@@ -360,29 +395,29 @@
      }
     },
     "spatial": {
-     "n": 32,
+     "n": 35,
      "n_with_off_target": 3,
-     "share_with_off_target": 0.0938,
-     "mean_count": 0.6562,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0857,
+     "mean_count": 0.6,
+     "median_count": 0,
      "max_count": 19,
      "total_count": 21,
      "count_histogram": {
-      "0": 29,
+      "0": 32,
       "1": 2,
       "10": 1
      }
     },
     "topological": {
-     "n": 35,
+     "n": 36,
      "n_with_off_target": 3,
-     "share_with_off_target": 0.0857,
-     "mean_count": 0.2286,
-     "median_count": 0,
+     "share_with_off_target": 0.0833,
+     "mean_count": 0.2222,
+     "median_count": 0.0,
      "max_count": 6,
      "total_count": 8,
      "count_histogram": {
-      "0": 32,
+      "0": 33,
       "1": 2,
       "6": 1
      }
@@ -427,15 +462,15 @@
  },
  "completed": {
   "off_target_count": {
-   "n": 75,
+   "n": 79,
    "n_with_off_target": 10,
-   "share_with_off_target": 0.1333,
-   "mean_count": 0.1333,
+   "share_with_off_target": 0.1266,
+   "mean_count": 0.1266,
    "median_count": 0,
    "max_count": 1,
    "total_count": 10,
    "count_histogram": {
-    "0": 65,
+    "0": 69,
     "1": 10
    },
    "by_operation": {
@@ -453,7 +488,7 @@
      }
     },
     "delete": {
-     "n": 30,
+     "n": 32,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -461,19 +496,19 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 30
+      "0": 32
      }
     },
     "update": {
-     "n": 21,
+     "n": 23,
      "n_with_off_target": 2,
-     "share_with_off_target": 0.0952,
-     "mean_count": 0.0952,
+     "share_with_off_target": 0.087,
+     "mean_count": 0.087,
      "median_count": 0,
      "max_count": 1,
      "total_count": 2,
      "count_histogram": {
-      "0": 19,
+      "0": 21,
       "1": 2
      }
     }
@@ -493,28 +528,28 @@
      }
     },
     "spatial": {
-     "n": 23,
+     "n": 26,
      "n_with_off_target": 5,
-     "share_with_off_target": 0.2174,
-     "mean_count": 0.2174,
-     "median_count": 0,
+     "share_with_off_target": 0.1923,
+     "mean_count": 0.1923,
+     "median_count": 0.0,
      "max_count": 1,
      "total_count": 5,
      "count_histogram": {
-      "0": 18,
+      "0": 21,
       "1": 5
      }
     },
     "topological": {
-     "n": 26,
+     "n": 27,
      "n_with_off_target": 2,
-     "share_with_off_target": 0.0769,
-     "mean_count": 0.0769,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0741,
+     "mean_count": 0.0741,
+     "median_count": 0,
      "max_count": 1,
      "total_count": 2,
      "count_histogram": {
-      "0": 24,
+      "0": 25,
       "1": 2
      }
     }
@@ -527,15 +562,15 @@
    }
   },
   "off_target_count_net": {
-   "n": 75,
+   "n": 79,
    "n_with_off_target": 2,
-   "share_with_off_target": 0.0267,
-   "mean_count": 0.0267,
+   "share_with_off_target": 0.0253,
+   "mean_count": 0.0253,
    "median_count": 0,
    "max_count": 1,
    "total_count": 2,
    "count_histogram": {
-    "0": 73,
+    "0": 77,
     "1": 2
    },
    "by_operation": {
@@ -552,7 +587,7 @@
      }
     },
     "delete": {
-     "n": 30,
+     "n": 32,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -560,19 +595,19 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 30
+      "0": 32
      }
     },
     "update": {
-     "n": 21,
+     "n": 23,
      "n_with_off_target": 2,
-     "share_with_off_target": 0.0952,
-     "mean_count": 0.0952,
+     "share_with_off_target": 0.087,
+     "mean_count": 0.087,
      "median_count": 0,
      "max_count": 1,
      "total_count": 2,
      "count_histogram": {
-      "0": 19,
+      "0": 21,
       "1": 2
      }
     }
@@ -592,27 +627,27 @@
      }
     },
     "spatial": {
-     "n": 23,
+     "n": 26,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 23
+      "0": 26
      }
     },
     "topological": {
-     "n": 26,
+     "n": 27,
      "n_with_off_target": 1,
-     "share_with_off_target": 0.0385,
-     "mean_count": 0.0385,
-     "median_count": 0.0,
+     "share_with_off_target": 0.037,
+     "mean_count": 0.037,
+     "median_count": 0,
      "max_count": 1,
      "total_count": 1,
      "count_histogram": {
-      "0": 25,
+      "0": 26,
       "1": 1
      }
     }
@@ -625,15 +660,15 @@
    }
   },
   "off_target_count_direct": {
-   "n": 75,
+   "n": 79,
    "n_with_off_target": 2,
-   "share_with_off_target": 0.0267,
-   "mean_count": 0.0267,
+   "share_with_off_target": 0.0253,
+   "mean_count": 0.0253,
    "median_count": 0,
    "max_count": 1,
    "total_count": 2,
    "count_histogram": {
-    "0": 73,
+    "0": 77,
     "1": 2
    },
    "by_operation": {
@@ -650,7 +685,7 @@
      }
     },
     "delete": {
-     "n": 30,
+     "n": 32,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -658,19 +693,19 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 30
+      "0": 32
      }
     },
     "update": {
-     "n": 21,
+     "n": 23,
      "n_with_off_target": 2,
-     "share_with_off_target": 0.0952,
-     "mean_count": 0.0952,
+     "share_with_off_target": 0.087,
+     "mean_count": 0.087,
      "median_count": 0,
      "max_count": 1,
      "total_count": 2,
      "count_histogram": {
-      "0": 19,
+      "0": 21,
       "1": 2
      }
     }
@@ -690,27 +725,27 @@
      }
     },
     "spatial": {
-     "n": 23,
+     "n": 26,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 23
+      "0": 26
      }
     },
     "topological": {
-     "n": 26,
+     "n": 27,
      "n_with_off_target": 1,
-     "share_with_off_target": 0.0385,
-     "mean_count": 0.0385,
-     "median_count": 0.0,
+     "share_with_off_target": 0.037,
+     "mean_count": 0.037,
+     "median_count": 0,
      "max_count": 1,
      "total_count": 1,
      "count_histogram": {
-      "0": 25,
+      "0": 26,
       "1": 1
      }
     }
@@ -1124,10 +1159,10 @@
   }
  },
  "timing": {
-  "mean_seconds": 13.99,
-  "median_seconds": 6.484999999999999,
+  "mean_seconds": 14.11,
+  "median_seconds": 6.615,
   "p95_seconds": 53.9,
-  "max_seconds": 78.22,
+  "max_seconds": 75.41,
   "peak_rss_mb_max": 2512.5
  }
 }

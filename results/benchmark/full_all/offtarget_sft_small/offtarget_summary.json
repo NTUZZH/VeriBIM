@@ -7,15 +7,162 @@
  "n_evaluated_this_invocation": 150,
  "inputs_checked": 152,
  "inputs_modified": [],
+ "v4d_recomputed_tasks": 69,
+ "v4d_recomputed_date": "2026-10-16",
+ "v4d_update": {
+  "note": "Ground truths of 69 tasks regenerated (gt_fix/affected_tasks.txt) and re-run model outputs (gt_fix/rerun_list.csv): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/full_all/per_task_sft_small.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-DIR-B02-001",
+   "CHN-DWF-DIR-B02-002",
+   "CHN-DWF-DIR-B02m4X3-001",
+   "CHN-DWF-SPA-B02-001",
+   "CHN-DWF-SPA-B02-002",
+   "CHN-DWF-SPA-B02-003",
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-SPA-B02-005",
+   "CHN-DWF-SPA-B02-006",
+   "CHN-DWF-SPA-B02-007",
+   "CHN-DWF-SPA-B02m4-001",
+   "CHN-DWF-TOP-B02m4-003",
+   "CHN-DWF-TOP-B02m4-006",
+   "CHN-DWF-TOP-B02m4-008",
+   "CHN-DWF-TOP-B02m4-009",
+   "CHN-DWF-TOP-B02m4X3-001",
+   "CHN-DWF-TOP-B02m4X3-002",
+   "CHN-DWF-TOP-B02m4X3-003",
+   "CHN-DWF-TOP-B02m4X3-004",
+   "CHN-DWF-TOP-B02m4X3-005",
+   "CHN-DWF-TOP-B02m4X3-006",
+   "CHN-DWF-TOP-B02m4X3-007",
+   "CHN-DWF-TOP-B02m4X3-008",
+   "CHN-DWF-TOP-B02m4X3-009",
+   "CHN-DWF-TOP-B02m4X3-010",
+   "CHN-DWF-TOP-B02m4X3-011",
+   "COL-DEL-DIR-B46-015",
+   "COL-DEL-DIR-B46-084",
+   "COL-DEL-DIR-B46m4-002",
+   "COL-DEL-DIR-B46m4-022",
+   "COL-DEL-DIR-B46m4X3-024",
+   "COL-DEL-SPA-B46-004",
+   "COL-DEL-SPA-B46m4X3-010",
+   "DOR-UPD-DIR-B02m4X3-003",
+   "DOR-UPD-DIR-G7arc-001",
+   "DOR-UPD-DIR-G7arc-002",
+   "DOR-UPD-DIR-G7arc-004",
+   "DOR-UPD-DIR-G7arc-006",
+   "DOR-UPD-DIR-G7arc-007",
+   "DOR-UPD-DIR-G7arcm4-003",
+   "DOR-UPD-DIR-G7arcm4X3-004",
+   "DOR-UPD-SPA-G7arcm4X3-003",
+   "DOR-UPD-TOP-G7arc-004",
+   "DOR-UPD-TOP-G7arc-010",
+   "DOR-UPD-TOP-G7arc-011",
+   "DOR-UPD-TOP-G7arcm4-007",
+   "DOR-UPD-TOP-G7arcm4-010",
+   "DOR-UPD-TOP-G7arcm4-011",
+   "DOR-UPD-TOP-G7arcm4-014",
+   "DOR-UPD-TOP-G7arcm4-015",
+   "DOR-UPD-TOP-G7arcm4-016",
+   "DOR-UPD-TOP-G7arcm4X3-003",
+   "SPC-DEL-DIR-B27-001",
+   "SPC-DEL-DIR-B27m4-004",
+   "SPC-DEL-DIR-B27m4X3-007",
+   "SPC-DEL-SPA-B27-008",
+   "SPC-DEL-SPA-B27m4-003",
+   "SPC-DEL-SPA-B27m4X3-001",
+   "SPC-DEL-SPA-B27m4X3-004",
+   "WAL-DEL-DIR-B02-002",
+   "WAL-DEL-DIR-B02m4-001",
+   "WAL-DEL-SPA-B02-002",
+   "WAL-DEL-SPA-B27-007",
+   "WAL-DEL-TOP-B02-003",
+   "WAL-DEL-TOP-B02-005",
+   "WAL-DEL-TOP-B02-006",
+   "WAL-DEL-TOP-B02-007",
+   "WAL-DEL-TOP-B02m4X3-001",
+   "WIN-CRE-SPA-B02m4X3-002"
+  ],
+  "kept_task_ids_no_stored_model": [],
+  "edited_sources": {
+   "archive": 38,
+   "file": 8
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/full_all/offtarget_sft_small",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4d",
+   "summary_backup": "offtarget_summary.json.pre_v4d"
+  }
+ },
+ "v4e_recomputed_tasks": 37,
+ "v4e_recomputed_date": "2026-10-16",
+ "v4e_update": {
+  "note": "Deletion tasks whose outputs were re-run with the repaired library (gt_fix/rerun_list_delete_v2.csv, geom_call_ran_clean=1; spliced as v4e): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file, reading the re-run edited models from <run>/<model>/edited_v4e.tar.gz; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/full_all/per_task_sft_small.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-DIR-B02-001",
+   "CHN-DWF-DIR-B02-002",
+   "CHN-DWF-DIR-B02m4X3-001",
+   "CHN-DWF-SPA-B02-001",
+   "CHN-DWF-SPA-B02-002",
+   "CHN-DWF-SPA-B02-003",
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-SPA-B02-005",
+   "CHN-DWF-SPA-B02-006",
+   "CHN-DWF-SPA-B02-007",
+   "CHN-DWF-SPA-B02m4-001",
+   "CHN-DWF-TOP-B02m4X3-001",
+   "CHN-DWF-TOP-B02m4X3-002",
+   "CHN-DWF-TOP-B02m4X3-006",
+   "CHN-DWF-TOP-B02m4X3-008",
+   "CHN-DWF-TOP-B02m4X3-010",
+   "CHN-DWF-TOP-B02m4X3-011",
+   "COL-DEL-DIR-B46-015",
+   "COL-DEL-DIR-B46-084",
+   "COL-DEL-DIR-B46m4-002",
+   "COL-DEL-DIR-B46m4-022",
+   "COL-DEL-DIR-B46m4X3-024",
+   "COL-DEL-SPA-B46-004",
+   "COL-DEL-SPA-B46m4X3-010",
+   "SPC-DEL-DIR-B27-001",
+   "SPC-DEL-DIR-B27m4-004",
+   "SPC-DEL-DIR-B27m4X3-007",
+   "SPC-DEL-SPA-B27-008",
+   "SPC-DEL-SPA-B27m4-003",
+   "SPC-DEL-SPA-B27m4X3-001",
+   "SPC-DEL-SPA-B27m4X3-004",
+   "WAL-DEL-DIR-B02-002",
+   "WAL-DEL-DIR-B02m4-001",
+   "WAL-DEL-SPA-B02-002",
+   "WAL-DEL-SPA-B27-007",
+   "WAL-DEL-TOP-B02-005",
+   "WAL-DEL-TOP-B02m4X3-001"
+  ],
+  "not_committed_task_ids": [
+   "CHN-DWF-TOP-B02m4X3-010",
+   "CHN-DWF-TOP-B02m4X3-011"
+  ],
+  "edited_sources": {
+   "archive full_all/sft_small/edited_v4e.tar.gz": 35,
+   "not committed": 2
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/full_all/offtarget_sft_small",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4e",
+   "summary_backup": "offtarget_summary.json.pre_v4e"
+  }
+ },
  "definition": "off_target(E) = changed(I->E) - changed(I->G) - GlobalIds of build_edit_set(I, E, operation, entity_type, target_guids); changed = IfcProducts created, deleted, or with a different placement / representation / direct-attribute hash (OwnerHistory ignored)",
  "completed_rule": "geometry, semantics and topology all >= 0.9",
  "n_rows": 2100,
  "status": {
-  "ok": 1595,
-  "no_edited_model": 505
+  "ok": 1589,
+  "no_edited_model": 511
  },
- "n_no_edited_model": 505,
- "n_edit_set_type_aliased": 100,
+ "n_no_edited_model": 511,
+ "n_edit_set_type_aliased": 98,
  "edit_set_surplus": {
   "n_tasks": 10,
   "total": 13,
@@ -26,23 +173,23 @@
  },
  "n_underspecified": 6,
  "gold_source": {
-  "rebuilt": 1586,
-  "lookup_sha256": 9
+  "rebuilt": 1536,
+  "lookup_sha256": 53
  },
  "all_evaluated": {
   "off_target_count": {
-   "n": 1595,
+   "n": 1589,
    "n_with_off_target": 319,
-   "share_with_off_target": 0.2,
-   "mean_count": 0.2577,
+   "share_with_off_target": 0.2008,
+   "mean_count": 0.258,
    "median_count": 0,
    "max_count": 23,
-   "total_count": 411,
+   "total_count": 410,
    "count_histogram": {
-    "0": 1276,
+    "0": 1270,
     "1": 294,
-    "2": 11,
-    "3": 7,
+    "2": 12,
+    "3": 6,
     "4": 1,
     "5": 2,
     "6": 1,
@@ -66,32 +213,32 @@
      }
     },
     "delete": {
-     "n": 642,
+     "n": 640,
      "n_with_off_target": 22,
-     "share_with_off_target": 0.0343,
-     "mean_count": 0.0997,
+     "share_with_off_target": 0.0344,
+     "mean_count": 0.0984,
      "median_count": 0.0,
      "max_count": 23,
-     "total_count": 64,
+     "total_count": 63,
      "count_histogram": {
-      "0": 620,
+      "0": 618,
       "1": 7,
-      "2": 9,
-      "3": 4,
+      "2": 10,
+      "3": 3,
       "4": 1,
       "10": 1
      }
     },
     "update": {
-     "n": 314,
+     "n": 310,
      "n_with_off_target": 12,
-     "share_with_off_target": 0.0382,
-     "mean_count": 0.1783,
+     "share_with_off_target": 0.0387,
+     "mean_count": 0.1806,
      "median_count": 0.0,
      "max_count": 23,
      "total_count": 56,
      "count_histogram": {
-      "0": 302,
+      "0": 298,
       "1": 6,
       "3": 1,
       "5": 2,
@@ -103,30 +250,30 @@
    },
    "by_category": {
     "direct": {
-     "n": 488,
+     "n": 487,
      "n_with_off_target": 86,
-     "share_with_off_target": 0.1762,
-     "mean_count": 0.2295,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1766,
+     "mean_count": 0.23,
+     "median_count": 0,
      "max_count": 23,
      "total_count": 112,
      "count_histogram": {
-      "0": 402,
+      "0": 401,
       "1": 84,
       "5": 1,
       "10": 1
      }
     },
     "spatial": {
-     "n": 455,
+     "n": 454,
      "n_with_off_target": 93,
-     "share_with_off_target": 0.2044,
-     "mean_count": 0.2484,
-     "median_count": 0,
+     "share_with_off_target": 0.2048,
+     "mean_count": 0.2489,
+     "median_count": 0.0,
      "max_count": 8,
      "total_count": 113,
      "count_histogram": {
-      "0": 362,
+      "0": 361,
       "1": 82,
       "2": 8,
       "3": 1,
@@ -135,18 +282,18 @@
      }
     },
     "topological": {
-     "n": 652,
+     "n": 648,
      "n_with_off_target": 140,
-     "share_with_off_target": 0.2147,
-     "mean_count": 0.2853,
+     "share_with_off_target": 0.216,
+     "mean_count": 0.2855,
      "median_count": 0.0,
      "max_count": 23,
-     "total_count": 186,
+     "total_count": 185,
      "count_histogram": {
-      "0": 512,
+      "0": 508,
       "1": 128,
-      "2": 3,
-      "3": 6,
+      "2": 4,
+      "3": 5,
       "5": 1,
       "6": 1,
       "10": 1
@@ -158,13 +305,13 @@
      "tasks": 293,
      "entities": 301
     },
-    "IfcWall": {
-     "tasks": 10,
-     "entities": 12
-    },
     "IfcDoor": {
      "tasks": 9,
      "entities": 9
+    },
+    "IfcWall": {
+     "tasks": 9,
+     "entities": 11
     },
     "IfcWallStandardCase": {
      "tasks": 8,
@@ -201,18 +348,18 @@
    }
   },
   "off_target_count_net": {
-   "n": 1595,
+   "n": 1589,
    "n_with_off_target": 47,
-   "share_with_off_target": 0.0295,
-   "mean_count": 0.0846,
+   "share_with_off_target": 0.0296,
+   "mean_count": 0.0843,
    "median_count": 0,
    "max_count": 23,
-   "total_count": 135,
+   "total_count": 134,
    "count_histogram": {
-    "0": 1548,
+    "0": 1542,
     "1": 24,
-    "2": 11,
-    "3": 5,
+    "2": 12,
+    "3": 4,
     "4": 1,
     "5": 2,
     "6": 1,
@@ -235,32 +382,32 @@
      }
     },
     "delete": {
-     "n": 642,
+     "n": 640,
      "n_with_off_target": 22,
-     "share_with_off_target": 0.0343,
-     "mean_count": 0.0997,
+     "share_with_off_target": 0.0344,
+     "mean_count": 0.0984,
      "median_count": 0.0,
      "max_count": 23,
-     "total_count": 64,
+     "total_count": 63,
      "count_histogram": {
-      "0": 620,
+      "0": 618,
       "1": 7,
-      "2": 9,
-      "3": 4,
+      "2": 10,
+      "3": 3,
       "4": 1,
       "10": 1
      }
     },
     "update": {
-     "n": 314,
+     "n": 310,
      "n_with_off_target": 12,
-     "share_with_off_target": 0.0382,
-     "mean_count": 0.1783,
+     "share_with_off_target": 0.0387,
+     "mean_count": 0.1806,
      "median_count": 0.0,
      "max_count": 23,
      "total_count": 56,
      "count_histogram": {
-      "0": 302,
+      "0": 298,
       "1": 6,
       "3": 1,
       "5": 2,
@@ -272,30 +419,30 @@
    },
    "by_category": {
     "direct": {
-     "n": 488,
+     "n": 487,
      "n_with_off_target": 11,
-     "share_with_off_target": 0.0225,
-     "mean_count": 0.0758,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0226,
+     "mean_count": 0.076,
+     "median_count": 0,
      "max_count": 23,
      "total_count": 37,
      "count_histogram": {
-      "0": 477,
+      "0": 476,
       "1": 9,
       "5": 1,
       "10": 1
      }
     },
     "spatial": {
-     "n": 455,
+     "n": 454,
      "n_with_off_target": 16,
      "share_with_off_target": 0.0352,
-     "mean_count": 0.0725,
-     "median_count": 0,
+     "mean_count": 0.0727,
+     "median_count": 0.0,
      "max_count": 8,
      "total_count": 33,
      "count_histogram": {
-      "0": 439,
+      "0": 438,
       "1": 7,
       "2": 7,
       "4": 1,
@@ -303,18 +450,18 @@
      }
     },
     "topological": {
-     "n": 652,
+     "n": 648,
      "n_with_off_target": 20,
-     "share_with_off_target": 0.0307,
-     "mean_count": 0.0997,
+     "share_with_off_target": 0.0309,
+     "mean_count": 0.0988,
      "median_count": 0.0,
      "max_count": 23,
-     "total_count": 65,
+     "total_count": 64,
      "count_histogram": {
-      "0": 632,
+      "0": 628,
       "1": 8,
-      "2": 4,
-      "3": 5,
+      "2": 5,
+      "3": 4,
       "5": 1,
       "6": 1,
       "10": 1
@@ -326,13 +473,13 @@
      "tasks": 21,
      "entities": 25
     },
-    "IfcWall": {
-     "tasks": 10,
-     "entities": 12
-    },
     "IfcDoor": {
      "tasks": 9,
      "entities": 9
+    },
+    "IfcWall": {
+     "tasks": 9,
+     "entities": 11
     },
     "IfcWallStandardCase": {
      "tasks": 8,
@@ -369,18 +516,18 @@
    }
   },
   "off_target_count_direct": {
-   "n": 1595,
+   "n": 1589,
    "n_with_off_target": 47,
-   "share_with_off_target": 0.0295,
-   "mean_count": 0.0652,
+   "share_with_off_target": 0.0296,
+   "mean_count": 0.0648,
    "median_count": 0,
    "max_count": 23,
-   "total_count": 104,
+   "total_count": 103,
    "count_histogram": {
-    "0": 1548,
+    "0": 1542,
     "1": 27,
-    "2": 11,
-    "3": 4,
+    "2": 12,
+    "3": 3,
     "4": 3,
     "8": 1,
     "10": 1
@@ -401,31 +548,31 @@
      }
     },
     "delete": {
-     "n": 642,
+     "n": 640,
      "n_with_off_target": 22,
-     "share_with_off_target": 0.0343,
-     "mean_count": 0.0654,
+     "share_with_off_target": 0.0344,
+     "mean_count": 0.0641,
      "median_count": 0.0,
      "max_count": 4,
-     "total_count": 42,
+     "total_count": 41,
      "count_histogram": {
-      "0": 620,
+      "0": 618,
       "1": 8,
-      "2": 9,
-      "3": 4,
+      "2": 10,
+      "3": 3,
       "4": 1
      }
     },
     "update": {
-     "n": 314,
+     "n": 310,
      "n_with_off_target": 12,
-     "share_with_off_target": 0.0382,
-     "mean_count": 0.1497,
+     "share_with_off_target": 0.0387,
+     "mean_count": 0.1516,
      "median_count": 0.0,
      "max_count": 23,
      "total_count": 47,
      "count_histogram": {
-      "0": 302,
+      "0": 298,
       "1": 8,
       "4": 2,
       "8": 1,
@@ -435,29 +582,29 @@
    },
    "by_category": {
     "direct": {
-     "n": 488,
+     "n": 487,
      "n_with_off_target": 11,
-     "share_with_off_target": 0.0225,
-     "mean_count": 0.0676,
-     "median_count": 0.0,
+     "share_with_off_target": 0.0226,
+     "mean_count": 0.0678,
+     "median_count": 0,
      "max_count": 23,
      "total_count": 33,
      "count_histogram": {
-      "0": 477,
+      "0": 476,
       "1": 10,
       "10": 1
      }
     },
     "spatial": {
-     "n": 455,
+     "n": 454,
      "n_with_off_target": 16,
      "share_with_off_target": 0.0352,
-     "mean_count": 0.0725,
-     "median_count": 0,
+     "mean_count": 0.0727,
+     "median_count": 0.0,
      "max_count": 8,
      "total_count": 33,
      "count_histogram": {
-      "0": 439,
+      "0": 438,
       "1": 7,
       "2": 7,
       "4": 1,
@@ -465,18 +612,18 @@
      }
     },
     "topological": {
-     "n": 652,
+     "n": 648,
      "n_with_off_target": 20,
-     "share_with_off_target": 0.0307,
-     "mean_count": 0.0583,
+     "share_with_off_target": 0.0309,
+     "mean_count": 0.0571,
      "median_count": 0.0,
      "max_count": 4,
-     "total_count": 38,
+     "total_count": 37,
      "count_histogram": {
-      "0": 632,
+      "0": 628,
       "1": 10,
-      "2": 4,
-      "3": 4,
+      "2": 5,
+      "3": 3,
       "4": 2
      }
     }
@@ -487,8 +634,8 @@
      "entities": 17
     },
     "IfcWall": {
-     "tasks": 10,
-     "entities": 12
+     "tasks": 9,
+     "entities": 11
     },
     "IfcDoor": {
      "tasks": 8,
@@ -527,7 +674,7 @@
   "kinds": {
    "modified": 86,
    "created": 279,
-   "deleted": 46
+   "deleted": 45
   },
   "parts": {
    "placement": 32,
@@ -538,15 +685,15 @@
  },
  "completed": {
   "off_target_count": {
-   "n": 1376,
+   "n": 1371,
    "n_with_off_target": 253,
-   "share_with_off_target": 0.1839,
-   "mean_count": 0.1839,
-   "median_count": 0.0,
+   "share_with_off_target": 0.1845,
+   "mean_count": 0.1845,
+   "median_count": 0,
    "max_count": 1,
    "total_count": 253,
    "count_histogram": {
-    "0": 1123,
+    "0": 1118,
     "1": 253
    },
    "by_operation": {
@@ -564,19 +711,7 @@
      }
     },
     "delete": {
-     "n": 612,
-     "n_with_off_target": 0,
-     "share_with_off_target": 0.0,
-     "mean_count": 0.0,
-     "median_count": 0.0,
-     "max_count": 0,
-     "total_count": 0,
-     "count_histogram": {
-      "0": 612
-     }
-    },
-    "update": {
-     "n": 245,
+     "n": 611,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -584,21 +719,33 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 245
+      "0": 611
+     }
+    },
+    "update": {
+     "n": 241,
+     "n_with_off_target": 0,
+     "share_with_off_target": 0.0,
+     "mean_count": 0.0,
+     "median_count": 0,
+     "max_count": 0,
+     "total_count": 0,
+     "count_histogram": {
+      "0": 241
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 438,
+     "n": 436,
      "n_with_off_target": 75,
-     "share_with_off_target": 0.1712,
-     "mean_count": 0.1712,
+     "share_with_off_target": 0.172,
+     "mean_count": 0.172,
      "median_count": 0.0,
      "max_count": 1,
      "total_count": 75,
      "count_histogram": {
-      "0": 363,
+      "0": 361,
       "1": 75
      }
     },
@@ -616,15 +763,15 @@
      }
     },
     "topological": {
-     "n": 542,
+     "n": 539,
      "n_with_off_target": 110,
-     "share_with_off_target": 0.203,
-     "mean_count": 0.203,
-     "median_count": 0.0,
+     "share_with_off_target": 0.2041,
+     "mean_count": 0.2041,
+     "median_count": 0,
      "max_count": 1,
      "total_count": 110,
      "count_histogram": {
-      "0": 432,
+      "0": 429,
       "1": 110
      }
     }
@@ -637,15 +784,15 @@
    }
   },
   "off_target_count_net": {
-   "n": 1376,
+   "n": 1371,
    "n_with_off_target": 0,
    "share_with_off_target": 0.0,
    "mean_count": 0.0,
-   "median_count": 0.0,
+   "median_count": 0,
    "max_count": 0,
    "total_count": 0,
    "count_histogram": {
-    "0": 1376
+    "0": 1371
    },
    "by_operation": {
     "create": {
@@ -661,19 +808,7 @@
      }
     },
     "delete": {
-     "n": 612,
-     "n_with_off_target": 0,
-     "share_with_off_target": 0.0,
-     "mean_count": 0.0,
-     "median_count": 0.0,
-     "max_count": 0,
-     "total_count": 0,
-     "count_histogram": {
-      "0": 612
-     }
-    },
-    "update": {
-     "n": 245,
+     "n": 611,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -681,13 +816,25 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 245
+      "0": 611
+     }
+    },
+    "update": {
+     "n": 241,
+     "n_with_off_target": 0,
+     "share_with_off_target": 0.0,
+     "mean_count": 0.0,
+     "median_count": 0,
+     "max_count": 0,
+     "total_count": 0,
+     "count_histogram": {
+      "0": 241
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 438,
+     "n": 436,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -695,7 +842,7 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 438
+      "0": 436
      }
     },
     "spatial": {
@@ -711,30 +858,30 @@
      }
     },
     "topological": {
-     "n": 542,
+     "n": 539,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0.0,
+     "median_count": 0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 542
+      "0": 539
      }
     }
    },
    "types": {}
   },
   "off_target_count_direct": {
-   "n": 1376,
+   "n": 1371,
    "n_with_off_target": 0,
    "share_with_off_target": 0.0,
    "mean_count": 0.0,
-   "median_count": 0.0,
+   "median_count": 0,
    "max_count": 0,
    "total_count": 0,
    "count_histogram": {
-    "0": 1376
+    "0": 1371
    },
    "by_operation": {
     "create": {
@@ -750,19 +897,7 @@
      }
     },
     "delete": {
-     "n": 612,
-     "n_with_off_target": 0,
-     "share_with_off_target": 0.0,
-     "mean_count": 0.0,
-     "median_count": 0.0,
-     "max_count": 0,
-     "total_count": 0,
-     "count_histogram": {
-      "0": 612
-     }
-    },
-    "update": {
-     "n": 245,
+     "n": 611,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -770,13 +905,25 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 245
+      "0": 611
+     }
+    },
+    "update": {
+     "n": 241,
+     "n_with_off_target": 0,
+     "share_with_off_target": 0.0,
+     "mean_count": 0.0,
+     "median_count": 0,
+     "max_count": 0,
+     "total_count": 0,
+     "count_histogram": {
+      "0": 241
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 438,
+     "n": 436,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -784,7 +931,7 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 438
+      "0": 436
      }
     },
     "spatial": {
@@ -800,15 +947,15 @@
      }
     },
     "topological": {
-     "n": 542,
+     "n": 539,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0.0,
+     "median_count": 0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 542
+      "0": 539
      }
     }
    },
@@ -821,18 +968,18 @@
  },
  "not_completed": {
   "off_target_count": {
-   "n": 219,
+   "n": 218,
    "n_with_off_target": 66,
-   "share_with_off_target": 0.3014,
-   "mean_count": 0.7215,
-   "median_count": 0,
+   "share_with_off_target": 0.3028,
+   "mean_count": 0.7202,
+   "median_count": 0.0,
    "max_count": 23,
-   "total_count": 158,
+   "total_count": 157,
    "count_histogram": {
-    "0": 153,
+    "0": 152,
     "1": 41,
-    "2": 11,
-    "3": 7,
+    "2": 12,
+    "3": 6,
     "4": 1,
     "5": 2,
     "6": 1,
@@ -856,18 +1003,18 @@
      }
     },
     "delete": {
-     "n": 30,
+     "n": 29,
      "n_with_off_target": 22,
-     "share_with_off_target": 0.7333,
-     "mean_count": 2.1333,
-     "median_count": 1.5,
+     "share_with_off_target": 0.7586,
+     "mean_count": 2.1724,
+     "median_count": 2,
      "max_count": 23,
-     "total_count": 64,
+     "total_count": 63,
      "count_histogram": {
-      "0": 8,
+      "0": 7,
       "1": 7,
-      "2": 9,
-      "3": 4,
+      "2": 10,
+      "3": 3,
       "4": 1,
       "10": 1
      }
@@ -893,30 +1040,30 @@
    },
    "by_category": {
     "direct": {
-     "n": 50,
+     "n": 51,
      "n_with_off_target": 11,
-     "share_with_off_target": 0.22,
-     "mean_count": 0.74,
-     "median_count": 0.0,
+     "share_with_off_target": 0.2157,
+     "mean_count": 0.7255,
+     "median_count": 0,
      "max_count": 23,
      "total_count": 37,
      "count_histogram": {
-      "0": 39,
+      "0": 40,
       "1": 9,
       "5": 1,
       "10": 1
      }
     },
     "spatial": {
-     "n": 59,
+     "n": 58,
      "n_with_off_target": 25,
-     "share_with_off_target": 0.4237,
-     "mean_count": 0.7627,
-     "median_count": 0,
+     "share_with_off_target": 0.431,
+     "mean_count": 0.7759,
+     "median_count": 0.0,
      "max_count": 8,
      "total_count": 45,
      "count_histogram": {
-      "0": 34,
+      "0": 33,
       "1": 14,
       "2": 8,
       "3": 1,
@@ -925,18 +1072,18 @@
      }
     },
     "topological": {
-     "n": 110,
+     "n": 109,
      "n_with_off_target": 30,
-     "share_with_off_target": 0.2727,
-     "mean_count": 0.6909,
-     "median_count": 0.0,
+     "share_with_off_target": 0.2752,
+     "mean_count": 0.6881,
+     "median_count": 0,
      "max_count": 23,
-     "total_count": 76,
+     "total_count": 75,
      "count_histogram": {
-      "0": 80,
+      "0": 79,
       "1": 18,
-      "2": 3,
-      "3": 6,
+      "2": 4,
+      "3": 5,
       "5": 1,
       "6": 1,
       "10": 1
@@ -948,13 +1095,13 @@
      "tasks": 40,
      "entities": 48
     },
-    "IfcWall": {
-     "tasks": 10,
-     "entities": 12
-    },
     "IfcDoor": {
      "tasks": 9,
      "entities": 9
+    },
+    "IfcWall": {
+     "tasks": 9,
+     "entities": 11
     },
     "IfcWallStandardCase": {
      "tasks": 8,
@@ -991,18 +1138,18 @@
    }
   },
   "off_target_count_net": {
-   "n": 219,
+   "n": 218,
    "n_with_off_target": 47,
-   "share_with_off_target": 0.2146,
-   "mean_count": 0.6164,
-   "median_count": 0,
+   "share_with_off_target": 0.2156,
+   "mean_count": 0.6147,
+   "median_count": 0.0,
    "max_count": 23,
-   "total_count": 135,
+   "total_count": 134,
    "count_histogram": {
-    "0": 172,
+    "0": 171,
     "1": 24,
-    "2": 11,
-    "3": 5,
+    "2": 12,
+    "3": 4,
     "4": 1,
     "5": 2,
     "6": 1,
@@ -1025,18 +1172,18 @@
      }
     },
     "delete": {
-     "n": 30,
+     "n": 29,
      "n_with_off_target": 22,
-     "share_with_off_target": 0.7333,
-     "mean_count": 2.1333,
-     "median_count": 1.5,
+     "share_with_off_target": 0.7586,
+     "mean_count": 2.1724,
+     "median_count": 2,
      "max_count": 23,
-     "total_count": 64,
+     "total_count": 63,
      "count_histogram": {
-      "0": 8,
+      "0": 7,
       "1": 7,
-      "2": 9,
-      "3": 4,
+      "2": 10,
+      "3": 3,
       "4": 1,
       "10": 1
      }
@@ -1062,30 +1209,30 @@
    },
    "by_category": {
     "direct": {
-     "n": 50,
+     "n": 51,
      "n_with_off_target": 11,
-     "share_with_off_target": 0.22,
-     "mean_count": 0.74,
-     "median_count": 0.0,
+     "share_with_off_target": 0.2157,
+     "mean_count": 0.7255,
+     "median_count": 0,
      "max_count": 23,
      "total_count": 37,
      "count_histogram": {
-      "0": 39,
+      "0": 40,
       "1": 9,
       "5": 1,
       "10": 1
      }
     },
     "spatial": {
-     "n": 59,
+     "n": 58,
      "n_with_off_target": 16,
-     "share_with_off_target": 0.2712,
-     "mean_count": 0.5593,
-     "median_count": 0,
+     "share_with_off_target": 0.2759,
+     "mean_count": 0.569,
+     "median_count": 0.0,
      "max_count": 8,
      "total_count": 33,
      "count_histogram": {
-      "0": 43,
+      "0": 42,
       "1": 7,
       "2": 7,
       "4": 1,
@@ -1093,18 +1240,18 @@
      }
     },
     "topological": {
-     "n": 110,
+     "n": 109,
      "n_with_off_target": 20,
-     "share_with_off_target": 0.1818,
-     "mean_count": 0.5909,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1835,
+     "mean_count": 0.5872,
+     "median_count": 0,
      "max_count": 23,
-     "total_count": 65,
+     "total_count": 64,
      "count_histogram": {
-      "0": 90,
+      "0": 89,
       "1": 8,
-      "2": 4,
-      "3": 5,
+      "2": 5,
+      "3": 4,
       "5": 1,
       "6": 1,
       "10": 1
@@ -1116,13 +1263,13 @@
      "tasks": 21,
      "entities": 25
     },
-    "IfcWall": {
-     "tasks": 10,
-     "entities": 12
-    },
     "IfcDoor": {
      "tasks": 9,
      "entities": 9
+    },
+    "IfcWall": {
+     "tasks": 9,
+     "entities": 11
     },
     "IfcWallStandardCase": {
      "tasks": 8,
@@ -1159,18 +1306,18 @@
    }
   },
   "off_target_count_direct": {
-   "n": 219,
+   "n": 218,
    "n_with_off_target": 47,
-   "share_with_off_target": 0.2146,
-   "mean_count": 0.4749,
-   "median_count": 0,
+   "share_with_off_target": 0.2156,
+   "mean_count": 0.4725,
+   "median_count": 0.0,
    "max_count": 23,
-   "total_count": 104,
+   "total_count": 103,
    "count_histogram": {
-    "0": 172,
+    "0": 171,
     "1": 27,
-    "2": 11,
-    "3": 4,
+    "2": 12,
+    "3": 3,
     "4": 3,
     "8": 1,
     "10": 1
@@ -1191,18 +1338,18 @@
      }
     },
     "delete": {
-     "n": 30,
+     "n": 29,
      "n_with_off_target": 22,
-     "share_with_off_target": 0.7333,
-     "mean_count": 1.4,
-     "median_count": 1.0,
+     "share_with_off_target": 0.7586,
+     "mean_count": 1.4138,
+     "median_count": 1,
      "max_count": 4,
-     "total_count": 42,
+     "total_count": 41,
      "count_histogram": {
-      "0": 8,
+      "0": 7,
       "1": 8,
-      "2": 9,
-      "3": 4,
+      "2": 10,
+      "3": 3,
       "4": 1
      }
     },
@@ -1225,29 +1372,29 @@
    },
    "by_category": {
     "direct": {
-     "n": 50,
+     "n": 51,
      "n_with_off_target": 11,
-     "share_with_off_target": 0.22,
-     "mean_count": 0.66,
-     "median_count": 0.0,
+     "share_with_off_target": 0.2157,
+     "mean_count": 0.6471,
+     "median_count": 0,
      "max_count": 23,
      "total_count": 33,
      "count_histogram": {
-      "0": 39,
+      "0": 40,
       "1": 10,
       "10": 1
      }
     },
     "spatial": {
-     "n": 59,
+     "n": 58,
      "n_with_off_target": 16,
-     "share_with_off_target": 0.2712,
-     "mean_count": 0.5593,
-     "median_count": 0,
+     "share_with_off_target": 0.2759,
+     "mean_count": 0.569,
+     "median_count": 0.0,
      "max_count": 8,
      "total_count": 33,
      "count_histogram": {
-      "0": 43,
+      "0": 42,
       "1": 7,
       "2": 7,
       "4": 1,
@@ -1255,18 +1402,18 @@
      }
     },
     "topological": {
-     "n": 110,
+     "n": 109,
      "n_with_off_target": 20,
-     "share_with_off_target": 0.1818,
-     "mean_count": 0.3455,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1835,
+     "mean_count": 0.3394,
+     "median_count": 0,
      "max_count": 4,
-     "total_count": 38,
+     "total_count": 37,
      "count_histogram": {
-      "0": 90,
+      "0": 89,
       "1": 10,
-      "2": 4,
-      "3": 4,
+      "2": 5,
+      "3": 3,
       "4": 2
      }
     }
@@ -1277,8 +1424,8 @@
      "entities": 17
     },
     "IfcWall": {
-     "tasks": 10,
-     "entities": 12
+     "tasks": 9,
+     "entities": 11
     },
     "IfcDoor": {
      "tasks": 8,
@@ -1317,7 +1464,7 @@
   "kinds": {
    "modified": 86,
    "created": 26,
-   "deleted": 46
+   "deleted": 45
   },
   "parts": {
    "placement": 32,
@@ -1327,9 +1474,9 @@
   }
  },
  "timing": {
-  "mean_seconds": 10.8,
+  "mean_seconds": 10.68,
   "median_seconds": 5.89,
-  "p95_seconds": 57.36,
+  "p95_seconds": 57.26,
   "max_seconds": 97.84,
   "peak_rss_mb_max": 2560.6
  }

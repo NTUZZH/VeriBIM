@@ -7,15 +7,167 @@
  "n_evaluated_this_invocation": 2100,
  "inputs_checked": 2102,
  "inputs_modified": [],
+ "v4d_recomputed_tasks": 69,
+ "v4d_recomputed_date": "2026-10-16",
+ "v4d_update": {
+  "note": "Ground truths of 69 tasks regenerated (gt_fix/affected_tasks.txt) and re-run model outputs (gt_fix/rerun_list.csv): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/full_all/per_task_grpo_v10_c50.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-DIR-B02-001",
+   "CHN-DWF-DIR-B02-002",
+   "CHN-DWF-DIR-B02m4X3-001",
+   "CHN-DWF-SPA-B02-001",
+   "CHN-DWF-SPA-B02-002",
+   "CHN-DWF-SPA-B02-003",
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-SPA-B02-005",
+   "CHN-DWF-SPA-B02-006",
+   "CHN-DWF-SPA-B02-007",
+   "CHN-DWF-SPA-B02m4-001",
+   "CHN-DWF-TOP-B02m4-003",
+   "CHN-DWF-TOP-B02m4-006",
+   "CHN-DWF-TOP-B02m4-008",
+   "CHN-DWF-TOP-B02m4-009",
+   "CHN-DWF-TOP-B02m4X3-001",
+   "CHN-DWF-TOP-B02m4X3-002",
+   "CHN-DWF-TOP-B02m4X3-003",
+   "CHN-DWF-TOP-B02m4X3-004",
+   "CHN-DWF-TOP-B02m4X3-005",
+   "CHN-DWF-TOP-B02m4X3-006",
+   "CHN-DWF-TOP-B02m4X3-007",
+   "CHN-DWF-TOP-B02m4X3-008",
+   "CHN-DWF-TOP-B02m4X3-009",
+   "CHN-DWF-TOP-B02m4X3-010",
+   "CHN-DWF-TOP-B02m4X3-011",
+   "COL-DEL-DIR-B46-015",
+   "COL-DEL-DIR-B46-084",
+   "COL-DEL-DIR-B46m4-002",
+   "COL-DEL-DIR-B46m4-022",
+   "COL-DEL-DIR-B46m4X3-024",
+   "COL-DEL-SPA-B46-004",
+   "COL-DEL-SPA-B46m4X3-010",
+   "DOR-UPD-DIR-B02m4X3-003",
+   "DOR-UPD-DIR-G7arc-001",
+   "DOR-UPD-DIR-G7arc-002",
+   "DOR-UPD-DIR-G7arc-004",
+   "DOR-UPD-DIR-G7arc-006",
+   "DOR-UPD-DIR-G7arc-007",
+   "DOR-UPD-DIR-G7arcm4-003",
+   "DOR-UPD-DIR-G7arcm4X3-004",
+   "DOR-UPD-SPA-G7arcm4X3-003",
+   "DOR-UPD-TOP-G7arc-004",
+   "DOR-UPD-TOP-G7arc-010",
+   "DOR-UPD-TOP-G7arc-011",
+   "DOR-UPD-TOP-G7arcm4-007",
+   "DOR-UPD-TOP-G7arcm4-010",
+   "DOR-UPD-TOP-G7arcm4-011",
+   "DOR-UPD-TOP-G7arcm4-014",
+   "DOR-UPD-TOP-G7arcm4-015",
+   "DOR-UPD-TOP-G7arcm4-016",
+   "DOR-UPD-TOP-G7arcm4X3-003",
+   "SPC-DEL-DIR-B27-001",
+   "SPC-DEL-DIR-B27m4-004",
+   "SPC-DEL-DIR-B27m4X3-007",
+   "SPC-DEL-SPA-B27-008",
+   "SPC-DEL-SPA-B27m4-003",
+   "SPC-DEL-SPA-B27m4X3-001",
+   "SPC-DEL-SPA-B27m4X3-004",
+   "WAL-DEL-DIR-B02-002",
+   "WAL-DEL-DIR-B02m4-001",
+   "WAL-DEL-SPA-B02-002",
+   "WAL-DEL-SPA-B27-007",
+   "WAL-DEL-TOP-B02-003",
+   "WAL-DEL-TOP-B02-005",
+   "WAL-DEL-TOP-B02-006",
+   "WAL-DEL-TOP-B02-007",
+   "WAL-DEL-TOP-B02m4X3-001",
+   "WIN-CRE-SPA-B02m4X3-002"
+  ],
+  "kept_task_ids_no_stored_model": [],
+  "edited_sources": {
+   "archive": 41,
+   "file": 19
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/full_all/offtarget_grpo_v10_c50",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4d",
+   "summary_backup": "offtarget_summary.json.pre_v4d"
+  }
+ },
+ "v4e_recomputed_tasks": 41,
+ "v4e_recomputed_date": "2026-10-16",
+ "v4e_update": {
+  "note": "Deletion tasks whose outputs were re-run with the repaired library (gt_fix/rerun_list_delete_v2.csv, geom_call_ran_clean=1; spliced as v4e): rows of those tasks were recomputed with gt_fix/offtarget_subset.py (code/stage_c/offtarget.py restricted to the listed tasks) against tasks.v4d.jsonl and the final per-task file, reading the re-run edited models from <run>/<model>/edited_v4e.tar.gz; every other row is unchanged. This summary is offtarget.summarize over the merged rows.",
+  "tasks": "runs_local/bench_v4/tasks.v4d.jsonl",
+  "per_task": "runs_local/bench_v4/results/full_all/per_task_grpo_v10_c50.jsonl",
+  "recomputed_task_ids": [
+   "CHN-DWF-DIR-B02-001",
+   "CHN-DWF-DIR-B02-002",
+   "CHN-DWF-DIR-B02m4X3-001",
+   "CHN-DWF-SPA-B02-001",
+   "CHN-DWF-SPA-B02-002",
+   "CHN-DWF-SPA-B02-003",
+   "CHN-DWF-SPA-B02-004",
+   "CHN-DWF-SPA-B02-005",
+   "CHN-DWF-SPA-B02-006",
+   "CHN-DWF-SPA-B02-007",
+   "CHN-DWF-SPA-B02m4-001",
+   "CHN-DWF-TOP-B02m4-006",
+   "CHN-DWF-TOP-B02m4-008",
+   "CHN-DWF-TOP-B02m4X3-001",
+   "CHN-DWF-TOP-B02m4X3-002",
+   "CHN-DWF-TOP-B02m4X3-004",
+   "CHN-DWF-TOP-B02m4X3-005",
+   "CHN-DWF-TOP-B02m4X3-007",
+   "CHN-DWF-TOP-B02m4X3-008",
+   "CHN-DWF-TOP-B02m4X3-011",
+   "COL-DEL-DIR-B46-015",
+   "COL-DEL-DIR-B46-084",
+   "COL-DEL-DIR-B46m4-002",
+   "COL-DEL-DIR-B46m4-022",
+   "COL-DEL-DIR-B46m4X3-024",
+   "COL-DEL-SPA-B46-004",
+   "COL-DEL-SPA-B46m4X3-010",
+   "SPC-DEL-DIR-B27-001",
+   "SPC-DEL-DIR-B27m4-004",
+   "SPC-DEL-DIR-B27m4X3-007",
+   "SPC-DEL-SPA-B27-008",
+   "SPC-DEL-SPA-B27m4-003",
+   "SPC-DEL-SPA-B27m4X3-001",
+   "SPC-DEL-SPA-B27m4X3-004",
+   "WAL-DEL-DIR-B02-002",
+   "WAL-DEL-DIR-B02m4-001",
+   "WAL-DEL-SPA-B02-002",
+   "WAL-DEL-SPA-B27-007",
+   "WAL-DEL-TOP-B02-005",
+   "WAL-DEL-TOP-B02-006",
+   "WAL-DEL-TOP-B02-007"
+  ],
+  "not_committed_task_ids": [
+   "CHN-DWF-TOP-B02m4X3-005",
+   "WAL-DEL-TOP-B02-005",
+   "WAL-DEL-TOP-B02-006"
+  ],
+  "edited_sources": {
+   "archive full_all/grpo_v10_c50/edited_v4e.tar.gz": 38,
+   "not committed": 3
+  },
+  "earlier_count": {
+   "directory": "runs_local/bench_v4/results/full_all/offtarget_grpo_v10_c50",
+   "rows_backup": "offtarget_per_task.jsonl.pre_v4e",
+   "summary_backup": "offtarget_summary.json.pre_v4e"
+  }
+ },
  "definition": "off_target(E) = changed(I->E) - changed(I->G) - GlobalIds of build_edit_set(I, E, operation, entity_type, target_guids); changed = IfcProducts created, deleted, or with a different placement / representation / direct-attribute hash (OwnerHistory ignored)",
  "completed_rule": "geometry, semantics and topology all >= 0.9",
  "n_rows": 2100,
  "status": {
-  "ok": 1899,
-  "no_edited_model": 201
+  "ok": 1896,
+  "no_edited_model": 204
  },
- "n_no_edited_model": 201,
- "n_edit_set_type_aliased": 103,
+ "n_no_edited_model": 204,
+ "n_edit_set_type_aliased": 102,
  "edit_set_surplus": {
   "n_tasks": 0,
   "total": 0,
@@ -23,24 +175,24 @@
  },
  "n_underspecified": 1,
  "gold_source": {
-  "lookup_sha256": 1889,
+  "lookup_sha256": 1886,
   "rebuilt": 10
  },
  "all_evaluated": {
   "off_target_count": {
-   "n": 1899,
-   "n_with_off_target": 312,
-   "share_with_off_target": 0.1643,
-   "mean_count": 0.179,
-   "median_count": 0,
+   "n": 1896,
+   "n_with_off_target": 311,
+   "share_with_off_target": 0.164,
+   "mean_count": 0.1783,
+   "median_count": 0.0,
    "max_count": 17,
-   "total_count": 340,
+   "total_count": 338,
    "count_histogram": {
-    "0": 1587,
+    "0": 1585,
     "1": 304,
     "2": 4,
-    "3": 1,
-    "4": 2,
+    "4": 1,
+    "5": 1,
     "10": 1
    },
    "by_operation": {
@@ -58,19 +210,19 @@
      }
     },
     "delete": {
-     "n": 687,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.0116,
-     "mean_count": 0.0509,
-     "median_count": 0,
+     "n": 684,
+     "n_with_off_target": 7,
+     "share_with_off_target": 0.0102,
+     "mean_count": 0.0482,
+     "median_count": 0.0,
      "max_count": 17,
-     "total_count": 35,
+     "total_count": 33,
      "count_histogram": {
-      "0": 679,
+      "0": 677,
       "1": 1,
       "2": 3,
-      "3": 1,
-      "4": 2,
+      "4": 1,
+      "5": 1,
       "10": 1
      }
     },
@@ -119,30 +271,30 @@
      }
     },
     "topological": {
-     "n": 807,
-     "n_with_off_target": 146,
-     "share_with_off_target": 0.1809,
-     "mean_count": 0.1921,
-     "median_count": 0,
-     "max_count": 4,
-     "total_count": 155,
+     "n": 804,
+     "n_with_off_target": 145,
+     "share_with_off_target": 0.1803,
+     "mean_count": 0.1903,
+     "median_count": 0.0,
+     "max_count": 5,
+     "total_count": 153,
      "count_histogram": {
-      "0": 661,
+      "0": 659,
       "1": 142,
       "2": 1,
-      "3": 1,
-      "4": 2
+      "4": 1,
+      "5": 1
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 310,
+     "tasks": 309,
      "entities": 319
     },
     "IfcDoor": {
-     "tasks": 7,
-     "entities": 10
+     "tasks": 6,
+     "entities": 8
     },
     "IfcWindow": {
      "tasks": 2,
@@ -159,19 +311,19 @@
    }
   },
   "off_target_count_net": {
-   "n": 1899,
-   "n_with_off_target": 11,
-   "share_with_off_target": 0.0058,
-   "mean_count": 0.0205,
-   "median_count": 0,
+   "n": 1896,
+   "n_with_off_target": 10,
+   "share_with_off_target": 0.0053,
+   "mean_count": 0.0195,
+   "median_count": 0.0,
    "max_count": 17,
-   "total_count": 39,
+   "total_count": 37,
    "count_histogram": {
-    "0": 1888,
+    "0": 1886,
     "1": 3,
     "2": 4,
-    "3": 1,
-    "4": 2,
+    "4": 1,
+    "5": 1,
     "10": 1
    },
    "by_operation": {
@@ -188,19 +340,19 @@
      }
     },
     "delete": {
-     "n": 687,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.0116,
-     "mean_count": 0.0509,
-     "median_count": 0,
+     "n": 684,
+     "n_with_off_target": 7,
+     "share_with_off_target": 0.0102,
+     "mean_count": 0.0482,
+     "median_count": 0.0,
      "max_count": 17,
-     "total_count": 35,
+     "total_count": 33,
      "count_histogram": {
-      "0": 679,
+      "0": 677,
       "1": 1,
       "2": 3,
-      "3": 1,
-      "4": 2,
+      "4": 1,
+      "5": 1,
       "10": 1
      }
     },
@@ -248,29 +400,29 @@
      }
     },
     "topological": {
-     "n": 807,
-     "n_with_off_target": 4,
-     "share_with_off_target": 0.005,
-     "mean_count": 0.0161,
-     "median_count": 0,
-     "max_count": 4,
-     "total_count": 13,
+     "n": 804,
+     "n_with_off_target": 3,
+     "share_with_off_target": 0.0037,
+     "mean_count": 0.0137,
+     "median_count": 0.0,
+     "max_count": 5,
+     "total_count": 11,
      "count_histogram": {
-      "0": 803,
+      "0": 801,
       "2": 1,
-      "3": 1,
-      "4": 2
+      "4": 1,
+      "5": 1
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 9,
+     "tasks": 8,
      "entities": 18
     },
     "IfcDoor": {
-     "tasks": 7,
-     "entities": 10
+     "tasks": 6,
+     "entities": 8
     },
     "IfcWindow": {
      "tasks": 2,
@@ -287,19 +439,19 @@
    }
   },
   "off_target_count_direct": {
-   "n": 1899,
-   "n_with_off_target": 11,
-   "share_with_off_target": 0.0058,
-   "mean_count": 0.02,
-   "median_count": 0,
+   "n": 1896,
+   "n_with_off_target": 10,
+   "share_with_off_target": 0.0053,
+   "mean_count": 0.019,
+   "median_count": 0.0,
    "max_count": 17,
-   "total_count": 38,
+   "total_count": 36,
    "count_histogram": {
-    "0": 1888,
+    "0": 1886,
     "1": 4,
     "2": 3,
-    "3": 1,
-    "4": 2,
+    "4": 1,
+    "5": 1,
     "10": 1
    },
    "by_operation": {
@@ -316,19 +468,19 @@
      }
     },
     "delete": {
-     "n": 687,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.0116,
-     "mean_count": 0.0509,
-     "median_count": 0,
+     "n": 684,
+     "n_with_off_target": 7,
+     "share_with_off_target": 0.0102,
+     "mean_count": 0.0482,
+     "median_count": 0.0,
      "max_count": 17,
-     "total_count": 35,
+     "total_count": 33,
      "count_histogram": {
-      "0": 679,
+      "0": 677,
       "1": 1,
       "2": 3,
-      "3": 1,
-      "4": 2,
+      "4": 1,
+      "5": 1,
       "10": 1
      }
     },
@@ -375,29 +527,29 @@
      }
     },
     "topological": {
-     "n": 807,
-     "n_with_off_target": 4,
-     "share_with_off_target": 0.005,
-     "mean_count": 0.0161,
-     "median_count": 0,
-     "max_count": 4,
-     "total_count": 13,
+     "n": 804,
+     "n_with_off_target": 3,
+     "share_with_off_target": 0.0037,
+     "mean_count": 0.0137,
+     "median_count": 0.0,
+     "max_count": 5,
+     "total_count": 11,
      "count_histogram": {
-      "0": 803,
+      "0": 801,
       "2": 1,
-      "3": 1,
-      "4": 2
+      "4": 1,
+      "5": 1
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 9,
+     "tasks": 8,
      "entities": 18
     },
     "IfcDoor": {
-     "tasks": 6,
-     "entities": 9
+     "tasks": 5,
+     "entities": 7
     },
     "IfcWindow": {
      "tasks": 2,
@@ -416,7 +568,7 @@
   "kinds": {
    "created": 301,
    "modified": 4,
-   "deleted": 35
+   "deleted": 33
   },
   "parts": {
    "placement_carried": 1,
@@ -425,15 +577,15 @@
  },
  "completed": {
   "off_target_count": {
-   "n": 1858,
+   "n": 1852,
    "n_with_off_target": 294,
-   "share_with_off_target": 0.1582,
-   "mean_count": 0.1582,
+   "share_with_off_target": 0.1587,
+   "mean_count": 0.1587,
    "median_count": 0.0,
    "max_count": 1,
    "total_count": 294,
    "count_histogram": {
-    "0": 1564,
+    "0": 1558,
     "1": 294
    },
    "by_operation": {
@@ -451,19 +603,7 @@
      }
     },
     "delete": {
-     "n": 678,
-     "n_with_off_target": 0,
-     "share_with_off_target": 0.0,
-     "mean_count": 0.0,
-     "median_count": 0.0,
-     "max_count": 0,
-     "total_count": 0,
-     "count_histogram": {
-      "0": 678
-     }
-    },
-    "update": {
-     "n": 417,
+     "n": 675,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -471,21 +611,33 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 417
+      "0": 675
+     }
+    },
+    "update": {
+     "n": 414,
+     "n_with_off_target": 0,
+     "share_with_off_target": 0.0,
+     "mean_count": 0.0,
+     "median_count": 0.0,
+     "max_count": 0,
+     "total_count": 0,
+     "count_histogram": {
+      "0": 414
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 544,
+     "n": 541,
      "n_with_off_target": 75,
-     "share_with_off_target": 0.1379,
-     "mean_count": 0.1379,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1386,
+     "mean_count": 0.1386,
+     "median_count": 0,
      "max_count": 1,
      "total_count": 75,
      "count_histogram": {
-      "0": 469,
+      "0": 466,
       "1": 75
      }
     },
@@ -503,15 +655,15 @@
      }
     },
     "topological": {
-     "n": 787,
+     "n": 784,
      "n_with_off_target": 136,
-     "share_with_off_target": 0.1728,
-     "mean_count": 0.1728,
-     "median_count": 0,
+     "share_with_off_target": 0.1735,
+     "mean_count": 0.1735,
+     "median_count": 0.0,
      "max_count": 1,
      "total_count": 136,
      "count_histogram": {
-      "0": 651,
+      "0": 648,
       "1": 136
      }
     }
@@ -524,7 +676,7 @@
    }
   },
   "off_target_count_net": {
-   "n": 1858,
+   "n": 1852,
    "n_with_off_target": 0,
    "share_with_off_target": 0.0,
    "mean_count": 0.0,
@@ -532,7 +684,7 @@
    "max_count": 0,
    "total_count": 0,
    "count_histogram": {
-    "0": 1858
+    "0": 1852
    },
    "by_operation": {
     "create": {
@@ -548,19 +700,7 @@
      }
     },
     "delete": {
-     "n": 678,
-     "n_with_off_target": 0,
-     "share_with_off_target": 0.0,
-     "mean_count": 0.0,
-     "median_count": 0.0,
-     "max_count": 0,
-     "total_count": 0,
-     "count_histogram": {
-      "0": 678
-     }
-    },
-    "update": {
-     "n": 417,
+     "n": 675,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -568,13 +708,11 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 417
+      "0": 675
      }
-    }
-   },
-   "by_category": {
-    "direct": {
-     "n": 544,
+    },
+    "update": {
+     "n": 414,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -582,7 +720,21 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 544
+      "0": 414
+     }
+    }
+   },
+   "by_category": {
+    "direct": {
+     "n": 541,
+     "n_with_off_target": 0,
+     "share_with_off_target": 0.0,
+     "mean_count": 0.0,
+     "median_count": 0,
+     "max_count": 0,
+     "total_count": 0,
+     "count_histogram": {
+      "0": 541
      }
     },
     "spatial": {
@@ -598,22 +750,22 @@
      }
     },
     "topological": {
-     "n": 787,
+     "n": 784,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 787
+      "0": 784
      }
     }
    },
    "types": {}
   },
   "off_target_count_direct": {
-   "n": 1858,
+   "n": 1852,
    "n_with_off_target": 0,
    "share_with_off_target": 0.0,
    "mean_count": 0.0,
@@ -621,7 +773,7 @@
    "max_count": 0,
    "total_count": 0,
    "count_histogram": {
-    "0": 1858
+    "0": 1852
    },
    "by_operation": {
     "create": {
@@ -637,19 +789,7 @@
      }
     },
     "delete": {
-     "n": 678,
-     "n_with_off_target": 0,
-     "share_with_off_target": 0.0,
-     "mean_count": 0.0,
-     "median_count": 0.0,
-     "max_count": 0,
-     "total_count": 0,
-     "count_histogram": {
-      "0": 678
-     }
-    },
-    "update": {
-     "n": 417,
+     "n": 675,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -657,13 +797,11 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 417
+      "0": 675
      }
-    }
-   },
-   "by_category": {
-    "direct": {
-     "n": 544,
+    },
+    "update": {
+     "n": 414,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
@@ -671,7 +809,21 @@
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 544
+      "0": 414
+     }
+    }
+   },
+   "by_category": {
+    "direct": {
+     "n": 541,
+     "n_with_off_target": 0,
+     "share_with_off_target": 0.0,
+     "mean_count": 0.0,
+     "median_count": 0,
+     "max_count": 0,
+     "total_count": 0,
+     "count_histogram": {
+      "0": 541
      }
     },
     "spatial": {
@@ -687,15 +839,15 @@
      }
     },
     "topological": {
-     "n": 787,
+     "n": 784,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 787
+      "0": 784
      }
     }
    },
@@ -708,19 +860,19 @@
  },
  "not_completed": {
   "off_target_count": {
-   "n": 41,
-   "n_with_off_target": 18,
-   "share_with_off_target": 0.439,
-   "mean_count": 1.122,
-   "median_count": 0,
+   "n": 44,
+   "n_with_off_target": 17,
+   "share_with_off_target": 0.3864,
+   "mean_count": 1.0,
+   "median_count": 0.0,
    "max_count": 17,
-   "total_count": 46,
+   "total_count": 44,
    "count_histogram": {
-    "0": 23,
+    "0": 27,
     "1": 10,
     "2": 4,
-    "3": 1,
-    "4": 2,
+    "4": 1,
+    "5": 1,
     "10": 1
    },
    "by_operation": {
@@ -739,31 +891,31 @@
     },
     "delete": {
      "n": 9,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.8889,
-     "mean_count": 3.8889,
+     "n_with_off_target": 7,
+     "share_with_off_target": 0.7778,
+     "mean_count": 3.6667,
      "median_count": 2,
      "max_count": 17,
-     "total_count": 35,
+     "total_count": 33,
      "count_histogram": {
-      "0": 1,
+      "0": 2,
       "1": 1,
       "2": 3,
-      "3": 1,
-      "4": 2,
+      "4": 1,
+      "5": 1,
       "10": 1
      }
     },
     "update": {
-     "n": 20,
+     "n": 23,
      "n_with_off_target": 3,
-     "share_with_off_target": 0.15,
-     "mean_count": 0.2,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1304,
+     "mean_count": 0.1739,
+     "median_count": 0,
      "max_count": 2,
      "total_count": 4,
      "count_histogram": {
-      "0": 17,
+      "0": 20,
       "1": 2,
       "2": 1
      }
@@ -771,15 +923,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 3,
+     "n": 6,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 3
+      "0": 6
      }
     },
     "spatial": {
@@ -799,29 +951,29 @@
     },
     "topological": {
      "n": 20,
-     "n_with_off_target": 10,
-     "share_with_off_target": 0.5,
-     "mean_count": 0.95,
-     "median_count": 0.5,
-     "max_count": 4,
-     "total_count": 19,
+     "n_with_off_target": 9,
+     "share_with_off_target": 0.45,
+     "mean_count": 0.85,
+     "median_count": 0.0,
+     "max_count": 5,
+     "total_count": 17,
      "count_histogram": {
-      "0": 10,
+      "0": 11,
       "1": 6,
       "2": 1,
-      "3": 1,
-      "4": 2
+      "4": 1,
+      "5": 1
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 16,
+     "tasks": 15,
      "entities": 25
     },
     "IfcDoor": {
-     "tasks": 7,
-     "entities": 10
+     "tasks": 6,
+     "entities": 8
     },
     "IfcWindow": {
      "tasks": 2,
@@ -838,19 +990,19 @@
    }
   },
   "off_target_count_net": {
-   "n": 41,
-   "n_with_off_target": 11,
-   "share_with_off_target": 0.2683,
-   "mean_count": 0.9512,
-   "median_count": 0,
+   "n": 44,
+   "n_with_off_target": 10,
+   "share_with_off_target": 0.2273,
+   "mean_count": 0.8409,
+   "median_count": 0.0,
    "max_count": 17,
-   "total_count": 39,
+   "total_count": 37,
    "count_histogram": {
-    "0": 30,
+    "0": 34,
     "1": 3,
     "2": 4,
-    "3": 1,
-    "4": 2,
+    "4": 1,
+    "5": 1,
     "10": 1
    },
    "by_operation": {
@@ -868,31 +1020,31 @@
     },
     "delete": {
      "n": 9,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.8889,
-     "mean_count": 3.8889,
+     "n_with_off_target": 7,
+     "share_with_off_target": 0.7778,
+     "mean_count": 3.6667,
      "median_count": 2,
      "max_count": 17,
-     "total_count": 35,
+     "total_count": 33,
      "count_histogram": {
-      "0": 1,
+      "0": 2,
       "1": 1,
       "2": 3,
-      "3": 1,
-      "4": 2,
+      "4": 1,
+      "5": 1,
       "10": 1
      }
     },
     "update": {
-     "n": 20,
+     "n": 23,
      "n_with_off_target": 3,
-     "share_with_off_target": 0.15,
-     "mean_count": 0.2,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1304,
+     "mean_count": 0.1739,
+     "median_count": 0,
      "max_count": 2,
      "total_count": 4,
      "count_histogram": {
-      "0": 17,
+      "0": 20,
       "1": 2,
       "2": 1
      }
@@ -900,15 +1052,15 @@
    },
    "by_category": {
     "direct": {
-     "n": 3,
+     "n": 6,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 3
+      "0": 6
      }
     },
     "spatial": {
@@ -928,28 +1080,28 @@
     },
     "topological": {
      "n": 20,
-     "n_with_off_target": 4,
-     "share_with_off_target": 0.2,
-     "mean_count": 0.65,
+     "n_with_off_target": 3,
+     "share_with_off_target": 0.15,
+     "mean_count": 0.55,
      "median_count": 0.0,
-     "max_count": 4,
-     "total_count": 13,
+     "max_count": 5,
+     "total_count": 11,
      "count_histogram": {
-      "0": 16,
+      "0": 17,
       "2": 1,
-      "3": 1,
-      "4": 2
+      "4": 1,
+      "5": 1
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 9,
+     "tasks": 8,
      "entities": 18
     },
     "IfcDoor": {
-     "tasks": 7,
-     "entities": 10
+     "tasks": 6,
+     "entities": 8
     },
     "IfcWindow": {
      "tasks": 2,
@@ -966,19 +1118,19 @@
    }
   },
   "off_target_count_direct": {
-   "n": 41,
-   "n_with_off_target": 11,
-   "share_with_off_target": 0.2683,
-   "mean_count": 0.9268,
-   "median_count": 0,
+   "n": 44,
+   "n_with_off_target": 10,
+   "share_with_off_target": 0.2273,
+   "mean_count": 0.8182,
+   "median_count": 0.0,
    "max_count": 17,
-   "total_count": 38,
+   "total_count": 36,
    "count_histogram": {
-    "0": 30,
+    "0": 34,
     "1": 4,
     "2": 3,
-    "3": 1,
-    "4": 2,
+    "4": 1,
+    "5": 1,
     "10": 1
    },
    "by_operation": {
@@ -996,46 +1148,46 @@
     },
     "delete": {
      "n": 9,
-     "n_with_off_target": 8,
-     "share_with_off_target": 0.8889,
-     "mean_count": 3.8889,
+     "n_with_off_target": 7,
+     "share_with_off_target": 0.7778,
+     "mean_count": 3.6667,
      "median_count": 2,
      "max_count": 17,
-     "total_count": 35,
+     "total_count": 33,
      "count_histogram": {
-      "0": 1,
+      "0": 2,
       "1": 1,
       "2": 3,
-      "3": 1,
-      "4": 2,
+      "4": 1,
+      "5": 1,
       "10": 1
      }
     },
     "update": {
-     "n": 20,
+     "n": 23,
      "n_with_off_target": 3,
-     "share_with_off_target": 0.15,
-     "mean_count": 0.15,
-     "median_count": 0.0,
+     "share_with_off_target": 0.1304,
+     "mean_count": 0.1304,
+     "median_count": 0,
      "max_count": 1,
      "total_count": 3,
      "count_histogram": {
-      "0": 17,
+      "0": 20,
       "1": 3
      }
     }
    },
    "by_category": {
     "direct": {
-     "n": 3,
+     "n": 6,
      "n_with_off_target": 0,
      "share_with_off_target": 0.0,
      "mean_count": 0.0,
-     "median_count": 0,
+     "median_count": 0.0,
      "max_count": 0,
      "total_count": 0,
      "count_histogram": {
-      "0": 3
+      "0": 6
      }
     },
     "spatial": {
@@ -1055,28 +1207,28 @@
     },
     "topological": {
      "n": 20,
-     "n_with_off_target": 4,
-     "share_with_off_target": 0.2,
-     "mean_count": 0.65,
+     "n_with_off_target": 3,
+     "share_with_off_target": 0.15,
+     "mean_count": 0.55,
      "median_count": 0.0,
-     "max_count": 4,
-     "total_count": 13,
+     "max_count": 5,
+     "total_count": 11,
      "count_histogram": {
-      "0": 16,
+      "0": 17,
       "2": 1,
-      "3": 1,
-      "4": 2
+      "4": 1,
+      "5": 1
      }
     }
    },
    "types": {
     "IfcOpeningElement": {
-     "tasks": 9,
+     "tasks": 8,
      "entities": 18
     },
     "IfcDoor": {
-     "tasks": 6,
-     "entities": 9
+     "tasks": 5,
+     "entities": 7
     },
     "IfcWindow": {
      "tasks": 2,
@@ -1095,7 +1247,7 @@
   "kinds": {
    "created": 7,
    "modified": 4,
-   "deleted": 35
+   "deleted": 33
   },
   "parts": {
    "placement_carried": 1,
@@ -1103,10 +1255,10 @@
   }
  },
  "timing": {
-  "mean_seconds": 6.11,
+  "mean_seconds": 6.59,
   "median_seconds": 3.35,
-  "p95_seconds": 34.26,
-  "max_seconds": 49.51,
+  "p95_seconds": 34.22,
+  "max_seconds": 93.28,
   "peak_rss_mb_max": 2533.5
  }
 }

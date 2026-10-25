@@ -1,0 +1,140 @@
+{
+ "realistic, not similar (< 0.80)": {
+  "n": 36,
+  "n_scenes": 10,
+  "by_op": {
+   "create": 12,
+   "update": 12,
+   "delete": 12
+  },
+  "final": 0.409,
+  "base": 0.304,
+  "sonnet_alone": 0.738,
+  "sonnet_lib": 0.782,
+  "final_minus_base": [
+   0.105,
+   0.052,
+   0.166
+  ],
+  "sonnet_alone_minus_final": [
+   0.33,
+   0.197,
+   0.464
+  ],
+  "sonnet_lib_minus_final": [
+   0.374,
+   0.255,
+   0.495
+  ],
+  "final_by_op": {
+   "create": 0.069,
+   "update": 0.61,
+   "delete": 0.547
+  }
+ },
+ "realistic, similar (>= 0.80)": {
+  "n": 126,
+  "n_scenes": 28,
+  "by_op": {
+   "create": 42,
+   "update": 42,
+   "delete": 42
+  },
+  "final": 0.422,
+  "base": 0.311,
+  "sonnet_alone": 0.718,
+  "sonnet_lib": 0.724,
+  "final_minus_base": [
+   0.111,
+   0.062,
+   0.163
+  ],
+  "sonnet_alone_minus_final": [
+   0.296,
+   0.234,
+   0.356
+  ],
+  "sonnet_lib_minus_final": [
+   0.302,
+   0.244,
+   0.36
+  ],
+  "final_by_op": {
+   "create": 0.169,
+   "update": 0.645,
+   "delete": 0.454
+  }
+ },
+ "simple (all < 0.80)": {
+  "n": 162,
+  "n_scenes": 50,
+  "by_op": {
+   "create": 54,
+   "update": 54,
+   "delete": 54
+  },
+  "final": 0.402,
+  "base": 0.273,
+  "sonnet_alone": 0.739,
+  "sonnet_lib": 0.733,
+  "final_minus_base": [
+   0.129,
+   0.085,
+   0.175
+  ],
+  "sonnet_alone_minus_final": [
+   0.337,
+   0.277,
+   0.397
+  ],
+  "sonnet_lib_minus_final": [
+   0.33,
+   0.275,
+   0.387
+  ],
+  "final_by_op": {
+   "create": 0.167,
+   "update": 0.535,
+   "delete": 0.504
+  }
+ },
+ "realistic_by_bin": {
+  "[0.6,0.7)": {
+   "n": 18,
+   "n_scenes": 6,
+   "final": 0.458,
+   "base": 0.348,
+   "sonnet_alone": 0.733,
+   "sonnet_lib": 0.757
+  },
+  "[0.7,0.8)": {
+   "n": 18,
+   "n_scenes": 4,
+   "final": 0.359,
+   "base": 0.259,
+   "sonnet_alone": 0.743,
+   "sonnet_lib": 0.808
+  },
+  "[0.8,0.85)": {
+   "n": 81,
+   "n_scenes": 17,
+   "final": 0.421,
+   "base": 0.308,
+   "sonnet_alone": 0.717,
+   "sonnet_lib": 0.721
+  },
+  "[0.85,1.01)": {
+   "n": 45,
+   "n_scenes": 11,
+   "final": 0.425,
+   "base": 0.318,
+   "sonnet_alone": 0.721,
+   "sonnet_lib": 0.729
+  }
+ },
+ "scene_level_realistic": {
+  "n_scenes": 38,
+  "spearman_sim_vs_ours_minus_base": 0.119,
+  "spearman_sim_vs_ours": 0.092
+ }
+}

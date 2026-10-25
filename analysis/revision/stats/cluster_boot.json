@@ -361,24 +361,24 @@
    "what": "completion, Gemini 3.8 Flash, with the library",
    "n_tasks": 108,
    "n_buildings": 12,
-   "point": 0.601852,
+   "point": 0.583333,
    "published": [
-    0.602,
-    0.509,
-    0.694
+    0.583,
+    0.491,
+    0.676
    ],
    "task_level": [
-    0.509259,
-    0.694444
+    0.490741,
+    0.675926
    ],
    "reproduces_published": true,
    "cluster": [
-    0.522523,
-    0.663717
+    0.485981,
+    0.65873
    ],
    "width_task": 0.185185,
-   "width_cluster": 0.141194,
-   "width_ratio": 0.76,
+   "width_cluster": 0.172749,
+   "width_ratio": 0.93,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": null,
    "task_excludes_zero": null
@@ -5824,30 +5824,30 @@
    "what": "final model minus Gemini 3.8 Flash, with the library, ALL",
    "n_tasks": 108,
    "n_buildings": 12,
-   "point": 0.37037,
+   "point": 0.388889,
    "published": [
-    0.37,
-    0.278,
-    0.463
+    0.389,
+    0.296,
+    0.481
    ],
    "task_level": [
-    0.277778,
-    0.462963
+    0.296296,
+    0.481481
    ],
    "reproduces_published": true,
    "cluster": [
-    0.320755,
-    0.4375
+    0.32967,
+    0.469136
    ],
    "width_task": 0.185185,
-   "width_cluster": 0.116745,
-   "width_ratio": 0.63,
+   "width_cluster": 0.139465,
+   "width_ratio": 0.75,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 40,
+   "a_only": 42,
    "b_only": 0,
-   "discordant": 40,
+   "discordant": 42,
    "buildings_favour_a": 12,
    "buildings_favour_b": 0,
    "buildings_tie": 0,
@@ -5869,7 +5869,7 @@
      3
     ],
     "BLD035": [
-     0.375,
+     0.625,
      8
     ],
     "BLD038": [
@@ -5909,33 +5909,33 @@
    "what": "final model minus Gemini 3.8 Flash, with the library, IFC2X3",
    "n_tasks": 36,
    "n_buildings": 8,
-   "point": 0.361111,
+   "point": 0.388889,
    "published": [
-    0.361,
-    0.194,
-    0.528
+    0.389,
+    0.222,
+    0.556
    ],
    "task_level": [
-    0.194444,
-    0.527778
+    0.222222,
+    0.555556
    ],
    "reproduces_published": true,
    "cluster": [
-    0.259259,
-    0.446809
+    0.314286,
+    0.470588
    ],
    "width_task": 0.333333,
-   "width_cluster": 0.187549,
-   "width_ratio": 0.56,
+   "width_cluster": 0.156303,
+   "width_ratio": 0.47,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 13,
+   "a_only": 14,
    "b_only": 0,
-   "discordant": 13,
-   "buildings_favour_a": 6,
+   "discordant": 14,
+   "buildings_favour_a": 7,
    "buildings_favour_b": 0,
-   "buildings_tie": 2,
+   "buildings_tie": 1,
    "per_building_diff": {
     "BLD003": [
      0.333333,
@@ -5946,7 +5946,7 @@
      5
     ],
     "BLD035": [
-     0.0,
+     0.5,
      2
     ],
     "BLD038": [
@@ -6063,33 +6063,33 @@
    "what": "final model minus Gemini 3.8 Flash, with the library, IFC4X3",
    "n_tasks": 36,
    "n_buildings": 12,
-   "point": 0.361111,
+   "point": 0.388889,
    "published": [
-    0.361,
-    0.194,
-    0.528
+    0.389,
+    0.222,
+    0.556
    ],
    "task_level": [
-    0.194444,
-    0.527778
+    0.222222,
+    0.555556
    ],
    "reproduces_published": true,
    "cluster": [
-    0.230769,
-    0.488372
+    0.28125,
+    0.5
    ],
    "width_task": 0.333333,
-   "width_cluster": 0.257603,
-   "width_ratio": 0.77,
+   "width_cluster": 0.21875,
+   "width_ratio": 0.66,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 13,
+   "a_only": 14,
    "b_only": 0,
-   "discordant": 13,
-   "buildings_favour_a": 8,
+   "discordant": 14,
+   "buildings_favour_a": 9,
    "buildings_favour_b": 0,
-   "buildings_tie": 4,
+   "buildings_tie": 3,
    "per_building_diff": {
     "BLD003": [
      0.5,
@@ -6108,7 +6108,7 @@
      2
     ],
     "BLD035": [
-     0.0,
+     0.333333,
      3
     ],
     "BLD038": [
@@ -6148,33 +6148,33 @@
    "what": "final model minus Gemini 3.8 Flash, with the library, native",
    "n_tasks": 54,
    "n_buildings": 12,
-   "point": 0.333333,
+   "point": 0.351852,
    "published": [
-    0.333,
-    0.204,
-    0.463
+    0.352,
+    0.222,
+    0.481
    ],
    "task_level": [
-    0.203704,
-    0.462963
+    0.222222,
+    0.481481
    ],
    "reproduces_published": true,
    "cluster": [
-    0.25,
-    0.41791
+    0.275862,
+    0.435484
    ],
    "width_task": 0.259259,
-   "width_cluster": 0.16791,
-   "width_ratio": 0.65,
+   "width_cluster": 0.159622,
+   "width_ratio": 0.62,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 18,
+   "a_only": 19,
    "b_only": 0,
-   "discordant": 18,
-   "buildings_favour_a": 10,
+   "discordant": 19,
+   "buildings_favour_a": 11,
    "buildings_favour_b": 0,
-   "buildings_tie": 2,
+   "buildings_tie": 1,
    "per_building_diff": {
     "BLD003": [
      0.333333,
@@ -6193,7 +6193,7 @@
      1
     ],
     "BLD035": [
-     0.0,
+     0.5,
      2
     ],
     "BLD038": [
@@ -6233,30 +6233,30 @@
    "what": "final model minus Gemini 3.8 Flash, with the library, migrated",
    "n_tasks": 54,
    "n_buildings": 12,
-   "point": 0.407407,
+   "point": 0.425926,
    "published": [
-    0.407,
-    0.278,
-    0.537
+    0.426,
+    0.296,
+    0.556
    ],
    "task_level": [
-    0.277778,
-    0.537037
+    0.296296,
+    0.555556
    ],
    "reproduces_published": true,
    "cluster": [
-    0.31746,
-    0.533333
+    0.321429,
+    0.56
    ],
    "width_task": 0.259259,
-   "width_cluster": 0.215873,
-   "width_ratio": 0.83,
+   "width_cluster": 0.238571,
+   "width_ratio": 0.92,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 22,
+   "a_only": 23,
    "b_only": 0,
-   "discordant": 22,
+   "discordant": 23,
    "buildings_favour_a": 12,
    "buildings_favour_b": 0,
    "buildings_tie": 0,
@@ -6278,7 +6278,7 @@
      2
     ],
     "BLD035": [
-     0.5,
+     0.666667,
      6
     ],
     "BLD038": [
@@ -6405,23 +6405,23 @@
    "what": "completion, Imitation + preferences, earlier corpus, with the library",
    "n_tasks": 324,
    "n_buildings": 12,
-   "point": 0.929012,
+   "point": 0.925926,
    "published": [
-    0.929,
-    0.901,
-    0.957
+    0.926,
+    0.898,
+    0.954
    ],
    "task_level": [
-    0.901235,
-    0.95679
+    0.898148,
+    0.953704
    ],
    "reproduces_published": true,
    "cluster": [
-    0.883077,
-    0.968944
+    0.88,
+    0.966361
    ],
    "width_task": 0.055556,
-   "width_cluster": 0.085867,
+   "width_cluster": 0.086361,
    "width_ratio": 1.55,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": null,
@@ -6434,24 +6434,24 @@
    "what": "completion, Claude Sonnet 5.5, alone",
    "n_tasks": 324,
    "n_buildings": 12,
-   "point": 0.743827,
+   "point": 0.746914,
    "published": [
-    0.744,
-    0.694,
-    0.79
+    0.747,
+    0.698,
+    0.793
    ],
    "task_level": [
-    0.694444,
-    0.790123
+    0.697531,
+    0.79321
    ],
    "reproduces_published": true,
    "cluster": [
-    0.71028,
-    0.774295
+    0.7125,
+    0.777778
    ],
    "width_task": 0.095679,
-   "width_cluster": 0.064014,
-   "width_ratio": 0.67,
+   "width_cluster": 0.065278,
+   "width_ratio": 0.68,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": null,
    "task_excludes_zero": null
@@ -6463,24 +6463,24 @@
    "what": "completion, Claude Sonnet 5.5, with the library",
    "n_tasks": 324,
    "n_buildings": 12,
-   "point": 0.861111,
+   "point": 0.864198,
    "published": [
-    0.861,
-    0.821,
-    0.898
+    0.864,
+    0.824,
+    0.901
    ],
    "task_level": [
-    0.820988,
-    0.898148
+    0.824074,
+    0.901235
    ],
    "reproduces_published": true,
    "cluster": [
-    0.811594,
-    0.909408
+    0.81388,
+    0.912387
    ],
    "width_task": 0.07716,
-   "width_cluster": 0.097813,
-   "width_ratio": 1.27,
+   "width_cluster": 0.098507,
+   "width_ratio": 1.28,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": null,
    "task_excludes_zero": null
@@ -7480,33 +7480,33 @@
    "what": "final model minus Imitation + preferences, earlier corpus, with the library, ALL",
    "n_tasks": 324,
    "n_buildings": 12,
-   "point": 0.030864,
+   "point": 0.033951,
    "published": [
-    0.031,
-    0.006,
-    0.056
+    0.034,
+    0.009,
+    0.059
    ],
    "task_level": [
-    0.006173,
-    0.055556
+    0.009259,
+    0.058642
    ],
    "reproduces_published": true,
    "cluster": [
-    0.006536,
-    0.056213
+    0.009836,
+    0.059406
    ],
    "width_task": 0.049383,
-   "width_cluster": 0.049677,
-   "width_ratio": 1.01,
+   "width_cluster": 0.04957,
+   "width_ratio": 1.0,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 13,
+   "a_only": 14,
    "b_only": 3,
-   "discordant": 16,
-   "buildings_favour_a": 6,
+   "discordant": 17,
+   "buildings_favour_a": 7,
    "buildings_favour_b": 1,
-   "buildings_tie": 5,
+   "buildings_tie": 4,
    "per_building_diff": {
     "BLD003": [
      0.029412,
@@ -7533,7 +7533,7 @@
      37
     ],
     "BLD040": [
-     0.0,
+     0.0625,
      16
     ],
     "BLD042": [
@@ -7634,33 +7634,33 @@
    "what": "final model minus Imitation + preferences, earlier corpus, with the library, IFC4",
    "n_tasks": 108,
    "n_buildings": 12,
-   "point": 0.037037,
+   "point": 0.046296,
    "published": [
-    0.037,
+    0.046,
     0.0,
-    0.083
+    0.093
    ],
    "task_level": [
     0.0,
-    0.083333
+    0.092593
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.009615,
-    0.08
+    0.0,
+    0.091743
    ],
-   "width_task": 0.083333,
-   "width_cluster": 0.089615,
-   "width_ratio": 1.08,
+   "width_task": 0.092593,
+   "width_cluster": 0.091743,
+   "width_ratio": 0.99,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 5,
+   "a_only": 6,
    "b_only": 1,
-   "discordant": 6,
-   "buildings_favour_a": 4,
+   "discordant": 7,
+   "buildings_favour_a": 5,
    "buildings_favour_b": 1,
-   "buildings_tie": 7,
+   "buildings_tie": 6,
    "per_building_diff": {
     "BLD003": [
      0.0,
@@ -7687,7 +7687,7 @@
      12
     ],
     "BLD040": [
-     0.0,
+     0.25,
      4
     ],
     "BLD042": [
@@ -7889,33 +7889,33 @@
    "what": "final model minus Imitation + preferences, earlier corpus, with the library, migrated",
    "n_tasks": 180,
    "n_buildings": 12,
-   "point": 0.022222,
+   "point": 0.027778,
    "published": [
-    0.022,
-    -0.011,
-    0.056
+    0.028,
+    -0.006,
+    0.067
    ],
    "task_level": [
-    -0.011111,
-    0.055556
+    -0.005556,
+    0.066667
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.011976,
-    0.056872
+    -0.006061,
+    0.063218
    ],
-   "width_task": 0.066667,
-   "width_cluster": 0.068848,
-   "width_ratio": 1.03,
+   "width_task": 0.072222,
+   "width_cluster": 0.069279,
+   "width_ratio": 0.96,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 7,
+   "a_only": 8,
    "b_only": 3,
-   "discordant": 10,
-   "buildings_favour_a": 4,
+   "discordant": 11,
+   "buildings_favour_a": 5,
    "buildings_favour_b": 2,
-   "buildings_tie": 6,
+   "buildings_tie": 5,
    "per_building_diff": {
     "BLD003": [
      0.055556,
@@ -7942,7 +7942,7 @@
      21
     ],
     "BLD040": [
-     0.0,
+     0.125,
      8
     ],
     "BLD042": [
@@ -7974,30 +7974,30 @@
    "what": "final model minus Claude Sonnet 5.5, alone, ALL",
    "n_tasks": 324,
    "n_buildings": 12,
-   "point": 0.216049,
+   "point": 0.212963,
    "published": [
-    0.216,
+    0.213,
     0.164,
-    0.265
+    0.262
    ],
    "task_level": [
     0.16358,
-    0.265432
+    0.262346
    ],
    "reproduces_published": true,
    "cluster": [
-    0.153623,
-    0.270968
+    0.151261,
+    0.268371
    ],
-   "width_task": 0.101852,
-   "width_cluster": 0.117345,
-   "width_ratio": 1.15,
+   "width_task": 0.098765,
+   "width_cluster": 0.11711,
+   "width_ratio": 1.19,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 78,
+   "a_only": 77,
    "b_only": 8,
-   "discordant": 86,
+   "discordant": 85,
    "buildings_favour_a": 11,
    "buildings_favour_b": 1,
    "buildings_tie": 0,
@@ -8043,7 +8043,7 @@
      37
     ],
     "GNI-project_7": [
-     0.25,
+     0.21875,
      32
     ],
     "GNI-project_8": [
@@ -8128,30 +8128,30 @@
    "what": "final model minus Claude Sonnet 5.5, alone, IFC4",
    "n_tasks": 108,
    "n_buildings": 12,
-   "point": 0.222222,
+   "point": 0.212963,
    "published": [
-    0.222,
-    0.139,
-    0.306
+    0.213,
+    0.13,
+    0.296
    ],
    "task_level": [
-    0.138889,
-    0.305556
+    0.12963,
+    0.296296
    ],
    "reproduces_published": true,
    "cluster": [
-    0.132075,
-    0.330189
+    0.123077,
+    0.322917
    ],
    "width_task": 0.166667,
-   "width_cluster": 0.198113,
-   "width_ratio": 1.19,
+   "width_cluster": 0.19984,
+   "width_ratio": 1.2,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 26,
+   "a_only": 25,
    "b_only": 2,
-   "discordant": 28,
+   "discordant": 27,
    "buildings_favour_a": 11,
    "buildings_favour_b": 0,
    "buildings_tie": 1,
@@ -8197,7 +8197,7 @@
      12
     ],
     "GNI-project_7": [
-     0.222222,
+     0.111111,
      9
     ],
     "GNI-project_8": [
@@ -8383,30 +8383,30 @@
    "what": "final model minus Claude Sonnet 5.5, alone, migrated",
    "n_tasks": 180,
    "n_buildings": 12,
-   "point": 0.183333,
+   "point": 0.177778,
    "published": [
-    0.183,
-    0.117,
-    0.25
+    0.178,
+    0.111,
+    0.244
    ],
    "task_level": [
-    0.116667,
-    0.25
+    0.111111,
+    0.244444
    ],
    "reproduces_published": true,
    "cluster": [
-    0.09816,
-    0.265896
+    0.092784,
+    0.261062
    ],
    "width_task": 0.133333,
-   "width_cluster": 0.167736,
+   "width_cluster": 0.168278,
    "width_ratio": 1.26,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 39,
+   "a_only": 38,
    "b_only": 6,
-   "discordant": 45,
+   "discordant": 44,
    "buildings_favour_a": 11,
    "buildings_favour_b": 1,
    "buildings_tie": 0,
@@ -8452,7 +8452,7 @@
      22
     ],
     "GNI-project_7": [
-     0.222222,
+     0.166667,
      18
     ],
     "GNI-project_8": [
@@ -8468,30 +8468,30 @@
    "what": "final model minus Claude Sonnet 5.5, with the library, ALL",
    "n_tasks": 324,
    "n_buildings": 12,
-   "point": 0.098765,
+   "point": 0.095679,
    "published": [
-    0.099,
-    0.056,
-    0.145
+    0.096,
+    0.052,
+    0.142
    ],
    "task_level": [
-    0.055556,
-    0.145062
+    0.052469,
+    0.141975
    ],
    "reproduces_published": true,
    "cluster": [
-    0.012158,
-    0.171271
+    0.009375,
+    0.168901
    ],
    "width_task": 0.089506,
-   "width_cluster": 0.159113,
+   "width_cluster": 0.159526,
    "width_ratio": 1.78,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 44,
+   "a_only": 43,
    "b_only": 12,
-   "discordant": 56,
+   "discordant": 55,
    "buildings_favour_a": 11,
    "buildings_favour_b": 1,
    "buildings_tie": 0,
@@ -8537,7 +8537,7 @@
      37
     ],
     "GNI-project_7": [
-     0.125,
+     0.09375,
      32
     ],
     "GNI-project_8": [
@@ -8622,33 +8622,33 @@
    "what": "final model minus Claude Sonnet 5.5, with the library, IFC4",
    "n_tasks": 108,
    "n_buildings": 12,
-   "point": 0.12963,
+   "point": 0.12037,
    "published": [
-    0.13,
+    0.12,
     0.046,
-    0.213
+    0.204
    ],
    "task_level": [
     0.046296,
-    0.212963
+    0.203704
    ],
    "reproduces_published": true,
    "cluster": [
-    0.030303,
-    0.234694
+    0.019802,
+    0.227723
    ],
-   "width_task": 0.166667,
-   "width_cluster": 0.204391,
-   "width_ratio": 1.23,
+   "width_task": 0.157407,
+   "width_cluster": 0.207921,
+   "width_ratio": 1.32,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 18,
+   "a_only": 17,
    "b_only": 4,
-   "discordant": 22,
-   "buildings_favour_a": 8,
+   "discordant": 21,
+   "buildings_favour_a": 7,
    "buildings_favour_b": 1,
-   "buildings_tie": 3,
+   "buildings_tie": 4,
    "per_building_diff": {
     "BLD003": [
      0.0,
@@ -8691,7 +8691,7 @@
      12
     ],
     "GNI-project_7": [
-     0.111111,
+     0.0,
      9
     ],
     "GNI-project_8": [
@@ -8877,30 +8877,30 @@
    "what": "final model minus Claude Sonnet 5.5, with the library, migrated",
    "n_tasks": 180,
    "n_buildings": 12,
-   "point": 0.072222,
+   "point": 0.066667,
    "published": [
-    0.072,
-    0.017,
-    0.133
+    0.067,
+    0.011,
+    0.122
    ],
    "task_level": [
-    0.016667,
-    0.133333
+    0.011111,
+    0.122222
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.024096,
-    0.149171
+    -0.028249,
+    0.141844
    ],
-   "width_task": 0.116667,
-   "width_cluster": 0.173268,
-   "width_ratio": 1.49,
-   "cluster_wider_than_1_5x": false,
+   "width_task": 0.111111,
+   "width_cluster": 0.170093,
+   "width_ratio": 1.53,
+   "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": false,
    "task_excludes_zero": true,
-   "a_only": 21,
+   "a_only": 20,
    "b_only": 8,
-   "discordant": 29,
+   "discordant": 28,
    "buildings_favour_a": 7,
    "buildings_favour_b": 1,
    "buildings_tie": 4,
@@ -8946,7 +8946,7 @@
      22
     ],
     "GNI-project_7": [
-     0.166667,
+     0.111111,
      18
     ],
     "GNI-project_8": [
@@ -8962,24 +8962,24 @@
    "what": "completion, Imitation",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.952381,
+   "point": 0.951905,
    "published": [
     0.952,
-    0.943,
-    0.961
+    0.942,
+    0.96
    ],
    "task_level": [
-    0.942857,
-    0.960952
+    0.942381,
+    0.960476
    ],
    "reproduces_published": true,
    "cluster": [
-    0.90487,
-    0.980728
+    0.904686,
+    0.980382
    ],
    "width_task": 0.018095,
-   "width_cluster": 0.075858,
-   "width_ratio": 4.19,
+   "width_cluster": 0.075696,
+   "width_ratio": 4.18,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": null,
    "task_excludes_zero": null
@@ -8991,24 +8991,24 @@
    "what": "completion, Preference snapshot",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.957143,
+   "point": 0.95619,
    "published": [
-    0.957,
-    0.948,
-    0.966
+    0.956,
+    0.947,
+    0.965
    ],
    "task_level": [
-    0.948095,
-    0.965714
+    0.947143,
+    0.964762
    ],
    "reproduces_published": true,
    "cluster": [
-    0.91715,
-    0.982788
+    0.915099,
+    0.982521
    ],
    "width_task": 0.017619,
-   "width_cluster": 0.065638,
-   "width_ratio": 3.73,
+   "width_cluster": 0.067421,
+   "width_ratio": 3.83,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": null,
    "task_excludes_zero": null
@@ -9020,24 +9020,24 @@
    "what": "completion, Final model",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.96,
+   "point": 0.957143,
    "published": [
-    0.96,
-    0.951,
-    0.968
+    0.957,
+    0.948,
+    0.965
    ],
    "task_level": [
-    0.951429,
-    0.968095
+    0.948095,
+    0.965238
    ],
    "reproduces_published": true,
    "cluster": [
-    0.923407,
-    0.983753
+    0.917737,
+    0.982477
    ],
-   "width_task": 0.016667,
-   "width_cluster": 0.060346,
-   "width_ratio": 3.62,
+   "width_task": 0.017143,
+   "width_cluster": 0.06474,
+   "width_ratio": 3.78,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": null,
    "task_excludes_zero": null
@@ -9049,24 +9049,24 @@
    "what": "completion, Imitation + preferences, earlier corpus",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.915714,
+   "point": 0.914762,
    "published": [
-    0.916,
-    0.904,
+    0.915,
+    0.903,
     0.927
    ],
    "task_level": [
-    0.90381,
-    0.927143
+    0.902857,
+    0.926667
    ],
    "reproduces_published": true,
    "cluster": [
-    0.87726,
-    0.950141
+    0.873529,
+    0.950361
    ],
-   "width_task": 0.023333,
-   "width_cluster": 0.072881,
-   "width_ratio": 3.12,
+   "width_task": 0.02381,
+   "width_cluster": 0.076832,
+   "width_ratio": 3.23,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": null,
    "task_excludes_zero": null
@@ -9078,24 +9078,24 @@
    "what": "completion, Final model",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.96,
+   "point": 0.957143,
    "published": [
-    0.96,
-    0.951,
-    0.968
+    0.957,
+    0.948,
+    0.965
    ],
    "task_level": [
-    0.951429,
-    0.968095
+    0.948095,
+    0.965238
    ],
    "reproduces_published": true,
    "cluster": [
-    0.923407,
-    0.983753
+    0.917737,
+    0.982477
    ],
-   "width_task": 0.016667,
-   "width_cluster": 0.060346,
-   "width_ratio": 3.62,
+   "width_task": 0.017143,
+   "width_cluster": 0.06474,
+   "width_ratio": 3.78,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": null,
    "task_excludes_zero": null
@@ -9107,30 +9107,30 @@
    "what": "Ours minus Sft, ALL",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.007619,
+   "point": 0.005238,
    "published": [
-    0.008,
-    0.003,
-    0.012
+    0.005,
+    0.001,
+    0.01
    ],
    "task_level": [
-    0.003333,
-    0.011905
+    0.000952,
+    0.009524
    ],
    "reproduces_published": true,
    "cluster": [
-    0.0,
-    0.020197
+    -0.000386,
+    0.014356
    ],
    "width_task": 0.008571,
-   "width_cluster": 0.020197,
-   "width_ratio": 2.36,
+   "width_cluster": 0.014742,
+   "width_ratio": 1.72,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": false,
    "task_excludes_zero": true,
-   "a_only": 19,
-   "b_only": 3,
-   "discordant": 22,
+   "a_only": 16,
+   "b_only": 5,
+   "discordant": 21,
    "buildings_favour_a": 6,
    "buildings_favour_b": 1,
    "buildings_tie": 5,
@@ -9152,7 +9152,7 @@
      61
     ],
     "BLD035": [
-     0.075188,
+     0.052632,
      133
     ],
     "BLD038": [
@@ -9176,7 +9176,7 @@
      218
     ],
     "GNI-project_7": [
-     0.013841,
+     0.00692,
      289
     ],
     "GNI-project_8": [
@@ -9192,33 +9192,33 @@
    "what": "Ours minus Sft, IFC2X3",
    "n_tasks": 700,
    "n_buildings": 8,
-   "point": 0.0,
+   "point": -0.002857,
    "published": [
-    0.0,
-    -0.004,
-    0.004
+    -0.003,
+    -0.009,
+    0.003
    ],
    "task_level": [
-    -0.004286,
-    0.004286
+    -0.008571,
+    0.002857
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.003432,
-    0.005076
+    -0.008593,
+    0.003731
    ],
-   "width_task": 0.008571,
-   "width_cluster": 0.008509,
-   "width_ratio": 0.99,
+   "width_task": 0.011429,
+   "width_cluster": 0.012324,
+   "width_ratio": 1.08,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "a_only": 1,
-   "b_only": 1,
-   "discordant": 2,
+   "b_only": 3,
+   "discordant": 4,
    "buildings_favour_a": 1,
-   "buildings_favour_b": 1,
-   "buildings_tie": 6,
+   "buildings_favour_b": 2,
+   "buildings_tie": 5,
    "per_building_diff": {
     "BLD003": [
      -0.006803,
@@ -9249,7 +9249,7 @@
      89
     ],
     "GNI-project_7": [
-     0.0,
+     -0.017544,
      114
     ]
    }
@@ -9261,30 +9261,30 @@
    "what": "Ours minus Sft, IFC4",
    "n_tasks": 700,
    "n_buildings": 12,
-   "point": 0.007143,
+   "point": 0.005714,
    "published": [
-    0.007,
+    0.006,
     0.0,
-    0.014
+    0.013
    ],
    "task_level": [
     0.0,
-    0.014286
+    0.012857
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.001366,
-    0.018657
+    -0.001418,
+    0.014019
    ],
-   "width_task": 0.014286,
-   "width_cluster": 0.020023,
-   "width_ratio": 1.4,
+   "width_task": 0.012857,
+   "width_cluster": 0.015437,
+   "width_ratio": 1.2,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 6,
+   "a_only": 5,
    "b_only": 1,
-   "discordant": 7,
+   "discordant": 6,
    "buildings_favour_a": 4,
    "buildings_favour_b": 1,
    "buildings_tie": 7,
@@ -9306,7 +9306,7 @@
      24
     ],
     "BLD035": [
-     0.085714,
+     0.057143,
      35
     ],
     "BLD038": [
@@ -9346,30 +9346,30 @@
    "what": "Ours minus Sft, IFC4X3",
    "n_tasks": 700,
    "n_buildings": 12,
-   "point": 0.015714,
+   "point": 0.012857,
    "published": [
-    0.016,
-    0.006,
-    0.026
+    0.013,
+    0.004,
+    0.023
    ],
    "task_level": [
-    0.005714,
-    0.025714
+    0.004286,
+    0.022857
    ],
    "reproduces_published": true,
    "cluster": [
     0.0,
-    0.038314
+    0.029503
    ],
-   "width_task": 0.02,
-   "width_cluster": 0.038314,
-   "width_ratio": 1.92,
+   "width_task": 0.018571,
+   "width_cluster": 0.029503,
+   "width_ratio": 1.59,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": false,
    "task_excludes_zero": true,
-   "a_only": 12,
+   "a_only": 10,
    "b_only": 1,
-   "discordant": 13,
+   "discordant": 11,
    "buildings_favour_a": 4,
    "buildings_favour_b": 1,
    "buildings_tie": 7,
@@ -9391,7 +9391,7 @@
      37
     ],
     "BLD035": [
-     0.136364,
+     0.090909,
      44
     ],
     "BLD038": [
@@ -9431,33 +9431,33 @@
    "what": "Ours minus Sft, native",
    "n_tasks": 917,
    "n_buildings": 12,
-   "point": 0.002181,
+   "point": 0.0,
    "published": [
-    0.002,
-    -0.002,
-    0.007
+    0.0,
+    -0.005,
+    0.005
    ],
    "task_level": [
-    -0.002181,
-    0.006543
+    -0.005453,
+    0.005453
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.001706,
-    0.007417
+    -0.005515,
+    0.006667
    ],
-   "width_task": 0.008724,
-   "width_cluster": 0.009123,
-   "width_ratio": 1.05,
+   "width_task": 0.010905,
+   "width_cluster": 0.012181,
+   "width_ratio": 1.12,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "a_only": 3,
-   "b_only": 1,
-   "discordant": 4,
+   "b_only": 3,
+   "discordant": 6,
    "buildings_favour_a": 3,
-   "buildings_favour_b": 1,
-   "buildings_tie": 8,
+   "buildings_favour_b": 2,
+   "buildings_tie": 7,
    "per_building_diff": {
     "BLD003": [
      -0.006803,
@@ -9500,7 +9500,7 @@
      89
     ],
     "GNI-project_7": [
-     0.0,
+     -0.017544,
      114
     ],
     "GNI-project_8": [
@@ -9516,30 +9516,30 @@
    "what": "Ours minus Sft, migrated",
    "n_tasks": 1183,
    "n_buildings": 12,
-   "point": 0.011834,
+   "point": 0.009298,
    "published": [
-    0.012,
-    0.005,
-    0.019
+    0.009,
+    0.003,
+    0.016
    ],
    "task_level": [
-    0.005072,
-    0.019442
+    0.003381,
+    0.016061
    ],
    "reproduces_published": true,
    "cluster": [
     0.0,
-    0.03125
+    0.022548
    ],
-   "width_task": 0.01437,
-   "width_cluster": 0.03125,
-   "width_ratio": 2.17,
+   "width_task": 0.01268,
+   "width_cluster": 0.022548,
+   "width_ratio": 1.78,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": false,
    "task_excludes_zero": true,
-   "a_only": 16,
+   "a_only": 13,
    "b_only": 2,
-   "discordant": 18,
+   "discordant": 15,
    "buildings_favour_a": 4,
    "buildings_favour_b": 1,
    "buildings_tie": 7,
@@ -9561,7 +9561,7 @@
      37
     ],
     "BLD035": [
-     0.113924,
+     0.075949,
      79
     ],
     "BLD038": [
@@ -9601,29 +9601,29 @@
    "what": "Ours minus Dpo, ALL",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.002857,
+   "point": 0.000952,
    "published": [
-    0.003,
-    -0.002,
-    0.008
+    0.001,
+    -0.004,
+    0.006
    ],
    "task_level": [
-    -0.001905,
-    0.007619
+    -0.00381,
+    0.005714
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.001961,
-    0.008547
+    -0.002112,
+    0.004192
    ],
    "width_task": 0.009524,
-   "width_cluster": 0.010508,
-   "width_ratio": 1.1,
+   "width_cluster": 0.006304,
+   "width_ratio": 0.66,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 16,
-   "b_only": 10,
+   "a_only": 14,
+   "b_only": 12,
    "discordant": 26,
    "buildings_favour_a": 3,
    "buildings_favour_b": 3,
@@ -9646,7 +9646,7 @@
      61
     ],
     "BLD035": [
-     0.030075,
+     0.015038,
      133
     ],
     "BLD038": [
@@ -9670,7 +9670,7 @@
      218
     ],
     "GNI-project_7": [
-     0.013841,
+     0.00692,
      289
     ],
     "GNI-project_8": [
@@ -9686,33 +9686,33 @@
    "what": "Ours minus Dpo, IFC2X3",
    "n_tasks": 700,
    "n_buildings": 8,
-   "point": -0.004286,
+   "point": -0.007143,
    "published": [
-    -0.004,
-    -0.011,
-    0.003
+    -0.007,
+    -0.016,
+    0.001
    ],
    "task_level": [
-    -0.011429,
-    0.002857
+    -0.015714,
+    0.001429
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.015905,
-    0.003091
+    -0.018803,
+    0.001642
    ],
-   "width_task": 0.014286,
-   "width_cluster": 0.018996,
-   "width_ratio": 1.33,
+   "width_task": 0.017143,
+   "width_cluster": 0.020445,
+   "width_ratio": 1.19,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "a_only": 2,
-   "b_only": 5,
-   "discordant": 7,
+   "b_only": 7,
+   "discordant": 9,
    "buildings_favour_a": 1,
-   "buildings_favour_b": 2,
-   "buildings_tie": 5,
+   "buildings_favour_b": 3,
+   "buildings_tie": 4,
    "per_building_diff": {
     "BLD003": [
      -0.006803,
@@ -9743,7 +9743,7 @@
      89
     ],
     "GNI-project_7": [
-     0.0,
+     -0.017544,
      114
     ]
    }
@@ -9755,33 +9755,33 @@
    "what": "Ours minus Dpo, IFC4",
    "n_tasks": 700,
    "n_buildings": 12,
-   "point": 0.0,
+   "point": -0.001429,
    "published": [
-    0.0,
+    -0.001,
     -0.007,
-    0.007
+    0.004
    ],
    "task_level": [
     -0.007143,
-    0.007143
+    0.004286
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.006339,
-    0.005457
+    -0.007366,
+    0.002833
    ],
-   "width_task": 0.014286,
-   "width_cluster": 0.011796,
-   "width_ratio": 0.83,
+   "width_task": 0.011429,
+   "width_cluster": 0.010199,
+   "width_ratio": 0.89,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 3,
+   "a_only": 2,
    "b_only": 3,
-   "discordant": 6,
-   "buildings_favour_a": 2,
+   "discordant": 5,
+   "buildings_favour_a": 1,
    "buildings_favour_b": 2,
-   "buildings_tie": 8,
+   "buildings_tie": 9,
    "per_building_diff": {
     "BLD003": [
      0.0,
@@ -9800,7 +9800,7 @@
      24
     ],
     "BLD035": [
-     0.028571,
+     0.0,
      35
     ],
     "BLD038": [
@@ -9840,30 +9840,30 @@
    "what": "Ours minus Dpo, IFC4X3",
    "n_tasks": 700,
    "n_buildings": 12,
-   "point": 0.012857,
+   "point": 0.011429,
    "published": [
-    0.013,
+    0.011,
     0.003,
-    0.023
+    0.021
    ],
    "task_level": [
     0.002857,
-    0.022857
+    0.021429
    ],
    "reproduces_published": true,
    "cluster": [
     -0.001511,
-    0.034532
+    0.02981
    ],
-   "width_task": 0.02,
-   "width_cluster": 0.036043,
-   "width_ratio": 1.8,
+   "width_task": 0.018571,
+   "width_cluster": 0.031321,
+   "width_ratio": 1.69,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": false,
    "task_excludes_zero": true,
-   "a_only": 11,
+   "a_only": 10,
    "b_only": 2,
-   "discordant": 13,
+   "discordant": 12,
    "buildings_favour_a": 3,
    "buildings_favour_b": 1,
    "buildings_tie": 8,
@@ -9885,7 +9885,7 @@
      37
     ],
     "BLD035": [
-     0.136364,
+     0.113636,
      44
     ],
     "BLD038": [
@@ -9925,33 +9925,33 @@
    "what": "Ours minus Dpo, native",
    "n_tasks": 917,
    "n_buildings": 12,
-   "point": -0.003272,
+   "point": -0.005453,
    "published": [
-    -0.003,
-    -0.009,
-    0.002
+    -0.005,
+    -0.012,
+    0.0
    ],
    "task_level": [
-    -0.008724,
-    0.002181
+    -0.011996,
+    0.0
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.011765,
-    0.002372
+    -0.014121,
+    0.00128
    ],
-   "width_task": 0.010905,
-   "width_cluster": 0.014137,
-   "width_ratio": 1.3,
+   "width_task": 0.011996,
+   "width_cluster": 0.015401,
+   "width_ratio": 1.28,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "a_only": 2,
-   "b_only": 5,
-   "discordant": 7,
+   "b_only": 7,
+   "discordant": 9,
    "buildings_favour_a": 1,
-   "buildings_favour_b": 2,
-   "buildings_tie": 9,
+   "buildings_favour_b": 3,
+   "buildings_tie": 8,
    "per_building_diff": {
     "BLD003": [
      -0.006803,
@@ -9994,7 +9994,7 @@
      89
     ],
     "GNI-project_7": [
-     0.0,
+     -0.017544,
      114
     ],
     "GNI-project_8": [
@@ -10010,30 +10010,30 @@
    "what": "Ours minus Dpo, migrated",
    "n_tasks": 1183,
    "n_buildings": 12,
-   "point": 0.007608,
+   "point": 0.005917,
    "published": [
-    0.008,
-    0.001,
-    0.015
+    0.006,
+    -0.001,
+    0.013
    ],
    "task_level": [
-    0.000845,
-    0.015216
+    -0.000845,
+    0.01268
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.003191,
-    0.022704
+    -0.003198,
+    0.017224
    ],
-   "width_task": 0.01437,
-   "width_cluster": 0.025895,
-   "width_ratio": 1.8,
+   "width_task": 0.013525,
+   "width_cluster": 0.020422,
+   "width_ratio": 1.51,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": false,
-   "task_excludes_zero": true,
-   "a_only": 14,
+   "task_excludes_zero": false,
+   "a_only": 12,
    "b_only": 5,
-   "discordant": 19,
+   "discordant": 17,
    "buildings_favour_a": 2,
    "buildings_favour_b": 2,
    "buildings_tie": 8,
@@ -10055,7 +10055,7 @@
      37
     ],
     "BLD035": [
-     0.088608,
+     0.063291,
      79
     ],
     "BLD038": [
@@ -10095,30 +10095,30 @@
    "what": "Dpo minus Sft, ALL",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.004762,
+   "point": 0.004286,
    "published": [
-    0.005,
+    0.004,
     0.001,
-    0.009
+    0.008
    ],
    "task_level": [
     0.000952,
-    0.008571
+    0.008095
    ],
    "reproduces_published": true,
    "cluster": [
-    0.000359,
-    0.012899
+    0.000358,
+    0.011302
    ],
-   "width_task": 0.007619,
-   "width_cluster": 0.01254,
-   "width_ratio": 1.65,
+   "width_task": 0.007143,
+   "width_cluster": 0.010944,
+   "width_ratio": 1.53,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 13,
+   "a_only": 12,
    "b_only": 3,
-   "discordant": 16,
+   "discordant": 15,
    "buildings_favour_a": 5,
    "buildings_favour_b": 1,
    "buildings_tie": 6,
@@ -10140,7 +10140,7 @@
      61
     ],
     "BLD035": [
-     0.045113,
+     0.037594,
      133
     ],
     "BLD038": [
@@ -10334,33 +10334,33 @@
    "what": "Dpo minus Sft, IFC4X3",
    "n_tasks": 700,
    "n_buildings": 12,
-   "point": 0.002857,
+   "point": 0.001429,
    "published": [
-    0.003,
+    0.001,
     -0.004,
-    0.01
+    0.007
    ],
    "task_level": [
     -0.004286,
-    0.01
+    0.007143
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.002378,
-    0.00916
+    -0.004505,
+    0.008278
    ],
-   "width_task": 0.014286,
-   "width_cluster": 0.011538,
-   "width_ratio": 0.81,
+   "width_task": 0.011429,
+   "width_cluster": 0.012783,
+   "width_ratio": 1.12,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 4,
+   "a_only": 3,
    "b_only": 2,
-   "discordant": 6,
+   "discordant": 5,
    "buildings_favour_a": 3,
-   "buildings_favour_b": 1,
-   "buildings_tie": 8,
+   "buildings_favour_b": 2,
+   "buildings_tie": 7,
    "per_building_diff": {
     "BLD003": [
      -0.009009,
@@ -10379,7 +10379,7 @@
      37
     ],
     "BLD035": [
-     0.0,
+     -0.022727,
      44
     ],
     "BLD038": [
@@ -10504,30 +10504,30 @@
    "what": "Dpo minus Sft, migrated",
    "n_tasks": 1183,
    "n_buildings": 12,
-   "point": 0.004227,
+   "point": 0.003381,
    "published": [
-    0.004,
+    0.003,
     -0.001,
-    0.009
+    0.008
    ],
    "task_level": [
     -0.000845,
-    0.009298
+    0.008453
    ],
    "reproduces_published": true,
    "cluster": [
     0.0,
-    0.010395
+    0.008299
    ],
-   "width_task": 0.010144,
-   "width_cluster": 0.010395,
-   "width_ratio": 1.02,
+   "width_task": 0.009298,
+   "width_cluster": 0.008299,
+   "width_ratio": 0.89,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 7,
+   "a_only": 6,
    "b_only": 2,
-   "discordant": 9,
+   "discordant": 8,
    "buildings_favour_a": 5,
    "buildings_favour_b": 1,
    "buildings_tie": 6,
@@ -10549,7 +10549,7 @@
      37
     ],
     "BLD035": [
-     0.025316,
+     0.012658,
      79
     ],
     "BLD038": [
@@ -10589,29 +10589,29 @@
    "what": "Grpo minus Dpo, ALL",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.002857,
+   "point": 0.000952,
    "published": [
-    0.003,
-    -0.002,
-    0.008
+    0.001,
+    -0.004,
+    0.006
    ],
    "task_level": [
-    -0.001905,
-    0.007619
+    -0.00381,
+    0.005714
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.001961,
-    0.008547
+    -0.002112,
+    0.004192
    ],
    "width_task": 0.009524,
-   "width_cluster": 0.010508,
-   "width_ratio": 1.1,
+   "width_cluster": 0.006304,
+   "width_ratio": 0.66,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 16,
-   "b_only": 10,
+   "a_only": 14,
+   "b_only": 12,
    "discordant": 26,
    "buildings_favour_a": 3,
    "buildings_favour_b": 3,
@@ -10634,7 +10634,7 @@
      61
     ],
     "BLD035": [
-     0.030075,
+     0.015038,
      133
     ],
     "BLD038": [
@@ -10658,7 +10658,7 @@
      218
     ],
     "GNI-project_7": [
-     0.013841,
+     0.00692,
      289
     ],
     "GNI-project_8": [
@@ -10674,33 +10674,33 @@
    "what": "Grpo minus Dpo, IFC2X3",
    "n_tasks": 700,
    "n_buildings": 8,
-   "point": -0.004286,
+   "point": -0.007143,
    "published": [
-    -0.004,
-    -0.011,
-    0.003
+    -0.007,
+    -0.016,
+    0.001
    ],
    "task_level": [
-    -0.011429,
-    0.002857
+    -0.015714,
+    0.001429
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.015905,
-    0.003091
+    -0.018803,
+    0.001642
    ],
-   "width_task": 0.014286,
-   "width_cluster": 0.018996,
-   "width_ratio": 1.33,
+   "width_task": 0.017143,
+   "width_cluster": 0.020445,
+   "width_ratio": 1.19,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "a_only": 2,
-   "b_only": 5,
-   "discordant": 7,
+   "b_only": 7,
+   "discordant": 9,
    "buildings_favour_a": 1,
-   "buildings_favour_b": 2,
-   "buildings_tie": 5,
+   "buildings_favour_b": 3,
+   "buildings_tie": 4,
    "per_building_diff": {
     "BLD003": [
      -0.006803,
@@ -10731,7 +10731,7 @@
      89
     ],
     "GNI-project_7": [
-     0.0,
+     -0.017544,
      114
     ]
    }
@@ -10743,33 +10743,33 @@
    "what": "Grpo minus Dpo, IFC4",
    "n_tasks": 700,
    "n_buildings": 12,
-   "point": 0.0,
+   "point": -0.001429,
    "published": [
-    0.0,
+    -0.001,
     -0.007,
-    0.007
+    0.004
    ],
    "task_level": [
     -0.007143,
-    0.007143
+    0.004286
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.006339,
-    0.005457
+    -0.007366,
+    0.002833
    ],
-   "width_task": 0.014286,
-   "width_cluster": 0.011796,
-   "width_ratio": 0.83,
+   "width_task": 0.011429,
+   "width_cluster": 0.010199,
+   "width_ratio": 0.89,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
-   "a_only": 3,
+   "a_only": 2,
    "b_only": 3,
-   "discordant": 6,
-   "buildings_favour_a": 2,
+   "discordant": 5,
+   "buildings_favour_a": 1,
    "buildings_favour_b": 2,
-   "buildings_tie": 8,
+   "buildings_tie": 9,
    "per_building_diff": {
     "BLD003": [
      0.0,
@@ -10788,7 +10788,7 @@
      24
     ],
     "BLD035": [
-     0.028571,
+     0.0,
      35
     ],
     "BLD038": [
@@ -10828,30 +10828,30 @@
    "what": "Grpo minus Dpo, IFC4X3",
    "n_tasks": 700,
    "n_buildings": 12,
-   "point": 0.012857,
+   "point": 0.011429,
    "published": [
-    0.013,
+    0.011,
     0.003,
-    0.023
+    0.021
    ],
    "task_level": [
     0.002857,
-    0.022857
+    0.021429
    ],
    "reproduces_published": true,
    "cluster": [
     -0.001511,
-    0.034532
+    0.02981
    ],
-   "width_task": 0.02,
-   "width_cluster": 0.036043,
-   "width_ratio": 1.8,
+   "width_task": 0.018571,
+   "width_cluster": 0.031321,
+   "width_ratio": 1.69,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": false,
    "task_excludes_zero": true,
-   "a_only": 11,
+   "a_only": 10,
    "b_only": 2,
-   "discordant": 13,
+   "discordant": 12,
    "buildings_favour_a": 3,
    "buildings_favour_b": 1,
    "buildings_tie": 8,
@@ -10873,7 +10873,7 @@
      37
     ],
     "BLD035": [
-     0.136364,
+     0.113636,
      44
     ],
     "BLD038": [
@@ -10913,33 +10913,33 @@
    "what": "Grpo minus Dpo, native",
    "n_tasks": 917,
    "n_buildings": 12,
-   "point": -0.003272,
+   "point": -0.005453,
    "published": [
-    -0.003,
-    -0.009,
-    0.002
+    -0.005,
+    -0.012,
+    0.0
    ],
    "task_level": [
-    -0.008724,
-    0.002181
+    -0.011996,
+    0.0
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.011765,
-    0.002372
+    -0.014121,
+    0.00128
    ],
-   "width_task": 0.010905,
-   "width_cluster": 0.014137,
-   "width_ratio": 1.3,
+   "width_task": 0.011996,
+   "width_cluster": 0.015401,
+   "width_ratio": 1.28,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "a_only": 2,
-   "b_only": 5,
-   "discordant": 7,
+   "b_only": 7,
+   "discordant": 9,
    "buildings_favour_a": 1,
-   "buildings_favour_b": 2,
-   "buildings_tie": 9,
+   "buildings_favour_b": 3,
+   "buildings_tie": 8,
    "per_building_diff": {
     "BLD003": [
      -0.006803,
@@ -10982,7 +10982,7 @@
      89
     ],
     "GNI-project_7": [
-     0.0,
+     -0.017544,
      114
     ],
     "GNI-project_8": [
@@ -10998,30 +10998,30 @@
    "what": "Grpo minus Dpo, migrated",
    "n_tasks": 1183,
    "n_buildings": 12,
-   "point": 0.007608,
+   "point": 0.005917,
    "published": [
-    0.008,
-    0.001,
-    0.015
+    0.006,
+    -0.001,
+    0.013
    ],
    "task_level": [
-    0.000845,
-    0.015216
+    -0.000845,
+    0.01268
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.003191,
-    0.022704
+    -0.003198,
+    0.017224
    ],
-   "width_task": 0.01437,
-   "width_cluster": 0.025895,
-   "width_ratio": 1.8,
+   "width_task": 0.013525,
+   "width_cluster": 0.020422,
+   "width_ratio": 1.51,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": false,
-   "task_excludes_zero": true,
-   "a_only": 14,
+   "task_excludes_zero": false,
+   "a_only": 12,
    "b_only": 5,
-   "discordant": 19,
+   "discordant": 17,
    "buildings_favour_a": 2,
    "buildings_favour_b": 2,
    "buildings_tie": 8,
@@ -11043,7 +11043,7 @@
      37
     ],
     "BLD035": [
-     0.088608,
+     0.063291,
      79
     ],
     "BLD038": [
@@ -11095,18 +11095,18 @@
    ],
    "reproduces_published": true,
    "cluster": [
-    0.025013,
-    0.055577
+    0.025797,
+    0.055161
    ],
    "width_task": 0.020476,
-   "width_cluster": 0.030564,
-   "width_ratio": 1.49,
+   "width_cluster": 0.029364,
+   "width_ratio": 1.43,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 104,
-   "b_only": 17,
-   "discordant": 121,
+   "a_only": 102,
+   "b_only": 15,
+   "discordant": 117,
    "buildings_favour_a": 12,
    "buildings_favour_b": 0,
    "buildings_tie": 0,
@@ -11128,7 +11128,7 @@
      61
     ],
     "BLD035": [
-     0.015038,
+     0.030075,
      133
     ],
     "BLD038": [
@@ -11136,7 +11136,7 @@
      112
     ],
     "BLD040": [
-     0.033058,
+     0.024793,
      121
     ],
     "BLD042": [
@@ -11152,7 +11152,7 @@
      218
     ],
     "GNI-project_7": [
-     0.065744,
+     0.062284,
      289
     ],
     "GNI-project_8": [
@@ -11180,21 +11180,21 @@
    ],
    "reproduces_published": true,
    "cluster": [
-    0.014925,
-    0.044025
+    0.01374,
+    0.045031
    ],
    "width_task": 0.031429,
-   "width_cluster": 0.0291,
-   "width_ratio": 0.93,
+   "width_cluster": 0.031291,
+   "width_ratio": 1.0,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 27,
-   "b_only": 6,
-   "discordant": 33,
-   "buildings_favour_a": 7,
+   "a_only": 26,
+   "b_only": 5,
+   "discordant": 31,
+   "buildings_favour_a": 6,
    "buildings_favour_b": 0,
-   "buildings_tie": 1,
+   "buildings_tie": 2,
    "per_building_diff": {
     "BLD003": [
      0.034014,
@@ -11205,7 +11205,7 @@
      102
     ],
     "BLD035": [
-     0.037037,
+     0.055556,
      54
     ],
     "BLD038": [
@@ -11213,7 +11213,7 @@
      58
     ],
     "BLD040": [
-     0.022222,
+     0.0,
      45
     ],
     "BLD044": [
@@ -11334,18 +11334,18 @@
    ],
    "reproduces_published": true,
    "cluster": [
-    0.01372,
-    0.075359
+    0.016783,
+    0.074264
    ],
    "width_task": 0.038571,
-   "width_cluster": 0.061639,
-   "width_ratio": 1.6,
-   "cluster_wider_than_1_5x": true,
+   "width_cluster": 0.057481,
+   "width_ratio": 1.49,
+   "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 42,
-   "b_only": 9,
-   "discordant": 51,
+   "a_only": 41,
+   "b_only": 8,
+   "discordant": 49,
    "buildings_favour_a": 7,
    "buildings_favour_b": 1,
    "buildings_tie": 4,
@@ -11367,7 +11367,7 @@
      37
     ],
     "BLD035": [
-     -0.045455,
+     -0.022727,
      44
     ],
     "BLD038": [
@@ -11391,7 +11391,7 @@
      53
     ],
     "GNI-project_7": [
-     0.087912,
+     0.076923,
      91
     ],
     "GNI-project_8": [
@@ -11419,21 +11419,21 @@
    ],
    "reproduces_published": true,
    "cluster": [
-    0.01844,
-    0.049345
+    0.017751,
+    0.049774
    ],
    "width_task": 0.027263,
-   "width_cluster": 0.030906,
-   "width_ratio": 1.13,
+   "width_cluster": 0.032022,
+   "width_ratio": 1.17,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 38,
-   "b_only": 7,
-   "discordant": 45,
-   "buildings_favour_a": 10,
+   "a_only": 37,
+   "b_only": 6,
+   "discordant": 43,
+   "buildings_favour_a": 9,
    "buildings_favour_b": 0,
-   "buildings_tie": 2,
+   "buildings_tie": 3,
    "per_building_diff": {
     "BLD003": [
      0.034014,
@@ -11452,7 +11452,7 @@
      24
     ],
     "BLD035": [
-     0.037037,
+     0.055556,
      54
     ],
     "BLD038": [
@@ -11460,7 +11460,7 @@
      58
     ],
     "BLD040": [
-     0.022222,
+     0.0,
      45
     ],
     "BLD042": [
@@ -11504,21 +11504,21 @@
    ],
    "reproduces_published": true,
    "cluster": [
-    0.022026,
-    0.069526
+    0.02354,
+    0.068966
    ],
    "width_task": 0.027895,
-   "width_cluster": 0.047499,
-   "width_ratio": 1.7,
+   "width_cluster": 0.045426,
+   "width_ratio": 1.63,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 66,
-   "b_only": 10,
-   "discordant": 76,
-   "buildings_favour_a": 8,
+   "a_only": 65,
+   "b_only": 9,
+   "discordant": 74,
+   "buildings_favour_a": 9,
    "buildings_favour_b": 0,
-   "buildings_tie": 4,
+   "buildings_tie": 3,
    "per_building_diff": {
     "BLD003": [
      0.105,
@@ -11537,7 +11537,7 @@
      37
     ],
     "BLD035": [
-     0.0,
+     0.012658,
      79
     ],
     "BLD038": [
@@ -11561,7 +11561,7 @@
      129
     ],
     "GNI-project_7": [
-     0.068571,
+     0.062857,
      175
     ],
     "GNI-project_8": [
@@ -11606,26 +11606,26 @@
    "what": "untrained model with the library note, completion estimated from 982 + 108-task reads",
    "n_tasks": 982,
    "n_buildings": 12,
-   "point": 0.011948,
+   "point": 0.012424,
    "published": [
     0.012,
     0.008,
-    0.045
+    0.046
    ],
    "task_level": [
-    0.008015,
-    0.045094
+    0.00841,
+    0.045585
    ],
-   "task_level_rule": "MOVER combination of per-version Wilson intervals (published rule); stratified task bootstrap cross-check [0.006797, 0.017835]",
+   "task_level_rule": "MOVER combination of per-version Wilson intervals (published rule); stratified task bootstrap cross-check [0.007143, 0.018398]",
    "reproduces_published": true,
    "cluster": [
-    0.008039,
-    0.015916
+    0.008121,
+    0.016774
    ],
    "cluster_draws_dropped_no_measured_task": 0,
-   "width_task": 0.037079,
-   "width_cluster": 0.007877,
-   "width_ratio": 0.21,
+   "width_task": 0.037176,
+   "width_cluster": 0.008653,
+   "width_ratio": 0.23,
    "cluster_wider_than_1_5x": false
   },
   {
@@ -11635,26 +11635,26 @@
    "what": "Sft minus untrained model, difference estimator over the measured base tasks",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.940433,
+   "point": 0.939481,
    "published": [
-    0.94,
-    0.906,
-    0.95
+    0.939,
+    0.905,
+    0.949
    ],
    "task_level": [
-    0.905946,
-    0.949863
+    0.904979,
+    0.948946
    ],
-   "task_level_rule": "MOVER combination (published rule); paired task bootstrap cross-check [0.910924, 0.963151]",
+   "task_level_rule": "MOVER combination (published rule); paired task bootstrap cross-check [0.917282, 0.956013]",
    "reproduces_published": true,
    "cluster": [
-    0.892757,
-    0.970146
+    0.891911,
+    0.969597
    ],
    "cluster_draws_dropped_no_measured_task": 0,
-   "width_task": 0.043918,
-   "width_cluster": 0.077389,
-   "width_ratio": 1.76,
+   "width_task": 0.043967,
+   "width_cluster": 0.077686,
+   "width_ratio": 1.77,
    "cluster_wider_than_1_5x": true
   },
   {
@@ -11664,30 +11664,30 @@
    "what": "Sft minus untrained model, IFC2X3 (measured)",
    "n_tasks": 700,
    "n_buildings": 8,
-   "point": 0.932857,
+   "point": 0.931429,
    "published": [
-    0.933,
-    0.914,
-    0.951
+    0.931,
+    0.913,
+    0.95
    ],
    "task_level": [
-    0.914286,
-    0.951429
+    0.912857,
+    0.95
    ],
    "reproduces_published": true,
    "cluster": [
-    0.886548,
-    0.962963
+    0.884984,
+    0.961872
    ],
    "width_task": 0.037143,
-   "width_cluster": 0.076415,
-   "width_ratio": 2.06,
+   "width_cluster": 0.076888,
+   "width_ratio": 2.07,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 653,
+   "a_only": 652,
    "b_only": 0,
-   "discordant": 653,
+   "discordant": 652,
    "buildings_favour_a": 8,
    "buildings_favour_b": 0,
    "buildings_tie": 0,
@@ -11721,7 +11721,7 @@
      89
     ],
     "GNI-project_7": [
-     0.938596,
+     0.929825,
      114
     ]
    }
@@ -11733,26 +11733,26 @@
    "what": "Dpo minus untrained model, difference estimator over the measured base tasks",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.945195,
+   "point": 0.943766,
    "published": [
-    0.945,
-    0.911,
-    0.954
+    0.944,
+    0.909,
+    0.953
    ],
    "task_level": [
-    0.910836,
-    0.954195
+    0.909393,
+    0.953231
    ],
-   "task_level_rule": "MOVER combination (published rule); paired task bootstrap cross-check [0.915604, 0.967783]",
+   "task_level_rule": "MOVER combination (published rule); paired task bootstrap cross-check [0.914214, 0.966397]",
    "reproduces_published": true,
    "cluster": [
-    0.905194,
-    0.972268
+    0.902878,
+    0.971752
    ],
    "cluster_draws_dropped_no_measured_task": 0,
-   "width_task": 0.043359,
-   "width_cluster": 0.067074,
-   "width_ratio": 1.55,
+   "width_task": 0.043838,
+   "width_cluster": 0.068874,
+   "width_ratio": 1.57,
    "cluster_wider_than_1_5x": true
   },
   {
@@ -11762,30 +11762,30 @@
    "what": "Dpo minus untrained model, IFC2X3 (measured)",
    "n_tasks": 700,
    "n_buildings": 8,
-   "point": 0.937143,
+   "point": 0.935714,
    "published": [
-    0.937,
-    0.919,
-    0.954
+    0.936,
+    0.917,
+    0.953
    ],
    "task_level": [
-    0.918571,
-    0.954286
+    0.917143,
+    0.952857
    ],
    "reproduces_published": true,
    "cluster": [
-    0.904847,
-    0.960948
+    0.903333,
+    0.959877
    ],
    "width_task": 0.035714,
-   "width_cluster": 0.056101,
-   "width_ratio": 1.57,
+   "width_cluster": 0.056543,
+   "width_ratio": 1.58,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
-   "a_only": 656,
+   "a_only": 655,
    "b_only": 0,
-   "discordant": 656,
+   "discordant": 655,
    "buildings_favour_a": 8,
    "buildings_favour_b": 0,
    "buildings_tie": 0,
@@ -11819,7 +11819,7 @@
      89
     ],
     "GNI-project_7": [
-     0.938596,
+     0.929825,
      114
     ]
    }
@@ -12473,31 +12473,31 @@
    "what": "full-corpus chain minus ten-building chain after Sft",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.229524,
+   "point": 0.231429,
    "published": [
-    0.23,
-    0.211,
-    0.248
+    0.231,
+    0.213,
+    0.25
    ],
    "task_level": [
-    0.210952,
-    0.247619
+    0.212857,
+    0.249524
    ],
    "reproduces_published": true,
    "cluster": [
-    0.171473,
-    0.27726
+    0.172907,
+    0.27923
    ],
    "width_task": 0.036667,
-   "width_cluster": 0.105787,
-   "width_ratio": 2.89,
+   "width_cluster": 0.106322,
+   "width_ratio": 2.9,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
    "task_level_rule": "Python random, 2,000 resamples, seed 20261005",
-   "a_only": 496,
-   "b_only": 14,
-   "discordant": 510,
+   "a_only": 499,
+   "b_only": 13,
+   "discordant": 512,
    "buildings_favour_a": 12,
    "buildings_favour_b": 0,
    "buildings_tie": 0,
@@ -12519,7 +12519,7 @@
      61
     ],
     "BLD035": [
-     0.075188,
+     0.082707,
      133
     ],
     "BLD038": [
@@ -12543,7 +12543,7 @@
      218
     ],
     "GNI-project_7": [
-     0.256055,
+     0.266436,
      289
     ],
     "GNI-project_8": [
@@ -12559,9 +12559,9 @@
    "what": "full-corpus chain minus ten-building chain after Dpo",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.223333,
+   "point": 0.22381,
    "published": [
-    0.223,
+    0.224,
     0.205,
     0.242
    ],
@@ -12571,19 +12571,19 @@
    ],
    "reproduces_published": true,
    "cluster": [
-    0.166176,
-    0.271143
+    0.167917,
+    0.271255
    ],
    "width_task": 0.036667,
-   "width_cluster": 0.104968,
-   "width_ratio": 2.86,
+   "width_cluster": 0.103338,
+   "width_ratio": 2.82,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
    "task_level_rule": "Python random, 2,000 resamples, seed 20261005",
-   "a_only": 491,
-   "b_only": 22,
-   "discordant": 513,
+   "a_only": 490,
+   "b_only": 20,
+   "discordant": 510,
    "buildings_favour_a": 12,
    "buildings_favour_b": 0,
    "buildings_tie": 0,
@@ -12605,7 +12605,7 @@
      61
     ],
     "BLD035": [
-     0.015038,
+     0.030075,
      133
     ],
     "BLD038": [
@@ -12629,7 +12629,7 @@
      218
     ],
     "GNI-project_7": [
-     0.235294,
+     0.231834,
      289
     ],
     "GNI-project_8": [
@@ -12645,31 +12645,31 @@
    "what": "full-corpus chain minus ten-building chain after Grpo",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.22381,
+   "point": 0.223333,
    "published": [
-    0.224,
-    0.205,
-    0.242
+    0.223,
+    0.204,
+    0.241
    ],
    "task_level": [
-    0.205238,
-    0.242381
+    0.204286,
+    0.241429
    ],
    "reproduces_published": true,
    "cluster": [
-    0.174572,
-    0.266974
+    0.173458,
+    0.266805
    ],
    "width_task": 0.037143,
-   "width_cluster": 0.092402,
-   "width_ratio": 2.49,
+   "width_cluster": 0.093347,
+   "width_ratio": 2.51,
    "cluster_wider_than_1_5x": true,
    "cluster_excludes_zero": true,
    "task_excludes_zero": true,
    "task_level_rule": "Python random, 2,000 resamples, seed 20261005",
-   "a_only": 489,
-   "b_only": 19,
-   "discordant": 508,
+   "a_only": 485,
+   "b_only": 16,
+   "discordant": 501,
    "buildings_favour_a": 12,
    "buildings_favour_b": 0,
    "buildings_tie": 0,
@@ -12691,7 +12691,7 @@
      61
     ],
     "BLD035": [
-     0.06015,
+     0.052632,
      133
     ],
     "BLD038": [
@@ -12731,31 +12731,31 @@
    "what": "ten-building chain, Dpo minus Sft",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.010952,
+   "point": 0.011905,
    "published": [
-    0.011,
-    -0.005,
-    0.027
+    0.012,
+    -0.004,
+    0.028
    ],
    "task_level": [
-    -0.004762,
-    0.026667
+    -0.00381,
+    0.027619
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.009243,
-    0.036002
+    -0.0087,
+    0.035569
    ],
    "width_task": 0.031429,
-   "width_cluster": 0.045245,
-   "width_ratio": 1.44,
+   "width_cluster": 0.044269,
+   "width_ratio": 1.41,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "task_level_rule": "Python random, 2,000 resamples, seed 20261005",
-   "a_only": 149,
-   "b_only": 126,
-   "discordant": 275,
+   "a_only": 148,
+   "b_only": 123,
+   "discordant": 271,
    "buildings_favour_a": 8,
    "buildings_favour_b": 4,
    "buildings_tie": 0,
@@ -12777,7 +12777,7 @@
      61
     ],
     "BLD035": [
-     0.105263,
+     0.090226,
      133
     ],
     "BLD038": [
@@ -12801,7 +12801,7 @@
      218
     ],
     "GNI-project_7": [
-     0.020761,
+     0.034602,
      289
     ],
     "GNI-project_8": [
@@ -12817,33 +12817,33 @@
    "what": "ten-building chain, Grpo minus Dpo",
    "n_tasks": 2100,
    "n_buildings": 12,
-   "point": 0.002381,
+   "point": 0.001429,
    "published": [
-    0.002,
-    -0.009,
+    0.001,
+    -0.01,
     0.014
    ],
    "task_level": [
-    -0.009048,
-    0.014286
+    -0.01,
+    0.01381
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.006329,
-    0.00966
+    -0.007077,
+    0.00936
    ],
-   "width_task": 0.023333,
-   "width_cluster": 0.015989,
+   "width_task": 0.02381,
+   "width_cluster": 0.016436,
    "width_ratio": 0.69,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "task_level_rule": "Python random, 2,000 resamples, seed 20261005",
-   "a_only": 84,
+   "a_only": 82,
    "b_only": 79,
-   "discordant": 163,
-   "buildings_favour_a": 6,
-   "buildings_favour_b": 6,
+   "discordant": 161,
+   "buildings_favour_a": 5,
+   "buildings_favour_b": 7,
    "buildings_tie": 0,
    "per_building_diff": {
     "BLD003": [
@@ -12863,7 +12863,7 @@
      61
     ],
     "BLD035": [
-     -0.015038,
+     -0.007519,
      133
     ],
     "BLD038": [
@@ -12887,7 +12887,7 @@
      218
     ],
     "GNI-project_7": [
-     0.00346,
+     -0.00692,
      289
     ],
     "GNI-project_8": [
@@ -12906,28 +12906,28 @@
    "point": 0.013333,
    "published": [
     0.013,
-    -0.002,
+    -0.001,
     0.029
    ],
    "task_level": [
-    -0.001905,
-    0.029048
+    -0.001429,
+    0.028571
    ],
    "reproduces_published": true,
    "cluster": [
-    -0.008608,
-    0.036854
+    -0.008527,
+    0.036373
    ],
-   "width_task": 0.030952,
-   "width_cluster": 0.045462,
-   "width_ratio": 1.47,
+   "width_task": 0.03,
+   "width_cluster": 0.0449,
+   "width_ratio": 1.5,
    "cluster_wider_than_1_5x": false,
    "cluster_excludes_zero": false,
    "task_excludes_zero": false,
    "task_level_rule": "Python random, 2,000 resamples, seed 20261005",
-   "a_only": 153,
-   "b_only": 125,
-   "discordant": 278,
+   "a_only": 150,
+   "b_only": 122,
+   "discordant": 272,
    "buildings_favour_a": 8,
    "buildings_favour_b": 4,
    "buildings_tie": 0,
@@ -12949,7 +12949,7 @@
      61
     ],
     "BLD035": [
-     0.090226,
+     0.082707,
      133
     ],
     "BLD038": [
@@ -12973,7 +12973,7 @@
      218
     ],
     "GNI-project_7": [
-     0.024221,
+     0.027682,
      289
     ],
     "GNI-project_8": [

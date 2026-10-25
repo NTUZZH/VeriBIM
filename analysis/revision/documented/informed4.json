@@ -10,10 +10,10 @@
   "under_specified_done": 11,
   "strict098": 0.9629629629629629,
   "mean_score": 0.9901633425925924,
-  "rounds": 2.814814814814815,
-  "seconds": 37.0475,
-  "list_cost_usd": 8.5763664,
-  "input_tokens_mean": 84108.5,
+  "rounds": 2.7962962962962963,
+  "seconds": 35.64685185185186,
+  "list_cost_usd": 8.5663371,
+  "input_tokens_mean": 83608.54629629629,
   "stops": {
    "completed": 108
   },
@@ -90,9 +90,9 @@
   "strict098": 0.9259259259259259,
   "mean_score": 0.9615762037037037,
   "rounds": 2.925925925925926,
-  "seconds": 27.923425925925926,
-  "list_cost_usd": 15.7876724,
-  "input_tokens_mean": 85636.53703703704,
+  "seconds": 27.97527777777778,
+  "list_cost_usd": 15.776652,
+  "input_tokens_mean": 85609.33333333333,
   "stops": {
    "completed": 108
   },
@@ -168,10 +168,10 @@
   "under_specified_done": 10,
   "strict098": 0.8703703703703703,
   "mean_score": 0.9450519722222224,
-  "rounds": 5.953703703703703,
-  "seconds": 117.97537037037036,
-  "list_cost_usd": 24.64618596,
-  "input_tokens_mean": 156874.9537037037,
+  "rounds": 6.037037037037037,
+  "seconds": 119.7424074074074,
+  "list_cost_usd": 25.18667052,
+  "input_tokens_mean": 160303.3148148148,
   "stops": {
    "completed": 106,
    "budget_exhausted": 1,
@@ -239,62 +239,27 @@
   }
  },
  "gemini-3.8-flash": {
-  "completion": 0.7685185185185185,
+  "completion": 0.75,
   "ci95": [
-   0.6851851851851852,
-   0.8425925925925926
+   0.6666666666666666,
+   0.8240740740740741
   ],
-  "done": 83,
-  "fully_specified": 0.7422680412371134,
+  "done": 81,
+  "fully_specified": 0.7216494845360825,
   "under_specified_done": 11,
-  "strict098": 0.7685185185185185,
-  "mean_score": 0.8268668240740742,
-  "rounds": 11.944444444444445,
-  "seconds": 60.37037037037038,
-  "list_cost_usd": 23.52694275,
-  "input_tokens_mean": 284106.8703703704,
+  "strict098": 0.75,
+  "mean_score": 0.8083483055555556,
+  "rounds": 11.75925925925926,
+  "seconds": 59.48212962962963,
+  "list_cost_usd": 23.18942325,
+  "input_tokens_mean": 280066.35185185185,
   "stops": {
-   "completed": 83,
-   "budget_exhausted": 25
+   "completed": 81,
+   "budget_exhausted": 25,
+   "inference_error": 2
   },
-  "guard_blocked_tasks": 22,
+  "guard_blocked_tasks": 21,
   "ours_minus_this": {
-   "point": 0.2037037037037037,
-   "ci95": [
-    0.12962962962962962,
-    0.2777777777777778
-   ],
-   "ci90": [
-    0.1388888888888889,
-    0.26851851851851855
-   ],
-   "building95": [
-    0.15789473684210525,
-    0.25
-   ],
-   "n_buildings": 12,
-   "wins": 22,
-   "losses": 0
-  },
-  "ours_minus_this_fully_specified": {
-   "point": 0.2268041237113402,
-   "ci95": [
-    0.14432989690721648,
-    0.30927835051546393
-   ],
-   "ci90": [
-    0.16494845360824742,
-    0.29896907216494845
-   ],
-   "building95": [
-    0.17857142857142858,
-    0.2777777777777778
-   ],
-   "n_buildings": 12,
-   "wins": 22,
-   "losses": 0
-  },
-  "sonnet_documented_minus_this": {
    "point": 0.2222222222222222,
    "ci95": [
     0.14814814814814814,
@@ -306,16 +271,52 @@
    ],
    "building95": [
     0.17204301075268819,
-    0.2755102040816326
+    0.275
    ],
    "n_buildings": 12,
    "wins": 24,
    "losses": 0
   },
+  "ours_minus_this_fully_specified": {
+   "point": 0.24742268041237114,
+   "ci95": [
+    0.16494845360824742,
+    0.32989690721649484
+   ],
+   "ci90": [
+    0.17525773195876287,
+    0.31958762886597936
+   ],
+   "building95": [
+    0.19642857142857142,
+    0.30120481927710846
+   ],
+   "n_buildings": 12,
+   "wins": 24,
+   "losses": 0
+  },
+  "sonnet_documented_minus_this": {
+   "point": 0.24074074074074073,
+   "ci95": [
+    0.16666666666666666,
+    0.32407407407407407
+   ],
+   "ci90": [
+    0.17592592592592593,
+    0.3055555555555556
+   ],
+   "building95": [
+    0.17857142857142858,
+    0.3106796116504854
+   ],
+   "n_buildings": 12,
+   "wins": 26,
+   "losses": 0
+  },
   "per_version": {
-   "IFC2X3": 0.75,
+   "IFC2X3": 0.7222222222222222,
    "IFC4": 0.7777777777777778,
-   "IFC4X3": 0.7777777777777778
+   "IFC4X3": 0.75
   }
  },
  "gpt-5.6-luna": {
@@ -329,10 +330,10 @@
   "under_specified_done": 0,
   "strict098": 0.6296296296296297,
   "mean_score": 0.7310913611111111,
-  "rounds": 2.2962962962962963,
-  "seconds": 12.667592592592595,
-  "list_cost_usd": 1.2059756000000001,
-  "input_tokens_mean": 51083.75925925926,
+  "rounds": 2.314814814814815,
+  "seconds": 12.893611111111111,
+  "list_cost_usd": 1.2137032,
+  "input_tokens_mean": 51403.90740740741,
   "stops": {
    "completed": 108
   },

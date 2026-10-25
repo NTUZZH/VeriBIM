@@ -4,10 +4,10 @@
  "arms": {
   "final_full": {
    "label": "Proposed model, all 2,100 tasks",
-   "n_completed": 2016,
-   "n_evaluated": 2016,
+   "n_completed": 2010,
+   "n_evaluated": 2010,
    "status": {
-    "ok": 2016
+    "ok": 2010
    },
    "n_with_any": 0,
    "share_with_any": 0.0,
@@ -55,11 +55,11 @@
      "n_with_any": 0
     },
     "update": {
-     "n": 540,
+     "n": 537,
      "n_with_any": 0
     },
     "delete": {
-     "n": 707,
+     "n": 704,
      "n_with_any": 0
     }
    },
@@ -216,8 +216,8 @@
    "status": {
     "ok": 92
    },
-   "n_with_any": 2,
-   "share_with_any": 0.0217,
+   "n_with_any": 4,
+   "share_with_any": 0.0435,
    "median_count_per_affected_file": 1.0,
    "max_count": 1,
    "by_class": {
@@ -227,9 +227,9 @@
      "median_per_affected_file": 1.0
     },
     "relation": {
-     "n_files": 0,
-     "n_items": 0,
-     "median_per_affected_file": null
+     "n_files": 2,
+     "n_items": 2,
+     "median_per_affected_file": 1.0
     },
     "property": {
      "n_files": 0,
@@ -251,7 +251,7 @@
    "listed_not_counted": {
     "header_differs": 0,
     "owner_history_differs": 18,
-    "relationship_ids_only": 1,
+    "relationship_ids_only": 0,
     "property_set_ids_only": 0,
     "target_reidentified": 0,
     "edges_of_added_removed_files": 0
@@ -267,11 +267,13 @@
     },
     "delete": {
      "n": 34,
-     "n_with_any": 0
+     "n_with_any": 2
     }
    },
    "what_changed": {
-    "relation_classes": {},
+    "relation_classes": {
+     "IfcRelAssociatesClassification": 2
+    },
     "geometry_class_kind": {
      "IfcOpeningElement/modified": 2
     },
@@ -279,6 +281,26 @@
     "property_sets": {}
    },
    "affected_tasks": [
+    {
+     "task_id": "CHN-DWF-TOP-B02m4X3-008",
+     "edit_kind": "delete_wall_with_fillings",
+     "n_any": 1,
+     "n_geometry": 0,
+     "n_relation": 1,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    },
+    {
+     "task_id": "CHN-DWF-SPA-B02-004",
+     "edit_kind": "delete_wall_with_fillings",
+     "n_any": 1,
+     "n_geometry": 0,
+     "n_relation": 1,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    },
     {
      "task_id": "DOR-UPD-TOP-B24m4X3-060",
      "edit_kind": "resize_overall",
@@ -397,10 +419,10 @@
   },
   "gemini-3.8-flash_108": {
    "label": "Gemini 3.8 Flash with the library",
-   "n_completed": 65,
-   "n_evaluated": 65,
+   "n_completed": 63,
+   "n_evaluated": 63,
    "status": {
-    "ok": 65
+    "ok": 63
    },
    "n_with_any": 0,
    "share_with_any": 0.0,
@@ -452,7 +474,7 @@
      "n_with_any": 0
     },
     "delete": {
-     "n": 23,
+     "n": 21,
      "n_with_any": 0
     }
    },
@@ -471,9 +493,9 @@
    "status": {
     "ok": 85
    },
-   "n_with_any": 2,
-   "share_with_any": 0.0235,
-   "median_count_per_affected_file": 1.5,
+   "n_with_any": 4,
+   "share_with_any": 0.0471,
+   "median_count_per_affected_file": 1.0,
    "max_count": 2,
    "by_class": {
     "geometry": {
@@ -482,9 +504,9 @@
      "median_per_affected_file": 1.5
     },
     "relation": {
-     "n_files": 0,
-     "n_items": 0,
-     "median_per_affected_file": null
+     "n_files": 2,
+     "n_items": 2,
+     "median_per_affected_file": 1.0
     },
     "property": {
      "n_files": 0,
@@ -506,7 +528,7 @@
    "listed_not_counted": {
     "header_differs": 0,
     "owner_history_differs": 18,
-    "relationship_ids_only": 1,
+    "relationship_ids_only": 0,
     "property_set_ids_only": 0,
     "target_reidentified": 0,
     "edges_of_added_removed_files": 0
@@ -522,11 +544,13 @@
     },
     "delete": {
      "n": 32,
-     "n_with_any": 0
+     "n_with_any": 2
     }
    },
    "what_changed": {
-    "relation_classes": {},
+    "relation_classes": {
+     "IfcRelAssociatesClassification": 2
+    },
     "geometry_class_kind": {
      "IfcOpeningElement/modified": 2,
      "IfcWall/modified": 1
@@ -535,6 +559,26 @@
     "property_sets": {}
    },
    "affected_tasks": [
+    {
+     "task_id": "CHN-DWF-TOP-B02m4X3-008",
+     "edit_kind": "delete_wall_with_fillings",
+     "n_any": 1,
+     "n_geometry": 0,
+     "n_relation": 1,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    },
+    {
+     "task_id": "CHN-DWF-SPA-B02-004",
+     "edit_kind": "delete_wall_with_fillings",
+     "n_any": 1,
+     "n_geometry": 0,
+     "n_relation": 1,
+     "n_property": 0,
+     "n_attribute": 0,
+     "n_other_objects": 0
+    },
     {
      "task_id": "DOR-UPD-TOP-B24m4X3-060",
      "edit_kind": "resize_overall",

@@ -45,8 +45,8 @@
     "budget_exhausted": 1
   },
   "hit_output_cap": 0,
-  "mean_output_tokens": 924.3,
-  "wall_seconds": 3077.3,
+  "mean_output_tokens": 924.4,
+  "wall_seconds": 3066.4,
   "resolved_agent_config": {
     "max_tool_rounds": 22,
     "tool_timeout": 420.0,
@@ -65,5 +65,9 @@
   "scorer_reading": "family",
   "label": "VeriBIM-Bench v4b 108-task subset, lib arm, local dpo_v10_c6, sandbox guard",
   "protocol_conformant": true,
-  "finished_at": "2026-10-01T06:26:14"
+  "finished_at": "2026-10-01T06:26:14",
+  "v4d_finalized_at": "2026-10-16T08:28:33",
+  "v4d_rerun_tasks": 0,
+  "v4e_rerun_tasks": 2,
+  "v4e_finalized_at": "2026-10-16T15:27:45"
 }

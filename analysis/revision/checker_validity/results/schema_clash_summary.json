@@ -1,0 +1,1500 @@
+{
+ "veribim9b_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 3,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 10,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 23,
+   "tasks_output_clash_beyond_gt": 0,
+   "output_clashes_beyond_gt_total": 0,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 19,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 3,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 4,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 1
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ]
+  },
+  "completed": {
+   "n": 84,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 84,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 3,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 76,
+   "tasks_with_new_clash_gt": 10,
+   "tasks_with_new_clash_output": 10,
+   "new_clashes_gt_total": 23,
+   "new_clashes_output_total": 23,
+   "tasks_output_clash_beyond_gt": 0,
+   "output_clashes_beyond_gt_total": 0,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 19,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 21,
+     "tasks_with_new_clash_gt": 3,
+     "tasks_with_new_clash_output": 3,
+     "new_clashes_gt": 4,
+     "new_clashes_output": 4,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 1
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ]
+  }
+ },
+ "base9b_libnote_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 1,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 2,
+   "tasks_output_errors_beyond_gt": 1,
+   "output_errors_beyond_gt_total": 1,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 0,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 0,
+   "tasks_output_clash_beyond_gt": 0,
+   "output_clashes_beyond_gt_total": 0,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 1,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 1
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ]
+  },
+  "completed": {
+   "n": 1,
+   "tasks_with_new_errors_gt": 0,
+   "tasks_with_new_errors_output": 0,
+   "n_with_output_validated": 1,
+   "new_errors_gt_total": 0,
+   "new_errors_output_total": 0,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 1,
+   "tasks_with_new_clash_gt": 0,
+   "tasks_with_new_clash_output": 0,
+   "new_clashes_gt_total": 0,
+   "new_clashes_output_total": 0,
+   "tasks_output_clash_beyond_gt": 0,
+   "output_clashes_beyond_gt_total": 0,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 1,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "update": {
+     "n": 0,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 0,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [],
+   "new_error_kinds_output": []
+  }
+ },
+ "sonnet_alone_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 7,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 64,
+   "tasks_output_errors_beyond_gt": 7,
+   "output_errors_beyond_gt_total": 63,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 13,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 499,
+   "tasks_output_clash_beyond_gt": 4,
+   "output_clashes_beyond_gt_total": 476,
+   "tasks_output_more_new_clashes_than_gt": 3,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 8,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 492,
+     "tasks_output_clash_beyond_gt": 2,
+     "tasks_output_errors_beyond_gt": 6,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 6
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 5,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 7,
+     "tasks_output_clash_beyond_gt": 2,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 1,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 1
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "schema||Rule IfcApplication.UR2: | Violated by:",
+     30
+    ],
+    [
+     "schema||Rule IfcApplication.UR1: | Violated by:",
+     30
+    ],
+    [
+     "schema|IfcRelFillsElement.OwnerHistory|Attribute not optional",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     2
+    ]
+   ]
+  },
+  "completed": {
+   "n": 64,
+   "tasks_with_new_errors_gt": 1,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 64,
+   "new_errors_gt_total": 1,
+   "new_errors_output_total": 27,
+   "tasks_output_errors_beyond_gt": 3,
+   "output_errors_beyond_gt_total": 27,
+   "n_with_clash_check": 64,
+   "tasks_with_new_clash_gt": 9,
+   "tasks_with_new_clash_output": 10,
+   "new_clashes_gt_total": 22,
+   "new_clashes_output_total": 24,
+   "tasks_output_clash_beyond_gt": 1,
+   "output_clashes_beyond_gt_total": 2,
+   "tasks_output_more_new_clashes_than_gt": 1,
+   "per_operation": {
+    "create": {
+     "n": 18,
+     "tasks_with_new_clash_gt": 6,
+     "tasks_with_new_clash_output": 6,
+     "new_clashes_gt": 18,
+     "new_clashes_output": 18,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 3,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 3
+    },
+    "update": {
+     "n": 21,
+     "tasks_with_new_clash_gt": 3,
+     "tasks_with_new_clash_output": 4,
+     "new_clashes_gt": 4,
+     "new_clashes_output": 6,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 25,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "schema||Rule IfcApplication.UR2: | Violated by:",
+     13
+    ],
+    [
+     "schema||Rule IfcApplication.UR1: | Violated by:",
+     13
+    ],
+    [
+     "schema|IfcRelFillsElement.OwnerHistory|Attribute not optional",
+     1
+    ]
+   ]
+  }
+ },
+ "sonnet_lib_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 2,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 2,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 13,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 28,
+   "tasks_output_clash_beyond_gt": 3,
+   "output_clashes_beyond_gt_total": 5,
+   "tasks_output_more_new_clashes_than_gt": 2,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 19,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 6,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 9,
+     "tasks_output_clash_beyond_gt": 3,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ]
+  },
+  "completed": {
+   "n": 75,
+   "tasks_with_new_errors_gt": 2,
+   "tasks_with_new_errors_output": 2,
+   "n_with_output_validated": 75,
+   "new_errors_gt_total": 2,
+   "new_errors_output_total": 2,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 75,
+   "tasks_with_new_clash_gt": 10,
+   "tasks_with_new_clash_output": 11,
+   "new_clashes_gt_total": 23,
+   "new_clashes_output_total": 25,
+   "tasks_output_clash_beyond_gt": 1,
+   "output_clashes_beyond_gt_total": 2,
+   "tasks_output_more_new_clashes_than_gt": 1,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 19,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 21,
+     "tasks_with_new_clash_gt": 3,
+     "tasks_with_new_clash_output": 4,
+     "new_clashes_gt": 4,
+     "new_clashes_output": 6,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ]
+  }
+ },
+ "sonnet_documented_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 3,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 13,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 28,
+   "tasks_output_clash_beyond_gt": 2,
+   "output_clashes_beyond_gt_total": 4,
+   "tasks_output_more_new_clashes_than_gt": 2,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 19,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 6,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 9,
+     "tasks_output_clash_beyond_gt": 2,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 1
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ]
+  },
+  "completed": {
+   "n": 85,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 85,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 3,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 77,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 12,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 26,
+   "tasks_output_clash_beyond_gt": 1,
+   "output_clashes_beyond_gt_total": 2,
+   "tasks_output_more_new_clashes_than_gt": 1,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 19,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 22,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 5,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 7,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 1
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ]
+  }
+ },
+ "gpt_documented_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 14,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 17,
+   "tasks_output_errors_beyond_gt": 11,
+   "output_errors_beyond_gt_total": 14,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 10,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 22,
+   "tasks_output_clash_beyond_gt": 2,
+   "output_clashes_beyond_gt_total": 3,
+   "tasks_output_more_new_clashes_than_gt": 1,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 18,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 1,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 3
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 3,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 4,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 7,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 7
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 3,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 4
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     3
+    ],
+    [
+     "schema|IfcSpace.Decomposes|With inverse:",
+     2
+    ],
+    [
+     "entity_rule|IfcSpatialStructureElement.WR41|IfcSpatialStructureElement.WR41",
+     2
+    ],
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcColumn.ContainedInStructure|With inverse:",
+     2
+    ],
+    [
+     "schema|IfcRelCoversBldgElements.RelatingBuildingElement|Attribute not optional",
+     2
+    ],
+    [
+     "entity_rule|IfcObject.UniquePropertySetNames|IfcObject.UniquePropertySetNames",
+     1
+    ],
+    [
+     "schema|IfcProductDefinitionShape.ShapeOfProduct|With inverse:",
+     1
+    ],
+    [
+     "schema|IfcWall.ContainedInStructure|With inverse:",
+     1
+    ],
+    [
+     "schema|IfcSlab.ContainedInStructure|With inverse:",
+     1
+    ]
+   ]
+  },
+  "completed": {
+   "n": 56,
+   "tasks_with_new_errors_gt": 2,
+   "tasks_with_new_errors_output": 5,
+   "n_with_output_validated": 56,
+   "new_errors_gt_total": 2,
+   "new_errors_output_total": 6,
+   "tasks_output_errors_beyond_gt": 3,
+   "output_errors_beyond_gt_total": 4,
+   "n_with_clash_check": 56,
+   "tasks_with_new_clash_gt": 8,
+   "tasks_with_new_clash_output": 8,
+   "new_clashes_gt_total": 19,
+   "new_clashes_output_total": 19,
+   "tasks_output_clash_beyond_gt": 0,
+   "output_clashes_beyond_gt_total": 0,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 6,
+     "tasks_with_new_clash_output": 6,
+     "new_clashes_gt": 17,
+     "new_clashes_output": 17,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 1,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 3
+    },
+    "update": {
+     "n": 9,
+     "tasks_with_new_clash_gt": 2,
+     "tasks_with_new_clash_output": 2,
+     "new_clashes_gt": 2,
+     "new_clashes_output": 2,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 24,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 2,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 2
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcRelCoversBldgElements.RelatingBuildingElement|Attribute not optional",
+     2
+    ],
+    [
+     "entity_rule|IfcObject.UniquePropertySetNames|IfcObject.UniquePropertySetNames",
+     1
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ]
+  }
+ },
+ "gemini_documented_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 2,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 2,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 8,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 20,
+   "tasks_output_clash_beyond_gt": 0,
+   "output_clashes_beyond_gt_total": 0,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 6,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 18,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 2,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 2,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ]
+  },
+  "completed": {
+   "n": 66,
+   "tasks_with_new_errors_gt": 2,
+   "tasks_with_new_errors_output": 2,
+   "n_with_output_validated": 66,
+   "new_errors_gt_total": 2,
+   "new_errors_output_total": 2,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 58,
+   "tasks_with_new_clash_gt": 8,
+   "tasks_with_new_clash_output": 8,
+   "new_clashes_gt_total": 20,
+   "new_clashes_output_total": 20,
+   "tasks_output_clash_beyond_gt": 0,
+   "output_clashes_beyond_gt_total": 0,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 24,
+     "tasks_with_new_clash_gt": 6,
+     "tasks_with_new_clash_output": 6,
+     "new_clashes_gt": 18,
+     "new_clashes_output": 18,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 9,
+     "tasks_with_new_clash_gt": 2,
+     "tasks_with_new_clash_output": 2,
+     "new_clashes_gt": 2,
+     "new_clashes_output": 2,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 25,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ]
+  }
+ },
+ "deepseek_documented_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 4,
+   "tasks_output_errors_beyond_gt": 1,
+   "output_errors_beyond_gt_total": 2,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 12,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 28,
+   "tasks_output_clash_beyond_gt": 2,
+   "output_clashes_beyond_gt_total": 4,
+   "tasks_output_more_new_clashes_than_gt": 2,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 21,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 5,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 7,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 1,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 1
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcCartesianTransformationOperator3DnonUniform.LocalOrigin|Attribute not optional",
+     1
+    ],
+    [
+     "schema|IfcCartesianTransformationOperator3D.LocalOrigin|Attribute not optional",
+     1
+    ]
+   ]
+  },
+  "completed": {
+   "n": 77,
+   "tasks_with_new_errors_gt": 2,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 77,
+   "new_errors_gt_total": 2,
+   "new_errors_output_total": 4,
+   "tasks_output_errors_beyond_gt": 1,
+   "output_errors_beyond_gt_total": 2,
+   "n_with_clash_check": 70,
+   "tasks_with_new_clash_gt": 9,
+   "tasks_with_new_clash_output": 10,
+   "new_clashes_gt_total": 22,
+   "new_clashes_output_total": 24,
+   "tasks_output_clash_beyond_gt": 1,
+   "output_clashes_beyond_gt_total": 2,
+   "tasks_output_more_new_clashes_than_gt": 1,
+   "per_operation": {
+    "create": {
+     "n": 25,
+     "tasks_with_new_clash_gt": 6,
+     "tasks_with_new_clash_output": 6,
+     "new_clashes_gt": 18,
+     "new_clashes_output": 18,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 18,
+     "tasks_with_new_clash_gt": 3,
+     "tasks_with_new_clash_output": 4,
+     "new_clashes_gt": 4,
+     "new_clashes_output": 6,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 1,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 1
+    },
+    "delete": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcCartesianTransformationOperator3DnonUniform.LocalOrigin|Attribute not optional",
+     1
+    ],
+    [
+     "schema|IfcCartesianTransformationOperator3D.LocalOrigin|Attribute not optional",
+     1
+    ]
+   ]
+  }
+ },
+ "opus_documented_108": {
+  "n_tasks": 86,
+  "n_errors": 0,
+  "all": {
+   "n": 86,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 4,
+   "n_with_output_validated": 86,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 4,
+   "tasks_output_errors_beyond_gt": 2,
+   "output_errors_beyond_gt_total": 2,
+   "n_with_clash_check": 78,
+   "tasks_with_new_clash_gt": 11,
+   "tasks_with_new_clash_output": 12,
+   "new_clashes_gt_total": 24,
+   "new_clashes_output_total": 26,
+   "tasks_output_clash_beyond_gt": 1,
+   "output_clashes_beyond_gt_total": 2,
+   "tasks_output_more_new_clashes_than_gt": 1,
+   "per_operation": {
+    "create": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 7,
+     "tasks_with_new_clash_output": 7,
+     "new_clashes_gt": 19,
+     "new_clashes_output": 19,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 5,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 7,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 2,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 2
+    },
+    "delete": {
+     "n": 28,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     2
+    ]
+   ]
+  },
+  "completed": {
+   "n": 84,
+   "tasks_with_new_errors_gt": 2,
+   "tasks_with_new_errors_output": 4,
+   "n_with_output_validated": 84,
+   "new_errors_gt_total": 2,
+   "new_errors_output_total": 4,
+   "tasks_output_errors_beyond_gt": 2,
+   "output_errors_beyond_gt_total": 2,
+   "n_with_clash_check": 76,
+   "tasks_with_new_clash_gt": 10,
+   "tasks_with_new_clash_output": 11,
+   "new_clashes_gt_total": 22,
+   "new_clashes_output_total": 24,
+   "tasks_output_clash_beyond_gt": 1,
+   "output_clashes_beyond_gt_total": 2,
+   "tasks_output_more_new_clashes_than_gt": 1,
+   "per_operation": {
+    "create": {
+     "n": 26,
+     "tasks_with_new_clash_gt": 6,
+     "tasks_with_new_clash_output": 6,
+     "new_clashes_gt": 17,
+     "new_clashes_output": 17,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    },
+    "update": {
+     "n": 23,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 5,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 7,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 2,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 2
+    },
+    "delete": {
+     "n": 27,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     2
+    ],
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     2
+    ]
+   ]
+  }
+ },
+ "veribim9b_2100": {
+  "n_tasks": 87,
+  "n_errors": 0,
+  "all": {
+   "n": 87,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 87,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 3,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 84,
+   "tasks_with_new_clash_gt": 21,
+   "tasks_with_new_clash_output": 21,
+   "new_clashes_gt_total": 61,
+   "new_clashes_output_total": 59,
+   "tasks_output_clash_beyond_gt": 1,
+   "output_clashes_beyond_gt_total": 1,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 35,
+     "tasks_with_new_clash_gt": 17,
+     "tasks_with_new_clash_output": 17,
+     "new_clashes_gt": 55,
+     "new_clashes_output": 53,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 1
+    },
+    "update": {
+     "n": 17,
+     "tasks_with_new_clash_gt": 4,
+     "tasks_with_new_clash_output": 4,
+     "new_clashes_gt": 6,
+     "new_clashes_output": 6,
+     "tasks_output_clash_beyond_gt": 1,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 32,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     2
+    ],
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     2
+    ],
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     1
+    ]
+   ]
+  },
+  "completed": {
+   "n": 85,
+   "tasks_with_new_errors_gt": 3,
+   "tasks_with_new_errors_output": 3,
+   "n_with_output_validated": 85,
+   "new_errors_gt_total": 3,
+   "new_errors_output_total": 3,
+   "tasks_output_errors_beyond_gt": 0,
+   "output_errors_beyond_gt_total": 0,
+   "n_with_clash_check": 82,
+   "tasks_with_new_clash_gt": 20,
+   "tasks_with_new_clash_output": 20,
+   "new_clashes_gt_total": 60,
+   "new_clashes_output_total": 58,
+   "tasks_output_clash_beyond_gt": 0,
+   "output_clashes_beyond_gt_total": 0,
+   "tasks_output_more_new_clashes_than_gt": 0,
+   "per_operation": {
+    "create": {
+     "n": 35,
+     "tasks_with_new_clash_gt": 17,
+     "tasks_with_new_clash_output": 17,
+     "new_clashes_gt": 55,
+     "new_clashes_output": 53,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 1,
+     "tasks_with_new_errors_output": 1
+    },
+    "update": {
+     "n": 15,
+     "tasks_with_new_clash_gt": 3,
+     "tasks_with_new_clash_output": 3,
+     "new_clashes_gt": 5,
+     "new_clashes_output": 5,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 0,
+     "tasks_with_new_errors_output": 0
+    },
+    "delete": {
+     "n": 32,
+     "tasks_with_new_clash_gt": 0,
+     "tasks_with_new_clash_output": 0,
+     "new_clashes_gt": 0,
+     "new_clashes_output": 0,
+     "tasks_output_clash_beyond_gt": 0,
+     "tasks_output_errors_beyond_gt": 0,
+     "tasks_with_new_errors_gt": 2,
+     "tasks_with_new_errors_output": 2
+    }
+   },
+   "new_error_kinds_gt": [
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     2
+    ],
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     1
+    ]
+   ],
+   "new_error_kinds_output": [
+    [
+     "schema|IfcLocalPlacement.PlacesObject|With inverse:",
+     2
+    ],
+    [
+     "entity_rule|IfcWallStandardCase.WR1|IfcWallStandardCase.WR1",
+     1
+    ]
+   ]
+  }
+ }
+}

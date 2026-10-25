@@ -242,6 +242,40 @@ def _score_one(payload: tuple[dict, dict]) -> dict:
     return out
 
 
+def _init_scorer_marked(project_root: str, gold_cache_root: str,
+                        family_reading: bool, inflight_dir: str) -> None:
+    """``_init_scorer`` plus the path of this worker's in-flight marker."""
+    _init_scorer(project_root, gold_cache_root, family_reading)
+    _CTX["inflight"] = Path(inflight_dir) / f"{os.getpid()}.txt"
+
+
+def _score_one_marked(payload: tuple[dict, dict]) -> dict:
+    """``_score_one`` with an in-flight marker, so that a worker that dies mid-task
+    (a segmentation fault inside the geometry kernel) can be attributed to its task
+    when the pool is run one task at a time."""
+    task_id = payload[1]["task_id"]
+    marker = _CTX.get("inflight")
+    if marker is not None:
+        try:
+            marker.write_text(task_id)
+        except OSError:
+            pass
+    if os.environ.get("VERIBIM_TEST_CRASH_TASK") == task_id:   # test hook only
+        os.kill(os.getpid(), 9)
+    try:
+        return _score_one(payload)
+    finally:
+        if marker is not None:
+            try:
+                marker.unlink()
+            except OSError:
+                pass
+
+
+def _unscorable(task_id: str, why: str) -> dict:
+    return {"task_id": task_id, "score": None, "score_error": why}
+
+
 def score_rows(records: Sequence[dict], rows: Sequence[dict], workers: int,
                project_root: Path, gold_cache_root: Path,
                family_reading: bool = False) -> list[dict]:
@@ -250,16 +284,79 @@ def score_rows(records: Sequence[dict], rows: Sequence[dict], workers: int,
     ``family_reading`` resolves each task's scorer settings from its own record
     through ``scoring.scorer_config_for`` instead of from its operation alone.
     It is off by default, so every earlier call measures what it measured.
+
+    The pool is crash-tolerant (2026-10-23): a scorer worker that dies (the
+    sft_v12 val-500 reads hung at 500/500 twice, a worker lost to the geometry
+    kernel) no longer hangs the read. The tasks not yet scored are rerun one at
+    a time in a single-worker pool; the task whose worker dies is reported as
+    unscorable with ``score_error`` set, and ``summarize`` names it. Scoring
+    itself (``_init_scorer``, ``_score_one``) is unchanged.
     """
+    from concurrent.futures import ProcessPoolExecutor, as_completed
+    from concurrent.futures import TimeoutError as FuturesTimeout
+    from concurrent.futures.process import BrokenProcessPool
+
     by_id = {r["task_id"]: r for r in records}
-    payloads = [(by_id[row["task_id"]], row) for row in rows]
+    payloads = {row["task_id"]: (by_id[row["task_id"]], row) for row in rows}
+    order = [row["task_id"] for row in rows]
+    inflight_dir = Path(gold_cache_root) / "_inflight"
+    inflight_dir.mkdir(parents=True, exist_ok=True)
+    for stale in inflight_dir.glob("*.txt"):
+        stale.unlink(missing_ok=True)
     context = mp.get_context("spawn")
+    initargs = (str(project_root), str(gold_cache_root), bool(family_reading), str(inflight_dir))
     scored: dict[str, dict] = {}
-    with context.Pool(processes=max(1, workers), initializer=_init_scorer,
-                      initargs=(str(project_root), str(gold_cache_root),
-                                bool(family_reading))) as pool:
-        for out in pool.imap_unordered(_score_one, payloads, chunksize=1):
+
+    # round 1: the normal parallel pool
+    pending = list(order)
+    executor = ProcessPoolExecutor(max_workers=max(1, workers), mp_context=context,
+                                   initializer=_init_scorer_marked, initargs=initargs)
+    broken = False
+    try:
+        futures = {executor.submit(_score_one_marked, payloads[t]): t for t in pending}
+        for future in as_completed(futures):
+            out = future.result()
             scored[out["task_id"]] = out
+    except BrokenProcessPool:
+        broken = True
+    finally:
+        executor.shutdown(wait=False, cancel_futures=True)
+    pending = [t for t in pending if t not in scored]
+    if broken:
+        print(f"[score_rows] a scorer worker died; {len(pending)} tasks rerun one at a time", flush=True)
+
+    # isolation: one task at a time in a single-worker pool; the task whose worker
+    # dies is the culprit, and the pool is rebuilt for the next task
+    if pending:
+        single = ProcessPoolExecutor(max_workers=1, mp_context=context,
+                                     initializer=_init_scorer_marked, initargs=initargs)
+        try:
+            for task_id in pending:
+                try:
+                    out = single.submit(_score_one_marked, payloads[task_id]).result(timeout=1800)
+                    scored[task_id] = out
+                except BrokenProcessPool:
+                    scored[task_id] = _unscorable(task_id, "scorer worker died while scoring this task")
+                    print(f"[score_rows] worker died on {task_id}; marked unscorable", flush=True)
+                    single.shutdown(wait=False, cancel_futures=True)
+                    single = ProcessPoolExecutor(max_workers=1, mp_context=context,
+                                                 initializer=_init_scorer_marked, initargs=initargs)
+                except FuturesTimeout:
+                    scored[task_id] = _unscorable(task_id, "scorer worker exceeded 1800 s on this task")
+                    print(f"[score_rows] worker timed out on {task_id}; marked unscorable", flush=True)
+                    for proc in list(getattr(single, "_processes", {}).values()):
+                        try:
+                            proc.kill()
+                        except Exception:
+                            pass
+                    single.shutdown(wait=False, cancel_futures=True)
+                    single = ProcessPoolExecutor(max_workers=1, mp_context=context,
+                                                 initializer=_init_scorer_marked, initargs=initargs)
+        finally:
+            single.shutdown(wait=False, cancel_futures=True)
+    for stale in inflight_dir.glob("*.txt"):
+        stale.unlink(missing_ok=True)
+
     merged = []
     for row in rows:
         entry = scored.get(row["task_id"], {})

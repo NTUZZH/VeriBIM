@@ -1,0 +1,25 @@
+task_id,operation,edit_kind,completed,model,element,element_class,other,other_class,other_name,volume_m3,not_in_gt,overlap_box_m
+WAL-UPD-DIR-B16-001,update,mirror,False,ground truth,1Ho6izjKHBveH2TnHvKVcT,IfcWallStandardCase,3qoS8vqpP48eQauYl$YeVz,IfcDoor,2OG-Tür-1-3,0.003188,,0.084x0.085x2.52
+SLB-CRE-DIR-B04-004,create,array_elements,False,ground truth,2D6AIswE9nwiMZChvE0Xf_,IfcSlab,1fHiHOQc96BfECgdroyoJa,IfcAirTerminal,Воздухораспределитель - Диффузор круглый D125,0.000999,,0.17x0.167x0.071
+SPC-CRE-TOP-B04-004,create,create_box,False,ground truth,0_0CvKIZ$wLGx3GwJsNIsK,IfcSpace,0WKq1kUor1Sw4D6FX6Nj17,IfcSpace,1,53.4,,4.0x3.0x4.45
+SLB-UPD-DIR-B46-003,update,rotate,False,ground truth,1EcL9RnWjEUxdmjoNJgbH7,IfcSlab,2jjHH6VTv5dwQNhpBR$LHh,IfcSlab,PRECAST,0.008886,,0.061x0.1x2.63
+SLB-CRE-SPA-G8structure-012,create,create_box,False,ground truth,1toAKf59gZ9kyT5KBC$Y7W,IfcSlab,0FlBjoKhP3fALuPCCZ4Zwu,IfcBeam,M_Concrete-Rectangular Beam:300 x 600mm Project:441349,0.0108,,0.3x0.18x0.2
+SLB-CRE-SPA-G8structure-012,create,create_box,False,ground truth,1toAKf59gZ9kyT5KBC$Y7W,IfcSlab,0FlBjoKhP3fALuPCCZ4Zwj,IfcBeam,M_Concrete-Rectangular Beam:300 x 600mm Project:441360,0.04212,,1.17x0.18x0.2
+SPC-UPD-SPA-B16m4X3-001,update,translate,False,ground truth,33unZ9THr5$P_m4hbyo5Gt,IfcSpace,18azNkEnnCqQ1DsdC84arX,IfcSpace,5.0.1,22.125015,,4.625x2.01x2.38
+WAL-CRE-SPA-B11m4X3-002,create,create_box,False,ground truth,20AJae73ZtdqZU06ehChDg,IfcWall,1t7cRInv0dTcqfhYXi1$mk,IfcSlab,ARVL-01,0.2,,4.0x0.2x0.25
+COL-CRE-TOP-B07m4X3-007,create,create_box,False,ground truth,3k452_UPCc7QmeZoAC$ZWh,IfcColumn,1m$PmkJzLD8he6M9QBl43p,IfcSlab,"Перекрытие: 120,00 мм",0.0192,,0.4x0.4x0.12
+SPC-UPD-SPA-G7arcm4-001,update,translate,False,ground truth,3YGEx$KmPDJfbqowFvCGHx,IfcSpace,3YGEx$KmPDJfbqowFvCJEV,IfcSpace,29,59.556857,,3.18x4.75x4.0
+SPC-UPD-SPA-G7arcm4-001,update,translate,False,ground truth,3YGEx$KmPDJfbqowFvCGHx,IfcSpace,3YGEx$KmPDJfbqowFvCIQc,IfcSpace,28,2.504833,,3.5x4.75x0.4
+COL-CRE-TOP-G7structurem4X3-001,create,create_box,False,ground truth,1ZYk5r3Rmmahsj_PlJdra3,IfcColumn,2WXiSjzZz6Wvc$Gfc$T$kD,IfcSlab,Foundation Slab:150mm Floor Slab:612456,0.008,,0.4x0.4x0.05
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,1WPTIDfOndcF1aS9oAiTmP,IfcWall,1PeFoS0Az7kwOO9N8OOof1,IfcSlab,Foundation Slab:100mm Grade slab:575673,0.117,,3.9x0.3x0.1
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,1WPTIDfOndcF1aS9oAiTmP,IfcWall,3gdXkV3qT1exZuIyfhsYAa,IfcBeam,Concrete-Rectangular Beam:Plint Beam 300x330:538797,0.0207,,0.3x0.3x0.23
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,1WPTIDfOndcF1aS9oAiTmP,IfcWall,3gdXkV3qT1exZuIyfhsYAD,IfcBeam,Concrete-Rectangular Beam:Plint Beam 300x330:538756,0.0207,,0.3x0.3x0.23
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,1KY1ja6SlTx8HHyNkGFPCO,IfcWall,1PeFoS0Az7kwOO9N8OOof1,IfcSlab,Foundation Slab:100mm Grade slab:575673,0.117,,3.9x0.3x0.1
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,1KY1ja6SlTx8HHyNkGFPCO,IfcWall,3gdXkV3qT1exZuIyfhsYAa,IfcBeam,Concrete-Rectangular Beam:Plint Beam 300x330:538797,0.0207,,0.3x0.3x0.23
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,1KY1ja6SlTx8HHyNkGFPCO,IfcWall,3gdXkV3qT1exZuIyfhsYAD,IfcBeam,Concrete-Rectangular Beam:Plint Beam 300x330:538756,0.0207,,0.3x0.3x0.23
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,0gxoXBP01sKQYgPplcTGRK,IfcWall,1PeFoS0Az7kwOO9N8OOof1,IfcSlab,Foundation Slab:100mm Grade slab:575673,0.117,,3.9x0.3x0.1
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,0gxoXBP01sKQYgPplcTGRK,IfcWall,3gdXkV3qT1exZuIyfhsYAa,IfcBeam,Concrete-Rectangular Beam:Plint Beam 300x330:538797,0.0207,,0.3x0.3x0.23
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,0gxoXBP01sKQYgPplcTGRK,IfcWall,3gdXkV3qT1exZuIyfhsYAD,IfcBeam,Concrete-Rectangular Beam:Plint Beam 300x330:538756,0.0207,,0.3x0.3x0.23
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,25dV29j3_ZSeUZMKqXjblL,IfcWall,1PeFoS0Az7kwOO9N8OOof1,IfcSlab,Foundation Slab:100mm Grade slab:575673,0.117,,3.9x0.3x0.1
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,25dV29j3_ZSeUZMKqXjblL,IfcWall,3gdXkV3qT1exZuIyfhsYAa,IfcBeam,Concrete-Rectangular Beam:Plint Beam 300x330:538797,0.0207,,0.3x0.3x0.23
+WAL-CRE-DIR-G7structurem4X3-002,create,array_elements,False,ground truth,25dV29j3_ZSeUZMKqXjblL,IfcWall,3gdXkV3qT1exZuIyfhsYAD,IfcBeam,Concrete-Rectangular Beam:Plint Beam 300x330:538756,0.0207,,0.3x0.3x0.23

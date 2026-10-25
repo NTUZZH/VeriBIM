@@ -1,0 +1,237 @@
+--- modifc_gen/goldlib.py.bak_20261015_fix	2026-10-03 17:42:01.855297188 +0800
++++ modifc_gen/goldlib.py	2026-10-15 21:01:04.009623530 +0800
+@@ -1243,33 +1243,165 @@
+     return False
+ 
+ 
++def _axis_frame(position) -> np.ndarray:
++    """A 4x4 matrix of an optional ``IfcAxis2Placement3D``, in model units."""
++    if position is None:
++        return np.identity(4)
++    return np.array(ifcopenshell.util.placement.get_axis2placement(position),
++                    dtype=float)
++
++
++def _profile_axes(profile) -> tuple[np.ndarray, np.ndarray]:
++    """The x and y axes of a profile's own position, in the profile plane."""
++    position = getattr(profile, "Position", None)
++    if position is None or position.RefDirection is None:
++        return np.array([1.0, 0.0, 0.0]), np.array([0.0, 1.0, 0.0])
++    ref = np.array(position.RefDirection.DirectionRatios[:2], dtype=float)
++    ref = ref / (float(np.linalg.norm(ref)) or 1.0)
++    return (np.array([ref[0], ref[1], 0.0]), np.array([-ref[1], ref[0], 0.0]))
++
++
++#: Directions closer than this to a frame axis count as running along it.
++_ALIGNED = 1e-6
++
++
++def cut_form(solid) -> str:
++    """Which dimension of a rectangular extrusion runs across its host wall.
++
++    Read in the product's own axes once its rotation is cleared, which is the
++    wall's own frame after a re-hosting, where the wall's thickness runs along
++    y.  Returns ``"depth"`` when the solid is extruded across the wall (the
++    profile then holds the opening's face, width and height, and the extrusion
++    depth is the cut), ``"YDim"`` or ``"XDim"`` when that profile dimension runs
++    across the wall and the extrusion runs along the wall's face.  Anything
++    else, an extrusion or a profile axis oblique to the wall, is refused.
++    """
++    frame = _axis_frame(solid.Position)[:3, :3]
++    direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
++    direction = frame @ (direction / float(np.linalg.norm(direction)))
++    across = np.array([0.0, 1.0, 0.0])
++    if abs(abs(float(direction @ across)) - 1.0) < _ALIGNED:
++        return "depth"
++    if abs(float(direction @ across)) < _ALIGNED:
++        x_axis, y_axis = _profile_axes(solid.SweptArea)
++        if abs(abs(float((frame @ y_axis) @ across)) - 1.0) < _ALIGNED:
++            return "YDim"
++        if abs(abs(float((frame @ x_axis) @ across)) - 1.0) < _ALIGNED:
++            return "XDim"
++    raise ValueError("the body is extruded or turned obliquely to the wall")
++
++
++def extent_across(solid) -> tuple[float, float]:
++    """Lowest and highest y of a rectangular extrusion in its product's axes.
++
++    In model units.  Read from the profile, the extrusion and the solid's own
++    position, so no geometry kernel is needed.
++    """
++    corners = _profile_corners(solid.SweptArea)
++    frame = _axis_frame(solid.Position)
++    direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
++    direction = direction / float(np.linalg.norm(direction))
++    points = np.array([[px, py, 0.0] + step * float(solid.Depth) * direction
++                       for px, py in corners for step in (0.0, 1.0)],
++                      dtype=float)
++    points = (frame[:3, :3] @ points.T).T + frame[:3, 3]
++    return float(points[:, 1].min()), float(points[:, 1].max())
++
++
++def _own_profile(model: ifcopenshell.file, solid):
++    """The solid's rectangular profile, substituted when other solids share it."""
++    profile = solid.SweptArea
++    if len(model.get_inverse(profile)) != 1:
++        profile = model.create_entity(
++            "IfcRectangleProfileDef", ProfileType=profile.ProfileType,
++            ProfileName=profile.ProfileName, Position=profile.Position,
++            XDim=profile.XDim, YDim=profile.YDim)
++        solid.SweptArea = profile
++    return profile
++
++
++def _shift_solid(model: ifcopenshell.file, solid, offset: np.ndarray) -> None:
++    """Move an extrusion's start inside its product by ``offset`` (model units).
++
++    The solid gets a position of its own, so a position or a point the model
++    shares with other items is never written through.
++    """
++    position = solid.Position
++    frame = _axis_frame(position)
++    location = tuple(float(v) for v in frame[:3, 3] + offset)
++    point = model.create_entity("IfcCartesianPoint", Coordinates=location)
++    if position is None or len(model.get_inverse(position)) != 1:
++        solid.Position = model.create_entity(
++            "IfcAxis2Placement3D", Location=point,
++            Axis=None if position is None else position.Axis,
++            RefDirection=None if position is None else position.RefDirection)
++    else:
++        position.Location = point
++
++
++def resize_cut(model: ifcopenshell.file, product, depth: float) -> tuple[float, float]:
++    """Give a rectangular extrusion ``depth`` (model units) across its wall.
++
++    The dimension that runs across the wall is found with ``cut_form`` and set
++    to ``depth``; the face size is kept.  The body grows or shrinks
++    symmetrically about its own centre across the wall, so anything that hangs
++    from the product keeps its place relative to that centre.  Returns the
++    body's new extent across the wall in the product's own axes.
++    """
++    solid = sole_extrusion(model, product)
++    if solid is None or not solid.SweptArea.is_a("IfcRectangleProfileDef"):
++        raise ValueError(f"{product.GlobalId} has no rectangular profile")
++    form = cut_form(solid)
++    if form == "depth":
++        old = float(solid.Depth)
++        direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
++        direction = direction / float(np.linalg.norm(direction))
++        frame = _axis_frame(solid.Position)[:3, :3]
++        _shift_solid(model, solid, frame @ direction * ((old - float(depth)) / 2.0))
++        solid.Depth = float(depth)
++    else:
++        setattr(_own_profile(model, solid), form, float(depth))
++    return extent_across(solid)
++
++
+ def _replant(model: ifcopenshell.file, product, host, x: float, y: float,
+              z: float, depth: Optional[float], scale: float) -> None:
+-    """Hang one product from a wall at a stated point in that wall's frame."""
++    """Hang one product from a wall at a stated point in that wall's frame.
++
++    With ``depth`` the product's body is given that depth across the wall and
++    is centred on the span from ``y`` to ``y + depth``, however the model draws
++    the body; ``x`` and ``z`` place the product's own origin.  Without it the
++    origin is placed at ``(x, y, z)`` and the body is left as it is.
++    """
+     placement = product.ObjectPlacement
+     if placement is None or not placement.is_a("IfcLocalPlacement"):
+         raise ValueError(f"{product.GlobalId} has no local placement")
+     if not _sole_product(model, placement, product):
+         raise ValueError(f"{product.GlobalId} shares its placement")
++    across = float(y) / scale
++    if depth is not None:
++        low, high = resize_cut(model, product, float(depth) / scale)
++        across = across + float(depth) / scale / 2.0 - (low + high) / 2.0
+     placement.PlacementRelTo = host.ObjectPlacement
+     axis = _writable_axis(model, placement)
+-    axis.Location.Coordinates = (float(x) / scale, float(y) / scale,
+-                                 float(z) / scale)
++    axis.Location.Coordinates = (float(x) / scale, across, float(z) / scale)
+     axis.Axis = None
+     axis.RefDirection = None
+-    if depth is None:
+-        return
++
++
++def _centre_across(model: ifcopenshell.file, product) -> float:
++    """Where a product's rectangular body is centred across its parent wall.
++
++    In model units, in the frame of the placement the product hangs from.
++    """
+     solid = sole_extrusion(model, product)
+     if solid is None or not solid.SweptArea.is_a("IfcRectangleProfileDef"):
+         raise ValueError(f"{product.GlobalId} has no rectangular profile")
+-    profile = solid.SweptArea
+-    if len(model.get_inverse(profile)) != 1:
+-        profile = model.create_entity(
+-            "IfcRectangleProfileDef", ProfileType=profile.ProfileType,
+-            ProfileName=profile.ProfileName, Position=profile.Position,
+-            XDim=profile.XDim, YDim=profile.YDim)
+-        solid.SweptArea = profile
+-    profile.YDim = float(depth) / scale
++    low, high = extent_across(solid)
++    local = np.array(ifcopenshell.util.placement.get_axis2placement(
++        product.ObjectPlacement.RelativePlacement), dtype=float)
++    centre = local @ np.array([0.0, (low + high) / 2.0, 0.0, 1.0])
++    return float(centre[1])
+ 
+ 
+ def rehost_filling(model: ifcopenshell.file, guid: str, host_guid: str,
+@@ -1280,14 +1412,20 @@
+     """Move a door or a window, with its opening, into another wall.
+ 
+     The opening the element fills is re-pointed at the named wall, so the wall
+-    it left is healed and the wall it joins is cut instead.  ``along``,
+-    ``across`` and ``sill`` place the opening in the new wall's own coordinates
+-    and ``thickness`` is how far it cuts through.  The leaf is placed by its own
+-    three, which the caller works out so that the leaf keeps the offset from its
+-    opening that the model gave it.  A leaf the model hangs from its own opening
+-    follows the opening and is not moved twice, and a leaf whose body is not a
+-    rectangular extrusion keeps the body it has, which ``leaf_depth`` of
+-    ``None`` asks for.
++    it left is healed and the wall it joins is cut instead.  ``along`` and
++    ``sill`` place the opening's origin in the new wall's own coordinates.
++    Across the wall the opening cuts from ``across`` to ``across + thickness``
++    and is centred on that span, and it keeps its face size: whichever of its
++    profile or its extrusion runs across the wall is the one given the new
++    depth.  The leaf is placed along the wall and in height by its own three,
++    which the caller works out so that the leaf keeps the offset from its
++    opening that the model gave it.  A leaf the model hangs from its own
++    opening follows the opening and is not moved twice; since the opening
++    grows symmetrically about its centre, the leaf keeps its place relative to
++    that centre.  A leaf hung from the wall itself is centred like the opening
++    when ``leaf_depth`` gives it a new depth (``leaf_across`` is then its near
++    face), and otherwise keeps the offset across the wall from the opening's
++    centre that it had in the wall it left.
+     """
+     filling = entity(model, guid)
+     host = entity(model, host_guid)
+@@ -1299,12 +1437,23 @@
+     voids = list(getattr(opening, "VoidsElements", ()) or ())
+     if len(voids) != 1:
+         raise ValueError(f"{guid} hangs in an opening that voids no one wall")
+-    voids[0].RelatingBuildingElement = host
+     leaf_follows = _hangs_from(filling, opening.ObjectPlacement)
++    offset = None
++    if not leaf_follows and leaf_depth is None:
++        # read in the wall the element leaves, before anything moves
++        leaf_local = np.array(ifcopenshell.util.placement.get_axis2placement(
++            filling.ObjectPlacement.RelativePlacement), dtype=float)
++        offset = float(leaf_local[1, 3]) - _centre_across(model, opening)
++    voids[0].RelatingBuildingElement = host
+     _replant(model, opening, host, along, across, sill, thickness, scale)
+     if not leaf_follows:
+-        _replant(model, filling, host, leaf_along, leaf_across, leaf_sill,
+-                 leaf_depth, scale)
++        if offset is None:
++            _replant(model, filling, host, leaf_along, leaf_across, leaf_sill,
++                     leaf_depth, scale)
++        else:
++            centre = (float(across) + float(thickness) / 2.0) / scale
++            _replant(model, filling, host, leaf_along,
++                     (centre + offset) * scale, leaf_sill, None, scale)
+ 
+ 
+ # --------------------------------------------------------- copy and array

@@ -1,0 +1,257 @@
+comparison_id,what,macro,printed_in_manuscript,recomputed,match
+108_ours_vs_Gpt_note,point,ResHundredEightOursMinusGptLib,0.556,0.555556,True
+108_ours_vs_Gpt_note,task lo,ResHundredEightOursMinusGptLibLo,0.463,0.462963,True
+108_ours_vs_Gpt_note,task hi,ResHundredEightOursMinusGptLibHi,0.648,0.648148,True
+108_ours_vs_Gpt_note,building lo,RevHundredEightOursMinusGptLibCLo,0.467,0.46729,True
+108_ours_vs_Gpt_note,building hi,RevHundredEightOursMinusGptLibCHi,0.631,0.631068,True
+108_ours_vs_DeepSeek_note,point,ResHundredEightOursMinusDeepSeekLib,0.185,0.185185,True
+108_ours_vs_DeepSeek_note,task lo,ResHundredEightOursMinusDeepSeekLibLo,0.111,0.111111,True
+108_ours_vs_DeepSeek_note,task hi,ResHundredEightOursMinusDeepSeekLibHi,0.269,0.268519,True
+108_ours_vs_DeepSeek_note,building lo,RevHundredEightOursMinusDeepSeekLibCLo,0.098,0.097561,True
+108_ours_vs_DeepSeek_note,building hi,RevHundredEightOursMinusDeepSeekLibCHi,0.276,0.275862,True
+108_ours_vs_Sonnet_note,point,ResHundredEightOursMinusSonnetLib,0.120,0.12037,True
+108_ours_vs_Sonnet_note,task lo,ResHundredEightOursMinusSonnetLibLo,0.046,0.046296,True
+108_ours_vs_Sonnet_note,task hi,ResHundredEightOursMinusSonnetLibHi,0.194,0.194444,True
+108_ours_vs_Sonnet_note,building lo,RevHundredEightOursMinusSonnetLibCLo,0.017,0.017241,True
+108_ours_vs_Sonnet_note,building hi,RevHundredEightOursMinusSonnetLibCHi,0.237,0.236559,True
+108_ours_vs_Gemini_note,point,ResHundredEightOursMinusGeminiLib,0.389,0.388889,True
+108_ours_vs_Gemini_note,task lo,ResHundredEightOursMinusGeminiLibLo,0.296,0.296296,True
+108_ours_vs_Gemini_note,task hi,ResHundredEightOursMinusGeminiLibHi,0.481,0.481481,True
+108_ours_vs_Gemini_note,building lo,RevHundredEightOursMinusGeminiLibCLo,0.330,0.32967,True
+108_ours_vs_Gemini_note,building hi,RevHundredEightOursMinusGeminiLibCHi,0.469,0.469136,True
+108_ours_vs_Gpt_alone,point,ResHundredEightOursMinusGptAlone,0.722,0.722222,True
+108_ours_vs_Gpt_alone,task lo,ResHundredEightOursMinusGptAloneLo,0.630,0.62963,True
+108_ours_vs_Gpt_alone,task hi,ResHundredEightOursMinusGptAloneHi,0.806,0.805556,True
+108_ours_vs_Gpt_alone,building lo,RevHundredEightOursMinusGptAloneCLo,0.653,0.653061,True
+108_ours_vs_Gpt_alone,building hi,RevHundredEightOursMinusGptAloneCHi,0.784,0.783784,True
+108_ours_vs_DeepSeek_alone,point,ResHundredEightOursMinusDeepSeekAlone,0.435,0.435185,True
+108_ours_vs_DeepSeek_alone,task lo,ResHundredEightOursMinusDeepSeekAloneLo,0.343,0.342593,True
+108_ours_vs_DeepSeek_alone,task hi,ResHundredEightOursMinusDeepSeekAloneHi,0.528,0.527778,True
+108_ours_vs_DeepSeek_alone,building lo,RevHundredEightOursMinusDeepSeekAloneCLo,0.297,0.29703,True
+108_ours_vs_DeepSeek_alone,building hi,RevHundredEightOursMinusDeepSeekAloneCHi,0.564,0.564356,True
+108_ours_vs_Sonnet_alone,point,ResHundredEightOursMinusSonnetAlone,0.241,0.240741,True
+108_ours_vs_Sonnet_alone,task lo,ResHundredEightOursMinusSonnetAloneLo,0.157,0.157407,True
+108_ours_vs_Sonnet_alone,task hi,ResHundredEightOursMinusSonnetAloneHi,0.324,0.324074,True
+108_ours_vs_Sonnet_alone,building lo,RevHundredEightOursMinusSonnetAloneCLo,0.136,0.136364,True
+108_ours_vs_Sonnet_alone,building hi,RevHundredEightOursMinusSonnetAloneCHi,0.349,0.349057,True
+108_ours_vs_Gemini_alone,point,ResHundredEightOursMinusGeminiAlone,0.787,0.787037,True
+108_ours_vs_Gemini_alone,task lo,ResHundredEightOursMinusGeminiAloneLo,0.704,0.703704,True
+108_ours_vs_Gemini_alone,task hi,ResHundredEightOursMinusGeminiAloneHi,0.861,0.861111,True
+108_ours_vs_Gemini_alone,building lo,RevHundredEightOursMinusGeminiAloneCLo,0.707,0.707071,True
+108_ours_vs_Gemini_alone,building hi,RevHundredEightOursMinusGeminiAloneCHi,0.872,0.871795,True
+108_ours_vs_Gpt_documented,point,RevOursMinusInfGpt,0.333,0.333333,True
+108_ours_vs_Gpt_documented,task lo,RevOursMinusInfGptLo,0.250,0.25,True
+108_ours_vs_Gpt_documented,task hi,RevOursMinusInfGptHi,0.426,0.425926,True
+108_ours_vs_Gpt_documented,building lo,RevOursMinusInfGptCLo,0.269,0.268817,True
+108_ours_vs_Gpt_documented,building hi,RevOursMinusInfGptCHi,0.406,0.40625,True
+108_ours_vs_Gpt_documented,b (A only),RevOursMinusInfGptWins,36,36.0,True
+108_ours_vs_Gpt_documented,c (B only),RevOursMinusInfGptLosses,0,0.0,True
+108_ours_vs_DeepSeek_documented,point,RevOursMinusInfDeepSeek,0.074,0.074074,True
+108_ours_vs_DeepSeek_documented,task lo,RevOursMinusInfDeepSeekLo,0.019,0.018519,True
+108_ours_vs_DeepSeek_documented,task hi,RevOursMinusInfDeepSeekHi,0.130,0.12963,True
+108_ours_vs_DeepSeek_documented,building lo,RevOursMinusInfDeepSeekCLo,0.031,0.030928,True
+108_ours_vs_DeepSeek_documented,building hi,RevOursMinusInfDeepSeekCHi,0.121,0.121212,True
+108_ours_vs_DeepSeek_documented,b (A only),RevOursMinusInfDeepSeekWins,9,9.0,True
+108_ours_vs_DeepSeek_documented,c (B only),RevOursMinusInfDeepSeekLosses,1,1.0,True
+108_ours_vs_Sonnet_documented,point,RevOursMinusInfSonnet,$-$0.019,-0.018519,True
+108_ours_vs_Sonnet_documented,task lo,RevOursMinusInfSonnetLo,$-$0.056,-0.055556,True
+108_ours_vs_Sonnet_documented,task hi,RevOursMinusInfSonnetHi,0.019,0.018519,True
+108_ours_vs_Sonnet_documented,building lo,RevOursMinusInfSonnetCLo,$-$0.053,-0.053435,True
+108_ours_vs_Sonnet_documented,building hi,RevOursMinusInfSonnetCHi,0.017,0.017094,True
+108_ours_vs_Sonnet_documented,b (A only),RevOursMinusInfSonnetWins,1,1.0,True
+108_ours_vs_Sonnet_documented,c (B only),RevOursMinusInfSonnetLosses,3,3.0,True
+108_ours_vs_Sonnet_documented,task 90 lo (sorted order),RevOursMinusInfNinetyLo,$-$0.046,-0.046296,True
+108_ours_vs_Sonnet_documented,task 90 hi (sorted order),RevOursMinusInfNinetyHi,0.009,0.009259,True
+108_ours_vs_Sonnet_documented,task lo (sorted order),RevOursMinusInfLo,$-$0.056,-0.055556,True
+108_ours_vs_Sonnet_documented,task hi (sorted order),RevOursMinusInfHi,0.019,0.018519,True
+108_ours_vs_Sonnet_documented,building lo,RevOursMinusInfCLo,$-$0.053,-0.053435,True
+108_ours_vs_Sonnet_documented,building hi,RevOursMinusInfCHi,0.017,0.017094,True
+108_ours_vs_Gemini_documented,point,RevOursMinusInfGemini,0.222,0.222222,True
+108_ours_vs_Gemini_documented,task lo,RevOursMinusInfGeminiLo,0.148,0.148148,True
+108_ours_vs_Gemini_documented,task hi,RevOursMinusInfGeminiHi,0.306,0.305556,True
+108_ours_vs_Gemini_documented,building lo,RevOursMinusInfGeminiCLo,0.172,0.172043,True
+108_ours_vs_Gemini_documented,building hi,RevOursMinusInfGeminiCHi,0.275,0.275,True
+108_ours_vs_Gemini_documented,b (A only),RevOursMinusInfGeminiWins,24,24.0,True
+108_ours_vs_Gemini_documented,c (B only),RevOursMinusInfGeminiLosses,0,0.0,True
+108_ours_vs_Opus_documented,point,RevOursMinusInfOpus,0.019,0.018519,True
+108_ours_vs_Opus_documented,task lo,RevOursMinusInfOpusLo,$-$0.028,-0.027778,True
+108_ours_vs_Opus_documented,task hi,RevOursMinusInfOpusHi,0.074,0.074074,True
+108_ours_vs_Opus_documented,building lo,RevOursMinusInfOpusCLo,$-$0.043,-0.043103,True
+108_ours_vs_Opus_documented,building hi,RevOursMinusInfOpusCHi,0.087,0.086957,True
+108_ours_vs_Opus_documented,b (A only),RevOursMinusInfOpusWins,5,5.0,True
+108_ours_vs_Opus_documented,c (B only),RevOursMinusInfOpusLosses,3,3.0,True
+108_ours_vs_GptReason_documented,point,RevOursMinusInfGptReason,,0.09259259259259259,
+108_ours_vs_GptReason_documented,task lo,RevOursMinusInfGptReasonLo,,0.027777777777777776,
+108_ours_vs_GptReason_documented,task hi,RevOursMinusInfGptReasonHi,,0.1574074074074074,
+108_ours_vs_GptReason_documented,building lo,RevOursMinusInfGptReasonCLo,,0.035398230088495575,
+108_ours_vs_GptReason_documented,building hi,RevOursMinusInfGptReasonCHi,,0.14814814814814814,
+108_ours_vs_GptReason_documented,b (A only),RevOursMinusInfGptReasonWins,,12,
+108_ours_vs_GptReason_documented,c (B only),RevOursMinusInfGptReasonLosses,,2,
+108_ours_vs_base_alone,point,ResHundredEightOursMinusBaseAlone,0.954,0.953704,True
+108_ours_vs_base_alone,task lo,ResHundredEightOursMinusBaseAloneLo,0.907,0.907407,True
+108_ours_vs_base_alone,task hi,ResHundredEightOursMinusBaseAloneHi,0.991,0.990741,True
+108_ours_vs_base_alone,building lo,RevHundredEightOursMinusBaseAloneCLo,0.912,0.912281,True
+108_ours_vs_base_alone,building hi,RevHundredEightOursMinusBaseAloneCHi,0.990,0.990476,True
+108_ours_vs_base_note,point,ResHundredEightOursMinusBaseNote,0.954,0.953704,True
+108_ours_vs_base_note,task lo,ResHundredEightOursMinusBaseNoteLo,0.907,0.907407,True
+108_ours_vs_base_note,task hi,ResHundredEightOursMinusBaseNoteHi,0.991,0.990741,True
+108_ours_vs_base_note,building lo,RevHundredEightOursMinusBaseNoteCLo,0.927,0.926606,True
+108_ours_vs_base_note,building hi,RevHundredEightOursMinusBaseNoteCHi,0.981,0.981481,True
+108_ours_vs_base_documented,point,RevOursMinusBaseInf,0.324,0.324074,True
+108_ours_vs_base_documented,task lo,RevOursMinusBaseInfLo,0.241,0.240741,True
+108_ours_vs_base_documented,task hi,RevOursMinusBaseInfHi,0.407,0.407407,True
+108_ours_vs_base_documented,building lo,RevOursMinusBaseInfCLo,0.246,0.246269,True
+108_ours_vs_base_documented,building hi,RevOursMinusBaseInfCHi,0.404,0.404255,True
+108_base_documented_vs_note,point,RevBaseInfMinusNote,0.630,0.62963,True
+108_base_documented_vs_note,task lo,RevBaseInfMinusNoteLo,0.537,0.537037,True
+108_base_documented_vs_note,task hi,RevBaseInfMinusNoteHi,0.722,0.722222,True
+108_sonnet_documented_vs_opus_documented,point,RevSonnetInfMinusOpus,0.037,0.037037,True
+108_sonnet_documented_vs_opus_documented,task lo,RevSonnetInfMinusOpusLo,0.000,0.0,True
+108_sonnet_documented_vs_opus_documented,task hi,RevSonnetInfMinusOpusHi,0.083,0.083333,True
+108_ours_vs_sft_lib,point,ResHundredEightOursMinusSftLib,0.009,0.009259,True
+108_ours_vs_sft_lib,task lo,ResHundredEightOursMinusSftLibLo,0.000,0.0,True
+108_ours_vs_sft_lib,task hi,ResHundredEightOursMinusSftLibHi,0.028,0.027778,True
+108_ours_vs_sft_lib,building lo,RevHundredEightOursMinusSftLibCLo,0.000,0.0,True
+108_ours_vs_sft_lib,building hi,RevHundredEightOursMinusSftLibCHi,0.031,0.030928,True
+108_ours_vs_sft_alone,point,ResHundredEightOursMinusSftAlone,0.806,0.805556,True
+108_ours_vs_sft_alone,task lo,ResHundredEightOursMinusSftAloneLo,0.731,0.731481,True
+108_ours_vs_sft_alone,task hi,ResHundredEightOursMinusSftAloneHi,0.880,0.87963,True
+108_ours_vs_sft_alone,building lo,RevHundredEightOursMinusSftAloneCLo,0.725,0.725275,True
+108_ours_vs_sft_alone,building hi,RevHundredEightOursMinusSftAloneCHi,0.868,0.868217,True
+108full_ours_vs_Sonnet_note,point,RevFullHundredEightOursMinusSonnetLib,0.021,0.020619,True
+108full_ours_vs_Sonnet_note,task lo,RevFullHundredEightOursMinusSonnetLibLo,$-$0.031,-0.030928,True
+108full_ours_vs_Sonnet_note,task hi,RevFullHundredEightOursMinusSonnetLibHi,0.072,0.072165,True
+108full_ours_vs_Sonnet_note,building lo,RevFullHundredEightOursMinusSonnetLibCLo,$-$0.034,-0.034091,True
+108full_ours_vs_Sonnet_note,building hi,RevFullHundredEightOursMinusSonnetLibCHi,0.078,0.078431,True
+108full_ours_vs_Sonnet_note,b (A only),RevFullHundredEightOursMinusSonnetLibWins,4,4.0,True
+108full_ours_vs_Sonnet_note,c (B only),RevFullHundredEightOursMinusSonnetLibLosses,2,2.0,True
+108full_ours_vs_DeepSeek_note,point,RevFullHundredEightOursMinusDeepSeekLib,0.093,0.092784,True
+108full_ours_vs_DeepSeek_note,task lo,RevFullHundredEightOursMinusDeepSeekLibLo,0.031,0.030928,True
+108full_ours_vs_DeepSeek_note,task hi,RevFullHundredEightOursMinusDeepSeekLibHi,0.165,0.164948,True
+108full_ours_vs_DeepSeek_note,building lo,RevFullHundredEightOursMinusDeepSeekLibCLo,0.021,0.021053,True
+108full_ours_vs_DeepSeek_note,building hi,RevFullHundredEightOursMinusDeepSeekLibCHi,0.167,0.166667,True
+108full_ours_vs_DeepSeek_note,b (A only),RevFullHundredEightOursMinusDeepSeekLibWins,10,10.0,True
+108full_ours_vs_DeepSeek_note,c (B only),RevFullHundredEightOursMinusDeepSeekLibLosses,1,1.0,True
+108full_ours_vs_Gpt_note,point,RevFullHundredEightOursMinusGptLib,0.505,0.505155,True
+108full_ours_vs_Gpt_note,task lo,RevFullHundredEightOursMinusGptLibLo,0.402,0.402062,True
+108full_ours_vs_Gpt_note,task hi,RevFullHundredEightOursMinusGptLibHi,0.608,0.608247,True
+108full_ours_vs_Gpt_note,building lo,RevFullHundredEightOursMinusGptLibCLo,0.421,0.421053,True
+108full_ours_vs_Gpt_note,building hi,RevFullHundredEightOursMinusGptLibCHi,0.575,0.575,True
+108full_ours_vs_Gpt_note,b (A only),RevFullHundredEightOursMinusGptLibWins,49,49.0,True
+108full_ours_vs_Gpt_note,c (B only),RevFullHundredEightOursMinusGptLibLosses,0,0.0,True
+108full_ours_vs_Gemini_note,point,RevFullHundredEightOursMinusGeminiLib,0.320,0.319588,True
+108full_ours_vs_Gemini_note,task lo,RevFullHundredEightOursMinusGeminiLibLo,0.227,0.226804,True
+108full_ours_vs_Gemini_note,task hi,RevFullHundredEightOursMinusGeminiLibHi,0.412,0.412371,True
+108full_ours_vs_Gemini_note,building lo,RevFullHundredEightOursMinusGeminiLibCLo,0.242,0.242105,True
+108full_ours_vs_Gemini_note,building hi,RevFullHundredEightOursMinusGeminiLibCHi,0.407,0.40708,True
+108full_ours_vs_Gemini_note,b (A only),RevFullHundredEightOursMinusGeminiLibWins,31,31.0,True
+108full_ours_vs_Gemini_note,c (B only),RevFullHundredEightOursMinusGeminiLibLosses,0,0.0,True
+324_ours_vs_Sonnet_note,point,ResThreeTwentyFourOursMinusSonnetLib,0.096,0.095679,True
+324_ours_vs_Sonnet_note,task lo,ResThreeTwentyFourOursMinusSonnetLibLo,0.052,0.052469,True
+324_ours_vs_Sonnet_note,task hi,ResThreeTwentyFourOursMinusSonnetLibHi,0.142,0.141975,True
+324_ours_vs_Sonnet_note,building lo,RevThreeTwentyFourOursMinusSonnetLibCLo,0.009,0.009375,True
+324_ours_vs_Sonnet_note,building hi,RevThreeTwentyFourOursMinusSonnetLibCHi,0.169,0.168901,True
+324_ours_vs_Sonnet_alone,point,ResThreeTwentyFourOursMinusSonnetAlone,0.213,0.212963,True
+324_ours_vs_Sonnet_alone,task lo,ResThreeTwentyFourOursMinusSonnetAloneLo,0.164,0.16358,True
+324_ours_vs_Sonnet_alone,task hi,ResThreeTwentyFourOursMinusSonnetAloneHi,0.262,0.262346,True
+324_ours_vs_Sonnet_alone,building lo,RevThreeTwentyFourOursMinusSonnetAloneCLo,0.151,0.151261,True
+324_ours_vs_Sonnet_alone,building hi,RevThreeTwentyFourOursMinusSonnetAloneCHi,0.268,0.268371,True
+324_IFC4X3_ours_vs_Sonnet_note,point,ResThreeTwentyFourOursMinusSonnetLibFourXThree,0.046,0.046296,True
+324_IFC4X3_ours_vs_Sonnet_note,task lo,ResThreeTwentyFourOursMinusSonnetLibFourXThreeLo,$-$0.019,-0.018519,True
+324_IFC4X3_ours_vs_Sonnet_note,task hi,ResThreeTwentyFourOursMinusSonnetLibFourXThreeHi,0.111,0.111111,True
+324_IFC4X3_ours_vs_Sonnet_note,building lo,RevThreeTwentyFourOursMinusSonnetLibFourXThreeCLo,$-$0.046,-0.046296,True
+324_IFC4X3_ours_vs_Sonnet_note,building hi,RevThreeTwentyFourOursMinusSonnetLibFourXThreeCHi,0.131,0.130841,True
+324full_ours_vs_Sonnet_note,point,RevFullThreeTwentyFourOursMinusSonnetLib,0.007,0.00678,True
+324full_ours_vs_Sonnet_note,task lo,RevFullThreeTwentyFourOursMinusSonnetLibLo,$-$0.027,-0.027119,True
+324full_ours_vs_Sonnet_note,task hi,RevFullThreeTwentyFourOursMinusSonnetLibHi,0.041,0.040678,True
+324full_ours_vs_Sonnet_note,building lo,RevFullThreeTwentyFourOursMinusSonnetLibCLo,$-$0.057,-0.056738,True
+324full_ours_vs_Sonnet_note,building hi,RevFullThreeTwentyFourOursMinusSonnetLibCHi,0.054,0.05414,True
+324full_ours_vs_Sonnet_note,b (A only),RevFullThreeTwentyFourOursMinusSonnetLibWins,14,14.0,True
+324full_ours_vs_Sonnet_note,c (B only),RevFullThreeTwentyFourOursMinusSonnetLibLosses,12,12.0,True
+216_ours_vs_Sonnet_documented,point,RevRestDiff,$-$0.023,-0.023148,True
+216_ours_vs_Sonnet_documented,task lo,RevRestLo,$-$0.056,-0.055556,True
+216_ours_vs_Sonnet_documented,task hi,RevRestHi,0.009,0.009259,True
+216_ours_vs_Sonnet_documented,task 90 lo,RevRestNinetyLo,$-$0.051,-0.050926,True
+216_ours_vs_Sonnet_documented,task 90 hi,RevRestNinetyHi,0.005,0.00463,True
+216_ours_vs_Sonnet_documented,building lo (equiv_216.json),,-0.08695652173913043,-0.08695652173913043,True
+216_ours_vs_Sonnet_documented,building hi (equiv_216.json),,0.025510204081632654,0.025510204081632654,True
+216_ours_vs_Sonnet_documented,"b, c (equiv_216.json)",,"[4, 9]","[4, 9]",True
+324_ours_vs_Sonnet_documented,point,RevThreeOursMinusInf,$-$0.022,-0.021605,True
+324_ours_vs_Sonnet_documented,task lo,RevThreeOursMinusInfLo,$-$0.046,-0.046296,True
+324_ours_vs_Sonnet_documented,task hi,RevThreeOursMinusInfHi,0.003,0.003086,True
+324_ours_vs_Sonnet_documented,building lo (equiv_216.json),,-0.07183908045977011,-0.07183908045977011,True
+324_ours_vs_Sonnet_documented,building hi (equiv_216.json),,0.01818181818181818,0.01818181818181818,True
+324_ours_vs_Sonnet_documented,"b, c (equiv_216.json)",,"[5, 12]","[5, 12]",True
+324_dpo_seed_s1_vs_sft,point,RevSeedCSixMinusSft,$-$0.003,-0.003086,True
+324_dpo_seed_s1_vs_sft,task lo,RevSeedCSixMinusSftLo,$-$0.009,-0.009259,True
+324_dpo_seed_s1_vs_sft,task hi,RevSeedCSixMinusSftHi,0.000,0.0,True
+324_dpo_seed_s2_vs_sft,point,RevSeedTwoMinusSft,0.006,0.006173,True
+324_dpo_seed_s2_vs_sft,task lo,RevSeedTwoMinusSftLo,0.000,0.0,True
+324_dpo_seed_s2_vs_sft,task hi,RevSeedTwoMinusSftHi,0.015,0.015432,True
+324_dpo_seed_s3_vs_sft,point,RevSeedThreeMinusSft,0.000,0.0,True
+324_dpo_seed_s3_vs_sft,task lo,RevSeedThreeMinusSftLo,$-$0.009,-0.009259,True
+324_dpo_seed_s3_vs_sft,task hi,RevSeedThreeMinusSftHi,0.009,0.009259,True
+2100_dpo_vs_sft,point,ResBenchDeltaDpoOverSft,0.004,0.004286,True
+2100_dpo_vs_sft,task lo,ResBenchDeltaDpoOverSftLo,0.001,0.000952,True
+2100_dpo_vs_sft,task hi,ResBenchDeltaDpoOverSftHi,0.008,0.008095,True
+2100_dpo_vs_sft,building lo,RevBenchDeltaDpoOverSftCLo,0.000,0.000358,True
+2100_dpo_vs_sft,building hi,RevBenchDeltaDpoOverSftCHi,0.011,0.011302,True
+2100_ours_vs_dpo,point,ResBenchDeltaGrpoOverDpo,0.001,0.000952,True
+2100_ours_vs_dpo,task lo,ResBenchDeltaGrpoOverDpoLo,$-$0.004,-0.00381,True
+2100_ours_vs_dpo,task hi,ResBenchDeltaGrpoOverDpoHi,0.006,0.005714,True
+2100_ours_vs_dpo,building lo,RevBenchDeltaGrpoOverDpoCLo,$-$0.002,-0.002112,True
+2100_ours_vs_dpo,building hi,RevBenchDeltaGrpoOverDpoCHi,0.004,0.004192,True
+2100_ours_vs_sft,point,ResBenchDeltaOursOverSft,0.005,0.005238,True
+2100_ours_vs_sft,task lo,ResBenchDeltaOursOverSftLo,0.001,0.000952,True
+2100_ours_vs_sft,task hi,ResBenchDeltaOursOverSftHi,0.010,0.009524,True
+2100_ours_vs_sft,building lo,RevBenchDeltaOursOverSftCLo,0.000,-0.000386,True
+2100_ours_vs_sft,building hi,RevBenchDeltaOursOverSftCHi,0.014,0.014356,True
+2100_dpo_vs_prev,point,ResBenchDeltaDpoOverPrev,0.041,0.041429,True
+2100_dpo_vs_prev,task lo,ResBenchDeltaDpoOverPrevLo,0.031,0.031429,True
+2100_dpo_vs_prev,task hi,ResBenchDeltaDpoOverPrevHi,0.052,0.051905,True
+2100_dpo_vs_prev,building lo,RevBenchDeltaDpoOverPrevCLo,0.026,0.025797,True
+2100_dpo_vs_prev,building hi,RevBenchDeltaDpoOverPrevCHi,0.055,0.055161,True
+2100_IFC2X3_sft_vs_base,point,ResBenchDeltaSftOverBaseTwoXThree,0.931,0.931429,True
+2100_IFC2X3_sft_vs_base,task lo,ResBenchDeltaSftOverBaseTwoXThreeLo,0.913,0.912857,True
+2100_IFC2X3_sft_vs_base,task hi,ResBenchDeltaSftOverBaseTwoXThreeHi,0.950,0.95,True
+2100_IFC2X3_sft_vs_base,building lo,RevBenchDeltaSftOverBaseTwoXThreeCLo,0.885,0.884984,True
+2100_IFC2X3_sft_vs_base,building hi,RevBenchDeltaSftOverBaseTwoXThreeCHi,0.962,0.961872,True
+2100_fullcorpus_vs_tenbuilding_sft,point,ResSmallSftGapToMain,0.231,0.231429,True
+2100_fullcorpus_vs_tenbuilding_sft,task lo,ResSmallSftGapToMainLo,0.213,0.212857,True
+2100_fullcorpus_vs_tenbuilding_sft,task hi,ResSmallSftGapToMainHi,0.250,0.249524,True
+2100_fullcorpus_vs_tenbuilding_sft,building lo,RevSmallSftGapToMainCLo,0.173,0.172907,True
+2100_fullcorpus_vs_tenbuilding_sft,building hi,RevSmallSftGapToMainCHi,0.279,0.27923,True
+2100_fullcorpus_vs_tenbuilding_dpo,point,ResSmallDpoGapToMain,0.224,0.22381,True
+2100_fullcorpus_vs_tenbuilding_dpo,task lo,ResSmallDpoGapToMainLo,0.205,0.205238,True
+2100_fullcorpus_vs_tenbuilding_dpo,task hi,ResSmallDpoGapToMainHi,0.242,0.241905,True
+2100_fullcorpus_vs_tenbuilding_grpo,point,ResSmallGrpoGapToMain,0.223,0.223333,True
+2100_fullcorpus_vs_tenbuilding_grpo,task lo,ResSmallGrpoGapToMainLo,0.204,0.204286,True
+2100_fullcorpus_vs_tenbuilding_grpo,task hi,ResSmallGrpoGapToMainHi,0.241,0.241429,True
+2100_fullcorpus_vs_tenbuilding_grpo,building lo,RevSmallGrpoGapToMainCLo,0.173,0.173458,True
+2100_fullcorpus_vs_tenbuilding_grpo,building hi,RevSmallGrpoGapToMainCHi,0.267,0.266805,True
+2100_tenbuilding_dpo_vs_sft,point,ResSmallDeltaDpoOverSft,0.012,0.011905,True
+2100_tenbuilding_dpo_vs_sft,task lo,ResSmallDeltaDpoOverSftLo,$-$0.004,-0.00381,True
+2100_tenbuilding_dpo_vs_sft,task hi,ResSmallDeltaDpoOverSftHi,0.028,0.027619,True
+2100_tenbuilding_dpo_vs_sft,building lo,RevSmallDeltaDpoOverSftCLo,$-$0.009,-0.0087,True
+2100_tenbuilding_dpo_vs_sft,building hi,RevSmallDeltaDpoOverSftCHi,0.036,0.035569,True
+2100_tenbuilding_dpo_vs_sft,b (A only),ResSmallDeltaDpoOverSftWins,148,148.0,True
+2100_tenbuilding_dpo_vs_sft,c (B only),ResSmallDeltaDpoOverSftLosses,123,123.0,True
+valhard_ours_vs_dpo,point,ResValHardGrpoDelta,0.0133,0.013333,True
+valhard_ours_vs_dpo,task lo,ResValHardGrpoDeltaLo,0.0033,0.003333,True
+valhard_ours_vs_dpo,task hi,ResValHardGrpoDeltaHi,0.0267,0.026667,True
+valhard_ours_vs_dpo,building lo,RevValHardGrpoDeltaCLo,0.0000,0.0,True
+valhard_ours_vs_dpo,building hi,RevValHardGrpoDeltaCHi,0.0304,0.030405,True
+valhard_ours_vs_dpo,b (A only),ResValHardGrpoDeltaWins,4,4.0,True
+valhard_ours_vs_dpo,c (B only),ResValHardGrpoDeltaLosses,0,0.0,True
+valhard_dpo_vs_sft,point,ResValHardDpoDelta,0.0067,0.006667,True
+valhard_dpo_vs_sft,task lo,ResValHardDpoDeltaLo,$-$0.0067,-0.006667,True
+valhard_dpo_vs_sft,task hi,ResValHardDpoDeltaHi,0.0200,0.02,True
+valhard_dpo_vs_sft,building lo,RevValHardDpoDeltaCLo,0.0000,0.0,True
+valhard_dpo_vs_sft,building hi,RevValHardDpoDeltaCHi,0.0155,0.01548,True
+valhard_dpo_vs_sft,b (A only),ResValHardDpoDeltaWins,3,3.0,True
+valhard_dpo_vs_sft,c (B only),ResValHardDpoDeltaLosses,1,1.0,True
+v100_ours_rewritten_vs_generated,A completed,ResValSmallOursDone,97,97.0,True
+v100_ours_rewritten_vs_generated,B completed,ResValSmallOrigDone,100,100.0,True
+v85_ours_rewritten_vs_generated,A completion,RevRwOnlyOursComp,0.965,0.964706,True
+v100_sft_rewritten_vs_generated,A completed,ResValSmallSftDone,96,96.0,True
+v100_sft_rewritten_vs_generated,B completed,ResValSmallOrigDone,100,100.0,True

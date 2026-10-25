@@ -1,0 +1,238 @@
+{
+ "n_tasks": 240,
+ "errors": [],
+ "table": {
+  "control": {
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "accept_090": 1.0,
+   "accept_098": 1.0,
+   "gated_accept_090": 1.0,
+   "gated_strict_accept_090": 1.0,
+   "n_accept_090": 160,
+   "n_gated_accept_090": 160,
+   "gate_reasons": [
+    [
+     "passed",
+     160
+    ]
+   ]
+  },
+  "containment": {
+   "n_rows": 160,
+   "n_applied": 160,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "accept_090": 0.2625,
+   "accept_098": 0.0,
+   "gated_accept_090": 0.0,
+   "gated_strict_accept_090": 0.0,
+   "n_accept_090": 42,
+   "n_gated_accept_090": 0,
+   "gate_reasons": [
+    [
+     "IfcSlab",
+     33
+    ],
+    [
+     "IfcWall",
+     25
+    ],
+    [
+     "IfcDoor",
+     24
+    ],
+    [
+     "IfcColumn",
+     24
+    ],
+    [
+     "IfcWindow",
+     21
+    ],
+    [
+     "IfcSpace",
+     18
+    ],
+    [
+     "IfcWallStandardCase",
+     15
+    ]
+   ]
+  },
+  "filling": {
+   "n_rows": 160,
+   "n_applied": 44,
+   "n_not_applicable": 116,
+   "n_build_error": 0,
+   "accept_090": 0.7272727272727273,
+   "accept_098": 0.0,
+   "gated_accept_090": 0.0,
+   "gated_strict_accept_090": 0.0,
+   "n_accept_090": 32,
+   "n_gated_accept_090": 0,
+   "gate_reasons": [
+    [
+     "IfcDoor",
+     24
+    ],
+    [
+     "IfcWindow",
+     20
+    ]
+   ]
+  },
+  "wrong_host": {
+   "n_rows": 160,
+   "n_applied": 26,
+   "n_not_applicable": 134,
+   "n_build_error": 0,
+   "accept_090": 0.0,
+   "accept_098": 0.0,
+   "gated_accept_090": 0.0,
+   "gated_strict_accept_090": 0.0,
+   "n_accept_090": 0,
+   "n_gated_accept_090": 0,
+   "gate_reasons": [
+    [
+     "IfcDoor",
+     2
+    ],
+    [
+     "IfcDoor 1mptDJ2xwLhjbk8Vti$z_9",
+     1
+    ],
+    [
+     "IfcWindow 2T65sTnrmY$DAXeYJjQ3eL",
+     1
+    ],
+    [
+     "IfcDoor 1A5q8XVzRzYnTV_6kxP56o",
+     1
+    ],
+    [
+     "IfcWindow 1eBMDLLNylSjp9DTt081ID",
+     1
+    ],
+    [
+     "IfcWindow 2L5qNkKvmTF7RDei_2mBj4",
+     1
+    ],
+    [
+     "IfcDoor 23ZGrhoEZDCcIXI$9Tmfr9",
+     1
+    ],
+    [
+     "IfcWindow 1fd7DhdHA66YYmUrrK4scz",
+     1
+    ],
+    [
+     "IfcDoor 3K5edBLrXkQO6u4Dk3Tif9",
+     1
+    ],
+    [
+     "IfcWindow 3$8lP$4kk_VUi7G$wAX4iR",
+     1
+    ],
+    [
+     "IfcWindow 2iqXZjXxnmvhLu5i1BR4gI",
+     1
+    ],
+    [
+     "IfcDoor 03i0U0FvAmkLYnoGuRFgpc",
+     1
+    ],
+    [
+     "IfcDoor 2DfOgAjfyOEUi9rCp0fI3a",
+     1
+    ],
+    [
+     "IfcWindow 3FNBS6m3yh4IAuEgad29NP",
+     1
+    ],
+    [
+     "IfcDoor 2xHZzUnVdHvGa8$0H1GlO6",
+     1
+    ],
+    [
+     "IfcDoor 19NI1jGrWdAk050qLGkHqE",
+     1
+    ],
+    [
+     "IfcWindow 1YFOmgaJTpcE7$rJaX3RVa",
+     1
+    ],
+    [
+     "IfcDoor 3bidpi77ja1eDtuLy0Appy",
+     1
+    ],
+    [
+     "IfcDoor 2d$fgwXg3Sqm53waAFpI95",
+     1
+    ],
+    [
+     "IfcDoor 3sLa8xX914DheZ_dJUh1oM",
+     1
+    ],
+    [
+     "IfcWindow 35Y_vfJNnlWtzNSCMOLE9O",
+     1
+    ],
+    [
+     "IfcWindow 2uksP7F$SMJ4d5E1myPtaZ",
+     1
+    ],
+    [
+     "IfcDoor 2y4eeZ4P9kraD$kZEcETj1",
+     1
+    ],
+    [
+     "IfcWindow 2yAxtuvBapr0vNnQkxxk_R",
+     1
+    ],
+    [
+     "IfcWindow 3qyKYP9wZ0Og7M5BwSEKf_",
+     1
+    ]
+   ]
+  },
+  "del_control": {
+   "n_rows": 80,
+   "n_applied": 80,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "accept_090": 1.0,
+   "accept_098": 1.0,
+   "gated_accept_090": 1.0,
+   "gated_strict_accept_090": 1.0,
+   "n_accept_090": 80,
+   "n_gated_accept_090": 80,
+   "gate_reasons": [
+    [
+     "passed",
+     80
+    ]
+   ]
+  },
+  "del_naive": {
+   "n_rows": 80,
+   "n_applied": 80,
+   "n_not_applicable": 0,
+   "n_build_error": 0,
+   "accept_090": 0.6125,
+   "accept_098": 0.575,
+   "gated_accept_090": 0.0,
+   "gated_strict_accept_090": 0.0,
+   "n_accept_090": 49,
+   "n_gated_accept_090": 0,
+   "gate_reasons": [
+    [
+     "new dangling relationship(s)",
+     80
+    ]
+   ]
+  }
+ }
+}

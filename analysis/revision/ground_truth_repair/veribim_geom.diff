@@ -1,0 +1,333 @@
+--- harness/modifc_harness/veribim_geom.py.bak_20261015_fix	2026-10-03 18:12:32.990719395 +0800
++++ harness/modifc_harness/veribim_geom.py	2026-10-15 21:01:04.010943363 +0800
+@@ -523,6 +523,7 @@
+     forget_geometry(model)
+     before = {h.id() for h in model.by_type("IfcOwnerHistory")}
+     spare = {r.id() for r in _empty_relations(model)}
++    spare_required = {r.id() for r in _dangling_relations(model)}
+     for relation in list(getattr(filling, "FillsVoids", ()) or ()):
+         opening = relation.RelatingOpeningElement
+         model.remove(relation)
+@@ -532,7 +533,7 @@
+             model.remove(voids)
+         _remove_product(model, opening)
+     _remove_product(model, filling)
+-    _sweep_empty_relations(model, spare)
++    _sweep_empty_relations(model, spare, spare_required)
+     _freeze_new_histories(model, before)
+ 
+ 
+@@ -1861,9 +1862,134 @@
+     return False
+ 
+ 
++def _axis_frame(position) -> np.ndarray:
++    """A 4x4 matrix of an optional ``IfcAxis2Placement3D``, in file units."""
++    if position is None:
++        return np.identity(4)
++    return np.array(ifcopenshell.util.placement.get_axis2placement(position),
++                    dtype=float)
++
++
++#: Directions closer than this to a frame axis count as running along it.
++_ALIGNED = 1e-6
++
++
++def _rectangle_corners(profile) -> np.ndarray:
++    """Corner points of a rectangular profile in its own plane, in file units."""
++    half_x, half_y = float(profile.XDim) / 2.0, float(profile.YDim) / 2.0
++    points = np.array([[-half_x, -half_y], [half_x, -half_y],
++                       [half_x, half_y], [-half_x, half_y]])
++    position = getattr(profile, "Position", None)
++    if position is None:
++        return points
++    origin = np.array(position.Location.Coordinates[:2], dtype=float)
++    if position.RefDirection is not None:
++        ref = np.array(position.RefDirection.DirectionRatios[:2], dtype=float)
++        ref = ref / (float(np.linalg.norm(ref)) or 1.0)
++        rotation = np.array([[ref[0], -ref[1]], [ref[1], ref[0]]])
++        points = (rotation @ points.T).T
++    return points + origin
++
++
++def _cut_form(solid) -> str:
++    """Which dimension of a rectangular extrusion runs across its wall.
++
++    Read in the product's own axes once its rotation is cleared, which is the
++    wall's own frame after a re-hosting, where the wall's thickness runs along
++    y.  ``"depth"``: the solid is extruded across the wall, its profile holds
++    the face (width and height) and the extrusion depth is the cut.
++    ``"YDim"`` or ``"XDim"``: that profile dimension runs across the wall and
++    the extrusion runs along the wall's face.  Anything oblique is refused.
++    """
++    frame = _axis_frame(solid.Position)[:3, :3]
++    direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
++    direction = frame @ (direction / float(np.linalg.norm(direction)))
++    if abs(abs(float(direction[1])) - 1.0) < _ALIGNED:
++        return "depth"
++    if abs(float(direction[1])) < _ALIGNED:
++        position = getattr(solid.SweptArea, "Position", None)
++        ref = np.array([1.0, 0.0])
++        if position is not None and position.RefDirection is not None:
++            ref = np.array(position.RefDirection.DirectionRatios[:2], dtype=float)
++            ref = ref / (float(np.linalg.norm(ref)) or 1.0)
++        x_axis = frame @ np.array([ref[0], ref[1], 0.0])
++        y_axis = frame @ np.array([-ref[1], ref[0], 0.0])
++        if abs(abs(float(y_axis[1])) - 1.0) < _ALIGNED:
++            return "YDim"
++        if abs(abs(float(x_axis[1])) - 1.0) < _ALIGNED:
++            return "XDim"
++    raise ValueError("the body is extruded or turned obliquely to the wall")
++
++
++def _extent_across(solid) -> tuple:
++    """Lowest and highest y of a rectangular extrusion in its product's axes."""
++    corners = _rectangle_corners(solid.SweptArea)
++    frame = _axis_frame(solid.Position)
++    direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
++    direction = direction / float(np.linalg.norm(direction))
++    points = np.array([np.array([px, py, 0.0]) + step * float(solid.Depth) * direction
++                       for px, py in corners for step in (0.0, 1.0)],
++                      dtype=float)
++    points = (frame[:3, :3] @ points.T).T + frame[:3, 3]
++    return float(points[:, 1].min()), float(points[:, 1].max())
++
++
++def _resize_cut(model, product, depth: float) -> tuple:
++    """Give a rectangular extrusion ``depth`` (file units) across its wall.
++
++    The dimension ``_cut_form`` finds across the wall is set to ``depth`` and
++    the face size is kept.  The body grows or shrinks symmetrically about its
++    own centre across the wall, so a leaf hung from it keeps its place
++    relative to that centre.  Returns the body's new extent across the wall in
++    the product's own axes.
++    """
++    solid = sole_extrusion(product)
++    if solid is None or not solid.SweptArea.is_a("IfcRectangleProfileDef"):
++        raise ValueError("%s has no rectangular profile to resize"
++                         % product.GlobalId)
++    if len([i for i in model.get_inverse(solid)
++            if i.is_a("IfcShapeRepresentation")]) != 1:
++        raise ValueError("%s shares its body with another element"
++                         % product.GlobalId)
++    form = _cut_form(solid)
++    if form == "depth":
++        old = float(solid.Depth)
++        direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
++        direction = direction / float(np.linalg.norm(direction))
++        position = solid.Position
++        frame = _axis_frame(position)
++        location = frame[:3, 3] + frame[:3, :3] @ direction * ((old - float(depth)) / 2.0)
++        point = model.create_entity("IfcCartesianPoint",
++                                    Coordinates=tuple(float(v) for v in location))
++        if position is None or len(model.get_inverse(position)) != 1:
++            solid.Position = model.create_entity(
++                "IfcAxis2Placement3D", Location=point,
++                Axis=None if position is None else position.Axis,
++                RefDirection=None if position is None else position.RefDirection)
++        else:
++            position.Location = point
++        solid.Depth = float(depth)
++    else:
++        profile = solid.SweptArea
++        if len(model.get_inverse(profile)) != 1:
++            profile = model.create_entity(
++                "IfcRectangleProfileDef", ProfileType=profile.ProfileType,
++                ProfileName=profile.ProfileName, Position=profile.Position,
++                XDim=profile.XDim, YDim=profile.YDim)
++            solid.SweptArea = profile
++        setattr(profile, form, float(depth))
++    return _extent_across(solid)
++
++
+ def _replant(product, host, x: float, y: float, z: float,
+              depth: Optional[float]) -> None:
+-    """Hang one product from a wall at a stated point in that wall's frame."""
++    """Hang one product from a wall at a stated point in that wall's frame.
++
++    With ``depth`` (metres) the product's body is given that depth across the
++    wall and is centred on the span from ``y`` to ``y + depth``, however the
++    model draws the body; ``x`` and ``z`` place the product's own origin.
++    Without it the origin is placed at ``(x, y, z)`` and the body is kept.
++    """
+     model = _file(product)
+     scale = unit_scale(model)
+     placement = product.ObjectPlacement
+@@ -1872,26 +1998,15 @@
+     if not _places_only(model, placement, product):
+         raise ValueError("%s shares its placement with another element"
+                          % product.GlobalId)
++    across = float(y) / scale
++    if depth is not None:
++        low, high = _resize_cut(model, product, float(depth) / scale)
++        across = across + float(depth) / scale / 2.0 - (low + high) / 2.0
+     placement.PlacementRelTo = host.ObjectPlacement
+     axis = _own_axis(model, placement)
+-    axis.Location.Coordinates = (float(x) / scale, float(y) / scale,
+-                                 float(z) / scale)
++    axis.Location.Coordinates = (float(x) / scale, across, float(z) / scale)
+     axis.Axis = None
+     axis.RefDirection = None
+-    if depth is None:
+-        return
+-    solid = sole_extrusion(product)
+-    if solid is None or not solid.SweptArea.is_a("IfcRectangleProfileDef"):
+-        raise ValueError("%s has no rectangular profile to resize"
+-                         % product.GlobalId)
+-    profile = solid.SweptArea
+-    if len(model.get_inverse(profile)) != 1:
+-        profile = model.create_entity(
+-            "IfcRectangleProfileDef", ProfileType=profile.ProfileType,
+-            ProfileName=profile.ProfileName, Position=profile.Position,
+-            XDim=profile.XDim, YDim=profile.YDim)
+-        solid.SweptArea = profile
+-    profile.YDim = float(depth) / scale
+ 
+ 
+ def move_filling(filling, host_wall, along: float, sill: Optional[float] = None):
+@@ -1960,15 +2075,29 @@
+                 - (float(leaf_old[2]) + float(leaf_body[0][2])))
+     across = new["near"] - OPENING_CLEARANCE
+     hole_depth = new["thickness"] + 2 * OPENING_CLEARANCE
++    # A leaf hung from the wall whose body is kept keeps its offset across the
++    # wall from the opening's centre, read here in the wall it leaves.
++    hole_old = None
++    if not leaf_follows and not rectangular:
++        hole_old = box_in_frame(opening, old_host)
++        if hole_old is None:
++            raise ValueError("the opening has no body that can be measured")
+ 
+     forget_geometry(model)
+     voids[0].RelatingBuildingElement = host_wall
+     _replant(opening, host_wall, hole_x, across,
+              float(opening_old[2]) + lift, hole_depth)
+     if not leaf_follows:
+-        _replant(filling, host_wall, float(leaf_old[0]) + move, new["near"],
+-                 float(leaf_old[2]) + lift,
+-                 new["thickness"] if rectangular else None)
++        if rectangular:
++            _replant(filling, host_wall, float(leaf_old[0]) + move, new["near"],
++                     float(leaf_old[2]) + lift, new["thickness"])
++        else:
++            # the leaf keeps its offset across the wall from the opening's centre
++            offset = float(leaf_old[1]) - (float(hole_old[0][1])
++                                           + float(hole_old[1][1])) / 2.0
++            _replant(filling, host_wall, float(leaf_old[0]) + move,
++                     across + hole_depth / 2.0 + offset,
++                     float(leaf_old[2]) + lift, None)
+     return old_host
+ 
+ 
+@@ -2286,7 +2415,61 @@
+     return list({r.id(): r for r in stale}.values())
+ 
+ 
+-def _sweep_empty_relations(model, spare: set) -> int:
++#: Relationship class -> its required ends, read from the schema.
++_REQUIRED_ENDS: dict = {}
++
++
++def _required_ends(relation) -> tuple:
++    """The ends of a relationship the schema requires, with their lower bounds.
++
++    An end is an explicit attribute whose name starts with ``Relating`` or
++    ``Related`` and which the schema does not mark optional.  A set or list end
++    carries the least number of members the schema allows (``SET [1:?]`` gives
++    1), a single end carries 1.
++    """
++    key = (relation.wrapped_data.is_a(True), relation.is_a())
++    ends = _REQUIRED_ENDS.get(key)
++    if ends is None:
++        declaration = relation.wrapped_data.declaration().as_entity()
++        derived = declaration.derived()
++        ends = []
++        for index, attribute in enumerate(declaration.all_attributes()):
++            name = attribute.name()
++            if not name.startswith(("Relating", "Related")):
++                continue
++            if attribute.optional() or (index < len(derived) and derived[index]):
++                continue
++            kind = attribute.type_of_attribute()
++            aggregate = kind.as_aggregation_type()
++            least = 1 if aggregate is None else max(int(aggregate.bound1()), 0)
++            ends.append((name, aggregate is not None, least))
++        ends = tuple(ends)
++        _REQUIRED_ENDS[key] = ends
++    return ends
++
++
++def _dangling_relations(model) -> list:
++    """Every relationship with a required end left null or below its bound.
++
++    The schema says which ends a relationship cannot do without, so this
++    reaches the classes ``_empty_relations`` does not name (a covering
++    relationship whose element is gone, a classification or an actor
++    assignment that names nothing).
++    """
++    stale = []
++    for relation in model.by_type("IfcRelationship"):
++        for name, many, least in _required_ends(relation):
++            value = getattr(relation, name, None)
++            if value is None:
++                stale.append(relation)
++                break
++            if many and len(value) < least:
++                stale.append(relation)
++                break
++    return stale
++
++
++def _sweep_empty_relations(model, spare: set, spare_required=None) -> int:
+     """Take out the relationship objects a removal emptied.  Returns how many.
+ 
+     A relationship that lists several products keeps the others when one of
+@@ -2297,10 +2480,21 @@
+     ``spare`` holds the rows that already named nothing before the removal.
+     A file can carry such rows from the authoring tool that wrote it, and they
+     are not this edit's business, so they stay exactly as they were.
++
++    ``spare_required``, when given, extends the sweep to every relationship
++    whose schema-required end (``_dangling_relations``) the removal left null
++    or empty, sparing the rows that already lacked one before the removal.
++    These go only once the rows above are gone, so a removal that leaves no
++    such relationship writes the same file as before.
+     """
+     removed = 0
+     while True:
+         stale = [r for r in _empty_relations(model) if r.id() not in spare]
++        if not stale and spare_required is not None:
++            # A relationship left without a required end goes as well, unless
++            # it already lacked one before the removal.
++            stale = [r for r in _dangling_relations(model)
++                     if r.id() not in spare_required]
+         if not stale:
+             return removed
+         for relation in stale:
+@@ -2350,10 +2544,11 @@
+     forget_geometry(model)
+     before = {h.id() for h in model.by_type("IfcOwnerHistory")}
+     spare = {r.id() for r in _empty_relations(model)}
++    spare_required = {r.id() for r in _dangling_relations(model)}
+     for filling in _fillings_of(product):
+         ifcopenshell.api.root.remove_product(model, product=filling)
+     ifcopenshell.api.root.remove_product(model, product=product)
+-    _sweep_empty_relations(model, spare)
++    _sweep_empty_relations(model, spare, spare_required)
+     _freeze_new_histories(model, before)
+ 
+ 
+@@ -2385,6 +2580,14 @@
+             continue
+         findings["empty_relations"].append("%s #%d" % (relation.is_a(),
+                                                        relation.id()))
++    spare_required = ({r.id() for r in _dangling_relations(source)}
++                      if source is not None else set())
++    listed = {entry for entry in findings["empty_relations"]}
++    for relation in _dangling_relations(model):
++        entry = "%s #%d" % (relation.is_a(), relation.id())
++        if relation.id() in spare_required or entry in listed:
++            continue
++        findings["empty_relations"].append(entry)
+     if source is not None:
+         try:
+             gone = source.by_guid(guid)

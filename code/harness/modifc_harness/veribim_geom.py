@@ -60,6 +60,12 @@ __all__ = [
 #: Opening clearance past each wall face, in metres, as the generator cuts it.
 OPENING_CLEARANCE = 0.05
 
+#: The version of this library, to be stated with every result that used it.
+#: 1.0.0 is the library as of 2026-10-15; 1.1.0 (2026-10-20) adds the room and
+#: compass lookups ``find_in_room`` and ``find_by_compass`` and changes no
+#: existing function.
+LIBRARY_VERSION = "1.1.0"
+
 
 # ------------------------------------------------------------ identifiers
 
@@ -523,6 +529,7 @@ def delete_filling(filling) -> None:
     forget_geometry(model)
     before = {h.id() for h in model.by_type("IfcOwnerHistory")}
     spare = {r.id() for r in _empty_relations(model)}
+    spare_required = {r.id() for r in _dangling_relations(model)}
     for relation in list(getattr(filling, "FillsVoids", ()) or ()):
         opening = relation.RelatingOpeningElement
         model.remove(relation)
@@ -532,7 +539,7 @@ def delete_filling(filling) -> None:
             model.remove(voids)
         _remove_product(model, opening)
     _remove_product(model, filling)
-    _sweep_empty_relations(model, spare)
+    _sweep_empty_relations(model, spare, spare_required)
     _freeze_new_histories(model, before)
 
 
@@ -1861,9 +1868,134 @@ def _hangs_from(product, placement) -> bool:
     return False
 
 
+def _axis_frame(position) -> np.ndarray:
+    """A 4x4 matrix of an optional ``IfcAxis2Placement3D``, in file units."""
+    if position is None:
+        return np.identity(4)
+    return np.array(ifcopenshell.util.placement.get_axis2placement(position),
+                    dtype=float)
+
+
+#: Directions closer than this to a frame axis count as running along it.
+_ALIGNED = 1e-6
+
+
+def _rectangle_corners(profile) -> np.ndarray:
+    """Corner points of a rectangular profile in its own plane, in file units."""
+    half_x, half_y = float(profile.XDim) / 2.0, float(profile.YDim) / 2.0
+    points = np.array([[-half_x, -half_y], [half_x, -half_y],
+                       [half_x, half_y], [-half_x, half_y]])
+    position = getattr(profile, "Position", None)
+    if position is None:
+        return points
+    origin = np.array(position.Location.Coordinates[:2], dtype=float)
+    if position.RefDirection is not None:
+        ref = np.array(position.RefDirection.DirectionRatios[:2], dtype=float)
+        ref = ref / (float(np.linalg.norm(ref)) or 1.0)
+        rotation = np.array([[ref[0], -ref[1]], [ref[1], ref[0]]])
+        points = (rotation @ points.T).T
+    return points + origin
+
+
+def _cut_form(solid) -> str:
+    """Which dimension of a rectangular extrusion runs across its wall.
+
+    Read in the product's own axes once its rotation is cleared, which is the
+    wall's own frame after a re-hosting, where the wall's thickness runs along
+    y.  ``"depth"``: the solid is extruded across the wall, its profile holds
+    the face (width and height) and the extrusion depth is the cut.
+    ``"YDim"`` or ``"XDim"``: that profile dimension runs across the wall and
+    the extrusion runs along the wall's face.  Anything oblique is refused.
+    """
+    frame = _axis_frame(solid.Position)[:3, :3]
+    direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
+    direction = frame @ (direction / float(np.linalg.norm(direction)))
+    if abs(abs(float(direction[1])) - 1.0) < _ALIGNED:
+        return "depth"
+    if abs(float(direction[1])) < _ALIGNED:
+        position = getattr(solid.SweptArea, "Position", None)
+        ref = np.array([1.0, 0.0])
+        if position is not None and position.RefDirection is not None:
+            ref = np.array(position.RefDirection.DirectionRatios[:2], dtype=float)
+            ref = ref / (float(np.linalg.norm(ref)) or 1.0)
+        x_axis = frame @ np.array([ref[0], ref[1], 0.0])
+        y_axis = frame @ np.array([-ref[1], ref[0], 0.0])
+        if abs(abs(float(y_axis[1])) - 1.0) < _ALIGNED:
+            return "YDim"
+        if abs(abs(float(x_axis[1])) - 1.0) < _ALIGNED:
+            return "XDim"
+    raise ValueError("the body is extruded or turned obliquely to the wall")
+
+
+def _extent_across(solid) -> tuple:
+    """Lowest and highest y of a rectangular extrusion in its product's axes."""
+    corners = _rectangle_corners(solid.SweptArea)
+    frame = _axis_frame(solid.Position)
+    direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
+    direction = direction / float(np.linalg.norm(direction))
+    points = np.array([np.array([px, py, 0.0]) + step * float(solid.Depth) * direction
+                       for px, py in corners for step in (0.0, 1.0)],
+                      dtype=float)
+    points = (frame[:3, :3] @ points.T).T + frame[:3, 3]
+    return float(points[:, 1].min()), float(points[:, 1].max())
+
+
+def _resize_cut(model, product, depth: float) -> tuple:
+    """Give a rectangular extrusion ``depth`` (file units) across its wall.
+
+    The dimension ``_cut_form`` finds across the wall is set to ``depth`` and
+    the face size is kept.  The body grows or shrinks symmetrically about its
+    own centre across the wall, so a leaf hung from it keeps its place
+    relative to that centre.  Returns the body's new extent across the wall in
+    the product's own axes.
+    """
+    solid = sole_extrusion(product)
+    if solid is None or not solid.SweptArea.is_a("IfcRectangleProfileDef"):
+        raise ValueError("%s has no rectangular profile to resize"
+                         % product.GlobalId)
+    if len([i for i in model.get_inverse(solid)
+            if i.is_a("IfcShapeRepresentation")]) != 1:
+        raise ValueError("%s shares its body with another element"
+                         % product.GlobalId)
+    form = _cut_form(solid)
+    if form == "depth":
+        old = float(solid.Depth)
+        direction = np.array(solid.ExtrudedDirection.DirectionRatios, dtype=float)
+        direction = direction / float(np.linalg.norm(direction))
+        position = solid.Position
+        frame = _axis_frame(position)
+        location = frame[:3, 3] + frame[:3, :3] @ direction * ((old - float(depth)) / 2.0)
+        point = model.create_entity("IfcCartesianPoint",
+                                    Coordinates=tuple(float(v) for v in location))
+        if position is None or len(model.get_inverse(position)) != 1:
+            solid.Position = model.create_entity(
+                "IfcAxis2Placement3D", Location=point,
+                Axis=None if position is None else position.Axis,
+                RefDirection=None if position is None else position.RefDirection)
+        else:
+            position.Location = point
+        solid.Depth = float(depth)
+    else:
+        profile = solid.SweptArea
+        if len(model.get_inverse(profile)) != 1:
+            profile = model.create_entity(
+                "IfcRectangleProfileDef", ProfileType=profile.ProfileType,
+                ProfileName=profile.ProfileName, Position=profile.Position,
+                XDim=profile.XDim, YDim=profile.YDim)
+            solid.SweptArea = profile
+        setattr(profile, form, float(depth))
+    return _extent_across(solid)
+
+
 def _replant(product, host, x: float, y: float, z: float,
              depth: Optional[float]) -> None:
-    """Hang one product from a wall at a stated point in that wall's frame."""
+    """Hang one product from a wall at a stated point in that wall's frame.
+
+    With ``depth`` (metres) the product's body is given that depth across the
+    wall and is centred on the span from ``y`` to ``y + depth``, however the
+    model draws the body; ``x`` and ``z`` place the product's own origin.
+    Without it the origin is placed at ``(x, y, z)`` and the body is kept.
+    """
     model = _file(product)
     scale = unit_scale(model)
     placement = product.ObjectPlacement
@@ -1872,26 +2004,15 @@ def _replant(product, host, x: float, y: float, z: float,
     if not _places_only(model, placement, product):
         raise ValueError("%s shares its placement with another element"
                          % product.GlobalId)
+    across = float(y) / scale
+    if depth is not None:
+        low, high = _resize_cut(model, product, float(depth) / scale)
+        across = across + float(depth) / scale / 2.0 - (low + high) / 2.0
     placement.PlacementRelTo = host.ObjectPlacement
     axis = _own_axis(model, placement)
-    axis.Location.Coordinates = (float(x) / scale, float(y) / scale,
-                                 float(z) / scale)
+    axis.Location.Coordinates = (float(x) / scale, across, float(z) / scale)
     axis.Axis = None
     axis.RefDirection = None
-    if depth is None:
-        return
-    solid = sole_extrusion(product)
-    if solid is None or not solid.SweptArea.is_a("IfcRectangleProfileDef"):
-        raise ValueError("%s has no rectangular profile to resize"
-                         % product.GlobalId)
-    profile = solid.SweptArea
-    if len(model.get_inverse(profile)) != 1:
-        profile = model.create_entity(
-            "IfcRectangleProfileDef", ProfileType=profile.ProfileType,
-            ProfileName=profile.ProfileName, Position=profile.Position,
-            XDim=profile.XDim, YDim=profile.YDim)
-        solid.SweptArea = profile
-    profile.YDim = float(depth) / scale
 
 
 def move_filling(filling, host_wall, along: float, sill: Optional[float] = None):
@@ -1960,15 +2081,29 @@ def move_filling(filling, host_wall, along: float, sill: Optional[float] = None)
                 - (float(leaf_old[2]) + float(leaf_body[0][2])))
     across = new["near"] - OPENING_CLEARANCE
     hole_depth = new["thickness"] + 2 * OPENING_CLEARANCE
+    # A leaf hung from the wall whose body is kept keeps its offset across the
+    # wall from the opening's centre, read here in the wall it leaves.
+    hole_old = None
+    if not leaf_follows and not rectangular:
+        hole_old = box_in_frame(opening, old_host)
+        if hole_old is None:
+            raise ValueError("the opening has no body that can be measured")
 
     forget_geometry(model)
     voids[0].RelatingBuildingElement = host_wall
     _replant(opening, host_wall, hole_x, across,
              float(opening_old[2]) + lift, hole_depth)
     if not leaf_follows:
-        _replant(filling, host_wall, float(leaf_old[0]) + move, new["near"],
-                 float(leaf_old[2]) + lift,
-                 new["thickness"] if rectangular else None)
+        if rectangular:
+            _replant(filling, host_wall, float(leaf_old[0]) + move, new["near"],
+                     float(leaf_old[2]) + lift, new["thickness"])
+        else:
+            # the leaf keeps its offset across the wall from the opening's centre
+            offset = float(leaf_old[1]) - (float(hole_old[0][1])
+                                           + float(hole_old[1][1])) / 2.0
+            _replant(filling, host_wall, float(leaf_old[0]) + move,
+                     across + hole_depth / 2.0 + offset,
+                     float(leaf_old[2]) + lift, None)
     return old_host
 
 
@@ -2286,7 +2421,61 @@ def _empty_relations(model) -> list:
     return list({r.id(): r for r in stale}.values())
 
 
-def _sweep_empty_relations(model, spare: set) -> int:
+#: Relationship class -> its required ends, read from the schema.
+_REQUIRED_ENDS: dict = {}
+
+
+def _required_ends(relation) -> tuple:
+    """The ends of a relationship the schema requires, with their lower bounds.
+
+    An end is an explicit attribute whose name starts with ``Relating`` or
+    ``Related`` and which the schema does not mark optional.  A set or list end
+    carries the least number of members the schema allows (``SET [1:?]`` gives
+    1), a single end carries 1.
+    """
+    key = (relation.wrapped_data.is_a(True), relation.is_a())
+    ends = _REQUIRED_ENDS.get(key)
+    if ends is None:
+        declaration = relation.wrapped_data.declaration().as_entity()
+        derived = declaration.derived()
+        ends = []
+        for index, attribute in enumerate(declaration.all_attributes()):
+            name = attribute.name()
+            if not name.startswith(("Relating", "Related")):
+                continue
+            if attribute.optional() or (index < len(derived) and derived[index]):
+                continue
+            kind = attribute.type_of_attribute()
+            aggregate = kind.as_aggregation_type()
+            least = 1 if aggregate is None else max(int(aggregate.bound1()), 0)
+            ends.append((name, aggregate is not None, least))
+        ends = tuple(ends)
+        _REQUIRED_ENDS[key] = ends
+    return ends
+
+
+def _dangling_relations(model) -> list:
+    """Every relationship with a required end left null or below its bound.
+
+    The schema says which ends a relationship cannot do without, so this
+    reaches the classes ``_empty_relations`` does not name (a covering
+    relationship whose element is gone, a classification or an actor
+    assignment that names nothing).
+    """
+    stale = []
+    for relation in model.by_type("IfcRelationship"):
+        for name, many, least in _required_ends(relation):
+            value = getattr(relation, name, None)
+            if value is None:
+                stale.append(relation)
+                break
+            if many and len(value) < least:
+                stale.append(relation)
+                break
+    return stale
+
+
+def _sweep_empty_relations(model, spare: set, spare_required=None) -> int:
     """Take out the relationship objects a removal emptied.  Returns how many.
 
     A relationship that lists several products keeps the others when one of
@@ -2297,10 +2486,21 @@ def _sweep_empty_relations(model, spare: set) -> int:
     ``spare`` holds the rows that already named nothing before the removal.
     A file can carry such rows from the authoring tool that wrote it, and they
     are not this edit's business, so they stay exactly as they were.
+
+    ``spare_required``, when given, extends the sweep to every relationship
+    whose schema-required end (``_dangling_relations``) the removal left null
+    or empty, sparing the rows that already lacked one before the removal.
+    These go only once the rows above are gone, so a removal that leaves no
+    such relationship writes the same file as before.
     """
     removed = 0
     while True:
         stale = [r for r in _empty_relations(model) if r.id() not in spare]
+        if not stale and spare_required is not None:
+            # A relationship left without a required end goes as well, unless
+            # it already lacked one before the removal.
+            stale = [r for r in _dangling_relations(model)
+                     if r.id() not in spare_required]
         if not stale:
             return removed
         for relation in stale:
@@ -2350,10 +2550,11 @@ def delete_element(product) -> None:
     forget_geometry(model)
     before = {h.id() for h in model.by_type("IfcOwnerHistory")}
     spare = {r.id() for r in _empty_relations(model)}
+    spare_required = {r.id() for r in _dangling_relations(model)}
     for filling in _fillings_of(product):
         ifcopenshell.api.root.remove_product(model, product=filling)
     ifcopenshell.api.root.remove_product(model, product=product)
-    _sweep_empty_relations(model, spare)
+    _sweep_empty_relations(model, spare, spare_required)
     _freeze_new_histories(model, before)
 
 
@@ -2385,6 +2586,14 @@ def deletion_is_complete(model, guid: str, source=None, report: bool = False):
             continue
         findings["empty_relations"].append("%s #%d" % (relation.is_a(),
                                                        relation.id()))
+    spare_required = ({r.id() for r in _dangling_relations(source)}
+                      if source is not None else set())
+    listed = {entry for entry in findings["empty_relations"]}
+    for relation in _dangling_relations(model):
+        entry = "%s #%d" % (relation.is_a(), relation.id())
+        if relation.id() in spare_required or entry in listed:
+            continue
+        findings["empty_relations"].append(entry)
     if source is not None:
         try:
             gone = source.by_guid(guid)
@@ -2652,6 +2861,703 @@ __all__ = __all__ + [
     "delete_element", "deletion_is_complete", "find_host",
     "find_filling_between", "find_bounding", "find_under",
 ]
+
+
+# ================================================ rooms and compass sides
+#
+# Two more ways an instruction names an element, the ways a site engineer
+# writes a request: through the room it sits in or bounds ("the door of room
+# 102", "the north wall of room 203 ('Office')", "the floor slab of the room
+# 'Lobby'"), and by its compass position on a storey ("the northernmost window
+# on storey 'EG'", "the column in the north-east corner of storey 'Level 1'",
+# "the door on the south facade of storey 'Level 1'").  The rules a sentence of
+# this kind leaves out are fixed here, the same rules the task generator checks
+# its descriptor against (round-4 descriptor extension, design.md sections 2
+# and 3):
+#
+# * A room is read from its meshed body: its plan footprint is the union of
+#   its projected triangles, its height range is the body's, and a point is in
+#   the room when it lies inside the footprint and within the range (5 cm).
+# * A door or a window is in a room when a probe 0.30 m beyond either face of
+#   its host wall, at sill-to-head height, lies in the room; a wall bounds a
+#   room when 2 of 9 probes along it (1 for a wall under 2 m), 0.30 m beyond
+#   one face, lie in the room and no 2 lie in it beyond the other face; a
+#   column is in a room when the centre of its body is.  The side of such an
+#   element is the direction from the room across the host wall (or the wall),
+#   and "the north door" is the one whose side lies within 40 degrees of north.
+#   For columns, "the northernmost column of room R" is the column of R
+#   furthest north, at least 1.0 m ahead of the next one.
+# * The floor slab of a room covers the room's interior point on plan with its
+#   top 0.60 m below to 0.15 m above the room's base; the ceiling slab covers
+#   it with its bottom 0.15 m below to 0.60 m above the room's top.
+# * North is read two ways: the project's true north (the model context's
+#   ``TrueNorth``, +Y when the file states none) and the model's +Y.  A
+#   compass word resolves only when both readings name the same element; when
+#   they do not, the lookup says so and names both, since the sentence does not
+#   say which north it means.
+# * "The northernmost window on storey S" is the window whose body centre lies
+#   furthest north, at least 1.0 m ahead of the runner-up; "the north exterior
+#   wall" is a wall whose three rays leaving one face (at a quarter, the middle
+#   and three quarters of it) meet no other wall of the storey within 60 m while
+#   the other face's rays do, whose outward normal lies within 40 degrees of
+#   north, and which the file does not mark IsExternal = FALSE.  A door or a
+#   window is on the facade of its host wall.
+#
+# Both functions print what they read, the room or storey and each candidate
+# with its side, and return one element or raise ``LookupError`` naming the
+# candidates.
+
+#: How far beyond a wall face a room probe stands, in metres.
+ROOM_PROBE = 0.30
+#: Vertical tolerance of the room containment test, in metres.
+ROOM_Z_TOLERANCE = 0.05
+#: Largest angle between an element's side and the compass word, in degrees.
+SIDE_ANGLE = 40.0
+#: How far ahead of the runner-up the furthest element has to stand, in metres.
+EXTREME_GAP = 1.0
+#: Length of the rays that tell a wall's exterior face, in metres.
+FACADE_RAY = 60.0
+#: A floor slab's top against the room's base, and a ceiling slab's bottom
+#: against the room's top, in metres.
+FLOOR_BAND = (-0.60, 0.15)
+CEILING_BAND = (-0.15, 0.60)
+
+_COMPASS = ("north", "east", "south", "west", "north-east", "south-east",
+            "south-west", "north-west")
+_SUPERLATIVE_WORDS = {"northernmost": "north", "southernmost": "south",
+                      "easternmost": "east", "westernmost": "west"}
+#: The words a sentence uses for the two compass forms.
+_EXTREME_WORDS = ("extreme", "furthest", "farthest", "most", "corner")
+_FACADE_WORDS = ("facade", "façade", "exterior", "external", "outside")
+#: The words a sentence uses for the slab under a room and the slab over it.
+_FLOOR_WORDS = ("floor", "under", "below", "beneath")
+_CEILING_WORDS = ("ceiling", "above", "over")
+
+_DESC_SETTINGS: dict = {}
+
+
+def _desc_settings():
+    """Meshing settings of the room and compass lookups: the scorer's own."""
+    settings = _DESC_SETTINGS.get("mesh")
+    if settings is None:
+        settings = ifcopenshell.geom.settings()
+        settings.set("use-world-coords", True)
+        settings.set("weld-vertices", True)
+        settings.set("mesher-linear-deflection", 0.001)
+        _DESC_SETTINGS["mesh"] = settings
+    return settings
+
+
+def _desc_state(product) -> dict:
+    """What the room and compass lookups have read off one model, kept."""
+    state = _read_state(_file(product))
+    return state.setdefault("desc", {"mesh": {}, "room": {}, "wall": {},
+                                     "exterior": {}, "north": None})
+
+
+def _mesh_of(product):
+    """World-frame vertices and triangles of a product's body, or None."""
+    cache = _desc_state(product)["mesh"]
+    guid = product.GlobalId
+    if guid in cache:
+        return cache[guid]
+    mesh = None
+    if getattr(product, "Representation", None):
+        try:
+            shape = ifcopenshell.geom.create_shape(_desc_settings(), product)
+            verts = np.asarray(shape.geometry.verts, dtype=float).reshape(-1, 3)
+            faces = np.asarray(shape.geometry.faces, dtype=np.int64).reshape(-1, 3)
+            if len(verts) and len(faces):
+                mesh = (verts, faces)
+        except Exception:
+            mesh = None
+    cache[guid] = mesh
+    return mesh
+
+
+def _plan_unit(vector):
+    v = np.asarray(vector, dtype=float)[:2]
+    n = float(np.linalg.norm(v))
+    return None if n < 1e-9 else v / n
+
+
+def _plan_angle(a, b) -> float:
+    c = float(np.clip(np.dot(a, b), -1.0, 1.0))
+    return float(np.degrees(np.arccos(c)))
+
+
+def _true_north(model_or_entity):
+    """Plan direction of the project's true north, and whether the file sets it.
+
+    The model context's ``TrueNorth`` is written in the context's world
+    coordinate system and turned with it; a file that states none reads as +Y.
+    """
+    model = (model_or_entity if isinstance(model_or_entity, ifcopenshell.file)
+             else _file(model_or_entity))
+    contexts = [c for c in model.by_type("IfcGeometricRepresentationContext")
+                if not c.is_a("IfcGeometricRepresentationSubContext")]
+    contexts.sort(key=lambda c: 0 if (c.ContextType or "") == "Model" else 1)
+    for context in contexts:
+        north = getattr(context, "TrueNorth", None)
+        if north is None:
+            continue
+        vector = _plan_unit(list(north.DirectionRatios)[:2])
+        if vector is None:
+            continue
+        wcs = getattr(context, "WorldCoordinateSystem", None)
+        ref = getattr(wcs, "RefDirection", None) if wcs is not None else None
+        if ref is not None:
+            x_axis = _plan_unit(list(ref.DirectionRatios)[:2])
+            if x_axis is not None:
+                y_axis = np.array([-x_axis[1], x_axis[0]])
+                vector = _plan_unit(vector[0] * x_axis + vector[1] * y_axis)
+        return vector, True
+    return np.array([0.0, 1.0]), False
+
+
+def _norths(product) -> list:
+    """The readings of north a compass word has to agree under.
+
+    Two when the file turns its true north away from +Y, and one, "north",
+    when the two readings are the same direction.
+    """
+    state = _desc_state(product)
+    if state["north"] is None:
+        vector, _set = _true_north(_file(product))
+        plus_y = np.array([0.0, 1.0])
+        if float(np.dot(vector, plus_y)) > 1.0 - 1e-9:
+            state["north"] = [("north", plus_y)]
+        else:
+            state["north"] = [("true north", vector), ("project north (+Y)", plus_y)]
+    return state["north"]
+
+
+def _lead(reading: str) -> str:
+    """The prefix a printed candidate line carries: the north reading, when two."""
+    return "" if reading == "north" else reading + ": "
+
+
+def _compass_word(word) -> str:
+    """A compass word in the form the lookups use ('north-east')."""
+    key = str(word).strip().lower().replace("_", "-").replace(" ", "-")
+    key = _SUPERLATIVE_WORDS.get(key, key)
+    for joined in ("northeast", "southeast", "southwest", "northwest"):
+        if key == joined:
+            key = joined[:5] + "-" + joined[5:]
+    if key not in _COMPASS:
+        raise ValueError("direction is a compass word (north, east, south, west,"
+                         " north-east, south-east, south-west, north-west),"
+                         " not %r" % (word,))
+    return key
+
+
+def _compass_vector(north, word: str):
+    east = np.array([north[1], -north[0]])
+    table = {"north": north, "south": -north, "east": east, "west": -east}
+    if word in table:
+        return table[word]
+    first, second = word.split("-")
+    return _plan_unit(table[first] + table[second])
+
+
+def _desc_box(product):
+    box = _cached_box(product)
+    return None if box is None else (np.asarray(box[0]), np.asarray(box[1]))
+
+
+def _plan_centre(product):
+    box = _desc_box(product)
+    return None if box is None else (box[0][:2] + box[1][:2]) / 2.0
+
+
+# ------------------------------------------------------ rooms, read once
+
+
+def _room_body(space):
+    """The room's plan triangles, height range and two reference points."""
+    cache = _desc_state(space)["room"]
+    guid = space.GlobalId
+    if guid in cache:
+        return cache[guid]
+    info = None
+    mesh = _mesh_of(space)
+    if mesh is not None:
+        verts, faces = mesh
+        tris = verts[faces][:, :, :2]
+        area = 0.5 * np.abs(
+            (tris[:, 1, 0] - tris[:, 0, 0]) * (tris[:, 2, 1] - tris[:, 0, 1])
+            - (tris[:, 2, 0] - tris[:, 0, 0]) * (tris[:, 1, 1] - tris[:, 0, 1]))
+        keep = area > 1e-6
+        if keep.any():
+            tris = tris[keep]
+            big = int(np.argmax(area[keep]))
+            info = {"tris": tris, "zlo": float(verts[:, 2].min()),
+                    "zhi": float(verts[:, 2].max()),
+                    "lo": verts[:, :2].min(axis=0), "hi": verts[:, :2].max(axis=0),
+                    "inner": tris[big].mean(axis=0),
+                    "centre": verts[:, :2].mean(axis=0)}
+    cache[guid] = info
+    return info
+
+
+def _in_plan(plan: dict, xy) -> bool:
+    tris = plan["tris"]
+    if xy[0] < plan["lo"][0] - 1e-6 or xy[0] > plan["hi"][0] + 1e-6 or \
+            xy[1] < plan["lo"][1] - 1e-6 or xy[1] > plan["hi"][1] + 1e-6:
+        return False
+    a, b, c = tris[:, 0], tris[:, 1], tris[:, 2]
+
+    def cross(p, q):
+        return (q[:, 0] - p[:, 0]) * (xy[1] - p[:, 1]) - \
+            (q[:, 1] - p[:, 1]) * (xy[0] - p[:, 0])
+
+    d1, d2, d3 = cross(a, b), cross(b, c), cross(c, a)
+    neg = (d1 < -1e-9) | (d2 < -1e-9) | (d3 < -1e-9)
+    pos = (d1 > 1e-9) | (d2 > 1e-9) | (d3 > 1e-9)
+    return bool(np.any(~(neg & pos)))
+
+
+def _in_room(info, xy, z: float) -> bool:
+    if info is None:
+        return False
+    if z < info["zlo"] - ROOM_Z_TOLERANCE or z > info["zhi"] + ROOM_Z_TOLERANCE:
+        return False
+    return _in_plan(info, xy)
+
+
+def _wall_frame(wall):
+    """A wall's plan frame from its body: axis, normal, length, thickness."""
+    cache = _desc_state(wall)["wall"]
+    guid = wall.GlobalId
+    if guid in cache:
+        return cache[guid]
+    info = None
+    mesh = _mesh_of(wall)
+    if mesh is not None and len(mesh[0]) >= 4:
+        verts = mesh[0]
+        xy = verts[:, :2]
+        spread = xy - xy.mean(axis=0)
+        values, vectors = np.linalg.eigh(spread.T @ spread)
+        axis = vectors[:, int(np.argmax(values))]
+        normal = np.array([-axis[1], axis[0]])
+        along = spread @ axis
+        across = spread @ normal
+        length = float(along.max() - along.min())
+        thickness = float(across.max() - across.min())
+        mid = xy.mean(axis=0) + axis * (along.max() + along.min()) / 2.0 \
+            + normal * (across.max() + across.min()) / 2.0
+        if thickness > 0.0 and length >= 3.0 * thickness and thickness < 1.2:
+            info = {"centre": mid, "axis": axis, "normal": normal,
+                    "length": length, "thickness": thickness,
+                    "zlo": float(verts[:, 2].min()), "zhi": float(verts[:, 2].max())}
+    cache[guid] = info
+    return info
+
+
+def _probe_height(zlo: float, zhi: float) -> float:
+    return zlo + min(1.0, max(0.05, (zhi - zlo) / 2.0))
+
+
+def _near_room(box, room_box, plan: float, vertical: float) -> bool:
+    return not (np.any(box[0][:2] > room_box[1][:2] + plan)
+                or np.any(box[1][:2] < room_box[0][:2] - plan)
+                or box[0][2] > room_box[1][2] + vertical
+                or box[1][2] < room_box[0][2] - vertical)
+
+
+def _side_in_room(element, space):
+    """Whether the element sits in or bounds the room, and on which side.
+
+    Returns None when it does not, else the plan direction from the room
+    toward the element (zero for a column standing at the room's centre).
+    """
+    info = _room_body(space)
+    box = _desc_box(element)
+    if info is None or box is None:
+        return None
+    if element.is_a("IfcDoor") or element.is_a("IfcWindow"):
+        host = host_wall_of(element)
+        frame = _wall_frame(host) if host is not None else None
+        if frame is None:
+            return None
+        middle = (box[0][:2] + box[1][:2]) / 2.0
+        offset = frame["thickness"] / 2.0 + ROOM_PROBE
+        z = _probe_height(float(box[0][2]), float(box[1][2]))
+        for sign in (1.0, -1.0):
+            if _in_room(info, middle + sign * offset * frame["normal"], z):
+                return -sign * frame["normal"]
+        return None
+    if element.is_a("IfcWall"):
+        frame = _wall_frame(element)
+        if frame is None:
+            return None
+        offset = frame["thickness"] / 2.0 + ROOM_PROBE
+        z = _probe_height(frame["zlo"], frame["zhi"])
+        need = 1 if frame["length"] < 2.0 else 2
+        hits = {1.0: 0, -1.0: 0}
+        for t in np.linspace(-0.4, 0.4, 9):
+            base = frame["centre"] + t * frame["length"] * frame["axis"]
+            for sign in (1.0, -1.0):
+                if _in_room(info, base + sign * offset * frame["normal"], z):
+                    hits[sign] += 1
+        for sign in (-1.0, 1.0):
+            if hits[sign] >= need and hits[-sign] < need:
+                return -sign * frame["normal"]
+        return None
+    if element.is_a("IfcColumn"):
+        middle = (box[0][:2] + box[1][:2]) / 2.0
+        z = _probe_height(float(box[0][2]), float(box[1][2]))
+        if not _in_room(info, middle, z):
+            return None
+        direction = _plan_unit(middle - info["centre"])
+        return direction if direction is not None else np.zeros(2)
+    return None
+
+
+def _slab_relation(slab, space):
+    """'floor' or 'ceiling' when the slab is that of the room, else None."""
+    info = _room_body(space)
+    mesh = _mesh_of(slab)
+    if info is None or mesh is None:
+        return None
+    verts, faces = mesh
+    tris = verts[faces][:, :, :2]
+    area = 0.5 * np.abs(
+        (tris[:, 1, 0] - tris[:, 0, 0]) * (tris[:, 2, 1] - tris[:, 0, 1])
+        - (tris[:, 2, 0] - tris[:, 0, 0]) * (tris[:, 1, 1] - tris[:, 0, 1]))
+    keep = area > 1e-6
+    if not keep.any():
+        return None
+    plan = {"tris": tris[keep], "lo": verts[:, :2].min(axis=0),
+            "hi": verts[:, :2].max(axis=0)}
+    if not _in_plan(plan, info["inner"]):
+        return None
+    top, bottom = float(verts[:, 2].max()), float(verts[:, 2].min())
+    if FLOOR_BAND[0] <= top - info["zlo"] <= FLOOR_BAND[1]:
+        return "floor"
+    if CEILING_BAND[0] <= bottom - info["zhi"] <= CEILING_BAND[1]:
+        return "ceiling"
+    return None
+
+
+def _clean_label(text) -> str:
+    import unicodedata
+    text = unicodedata.normalize("NFC", str(text or "").strip())
+    return " ".join(text.split()).casefold()
+
+
+def _room_named(model, room_label, storey=None) -> list:
+    """The rooms whose number or name is each of the words the sentence quotes."""
+    labels = [room_label] if isinstance(room_label, str) else list(room_label)
+    wanted = [_clean_label(label) for label in labels if str(label).strip()]
+    if not wanted:
+        raise ValueError("room_label is the room's number or name, as quoted")
+    filed = None
+    if storey is not None:
+        state = _read_state(model)
+        if state["storeys"] is None:
+            state["storeys"] = _storey_map(model)
+        filed = state["storeys"]
+    found = []
+    for space in model.by_type("IfcSpace"):
+        own = {_clean_label(space.Name), _clean_label(getattr(space, "LongName", None))}
+        if not all(label in own for label in wanted):
+            continue
+        if filed is not None and filed.get(space.GlobalId) != storey.GlobalId:
+            continue
+        found.append(space)
+    return sorted(found, key=lambda s: s.GlobalId)
+
+
+def _row(element) -> str:
+    return "%s %s %r" % (element.GlobalId, element.is_a(), element.Name)
+
+
+def _one(found: list, what: str):
+    """The single element a lookup found, or the error naming what it found."""
+    if len(found) == 1:
+        return found[0]
+    if found:
+        raise LookupError("%s matches %d elements: %s" % (
+            what, len(found), ", ".join(_row(e) for e in found[:5])))
+    raise LookupError("%s: no element of that class qualifies" % what)
+
+
+def _desc_kind(ifc_class: str) -> str:
+    """Which of the six classes a class name is, subtypes included."""
+    for base in ("IfcSpace", "IfcSlab", "IfcColumn", "IfcWall", "IfcDoor",
+                 "IfcWindow"):
+        if str(ifc_class).startswith(base):
+            return base
+    return str(ifc_class)
+
+
+def find_in_room(room_label, ifc_class: str, side=None, storey=None,
+                 model=None):
+    """The element of one class that sits in a named room, or bounds it.
+
+    For "the north door of room 102": pass ``'102'``, ``'IfcDoor'`` and
+    ``'north'``.  For "room 203 ('Office')" pass both words, ``('203',
+    'Office')``; each has to be the room's number (``Name``) or its name
+    (``LongName``).  A name that two rooms share is told apart by the storey
+    the sentence names, passed as ``storey``.  ``ifc_class`` is the class of the
+    element wanted: ``'IfcSpace'`` returns the room itself; a door, a window, a
+    wall or a column is a member of the room (see the rules above); for
+    ``'IfcSlab'`` the side is ``'floor'`` (or ``'under'``) for the slab under
+    the room and ``'ceiling'`` (or ``'above'``) for the slab over it.  ``side``
+    is a compass word for the other classes: the member whose side lies within
+    40 degrees of it, or for a column the one furthest that way.  It is needed
+    whenever the room holds more than one member of the class.  The room is
+    looked up in ``model``, the open file (``model=ifc``), or in the file the
+    storey belongs to.
+    """
+    if model is None and storey is not None:
+        model = _file(storey)
+    if not isinstance(model, ifcopenshell.file):
+        raise ValueError("pass the open model, model=ifc, so the room can be"
+                         " looked up")
+    kind = _desc_kind(ifc_class)
+    rooms = _room_named(model, room_label, storey)
+    words = room_label if isinstance(room_label, str) else " / ".join(
+        str(w) for w in room_label)
+    where = "room %r" % (words,) + (" on storey %r" % storey.Name
+                                    if storey is not None else "")
+    if len(rooms) != 1:
+        raise LookupError("%s names %d rooms%s" % (
+            where, len(rooms), (": " + ", ".join(_row(r) for r in rooms[:5]))
+            if rooms else "; no IfcSpace carries that number or name"))
+    room = rooms[0]
+    _say("%s -> %s IfcSpace %r %r" % (where, room.GlobalId, room.Name,
+                                      getattr(room, "LongName", None)))
+    if kind == "IfcSpace":
+        if side is not None:
+            raise ValueError("a room named by its own label takes no side")
+        return room
+    room_box = _desc_box(room)
+    if room_box is None or _room_body(room) is None:
+        raise LookupError("%s has no body to read its footprint from" % where)
+
+    if kind == "IfcSlab":
+        key = str(side or "").strip().lower()
+        if key in _FLOOR_WORDS:
+            relation = "floor"
+        elif key in _CEILING_WORDS:
+            relation = "ceiling"
+        else:
+            raise ValueError("for a slab, side is 'floor' (or 'under') or"
+                             " 'ceiling' (or 'above'), not %r" % (side,))
+        found = []
+        for slab in model.by_type(ifc_class):
+            box = _desc_box(slab)
+            if box is None or not _near_room(box, room_box, 0.5, 1.0):
+                continue
+            if _slab_relation(slab, room) == relation:
+                found.append(slab)
+        found.sort(key=lambda e: e.GlobalId)
+        for slab in found:
+            _say("  %s slab of the room -> %s" % (relation, _row(slab)))
+        return _one(found, "the %s slab of %s" % (relation, where))
+
+    members = []
+    for element in model.by_type(ifc_class):
+        box = _desc_box(element)
+        if box is None or not _near_room(box, room_box, 1.5, 0.5):
+            continue
+        outward = _side_in_room(element, room)
+        if outward is not None:
+            members.append((element, outward))
+    members.sort(key=lambda pair: pair[0].GlobalId)
+    _say("  %s holds %d %s" % (where, len(members), ifc_class))
+    if side is None:
+        for element, _outward in members:
+            _say("  in the room -> %s" % _row(element))
+        return _one([e for e, _ in members], "%s of %s" % (ifc_class, where))
+
+    word = _compass_word(side)
+    picks = []
+    for reading, north in _norths(room):
+        direction = _compass_vector(north, word)
+        if kind == "IfcColumn":
+            scored = []
+            for element, _outward in members:
+                middle = _plan_centre(element)
+                if middle is not None:
+                    scored.append((float(middle @ direction), element))
+            best = max((v for v, _ in scored), default=None)
+            hits = [] if best is None else sorted(
+                {e.GlobalId: e for v, e in scored
+                 if v >= best - EXTREME_GAP}.values(), key=lambda e: e.GlobalId)
+            for value, element in sorted(scored, key=lambda p: -p[0])[:3]:
+                _say("  %s%.2f m %s -> %s" % (_lead(reading), value, word,
+                                                _row(element)))
+        else:
+            hits, near = [], []
+            for element, outward in members:
+                if float(np.linalg.norm(outward)) == 0:
+                    continue
+                angle = _plan_angle(outward, direction)
+                near.append((angle, element))
+                if angle <= SIDE_ANGLE:
+                    hits.append(element)
+            for angle, element in sorted(near, key=lambda p: p[0]):
+                _say("  %s%.0f deg from %s -> %s" % (_lead(reading), angle, word,
+                                                       _row(element)))
+        picks.append((reading, hits))
+    return _agreed(picks, "the %s %s of %s" % (word, ifc_class, where))
+
+
+def _agreed(picks: list, what: str):
+    """The element both readings of north name, or the error saying they differ."""
+    found = [hits for _reading, hits in picks]
+    for (reading, hits) in picks:
+        if len(hits) != 1:
+            if hits:
+                raise LookupError("%s, with north read as %s, matches %d elements:"
+                                  " %s" % (what, reading, len(hits),
+                                           ", ".join(_row(e) for e in hits[:5])))
+            raise LookupError("%s, with north read as %s, matches nothing"
+                              % (what, reading))
+    if len({hits[0].GlobalId for hits in found}) != 1:
+        raise LookupError("%s depends on which north is meant: %s" % (
+            what, "; ".join("%s -> %s" % (reading, _row(hits[0]))
+                            for reading, hits in picks)))
+    _say("  %s -> %s%s" % (what, _row(found[0][0]),
+                           " (true north and project north agree)"
+                           if len(picks) > 1 else ""))
+    return found[0][0]
+
+
+def _external_mark(wall):
+    """IsExternal when the file states it, otherwise None."""
+    for definition in getattr(wall, "IsDefinedBy", ()) or ():
+        if not definition.is_a("IfcRelDefinesByProperties"):
+            continue
+        pset = definition.RelatingPropertyDefinition
+        for prop in (getattr(pset, "HasProperties", ()) or ()) if pset else ():
+            if prop.is_a("IfcPropertySingleValue") and prop.Name == "IsExternal":
+                value = getattr(prop.NominalValue, "wrappedValue", None)
+                if value is not None:
+                    return bool(value)
+    return None
+
+
+def _segments_cross(p1, p2, q1, q2) -> bool:
+    def orient(a, b, c):
+        return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
+    d1, d2 = orient(q1, q2, p1), orient(q1, q2, p2)
+    d3, d4 = orient(p1, p2, q1), orient(p1, p2, q2)
+    return (d1 * d2 < 0) and (d3 * d4 < 0)
+
+
+def _ray_meets_wall(start, direction, frames) -> bool:
+    end = start + direction * FACADE_RAY
+    for frame in frames:
+        half_l, half_t = frame["length"] / 2.0, frame["thickness"] / 2.0
+        c, a, n = frame["centre"], frame["axis"], frame["normal"]
+        corners = [c + a * half_l + n * half_t, c - a * half_l + n * half_t,
+                   c - a * half_l - n * half_t, c + a * half_l - n * half_t]
+        for i in range(4):
+            if _segments_cross(start, end, corners[i], corners[(i + 1) % 4]):
+                return True
+    return False
+
+
+def _exterior_side(wall):
+    """The outward plan normal of a facade wall, or None for any other wall."""
+    cache = _desc_state(wall)["exterior"]
+    guid = wall.GlobalId
+    if guid in cache:
+        return cache[guid]
+    result = None
+    frame = _wall_frame(wall)
+    if frame is not None and _external_mark(wall) is not False:
+        model = _file(wall)
+        state = _read_state(model)
+        if state["storeys"] is None:
+            state["storeys"] = _storey_map(model)
+        storey_guid = state["storeys"].get(guid)
+        others = []
+        if storey_guid:
+            for other in model.by_type("IfcWall"):
+                if other.GlobalId == guid or \
+                        state["storeys"].get(other.GlobalId) != storey_guid:
+                    continue
+                other_frame = _wall_frame(other)
+                if other_frame is not None:
+                    others.append(other_frame)
+        clear = {}
+        for sign in (1.0, -1.0):
+            direction = sign * frame["normal"]
+            clear[sign] = not any(
+                _ray_meets_wall(frame["centre"] + t * frame["length"] * frame["axis"]
+                                + direction * (frame["thickness"] / 2.0 + 0.05),
+                                direction, others)
+                for t in (-0.25, 0.0, 0.25))
+        if clear[1.0] != clear[-1.0]:
+            result = frame["normal"] * (1.0 if clear[1.0] else -1.0)
+    cache[guid] = result
+    return result
+
+
+def find_by_compass(storey, ifc_class: str, direction, mode="extreme"):
+    """The element of one class at a compass position on a storey.
+
+    For "the northernmost window on storey 'EG'" or "the column in the
+    north-east corner of storey 'Level 1'": pass the storey, the class and the
+    compass word (``'north'``, ``'north-east'``).  The answer is the element
+    whose body centre lies furthest that way, at least 1.0 m ahead of the next
+    one.  For "the north exterior wall of storey S" or "the door on the south
+    facade of storey S" pass ``mode='exterior'`` (or ``'facade'``): the answer
+    is the wall facing that way on the outside of the storey, or the door or
+    window such a wall hosts.  North has to mean the same element whether it is
+    read as the project's true north or as the model's +Y.
+    """
+    word = _compass_word(direction)
+    key = str(mode or "extreme").strip().lower()
+    if key in _FACADE_WORDS:
+        facade = True
+    elif key in _EXTREME_WORDS:
+        facade = False
+    else:
+        raise ValueError("mode is 'extreme' (the element furthest that way) or"
+                         " 'exterior' (the one on that facade), not %r" % (mode,))
+    pool = sorted(on_storey(storey, ifc_class), key=lambda e: e.GlobalId)
+    where = "storey %r" % (storey.Name,)
+    _say("%s holds %d %s" % (where, len(pool), ifc_class))
+    picks = []
+    for reading, north in _norths(storey):
+        vector = _compass_vector(north, word)
+        if not facade:
+            scored = []
+            for element in pool:
+                middle = _plan_centre(element)
+                if middle is not None:
+                    scored.append((float(middle @ vector), element))
+            best = max((v for v, _ in scored), default=None)
+            hits = [] if best is None else [e for v, e in scored
+                                            if v >= best - EXTREME_GAP]
+            for value, element in sorted(scored, key=lambda p: -p[0])[:3]:
+                _say("  %s%.2f m %s -> %s" % (_lead(reading), value, word,
+                                                _row(element)))
+        else:
+            hits, near = [], []
+            for element in pool:
+                wall = element if element.is_a("IfcWall") else host_wall_of(element)
+                if wall is None:
+                    continue
+                outward = _exterior_side(wall)
+                if outward is None:
+                    continue
+                angle = _plan_angle(outward, vector)
+                near.append((angle, element))
+                if angle <= SIDE_ANGLE:
+                    hits.append(element)
+            for angle, element in sorted(near, key=lambda p: p[0])[:5]:
+                _say("  %sfacade %.0f deg from %s -> %s" % (_lead(reading), angle, word,
+                                                              _row(element)))
+        picks.append((reading, hits))
+    form = "on the %s facade" % word if facade else "furthest %s" % word
+    return _agreed(picks, "the %s %s of %s" % (ifc_class, form, where))
 
 
 # ============================================ what this module actually has
@@ -4001,3 +4907,116 @@ REVIT_NAMES = (
     "column_on_top", "column_in_room", "find_wall_between_rooms",
     "column_in_gap", "opening_centred", "opening_beside",
 )
+
+
+# coordinate-stated create helpers (2026-10-20)
+#
+# Two sentences state a new element by coordinates instead of by a corner and a
+# size: a wall given as the line it is set out along ("from (x1, y1, z1) to
+# (x2, y2, z2), 0.24 m thick on the -Y side of that line, 3.0 m high"), and a
+# door or a window given by the corner of its opening ("with the lower corner
+# of its opening at (x, y, z) in project coordinates").  The two functions below
+# turn those numbers into the arguments ``add_box_element`` and ``add_filling``
+# take, so the caller writes only what the sentence states.
+
+_LINE_SIDES = {"+x": (0, 1.0), "-x": (0, -1.0), "+y": (1, 1.0), "-y": (1, -1.0)}
+_CENTRE_WORDS = ("centre", "center", "axis", "centre line", "center line")
+
+
+def box_from_line(start, end, thickness: float, height: float,
+                  side: str = "centre", face: Optional[str] = None):
+    """The box of a wall given as a line, its thickness, side and height.
+
+    ``start`` and ``end`` are the two ends of the line, in metres, in whatever
+    frame the sentence states them (project or storey coordinates); the line
+    has to run along that frame's x or y axis and both ends sit at the wall's
+    base.  ``side`` says where the body lies: ``"-Y"`` puts the whole thickness
+    on the -Y side of the line, so the line is the wall's +Y face, and
+    ``"centre"`` centres the body on the line.  ``face`` says the same thing
+    from the other end: ``face="+Y"`` means the line is the wall's +Y face, so
+    the body lies on its -Y side.  Give one of the two.
+
+    Returns ``(corner, size)``: the lowest corner and the size along x, y and z,
+    in the same frame, ready for ``add_box_element(..., frame=...)``.
+    """
+    a = np.asarray(start, dtype=float).reshape(3)
+    b = np.asarray(end, dtype=float).reshape(3)
+    delta = b - a
+    if abs(float(delta[2])) > 1e-6:
+        raise ValueError("both ends of the line have to be at the wall's base")
+    if abs(float(delta[0])) > 1e-6 and abs(float(delta[1])) > 1e-6:
+        raise ValueError("the line has to run along the x or the y axis")
+    run = 0 if abs(float(delta[0])) >= abs(float(delta[1])) else 1
+    across = 1 - run
+    length = abs(float(delta[run]))
+    if length <= 0.0:
+        raise ValueError("the two ends of the line are the same point")
+    thickness = float(thickness)
+    corner = [0.0, 0.0, float(a[2])]
+    corner[run] = float(min(a[run], b[run]))
+    word = (side or "centre").strip().lower()
+    if face is not None:
+        named = face.strip().lower()
+        if named not in _LINE_SIDES:
+            raise ValueError("face is '+x', '-x', '+y' or '-y'")
+        word = ("-" if named[0] == "+" else "+") + named[1]
+    if word in _CENTRE_WORDS:
+        corner[across] = float(a[across]) - thickness / 2.0
+    elif word in _LINE_SIDES:
+        axis, sign = _LINE_SIDES[word]
+        if axis != across:
+            raise ValueError(f"the side {side!r} runs along the line; give the "
+                             f"side across it, '+{'xy'[across]}' or "
+                             f"'-{'xy'[across]}'")
+        corner[across] = float(a[across]) - (thickness if sign < 0 else 0.0)
+    else:
+        raise ValueError("side is '+x', '-x', '+y', '-y' or 'centre'")
+    size = [0.0, 0.0, float(height)]
+    size[run] = length
+    size[across] = thickness
+    # Rounded to the micrometre, so the residue of a subtraction such as
+    # 21.22 - 17.42 = 3.8000000000000007 does not reach the model.
+    return (tuple(round(v, 6) for v in corner),
+            tuple(round(v, 6) for v in size))
+
+
+def along_from_point(host_wall, point, frame: str = "world") -> dict:
+    """Where a stated point falls in a wall's own frame, in metres.
+
+    ``point`` is given in project coordinates (``frame="world"``) or in the
+    coordinates of the storey the wall stands on (``frame="storey"``).  The
+    result has ``along``, the distance along the wall's own x axis that
+    ``add_filling`` takes; ``sill``, the height above the wall's base that
+    ``add_filling`` takes; and ``across``, the offset across the wall, which
+    only says whether the point is in the wall at all.  The wall's ``start``
+    and ``end`` are included so the position can be checked against them.
+    """
+    p = np.asarray(point, dtype=float).reshape(3)
+    if frame == "storey":
+        storey = storey_of(host_wall)
+        if storey is None:
+            raise ValueError("the wall is not contained in a storey")
+        matrix = frame_of(storey)
+        p = matrix[:3, :3] @ p + matrix[:3, 3]
+    elif frame != "world":
+        raise ValueError("frame is 'world' or 'storey'")
+    inverse = np.linalg.inv(frame_of(host_wall))
+    local = inverse[:3, :3] @ p + inverse[:3, 3]
+    box = wall_box(host_wall)
+    if box is None:
+        raise ValueError("the wall has no body that can be measured")
+    if not box["start"] - 0.05 <= float(local[0]) <= box["end"] + 0.05:
+        raise ValueError(f"the point is {float(local[0]):.3f} m along a wall that "
+                         f"runs from {box['start']:.3f} to {box['end']:.3f} m")
+    if not box["near"] - 0.5 <= float(local[1]) <= box["far"] + 0.5:
+        raise ValueError("the point is not in the wall: it stands "
+                         f"{float(local[1]):.3f} m across a wall from "
+                         f"{box['near']:.3f} to {box['far']:.3f} m")
+    return {"along": float(local[0]), "sill": float(local[2]) - box["base"],
+            "across": float(local[1]), "start": box["start"], "end": box["end"]}
+
+
+#: 1.2.0 (2026-10-20) adds ``box_from_line`` and ``along_from_point`` above and
+#: changes no existing function; 1.1.0, stated at the top of the module, added
+#: the room and compass lookups.  This assignment is the value in force.
+LIBRARY_VERSION = "1.2.0"

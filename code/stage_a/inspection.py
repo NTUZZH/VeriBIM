@@ -438,7 +438,74 @@ def _geom_resolve(kind: str, params: dict, ifc_class: str, s: Style,
         return ([f"geom.find_without({scope}, {cls},",
                  f"                  {excluded})"], set())
 
+    if kind == "room":
+        # "the north door of room 102", "the floor slab of the room 'Lobby'":
+        # the room's number and name, the class, and the side word, all as the
+        # sentence writes them; the storey only where the sentence names one.
+        label = params["room"]
+        words = {"number": (label.get("number"),), "name": (label.get("number"),),
+                 "longname": (label.get("longname"),),
+                 "both": (label.get("number"), label.get("longname"))}[label["form"]]
+        room = (s.string(words[0]) if len(words) == 1 else
+                "(" + ", ".join(s.string(word) for word in words) + ")")
+        args = [room, cls]
+        relation = params.get("relation")
+        if relation in ("floor", "ceiling"):
+            args.append(f"side={s.string(_slab_word(relation, phrase))}")
+        elif params.get("side"):
+            args.append(f"side={s.string(params['side'])}")
+        if label.get("storey_guid"):
+            args.append(f"storey={name_of('storey_guid')}")
+        args.append("model=ifc")
+        return ([f"geom.find_in_room({', '.join(args)})"], set())
+
+    if kind == "compass":
+        # "the northernmost window on storey 'EG'", "the door on the south
+        # facade of storey 'Level 1'": the storey, the class, the compass word,
+        # and for a facade the word the sentence uses for it.
+        args = [name_of("storey_guid"), cls, s.string(params["direction"])]
+        if params.get("mode") == "facade":
+            args.append(s.string("facade" if "facade" in (phrase or "")
+                                 and "exterior" not in (phrase or "")
+                                 else "exterior"))
+        return ([f"geom.find_by_compass({', '.join(args)})"], set())
+
     raise KeyError(f"no library lookup for anchor kind {kind!r}")
+
+
+def _slab_word(relation: str, phrase: str) -> str:
+    """The word the sentence uses for the slab under or over a room."""
+    words = (("floor", "under", "below", "beneath") if relation == "floor"
+             else ("ceiling", "above", "over"))
+    text = (phrase or "").lower()
+    for word in words:
+        if re.search(rf"\b{word}\b", text):
+            return word
+    return words[0]
+
+
+#: The room and compass descriptors (round-4 extension).  Their reading lives
+#: in the library alone, as the reading of "opposite" does, so both styles make
+#: the library call: a room's footprint, a probe beyond a wall face, a side
+#: within 40 degrees and the two readings of north are rules no reader of the
+#: sentence has, and a round that wrote them out would assert numbers the
+#: instruction never states.
+DESCRIPTOR_LOOKUPS = ("room", "compass")
+
+#: The storey a room label adds when the label alone is shared by two rooms,
+#: as the sentence writes it ("room 101 on storey 'Level 2'").
+ROOM_STOREY = re.compile(r"on storey '([^']+)'")
+
+
+def _room_storey_ref(params: dict, phrase: str) -> dict:
+    """The name lookup for the storey a room descriptor names, if it names one."""
+    label = params.get("room") or {}
+    if not label.get("storey_guid"):
+        return {}
+    found = ROOM_STOREY.findall(phrase or "")
+    if not found:
+        raise KeyError("the room's storey is not named in the sentence")
+    return {"storey_guid": Ref(ifc_class="IfcBuildingStorey", name=found[-1])}
 
 
 #: The anchor kinds the library resolves on its own.  Each of them used to be
@@ -458,6 +525,8 @@ def _resolve_body(kind: str, params: dict, ifc_class: str, s: Style,
     so the code holds no identifier the instruction did not carry.
     """
     refs = refs or {}
+    if kind == "room" and "storey_guid" not in refs:
+        refs = dict(refs, **_room_storey_ref(params, phrase))
     m = s.name("matches")
     needs: set[str] = set()
     if any(is_name_ref(ref) for ref in refs.values()):
@@ -482,7 +551,7 @@ def _resolve_body(kind: str, params: dict, ifc_class: str, s: Style,
         needs.update(extra)
         return ("\n".join(head + lines), needs)
 
-    if s.geom_lib and kind in GEOM_LOOKUPS:
+    if kind in DESCRIPTOR_LOOKUPS or (s.geom_lib and kind in GEOM_LOOKUPS):
         # One library call, with the arguments the sentence carries.  The
         # elements it names are bound first, by name where the sentence gives a
         # name and by identifier where it gives one.
@@ -851,6 +920,8 @@ _PURPOSE = {
     "bounds": "find the element that bounds the room the instruction names",
     "under": "find the element the storey's walls stand on",
     "without_relation": "find the element that takes part in no such relationship",
+    "room": "find the element through the room the instruction names",
+    "compass": "find the element at the compass position the instruction names",
 }
 
 

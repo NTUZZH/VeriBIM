@@ -1,11 +1,11 @@
 {
  "final_full": {
   "n": 2100,
-  "completed_090": 2016,
-  "completed_098": 2013,
-  "all_axes_1": 1817,
-  "rate_090": 0.96,
-  "rate_098": 0.9586,
+  "completed_090": 2010,
+  "completed_098": 2007,
+  "all_axes_1": 1811,
+  "rate_090": 0.9571,
+  "rate_098": 0.9557,
   "lost_at_098_with_geometry_below_098": 2
  },
  "final_108": {
@@ -46,11 +46,11 @@
  },
  "gemini-3.8-flash_108": {
   "n": 108,
-  "completed_090": 65,
-  "completed_098": 65,
-  "all_axes_1": 58,
-  "rate_090": 0.6019,
-  "rate_098": 0.6019,
+  "completed_090": 63,
+  "completed_098": 63,
+  "all_axes_1": 56,
+  "rate_090": 0.5833,
+  "rate_098": 0.5833,
   "lost_at_098_with_geometry_below_098": 0
  },
  "deepseek-v4-pro_108": {

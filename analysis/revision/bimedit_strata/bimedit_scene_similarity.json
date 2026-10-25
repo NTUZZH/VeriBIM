@@ -1,0 +1,706 @@
+[
+ {
+  "scene": "01_input.ifc",
+  "type": "simple",
+  "best_train": 0.5860531219569114,
+  "best_train_key": "G71",
+  "best_heldout": 0.2749284013275055,
+  "n_products": 14
+ },
+ {
+  "scene": "02_input.ifc",
+  "type": "simple",
+  "best_train": 0.5921072367708065,
+  "best_train_key": "G71",
+  "best_heldout": 0.278027640436071,
+  "n_products": 15
+ },
+ {
+  "scene": "03_input.ifc",
+  "type": "simple",
+  "best_train": 0.5923680881501365,
+  "best_train_key": "G71",
+  "best_heldout": 0.27807890104745475,
+  "n_products": 15
+ },
+ {
+  "scene": "04_input.ifc",
+  "type": "simple",
+  "best_train": 0.6401869414400531,
+  "best_train_key": "G71",
+  "best_heldout": 0.27493109040809166,
+  "n_products": 17
+ },
+ {
+  "scene": "05_input.ifc",
+  "type": "simple",
+  "best_train": 0.7611574228295765,
+  "best_train_key": "G71",
+  "best_heldout": 0.25715624807342585,
+  "n_products": 25
+ },
+ {
+  "scene": "06_input.ifc",
+  "type": "simple",
+  "best_train": 0.7654060834662197,
+  "best_train_key": "G71",
+  "best_heldout": 0.26662838683607104,
+  "n_products": 30
+ },
+ {
+  "scene": "07_input.ifc",
+  "type": "simple",
+  "best_train": 0.5110547225804579,
+  "best_train_key": "G176",
+  "best_heldout": 0.25869288042902244,
+  "n_products": 10
+ },
+ {
+  "scene": "08_input.ifc",
+  "type": "simple",
+  "best_train": 0.48561981449343083,
+  "best_train_key": "G49",
+  "best_heldout": 0.3124743818285535,
+  "n_products": 16
+ },
+ {
+  "scene": "09_input.ifc",
+  "type": "simple",
+  "best_train": 0.6256148138528032,
+  "best_train_key": "G71",
+  "best_heldout": 0.3018213849118041,
+  "n_products": 20
+ },
+ {
+  "scene": "10_input.ifc",
+  "type": "simple",
+  "best_train": 0.5714075868835984,
+  "best_train_key": "G190",
+  "best_heldout": 0.30438717841948504,
+  "n_products": 16
+ },
+ {
+  "scene": "11_input.ifc",
+  "type": "simple",
+  "best_train": 0.649218772149682,
+  "best_train_key": "G49",
+  "best_heldout": 0.39553067508860373,
+  "n_products": 22
+ },
+ {
+  "scene": "12_input.ifc",
+  "type": "simple",
+  "best_train": 0.655138851200346,
+  "best_train_key": "G171",
+  "best_heldout": 0.47175018543638814,
+  "n_products": 23
+ },
+ {
+  "scene": "13_input.ifc",
+  "type": "simple",
+  "best_train": 0.7556732567466291,
+  "best_train_key": "G71",
+  "best_heldout": 0.2784062259793674,
+  "n_products": 33
+ },
+ {
+  "scene": "14_input.ifc",
+  "type": "simple",
+  "best_train": 0.6987187259380856,
+  "best_train_key": "G71",
+  "best_heldout": 0.29060067984319626,
+  "n_products": 32
+ },
+ {
+  "scene": "15_input.ifc",
+  "type": "simple",
+  "best_train": 0.6932843548427859,
+  "best_train_key": "G71",
+  "best_heldout": 0.29926610928049235,
+  "n_products": 28
+ },
+ {
+  "scene": "16_input.ifc",
+  "type": "simple",
+  "best_train": 0.5588767577665663,
+  "best_train_key": "G190",
+  "best_heldout": 0.30916432478824807,
+  "n_products": 14
+ },
+ {
+  "scene": "17_input.ifc",
+  "type": "simple",
+  "best_train": 0.5689753276516076,
+  "best_train_key": "G190",
+  "best_heldout": 0.3184452966304646,
+  "n_products": 9
+ },
+ {
+  "scene": "18_input.ifc",
+  "type": "simple",
+  "best_train": 0.7074892073818726,
+  "best_train_key": "G190",
+  "best_heldout": 0.36390023688673084,
+  "n_products": 36
+ },
+ {
+  "scene": "19_input.ifc",
+  "type": "simple",
+  "best_train": 0.6674382099619418,
+  "best_train_key": "G71",
+  "best_heldout": 0.319785347691731,
+  "n_products": 21
+ },
+ {
+  "scene": "20_input.ifc",
+  "type": "simple",
+  "best_train": 0.709789980768927,
+  "best_train_key": "G190",
+  "best_heldout": 0.2874349729702245,
+  "n_products": 23
+ },
+ {
+  "scene": "21_input.ifc",
+  "type": "simple",
+  "best_train": 0.709789980768927,
+  "best_train_key": "G190",
+  "best_heldout": 0.2874349729702245,
+  "n_products": 23
+ },
+ {
+  "scene": "22_input.ifc",
+  "type": "simple",
+  "best_train": 0.5424385409853468,
+  "best_train_key": "G190",
+  "best_heldout": 0.28394160150206305,
+  "n_products": 12
+ },
+ {
+  "scene": "23_input.ifc",
+  "type": "simple",
+  "best_train": 0.6294455996028612,
+  "best_train_key": "G71",
+  "best_heldout": 0.3092953778869813,
+  "n_products": 18
+ },
+ {
+  "scene": "24_input.ifc",
+  "type": "simple",
+  "best_train": 0.5424385409853468,
+  "best_train_key": "G190",
+  "best_heldout": 0.28394160150206305,
+  "n_products": 12
+ },
+ {
+  "scene": "25_input.ifc",
+  "type": "simple",
+  "best_train": 0.7051753712360749,
+  "best_train_key": "G71",
+  "best_heldout": 0.2902614370082144,
+  "n_products": 31
+ },
+ {
+  "scene": "26_input.ifc",
+  "type": "simple",
+  "best_train": 0.6872255395723531,
+  "best_train_key": "G190",
+  "best_heldout": 0.3537517100658741,
+  "n_products": 42
+ },
+ {
+  "scene": "27_input.ifc",
+  "type": "simple",
+  "best_train": 0.6669191568917887,
+  "best_train_key": "G190",
+  "best_heldout": 0.30787265613949616,
+  "n_products": 25
+ },
+ {
+  "scene": "task001-create-ground-truth.ifc",
+  "type": "simple",
+  "best_train": 0.6388344216450164,
+  "best_train_key": "G179",
+  "best_heldout": 0.5316469391853786,
+  "n_products": 18
+ },
+ {
+  "scene": "task001-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.6415264274316826,
+  "best_train_key": "G179",
+  "best_heldout": 0.5497987986135733,
+  "n_products": 17
+ },
+ {
+  "scene": "task002-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.6644690118570572,
+  "best_train_key": "G71",
+  "best_heldout": 0.5030456336809128,
+  "n_products": 20
+ },
+ {
+  "scene": "task002-delete-input.ifc",
+  "type": "simple",
+  "best_train": 0.6692897293707928,
+  "best_train_key": "G71",
+  "best_heldout": 0.5196904129766782,
+  "n_products": 20
+ },
+ {
+  "scene": "task002-update-input.ifc",
+  "type": "simple",
+  "best_train": 0.7238132845788885,
+  "best_train_key": "G179",
+  "best_heldout": 0.6249310737546536,
+  "n_products": 36
+ },
+ {
+  "scene": "task003-create-ground-truth.ifc",
+  "type": "simple",
+  "best_train": 0.5304012026808463,
+  "best_train_key": "G190",
+  "best_heldout": 0.3047381849432489,
+  "n_products": 10
+ },
+ {
+  "scene": "task003-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.5310451123967217,
+  "best_train_key": "G190",
+  "best_heldout": 0.2904084293055782,
+  "n_products": 9
+ },
+ {
+  "scene": "task004-create-ground-truth.ifc",
+  "type": "simple",
+  "best_train": 0.6388344216450164,
+  "best_train_key": "G179",
+  "best_heldout": 0.5316469391853786,
+  "n_products": 18
+ },
+ {
+  "scene": "task004-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.6536193788892861,
+  "best_train_key": "G179",
+  "best_heldout": 0.5424388547161696,
+  "n_products": 17
+ },
+ {
+  "scene": "task005-create-ground-truth.ifc",
+  "type": "simple",
+  "best_train": 0.6536792421203751,
+  "best_train_key": "G103",
+  "best_heldout": 0.49295429867082485,
+  "n_products": 21
+ },
+ {
+  "scene": "task005-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.6527461505846358,
+  "best_train_key": "G103",
+  "best_heldout": 0.49221756634700664,
+  "n_products": 20
+ },
+ {
+  "scene": "task005-update-input.ifc",
+  "type": "simple",
+  "best_train": 0.6536792421203751,
+  "best_train_key": "G103",
+  "best_heldout": 0.49295429867082485,
+  "n_products": 21
+ },
+ {
+  "scene": "task006-create-ground-truth.ifc",
+  "type": "simple",
+  "best_train": 0.6388344216450164,
+  "best_train_key": "G179",
+  "best_heldout": 0.5316469391853786,
+  "n_products": 18
+ },
+ {
+  "scene": "task006-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.6415264274316826,
+  "best_train_key": "G179",
+  "best_heldout": 0.5497987986135733,
+  "n_products": 17
+ },
+ {
+  "scene": "task006-update-input.ifc",
+  "type": "simple",
+  "best_train": 0.637539781835945,
+  "best_train_key": "G190",
+  "best_heldout": 0.5136169683791945,
+  "n_products": 19
+ },
+ {
+  "scene": "task007-create-ground-truth.ifc",
+  "type": "simple",
+  "best_train": 0.6790706634122708,
+  "best_train_key": "G179",
+  "best_heldout": 0.6453382012495201,
+  "n_products": 32
+ },
+ {
+  "scene": "task007-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.6610292991987163,
+  "best_train_key": "G179",
+  "best_heldout": 0.5803384860566884,
+  "n_products": 27
+ },
+ {
+  "scene": "task007-update-input.ifc",
+  "type": "simple",
+  "best_train": 0.6790706634122708,
+  "best_train_key": "G179",
+  "best_heldout": 0.6453382012495201,
+  "n_products": 32
+ },
+ {
+  "scene": "task008-create-ground-truth.ifc",
+  "type": "simple",
+  "best_train": 0.6471849020644852,
+  "best_train_key": "G176",
+  "best_heldout": 0.46300568599120473,
+  "n_products": 15
+ },
+ {
+  "scene": "task008-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.6573410626873311,
+  "best_train_key": "G176",
+  "best_heldout": 0.4581974189729806,
+  "n_products": 14
+ },
+ {
+  "scene": "task008-update-input.ifc",
+  "type": "simple",
+  "best_train": 0.6471849020644852,
+  "best_train_key": "G176",
+  "best_heldout": 0.46300568599120473,
+  "n_products": 15
+ },
+ {
+  "scene": "task009-create-ground-truth.ifc",
+  "type": "simple",
+  "best_train": 0.6604753705615326,
+  "best_train_key": "G179",
+  "best_heldout": 0.6029366429962162,
+  "n_products": 26
+ },
+ {
+  "scene": "task009-create-input.ifc",
+  "type": "simple",
+  "best_train": 0.6715763132154415,
+  "best_train_key": "G179",
+  "best_heldout": 0.6122770955206814,
+  "n_products": 25
+ },
+ {
+  "scene": "093ec38d4859-create-input.ifc",
+  "type": "realistic",
+  "best_train": 0.6847147837389492,
+  "best_train_key": "G144",
+  "best_heldout": 0.5247442685776217,
+  "n_products": 1248
+ },
+ {
+  "scene": "093ec38d4859-update-input.ifc",
+  "type": "realistic",
+  "best_train": 0.6851560748457766,
+  "best_train_key": "G144",
+  "best_heldout": 0.5248099327491179,
+  "n_products": 1249
+ },
+ {
+  "scene": "093ec38d4859.ifc",
+  "type": "realistic",
+  "best_train": 0.6851560748457766,
+  "best_train_key": "G144",
+  "best_heldout": 0.5248099327491179,
+  "n_products": 1249
+ },
+ {
+  "scene": "0e29802b440f-input-create_wall.ifc",
+  "type": "realistic",
+  "best_train": 0.8960079349430919,
+  "best_train_key": "G165",
+  "best_heldout": 0.4667652393516962,
+  "n_products": 363
+ },
+ {
+  "scene": "0e29802b440f.ifc",
+  "type": "realistic",
+  "best_train": 0.8961906526388872,
+  "best_train_key": "G165",
+  "best_heldout": 0.46735868217543197,
+  "n_products": 364
+ },
+ {
+  "scene": "1c98aa6c7ea5-create-input.ifc",
+  "type": "realistic",
+  "best_train": 0.8186039150768036,
+  "best_train_key": "G132",
+  "best_heldout": 0.5031900037645567,
+  "n_products": 714
+ },
+ {
+  "scene": "1c98aa6c7ea5-update-input.ifc",
+  "type": "realistic",
+  "best_train": 0.8188501092386062,
+  "best_train_key": "G132",
+  "best_heldout": 0.503004353543872,
+  "n_products": 715
+ },
+ {
+  "scene": "1c98aa6c7ea5.ifc",
+  "type": "realistic",
+  "best_train": 0.8203417729115399,
+  "best_train_key": "G132",
+  "best_heldout": 0.5019631618312437,
+  "n_products": 718
+ },
+ {
+  "scene": "22de3aaf4790.ifc",
+  "type": "realistic",
+  "best_train": 0.8505122847819433,
+  "best_train_key": "G142",
+  "best_heldout": 0.6561784670827508,
+  "n_products": 1190
+ },
+ {
+  "scene": "352e2096f733.ifc",
+  "type": "realistic",
+  "best_train": 0.8420098148339674,
+  "best_train_key": "G71",
+  "best_heldout": 0.46192499683448696,
+  "n_products": 177
+ },
+ {
+  "scene": "354198cb90b3.ifc",
+  "type": "realistic",
+  "best_train": 0.8439529816827989,
+  "best_train_key": "G71",
+  "best_heldout": 0.46120308540037236,
+  "n_products": 178
+ },
+ {
+  "scene": "3897b92c2096.ifc",
+  "type": "realistic",
+  "best_train": 0.8430708294791682,
+  "best_train_key": "G71",
+  "best_heldout": 0.4606300793851177,
+  "n_products": 178
+ },
+ {
+  "scene": "3bd12741c074.ifc",
+  "type": "realistic",
+  "best_train": 0.8514915077718459,
+  "best_train_key": "G142",
+  "best_heldout": 0.6569132637882726,
+  "n_products": 1183
+ },
+ {
+  "scene": "3ca337cf0aef-create-input.ifc",
+  "type": "realistic",
+  "best_train": 0.7742834786613408,
+  "best_train_key": "G165",
+  "best_heldout": 0.36493227167974734,
+  "n_products": 359
+ },
+ {
+  "scene": "3ca337cf0aef.ifc",
+  "type": "realistic",
+  "best_train": 0.7747886755302433,
+  "best_train_key": "G165",
+  "best_heldout": 0.3651009834500188,
+  "n_products": 360
+ },
+ {
+  "scene": "3d3be0535ad2.ifc",
+  "type": "realistic",
+  "best_train": 0.8619646546070707,
+  "best_train_key": "G142",
+  "best_heldout": 0.6724693043796302,
+  "n_products": 1072
+ },
+ {
+  "scene": "470795ec6a5c.ifc",
+  "type": "realistic",
+  "best_train": 0.8624001373420719,
+  "best_train_key": "G142",
+  "best_heldout": 0.6726256020449809,
+  "n_products": 1075
+ },
+ {
+  "scene": "605ddb973206.ifc",
+  "type": "realistic",
+  "best_train": 0.8620908954171732,
+  "best_train_key": "G142",
+  "best_heldout": 0.6724245947496803,
+  "n_products": 1073
+ },
+ {
+  "scene": "65dc48e7147a-create-input.ifc",
+  "type": "realistic",
+  "best_train": 0.8045747019173541,
+  "best_train_key": "G94",
+  "best_heldout": 0.6171835947664637,
+  "n_products": 705
+ },
+ {
+  "scene": "65dc48e7147a-update-input.ifc",
+  "type": "realistic",
+  "best_train": 0.8047277733835061,
+  "best_train_key": "G94",
+  "best_heldout": 0.6170577700394034,
+  "n_products": 706
+ },
+ {
+  "scene": "65dc48e7147a.ifc",
+  "type": "realistic",
+  "best_train": 0.8047277733835061,
+  "best_train_key": "G94",
+  "best_heldout": 0.6170577700394034,
+  "n_products": 706
+ },
+ {
+  "scene": "6dc4da160a96-create-input.ifc",
+  "type": "realistic",
+  "best_train": 0.8331243359933014,
+  "best_train_key": "G165",
+  "best_heldout": 0.48298788358400563,
+  "n_products": 257
+ },
+ {
+  "scene": "6dc4da160a96.ifc",
+  "type": "realistic",
+  "best_train": 0.832569272291992,
+  "best_train_key": "G165",
+  "best_heldout": 0.482483799290524,
+  "n_products": 258
+ },
+ {
+  "scene": "6e1b806b2b0f.ifc",
+  "type": "realistic",
+  "best_train": 0.8428754688132785,
+  "best_train_key": "G71",
+  "best_heldout": 0.4609391220949951,
+  "n_products": 178
+ },
+ {
+  "scene": "76f314a413b9.ifc",
+  "type": "realistic",
+  "best_train": 0.8437723385037881,
+  "best_train_key": "G71",
+  "best_heldout": 0.4597977924031377,
+  "n_products": 178
+ },
+ {
+  "scene": "91ced022fd65-create-ground-truth.ifc",
+  "type": "realistic",
+  "best_train": 0.8347986296158173,
+  "best_train_key": "G165",
+  "best_heldout": 0.49586711099847103,
+  "n_products": 309
+ },
+ {
+  "scene": "91ced022fd65-create-input.ifc",
+  "type": "realistic",
+  "best_train": 0.8348190952358145,
+  "best_train_key": "G165",
+  "best_heldout": 0.49611941520556857,
+  "n_products": 308
+ },
+ {
+  "scene": "91ced022fd65.ifc",
+  "type": "realistic",
+  "best_train": 0.8458930333110404,
+  "best_train_key": "G165",
+  "best_heldout": 0.48950301523900064,
+  "n_products": 315
+ },
+ {
+  "scene": "9517aa154f71.ifc",
+  "type": "realistic",
+  "best_train": 0.8433014333926341,
+  "best_train_key": "G71",
+  "best_heldout": 0.4605544184250338,
+  "n_products": 179
+ },
+ {
+  "scene": "9d81a20e025d-create-input.ifc",
+  "type": "realistic",
+  "best_train": 0.784322406166116,
+  "best_train_key": "G8",
+  "best_heldout": 0.8598856516291993,
+  "n_products": 744
+ },
+ {
+  "scene": "9d81a20e025d.ifc",
+  "type": "realistic",
+  "best_train": 0.7841872816360285,
+  "best_train_key": "G8",
+  "best_heldout": 0.8596231820283362,
+  "n_products": 745
+ },
+ {
+  "scene": "9fc9f7d62d4a-create-input.ifc",
+  "type": "realistic",
+  "best_train": 0.608450510962764,
+  "best_train_key": "G144",
+  "best_heldout": 0.5048925231889746,
+  "n_products": 1415
+ },
+ {
+  "scene": "9fc9f7d62d4a-update-ground-truth.ifc",
+  "type": "realistic",
+  "best_train": 0.6091549220771099,
+  "best_train_key": "G144",
+  "best_heldout": 0.504824183665539,
+  "n_products": 1418
+ },
+ {
+  "scene": "9fc9f7d62d4a.ifc",
+  "type": "realistic",
+  "best_train": 0.6091549220771099,
+  "best_train_key": "G144",
+  "best_heldout": 0.504824183665539,
+  "n_products": 1418
+ },
+ {
+  "scene": "a9e5a1c3dac0.ifc",
+  "type": "realistic",
+  "best_train": 0.8620908954171732,
+  "best_train_key": "G142",
+  "best_heldout": 0.6724245947496803,
+  "n_products": 1073
+ },
+ {
+  "scene": "dabf3da2c38b.ifc",
+  "type": "realistic",
+  "best_train": 0.8620908954171732,
+  "best_train_key": "G142",
+  "best_heldout": 0.6724245947496803,
+  "n_products": 1073
+ },
+ {
+  "scene": "e32c75df5608.ifc",
+  "type": "realistic",
+  "best_train": 0.8514763096211905,
+  "best_train_key": "G142",
+  "best_heldout": 0.6570294499037508,
+  "n_products": 1184
+ },
+ {
+  "scene": "f653a267cbe7.ifc",
+  "type": "realistic",
+  "best_train": 0.8504930057149405,
+  "best_train_key": "G142",
+  "best_heldout": 0.6563221290924692,
+  "n_products": 1191
+ }
+]

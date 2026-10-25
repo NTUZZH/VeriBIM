@@ -64,5 +64,7 @@
   "scorer_reading": "family",
   "label": "VeriBIM-Bench v4b 108-task subset, alone arm, local sft_v10, sandbox guard",
   "protocol_conformant": true,
-  "finished_at": "2026-10-02T05:05:39"
+  "finished_at": "2026-10-02T05:05:39",
+  "v4d_finalized_at": "2026-10-16T08:28:33",
+  "v4d_rerun_tasks": 0
 }

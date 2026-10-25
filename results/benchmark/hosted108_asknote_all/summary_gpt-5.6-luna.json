@@ -1,0 +1,71 @@
+{
+  "adapter": "gpt-5.6-luna",
+  "n_tasks": 108,
+  "n_scored": 108,
+  "n_unscorable": 0,
+  "unscorable_ids": [],
+  "mean_final": 0.631288,
+  "by_operation": {
+    "create": {
+      "n": 36,
+      "n_scored": 36,
+      "mean": 0.641476
+    },
+    "delete": {
+      "n": 36,
+      "n_scored": 36,
+      "mean": 0.692404
+    },
+    "update": {
+      "n": 36,
+      "n_scored": 36,
+      "mean": 0.559984
+    }
+  },
+  "by_category": {
+    "direct": 0.648102,
+    "spatial": 0.522309,
+    "topological": 0.723453
+  },
+  "axis_means": {
+    "geometry": 0.657188,
+    "semantics": 0.661214,
+    "topology": 0.575462
+  },
+  "schema_validity": 0.9449,
+  "code_valid": 0.9304,
+  "code_run": 0.5913,
+  "commit_rate": 0.7593,
+  "tasks_with_any_tool_call": 108,
+  "mean_tool_rounds": 3.194,
+  "total_tool_calls": 345,
+  "stop_reasons": {
+    "completed": 108
+  },
+  "hit_output_cap": 0,
+  "mean_output_tokens": 965.9,
+  "wall_seconds": 3942.8,
+  "resolved_agent_config": {
+    "max_tool_rounds": 22,
+    "tool_timeout": 420.0,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 8192,
+    "max_tool_output_chars": 16000,
+    "max_recorded_output_chars": 4000,
+    "capture_stdout": true,
+    "max_transcript_tokens": 0,
+    "min_turn_tokens": 256,
+    "dup_stop": 0
+  },
+  "per_task_file": "runs_local/bench_v4/results/hosted108_asknote_all/per_task_gpt-5.6-luna.jsonl",
+  "subset": "runs_local/bench_v4/subset_108_hosted.v4c.json",
+  "scorer_reading": "family",
+  "label": "VeriBIM-Bench v4 hosted108_asknote all, gpt-5.6-luna, family reading",
+  "protocol_conformant": true,
+  "finished_at": "2026-10-15T04:31:21",
+  "v4d_finalized_at": "2026-10-16T08:28:33",
+  "v4d_rerun_tasks": 0,
+  "v4e_rerun_tasks": 1,
+  "v4e_finalized_at": "2026-10-16T15:27:41"
+}

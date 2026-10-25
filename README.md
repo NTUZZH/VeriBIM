@@ -1,7 +1,7 @@
 # VeriBIM
 
 This repository holds the code, task definitions, per-task results and adapter weights of the paper
-"VeriBIM: checker-supervised training of a local language model for editing IFC building models" by Ziheng
+"VeriBIM: a ground-truth-first framework for generating, training and testing language-model edits of IFC building models" by Ziheng
 Zhang and Wei Zhang, Singapore Institute of Technology (manuscript under review, 2026). The work trains a local
 language model, Qwen3.5-9B by the Qwen Team [1], to edit IFC building models from natural-language
 instructions. The repository contains:
@@ -14,8 +14,8 @@ instructions. The repository contains:
 - the evaluation harness (sandbox, agent loop, chat client, model serving);
 - the training code of the three stages (imitation, preference optimisation, reinforcement learning);
 - the scripts that built the source-model pools, the benchmark and the validation sets;
-- the trained adapter, the benchmark and validation task definitions, and the per-task results of every
-  reported run.
+- the trained adapter, the training, benchmark and validation task definitions, and the per-task results of
+  every reported run.
 
 ## Layout
 
@@ -34,10 +34,13 @@ scripts/
                     the clearance screen and the corrected reading of "opposite" references
   benchmark/        benchmark selection (with the selection driver in selection/), ground-truth
                     materialisation, paraphrases, the 500-task validation set, audits
-  validation/       the builder of the 300-task hard validation set
+  validation/       the builder and the ranking step of the 300-task hard validation set
+  training/         the script that collects the task records behind the imitation data
 tasks/
+  train/            the training task sets of the three stages (see "Training task sets")
   benchmark/        the 2,100-task benchmark, the 108-task and 324-task subsets, the library note
-  val_hard/         the 300-task hard validation set used to select training snapshots
+  val_hard/         the 300-task hard validation set used to select training snapshots, with its candidates
+                    and their ranking
   val_500/          the 500-task validation set and its 100-task subset
 results/
   benchmark/        per-task results of every reported run on the benchmark and its subsets
@@ -48,8 +51,8 @@ results/
   bimedit/          per-task BIM-Edit scores of the trained models, of the untrained base model, and of
                     Claude Sonnet 5.5 in two arms (sonnet_alone/, sonnet_lib/)
 analysis/
-  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.4 (see "Release v1.1.0"
-                    to "Release v1.1.4")
+  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.5 (see "Release v1.1.0"
+                    to "Release v1.1.5")
 weights/            adapter of the final model (see "Adapter weights")
 ```
 
@@ -64,15 +67,24 @@ percentile bootstrap intervals over tasks (10,000 resamples, seed 20260929).
 
 | Task set | Model | Result |
 |---|---|---|
-| 2,100-task benchmark | VeriBIM-9B | completion 0.960 (0.951 to 0.968), 2,016 tasks completed, mean score 0.964 |
+| 2,100-task benchmark | VeriBIM-9B | completion 0.957 (0.948 to 0.965), 2,010 tasks completed, mean score 0.961 |
 | 108-task subset | VeriBIM-9B | completion 0.972 (0.935 to 1.000), 105 of 108 |
 | 108-task subset | Claude Sonnet 5.5, documented setting | completion 0.991, VeriBIM-9B minus this setting -0.019 (-0.056 to 0.019) |
 | 108-task subset | Claude Opus 5.5, documented setting | completion 0.954, VeriBIM-9B minus this setting 0.019 (-0.028 to 0.074) |
 | 108-task subset | DeepSeek V4, documented setting | completion 0.898, VeriBIM-9B minus this setting 0.074 (0.019 to 0.130) |
-| 108-task subset | Gemini 3.8 Flash, documented setting | completion 0.769, VeriBIM-9B minus this setting 0.204 (0.130 to 0.278) |
+| 108-task subset | Gemini 3.8 Flash, documented setting | completion 0.750, VeriBIM-9B minus this setting 0.222 (0.148 to 0.306) |
 | 108-task subset | GPT-5.6, documented setting | completion 0.639, VeriBIM-9B minus this setting 0.333 (0.250 to 0.426) |
-| 108-task subset | Qwen3.5-9B (untrained base), documented library | completion 0.639, VeriBIM-9B minus this setting 0.333 (0.250 to 0.417) |
+| 108-task subset | Qwen3.5-9B (untrained base), documented library | completion 0.648, VeriBIM-9B minus this setting 0.324 (0.241 to 0.407) |
+| 108-task subset | Gemma 4 31B (4-bit AWQ), documented setting | completion 0.704, 76 of 108 |
+| 108-task subset | Qwen3.5-9B (untrained base), documented library note with three retrieved training trajectories | completion 0.880, 95 of 108 |
+| 108-task subset | Qwen3.5-9B (untrained base), short library note with three retrieved training trajectories | completion 0.898, 97 of 108 |
 | 108-task subset | best commercial model: Claude Sonnet 5.5, with the library and its short note | completion 0.852, 92 of 108 |
+| 108-task subset | Claude Sonnet 5.5, library note and the instruction to ask for a missing value | completion 0.954, 103 of 108 |
+| 108-task subset | DeepSeek V4, library note and the instruction to ask for a missing value | completion 0.815, 88 of 108 |
+| 108-task subset | Gemini 3.8 Flash, library note and the instruction to ask for a missing value | completion 0.583, 63 of 108 |
+| 108-task subset | GPT-5.6, library note and the instruction to ask for a missing value | completion 0.417, 45 of 108 |
+| 2,100-task benchmark | rule-based template parser (no language model) | completion 0.999, 2,098 of 2,100 |
+| rewritten-wording set, 85 reworded instructions | rule-based template parser | 0 of 85 completed; VeriBIM-9B completes 82 of 85 |
 | 324-task subset | VeriBIM-9B | completion 0.960 (0.938 to 0.978), 311 of 324 |
 | 324-task subset | Claude Sonnet 5.5, documented setting | completion 0.981, VeriBIM-9B minus this setting -0.022 (-0.046 to 0.003) |
 | BIM-Edit, 324 tasks | VeriBIM-9B | mean score 0.411, under the benchmark's own scoring rules, in this paper's test setup |
@@ -88,15 +100,22 @@ commercial models and of the untrained base model lie above zero. A pre-specifie
 equivalence within 5 percentage points. On these tasks VeriBIM-9B completes 0.954 and Claude Sonnet 5.5
 in the documented setting 0.977, and the 90 % interval of the difference runs from -0.051 to 0.005 (`analysis/revision/equivalence/equiv_216.json`).
 
+The documented Claude Sonnet 5.5 run was repeated twice with the same note and settings
+(`results/benchmark/hosted108_informed_rep2_all/` and `hosted108_informed_rep3_all/`). The three runs complete
+107, 107 and 107 of the 108 tasks, and 3 tasks change outcome between runs. The rule-based parser reads
+instructions by inverting the generator's sentence templates, so its benchmark result measures how far the
+template wording can be read mechanically; on instructions reworded outside the templates it completes
+0 of 85 (see "Release v1.1.5").
+
 In the BIM-Edit rows, the difference has the opposite sign: it is the mean score of the arm minus that of
 VeriBIM-9B, paired over the 324 tasks, with its 95 % interval. All four BIM-Edit arms ran in this paper's test setup
 (at most 22 tool rounds, 8,192 output tokens per turn, 420 s per tool call) and were scored by the published
 BIM-Edit rules (`analysis/revision/bimedit_arms/bimedit_arms.json`).
 
-At list prices, the 2,052 commercial task runs reported in the paper cost about US$231.
+At list prices, the 2,052 commercial task runs reported in the paper cost about US$230.
 `analysis/revision/spend/spend_reported.py` computes this cost from the token counts in the per-task result files
 and the prices in `code/tables/hosted_cost.py`. All commercial-model calls of the study, including connectivity
-tests, repeated runs and runs during development, cost about US$309. Some of these calls have no
+tests, repeated runs and runs during development, cost about US$363. Some of these calls have no
 released records, so this total cannot be recomputed from the repository.
 
 VeriBIM-9B is the reinforcement-stage snapshot, named `grpo_v10b_c10` in the result files and the release asset.
@@ -167,6 +186,66 @@ Release v1.1.1 adds one run and its analysis.
   `equiv_216.json` holds the output. `eval_informed216.sh` in the same folder is the launcher of the run
   (`SUBSET=rest216 ARM=informed`). Both scripts use the paths of the project's working layout, as described
   under "Release v1.1.0".
+
+## Release v1.1.5
+
+Release v1.1.5 adds the training task sets, the ranking step of the hard validation set, six sets of runs on the
+108-task subset, a rule-based parser as a baseline, and the analyses of the revised paper.
+
+- The training task sets of the three stages are in `tasks/train/` (see "Training task sets").
+- The hard validation set comes with its 2,996 candidates (`tasks/val_hard/val_hard_candidates.jsonl`, in the
+  order of `val_hard_candidate_ids.json`) and their ranking (`val_hard_ranking.jsonl`).
+  `scripts/validation/val_hard/rank_val_hard.py` is the ranking step that wrote the set (see "Construction scripts").
+- The four commercial models were run again with the library and its short note, followed by one sentence that
+  tells the model to ask a question instead of editing when the instruction leaves out a value or a reference the
+  edit needs. The sentence overrides the sentence of the system prompt that asks for sensible defaults. The per-task
+  results are in `results/benchmark/hosted108_asknote_all/`. `analysis/revision/commercial_reruns/` holds the note
+  (`note_lib_override.md`), the launcher (`eval_rerun.sh`, `ARM=asknote`), the sequence of runs (`run_all.sh`) and
+  the one-task connectivity checks that preceded them (`smoke_all.sh`, never reported). In the released
+  `run_all.sh`, the stall watchdog of the workstation is replaced by a function that does nothing.
+- The documented Claude Sonnet 5.5 run of release v1.1.0 was repeated twice with the same note and settings
+  (`results/benchmark/hosted108_informed_rep2_all/` and `hosted108_informed_rep3_all/`, `RUNTAG=rep2` and `rep3`
+  of `eval_rerun.sh`).
+- Gemma 4 31B, a larger open-weight model that fits the same 48 GB card in its 4-bit AWQ version
+  (`QuantTrio/gemma-4-31B-it-AWQ`), was run in the documented setting. Its per-task results are
+  `per_task_gemma-4-31b-it-awq.jsonl` in `results/benchmark/local108_informed_all/`. `analysis/revision/gemma31b/`
+  holds the download, the server (vLLM 0.27.1 with the Gemma 4 tool-call and reasoning parsers and a 65,536-token
+  context, from a separate conda environment with transformers 5.14.1) and the launcher.
+- The untrained Qwen3.5-9B was run with three training trajectories as worked examples: for each task, the three
+  imitation-training rows whose instructions are nearest by TF-IDF cosine, with identifiers, names and numbers
+  masked, taken from training buildings only. With the documented library note in which they replace the three
+  fixed examples, the per-task results are in `results/benchmark/local108_retrieval_all/`; with the short library
+  note, in `results/benchmark/local108_retrievalshort_all/`. `analysis/revision/retrieval_fewshot/` holds the index
+  builder (`build_index.py`), the retrieval (`retrieve.py`), the note writer (`build_notes.py`), the 108 notes of
+  each arm (`notes/`, `notes_short/`, with SHA-256 manifests in `results/`), the harness entry point that reads one
+  note per task (`run_gate_pertask.py`), the launcher and the file-access audit it runs. `results/leakage_checks.json`
+  records that the training rows and the 108 tasks share no building, model file or file content. The index needs
+  the imitation rows, which are not released, so the notes are the released input of these runs.
+- `analysis/revision/parser_baseline/` is a rule-based parser without a language model. It inverts the generator's
+  sentence templates and reference phrases (`grammar.py`, `parser.py`), finds the elements with the helper library,
+  and writes a program that performs the edit with the generator's own edit functions (`codegen.py`,
+  `prelude_src.py` and `code/modifc_gen/goldlib.py`). It asks a question when the instruction leaves out a value.
+  `run_parser.py` scores it with the benchmark's checker and completion rule (`run_parser.sh` is the launcher), and
+  `summarize.py` writes `results/summary.json`; `results/rewritten/` holds the run on the rewritten-wording set. The
+  grammar was extended against the 2,100 benchmark instructions, with the 108-task subset as the development set.
+  The tools in `analysis/` list the instruction skeletons and the reasons an instruction was not read.
+- `analysis/revision/checker_validity/` adds hard checks for storey containment and opening filling to the checker's
+  verdict, measures the absolute position and dimension errors of completed edits, and runs IFC schema validation
+  and clash checks on outputs and ground truths. The summaries and the per-element tables are in `results/`; the
+  per-task rows are not released.
+- `analysis/revision/stats/` adds `run_stats.py` and its modules (`paired_methods.py`, `glmm_ml.py`): exact McNemar
+  tests, score intervals for paired differences, Holm adjustment and mixed-effects models of the paired
+  comparisons, with the outputs in `analysis/revision/stats/results/`. The run first reproduces the reported
+  bootstrap values from the per-task rows (`results/reproduction.csv`).
+- `analysis/revision/bimedit_strata/` splits the BIM-Edit scores of `results/bimedit/` by how similar each scene is to
+  the closest training model (`bimedit_scene_similarity.json`); it needs the BIM-Edit task file.
+- `analysis/revision/colleague_packets/` holds the scripts that drew and rendered the packets of a study with
+  colleagues and that collect their answers. The packets, the rendered pages, the answer key and the answers are
+  not released.
+- `analysis/revision/macros/` holds the script that computes the values and tables of the revised paper from the
+  files above, and its output.
+
+The scripts in these folders use the paths of the project's working layout, as described under "Release v1.1.0".
 
 ## Release v1.1.4
 
@@ -276,6 +355,31 @@ VeriBIM-9B and the strongest commercial model were also run.
 Ground-truth models are not distributed. The evaluation rebuilds each one from its source model and the
 record's reference script, and checks the rebuilt file against the checksum in the record.
 
+## Training task sets
+
+`tasks/train/` holds the tasks the three training stages drew from, in the record format of the benchmark. All of
+them start from source models of the training buildings.
+
+| File | Content |
+|---|---|
+| `tasks_stage_b_v10.jsonl.gz` | the 51,956 generated training tasks (gzip-compressed JSON lines) |
+| `tasks_imitation_earlier.jsonl` | 2,419 tasks of earlier generation rounds that have a reference trajectory in the imitation data but are not in the training task file: 890 from an earlier task wave and 1,529 from an earlier imitation set; records unchanged |
+| `imitation_task_ids.json` | the 37,865 tasks with a reference trajectory in the imitation data, 35,446 from the training task file and 2,419 from the earlier rounds |
+| `imitation_tasks_report.json` | the counts, written by `scripts/training/collect_imitation_tasks.py` |
+| `preference_pool_ids.json` | the 6,000 tasks of the training task file on which the stage-1 model was sampled six times to build the stage-2 preference pairs (`stage_b.pool`, seed 20260928) |
+| `reinforcement_pool_ids.json`, `reinforcement_pool_tasks.jsonl` | the 64 tasks of stage 3 |
+| `reinforcement_pool_report.json` | the counts behind the stage-3 pool |
+
+The imitation stage trained on 75,953 rows: one reference trajectory for each of the 37,865 tasks, and
+copies of these trajectories with a paraphrased instruction. A trajectory may word the reference to an element
+differently from its record (for example, a GlobalId without quotes), because the synthesis varies the wording; the
+target and the reference edit are those of the record. Of the 6,000 sampled tasks, 158 were not
+completed in all six samples after the exclusions listed in the report: 61 were completed in some samples
+and 97 in none. Stage 3 trained on the 61 partly completed tasks and the 3 never
+completed tasks whose six sample scores differ by more than 0.05, because a group of rollouts that all score alike
+gives no learning signal. The trajectories, the sampled rollouts and the preference pairs are not distributed; each
+stage rebuilds them with the commands in "Training".
+
 ## Regenerating tasks
 
 The generator works from a corpus manifest, `data/corpus_manifest.json`. `code/corpus/scan_ifc.py` scans
@@ -363,10 +467,12 @@ files under `runs_local/`, in the locations the task records name.
    eight-word run with BIM-Edit, and keeps 1,000 candidates per IFC version. `materialize.py` rebuilds every candidate's ground-truth model against its checksum,
    `verify_candidates.py` repeats the overlap and schema checks independently, `assert_same_selection.py`
    checks that a resumed run left the other versions unchanged, and `sample20.py` and
-   `work/sample8_ifc2x3.py` print candidates for reading by hand. The 300 tasks are the candidates with at least
-   one failed rollout in six samples, filled up with the lowest-scoring completed ones
-   (counts in `tasks/val_hard/val_hard_build_report.json`); the step that ranks the candidates and writes
-   `val_hard_tasks.jsonl` is not among the released scripts.
+   `work/sample8_ifc2x3.py` print candidates for reading by hand. The stage-1 model was then sampled six times on
+   each of the 2,996 candidates, and `rank_val_hard.py` ranks them by failed samples, then by mean sampled
+   score, and keeps every candidate with a failed sample (82) and the 218 lowest-scoring completed
+   ones, 300 tasks (`tasks/val_hard/val_hard_build_report.json`). `val_hard_ranking.jsonl` lists every
+   candidate in ranking order with the two numbers the ranking reads; the sampled rollouts are not released.
+   Run on these rollouts, the released script writes the four released files of `tasks/val_hard/` byte for byte.
 
 `scripts/benchmark/hosted_table.py` computes the 108-task comparison with the commercial models, and
 `audit_fs_access.py` and `audit_strict.py` check model trajectories for file-system or process access beyond
@@ -480,8 +586,9 @@ compares the BIM-Edit arms from per-task records that are not redistributed, and
 
 ## Training
 
-All three stages train one LoRA adapter (rank 16, alpha 32) on Qwen3.5-9B. The training sets are not
-distributed; each stage builds its own from generated tasks with the commands below. The values given are
+All three stages train one LoRA adapter (rank 16, alpha 32) on Qwen3.5-9B. The task sets each stage drew from are
+in `tasks/train/` (see "Training task sets"); the training data built from them (trajectories, sampled rollouts,
+preference pairs) are not distributed, and each stage rebuilds its own with the commands below. The values given are
 those of the final runs.
 
 **Stage 1, imitation** (`l2` for synthesis, `l2train` for training). `stage_a.cli synthesize` writes a
@@ -525,11 +632,11 @@ python code/tables/make_results_exhibits.py            # writes exhibits/tables 
 The script reads every input from the repository layout above; `VERIBIM_ROOT` overrides the repository root
 and `VERIBIM_EXHIBITS_DIR` the output directory. `results/benchmark/FINAL_ARTIFACT` names the final model.
 `exhibits/tables/REPORT.txt` lists every input read and every value left pending. With the released files
-the script reproduces its tables and figures exactly. Three groups of macro values need files
-that are not distributed: the data-separation counts of Appendix E need the stage-2 training task file
-(`VERIBIM_TRAIN_TASKS`, written by the generator), the split of wall-clock time between the model and the
-tools needs the run transcripts, and the number of tasks in flight during the 108-task run needs its run
-log. The figures use the Liberation Serif fonts in
+the script reproduces its tables and figures exactly. Three groups of macro values need inputs
+outside the released tree: the data-separation counts of Appendix E need the training task file, released
+gzip-compressed, so decompress `tasks/train/tasks_stage_b_v10.jsonl.gz` in place (or point `VERIBIM_TRAIN_TASKS` at
+a decompressed copy); the split of wall-clock time between the model and the tools needs the run transcripts; and
+the number of tasks in flight during the 108-task run needs its run log. The last two are not distributed. The figures use the Liberation Serif fonts in
 `/usr/share/fonts/truetype/liberation`. This copy of the script differs from the one used for the paper only
 in its input and output paths and in treating the manuscript's macro file as optional.
 
@@ -582,7 +689,7 @@ it only in the line that opens the reasoning block. `adapter_config.json` names 
 
 ```bibtex
 @unpublished{zhang2026veribim,
-  title  = {VeriBIM: checker-supervised training of a local language model for editing IFC building models},
+  title  = {VeriBIM: a ground-truth-first framework for generating, training and testing language-model edits of IFC building models},
   author = {Zhang, Ziheng and Zhang, Wei},
   note   = {Manuscript under review. Singapore Institute of Technology},
   year   = {2026}

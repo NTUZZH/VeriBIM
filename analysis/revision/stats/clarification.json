@@ -117,11 +117,11 @@
    "n": 324,
    "n_underspecified": 29,
    "share_underspecified": 0.0895,
-   "completion_all": 0.929,
+   "completion_all": 0.9259,
    "completion_underspecified": 1.0,
    "done_underspecified": 29,
-   "completion_rest": 0.922,
-   "done_rest": 272,
+   "completion_rest": 0.9186,
+   "done_rest": 271,
    "n_rest": 295
   },
   "108|base|alone": {
@@ -247,11 +247,11 @@
    "n": 108,
    "n_underspecified": 11,
    "share_underspecified": 0.1019,
-   "completion_all": 0.6019,
+   "completion_all": 0.5833,
    "completion_underspecified": 0.0,
    "done_underspecified": 0,
-   "completion_rest": 0.6701,
-   "done_rest": 65,
+   "completion_rest": 0.6495,
+   "done_rest": 63,
    "n_rest": 97
   },
   "324|claude-sonnet-5-5|alone": {
@@ -260,11 +260,11 @@
    "n": 324,
    "n_underspecified": 29,
    "share_underspecified": 0.0895,
-   "completion_all": 0.7438,
+   "completion_all": 0.7469,
    "completion_underspecified": 0.0,
    "done_underspecified": 0,
-   "completion_rest": 0.8169,
-   "done_rest": 241,
+   "completion_rest": 0.8203,
+   "done_rest": 242,
    "n_rest": 295
   },
   "324|claude-sonnet-5-5|lib": {
@@ -273,11 +273,11 @@
    "n": 324,
    "n_underspecified": 29,
    "share_underspecified": 0.0895,
-   "completion_all": 0.8611,
+   "completion_all": 0.8642,
    "completion_underspecified": 0.0,
    "done_underspecified": 0,
-   "completion_rest": 0.9458,
-   "done_rest": 279,
+   "completion_rest": 0.9492,
+   "done_rest": 280,
    "n_rest": 295
   },
   "2100|sft": {
@@ -286,11 +286,11 @@
    "n": 2100,
    "n_underspecified": 156,
    "share_underspecified": 0.0743,
-   "completion_all": 0.9524,
+   "completion_all": 0.9519,
    "completion_underspecified": 0.9872,
    "done_underspecified": 154,
-   "completion_rest": 0.9496,
-   "done_rest": 1846,
+   "completion_rest": 0.9491,
+   "done_rest": 1845,
    "n_rest": 1944
   },
   "2100|dpo": {
@@ -299,11 +299,11 @@
    "n": 2100,
    "n_underspecified": 156,
    "share_underspecified": 0.0743,
-   "completion_all": 0.9571,
+   "completion_all": 0.9562,
    "completion_underspecified": 0.9872,
    "done_underspecified": 154,
-   "completion_rest": 0.9547,
-   "done_rest": 1856,
+   "completion_rest": 0.9537,
+   "done_rest": 1854,
    "n_rest": 1944
   },
   "2100|ours": {
@@ -312,11 +312,11 @@
    "n": 2100,
    "n_underspecified": 156,
    "share_underspecified": 0.0743,
-   "completion_all": 0.96,
+   "completion_all": 0.9571,
    "completion_underspecified": 0.9936,
    "done_underspecified": 155,
-   "completion_rest": 0.9573,
-   "done_rest": 1861,
+   "completion_rest": 0.9542,
+   "done_rest": 1855,
    "n_rest": 1944
   },
   "2100|prev": {
@@ -325,11 +325,11 @@
    "n": 2100,
    "n_underspecified": 156,
    "share_underspecified": 0.0743,
-   "completion_all": 0.9157,
+   "completion_all": 0.9148,
    "completion_underspecified": 0.9872,
    "done_underspecified": 154,
-   "completion_rest": 0.91,
-   "done_rest": 1769,
+   "completion_rest": 0.909,
+   "done_rest": 1767,
    "n_rest": 1944
   },
   "2100|sft_small": {
@@ -338,11 +338,11 @@
    "n": 2100,
    "n_underspecified": 156,
    "share_underspecified": 0.0743,
-   "completion_all": 0.7229,
+   "completion_all": 0.7205,
    "completion_underspecified": 0.9103,
    "done_underspecified": 142,
-   "completion_rest": 0.7078,
-   "done_rest": 1376,
+   "completion_rest": 0.7052,
+   "done_rest": 1371,
    "n_rest": 1944
   },
   "2100|dpo_small": {
@@ -351,11 +351,11 @@
    "n": 2100,
    "n_underspecified": 156,
    "share_underspecified": 0.0743,
-   "completion_all": 0.7338,
+   "completion_all": 0.7324,
    "completion_underspecified": 0.8846,
    "done_underspecified": 138,
-   "completion_rest": 0.7217,
-   "done_rest": 1403,
+   "completion_rest": 0.7202,
+   "done_rest": 1400,
    "n_rest": 1944
   },
   "2100|grpo_small": {
@@ -364,11 +364,11 @@
    "n": 2100,
    "n_underspecified": 156,
    "share_underspecified": 0.0743,
-   "completion_all": 0.7362,
+   "completion_all": 0.7338,
    "completion_underspecified": 0.8462,
    "done_underspecified": 132,
-   "completion_rest": 0.7274,
-   "done_rest": 1414,
+   "completion_rest": 0.7248,
+   "done_rest": 1409,
    "n_rest": 1944
   }
  },
@@ -417,27 +417,27 @@
   "324: Final model, with the library minus Claude Sonnet 5.5, with the library": {
    "all": {
     "n": 324,
-    "diff": 0.0988,
+    "diff": 0.0957,
     "task_level": [
-     0.0556,
-     0.1451
+     0.0525,
+     0.142
     ],
     "cluster": [
-     0.0122,
-     0.1713
+     0.0094,
+     0.1689
     ],
     "n_buildings": 12
    },
    "without_underspecified": {
     "n": 295,
-    "diff": 0.0102,
+    "diff": 0.0068,
     "task_level": [
-     -0.0237,
-     0.0441
+     -0.0271,
+     0.0407
     ],
     "cluster": [
-     -0.0546,
-     0.0597
+     -0.0567,
+     0.0541
     ],
     "n_buildings": 12
    },
@@ -499,27 +499,27 @@
   "324: Final model, with the library minus Claude Sonnet 5.5, alone": {
    "all": {
     "n": 324,
-    "diff": 0.216,
+    "diff": 0.213,
     "task_level": [
      0.1636,
-     0.2654
+     0.2623
     ],
     "cluster": [
-     0.1536,
-     0.271
+     0.1513,
+     0.2684
     ],
     "n_buildings": 12
    },
    "without_underspecified": {
     "n": 295,
-    "diff": 0.139,
+    "diff": 0.1356,
     "task_level": [
-     0.0915,
-     0.1864
+     0.0881,
+     0.1831
     ],
     "cluster": [
-     0.0932,
-     0.1775
+     0.0918,
+     0.1711
     ],
     "n_buildings": 12
    },
@@ -540,27 +540,27 @@
   "2100: Final model minus Imitation": {
    "all": {
     "n": 2100,
-    "diff": 0.0076,
+    "diff": 0.0052,
     "task_level": [
-     0.0033,
-     0.0119
+     0.001,
+     0.0095
     ],
     "cluster": [
-     0.0,
-     0.0202
+     -0.0004,
+     0.0144
     ],
     "n_buildings": 12
    },
    "without_underspecified": {
     "n": 1944,
-    "diff": 0.0077,
+    "diff": 0.0051,
     "task_level": [
-     0.0031,
-     0.0123
+     0.0005,
+     0.0098
     ],
     "cluster": [
-     0.0,
-     0.0211
+     -0.0005,
+     0.015
     ],
     "n_buildings": 12
    },
@@ -612,32 +612,32 @@
   },
   "324: Final model, with the library minus Claude Sonnet 5.5, with the library": {
    "n": 295,
-   "diff": 0.010169,
+   "diff": 0.00678,
    "task_level": [
-    -0.023729,
-    0.044068
+    -0.027119,
+    0.040678
    ],
    "cluster": [
-    -0.054598,
-    0.059701
+    -0.056738,
+    0.05414
    ],
    "n_buildings": 12,
-   "a_only": 15,
+   "a_only": 14,
    "b_only": 12
   },
   "324: Final model, with the library minus Claude Sonnet 5.5, alone": {
    "n": 295,
-   "diff": 0.138983,
+   "diff": 0.135593,
    "task_level": [
-    0.091525,
-    0.186441
+    0.088136,
+    0.183051
    ],
    "cluster": [
-    0.093248,
-    0.177474
+    0.091772,
+    0.171103
    ],
    "n_buildings": 12,
-   "a_only": 49,
+   "a_only": 48,
    "b_only": 8
   },
   "108: Final model, with the library minus GPT-5.6, with the library": {
@@ -672,17 +672,17 @@
   },
   "108: Final model, with the library minus Gemini 3.8 Flash, with the library": {
    "n": 97,
-   "diff": 0.298969,
+   "diff": 0.319588,
    "task_level": [
-    0.206186,
-    0.391753
+    0.226804,
+    0.412371
    ],
    "cluster": [
-    0.236364,
-    0.368932
+    0.242105,
+    0.40708
    ],
    "n_buildings": 12,
-   "a_only": 29,
+   "a_only": 31,
    "b_only": 0
   }
  },

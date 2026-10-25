@@ -1,0 +1,42 @@
+{
+ "training_rows": 75953,
+ "training_task_ids": 37865,
+ "training_model_files": 291,
+ "training_source_models": 280,
+ "training_buildings": 105,
+ "benchmark_model_files": 50,
+ "benchmark_source_models": 19,
+ "benchmark_buildings": 12,
+ "benchmark_buildings_in_108": [
+  "BLD003",
+  "BLD018",
+  "BLD029",
+  "BLD031",
+  "BLD035",
+  "BLD038",
+  "BLD040",
+  "BLD042",
+  "BLD044",
+  "BLD045",
+  "GNI-project_7",
+  "GNI-project_8"
+ ],
+ "shared_building_ids": [],
+ "shared_model_paths": [],
+ "shared_file_sha256": [],
+ "benchmark_sha256_matches_registry": true,
+ "training_pool_excluded_buildings": [
+  "BLD003",
+  "BLD018",
+  "BLD029",
+  "BLD031",
+  "BLD035",
+  "BLD038",
+  "BLD040",
+  "BLD042",
+  "BLD044",
+  "BLD045",
+  "GNI-project_7",
+  "GNI-project_8"
+ ]
+}

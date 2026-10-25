@@ -1,0 +1,436 @@
+{
+  "source": "results/per_task_parser.jsonl",
+  "completion_rule": "geometry, semantics and topology all >= 0.90 (family reading)",
+  "overall": {
+    "n": 2100,
+    "completed": 2098,
+    "rate": 0.999
+  },
+  "subset_108": {
+    "n": 108,
+    "completed": 108,
+    "rate": 1.0,
+    "missing": 0
+  },
+  "subset_324": {
+    "n": 324,
+    "completed": 324,
+    "rate": 1.0,
+    "missing": 0
+  },
+  "outside_108_development_subset": {
+    "n": 1992,
+    "completed": 1990,
+    "rate": 0.999
+  },
+  "by_operation": {
+    "create": {
+      "n": 796,
+      "completed": 795,
+      "rate": 0.9987,
+      "veribim_9b_rate_same_tasks": 0.9661
+    },
+    "delete": {
+      "n": 732,
+      "completed": 732,
+      "rate": 1.0,
+      "veribim_9b_rate_same_tasks": 0.9658
+    },
+    "update": {
+      "n": 572,
+      "completed": 571,
+      "rate": 0.9983,
+      "veribim_9b_rate_same_tasks": 0.9441
+    }
+  },
+  "by_category": {
+    "direct": {
+      "n": 600,
+      "completed": 600,
+      "rate": 1.0,
+      "veribim_9b_rate_same_tasks": 0.9917
+    },
+    "spatial": {
+      "n": 611,
+      "completed": 609,
+      "rate": 0.9967,
+      "veribim_9b_rate_same_tasks": 0.9378
+    },
+    "topological": {
+      "n": 889,
+      "completed": 889,
+      "rate": 1.0,
+      "veribim_9b_rate_same_tasks": 0.9539
+    }
+  },
+  "by_ifc_version": {
+    "IFC2X3": {
+      "n": 700,
+      "completed": 700,
+      "rate": 1.0,
+      "veribim_9b_rate_same_tasks": 0.9557
+    },
+    "IFC4": {
+      "n": 700,
+      "completed": 699,
+      "rate": 0.9986,
+      "veribim_9b_rate_same_tasks": 0.9671
+    },
+    "IFC4X3": {
+      "n": 700,
+      "completed": 699,
+      "rate": 0.9986,
+      "veribim_9b_rate_same_tasks": 0.9571
+    }
+  },
+  "by_tier": {
+    "compositional": {
+      "n": 367,
+      "completed": 367,
+      "rate": 1.0,
+      "veribim_9b_rate_same_tasks": 0.97
+    },
+    "single": {
+      "n": 1733,
+      "completed": 1731,
+      "rate": 0.9988,
+      "veribim_9b_rate_same_tasks": 0.9579
+    }
+  },
+  "by_specification": {
+    "fully_specified": {
+      "n": 1944,
+      "completed": 1942,
+      "rate": 0.999
+    },
+    "under_specified": {
+      "n": 156,
+      "completed": 156,
+      "rate": 1.0
+    }
+  },
+  "by_parsed_operation": {
+    "array_elements": {
+      "n": 43,
+      "completed": 42,
+      "rate": 0.9767,
+      "raised": 0
+    },
+    "assign_material": {
+      "n": 57,
+      "completed": 57,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "assign_type": {
+      "n": 51,
+      "completed": 51,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "clarify_move": {
+      "n": 5,
+      "completed": 5,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "clarify_resize": {
+      "n": 1,
+      "completed": 1,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "clarify_storey": {
+      "n": 7,
+      "completed": 7,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "copy_element": {
+      "n": 69,
+      "completed": 69,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "create_box": {
+      "n": 367,
+      "completed": 367,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "create_filling": {
+      "n": 116,
+      "completed": 116,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "create_wall_with_door": {
+      "n": 102,
+      "completed": 102,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "delete": {
+      "n": 494,
+      "completed": 494,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "delete_wall_with_fillings": {
+      "n": 238,
+      "completed": 238,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "mirror_plane": {
+      "n": 26,
+      "completed": 26,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "mirror_wall": {
+      "n": 14,
+      "completed": 14,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "move_space_with_bounding_walls": {
+      "n": 27,
+      "completed": 27,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "move_to_storey": {
+      "n": 74,
+      "completed": 74,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "move_to_storey_keep": {
+      "n": 17,
+      "completed": 17,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "rehost_filling": {
+      "n": 21,
+      "completed": 21,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "rename": {
+      "n": 25,
+      "completed": 25,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "replace_filling": {
+      "n": 92,
+      "completed": 92,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "resize": {
+      "n": 29,
+      "completed": 29,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "resize_batch": {
+      "n": 1,
+      "completed": 1,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "retype": {
+      "n": 21,
+      "completed": 21,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "rotate": {
+      "n": 41,
+      "completed": 41,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "set_pset": {
+      "n": 63,
+      "completed": 62,
+      "rate": 0.9841,
+      "raised": 0
+    },
+    "translate": {
+      "n": 99,
+      "completed": 99,
+      "rate": 1.0,
+      "raised": 0
+    }
+  },
+  "by_target_reference_kind": {
+    "above_below": {
+      "n": 67,
+      "completed": 67,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "bare": {
+      "n": 143,
+      "completed": 143,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "between": {
+      "n": 41,
+      "completed": 41,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "bounding": {
+      "n": 30,
+      "completed": 30,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "bounding_wall_without": {
+      "n": 5,
+      "completed": 5,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "bounds": {
+      "n": 28,
+      "completed": 28,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "connects": {
+      "n": 28,
+      "completed": 28,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "egocentric": {
+      "n": 40,
+      "completed": 40,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "extreme": {
+      "n": 35,
+      "completed": 35,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "guid": {
+      "n": 400,
+      "completed": 400,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "host_of": {
+      "n": 116,
+      "completed": 116,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "hosted": {
+      "n": 110,
+      "completed": 110,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "in_storey": {
+      "n": 7,
+      "completed": 7,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "joins": {
+      "n": 2,
+      "completed": 2,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "joins_out": {
+      "n": 1,
+      "completed": 1,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "nearest": {
+      "n": 70,
+      "completed": 70,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "offset": {
+      "n": 213,
+      "completed": 211,
+      "rate": 0.9906,
+      "raised": 0
+    },
+    "opposite": {
+      "n": 21,
+      "completed": 21,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "ordinal": {
+      "n": 27,
+      "completed": 27,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "set": {
+      "n": 114,
+      "completed": 114,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "space_of": {
+      "n": 42,
+      "completed": 42,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "under": {
+      "n": 6,
+      "completed": 6,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "wall_without_filling": {
+      "n": 21,
+      "completed": 21,
+      "rate": 1.0,
+      "raised": 0
+    },
+    "without_relation": {
+      "n": 57,
+      "completed": 57,
+      "rate": 1.0,
+      "raised": 0
+    }
+  },
+  "parser": {
+    "recognised": 2100,
+    "asked_a_question": 156,
+    "asked_on_underspecified": 156,
+    "asked_on_fully_specified": 0,
+    "program_written": 1944,
+    "program_raised": 0,
+    "program_committed": 1944,
+    "score_errors": 0
+  },
+  "versus_veribim_9b_full_read": {
+    "file": "runs_local/bench_v4/results/full_all/per_task_grpo_v10b_c10.jsonl",
+    "n_common": 2100,
+    "veribim_9b_rate": 0.96,
+    "parser_rate": 0.999,
+    "both_completed": 2016,
+    "parser_only": 82,
+    "model_only": 0,
+    "neither": 2
+  }
+}

@@ -58,7 +58,7 @@ FIG_OUTDIR = f'{OUT}/figures'          # figures and figure captions are written
 E1 = f'{ROOT}/results/bimedit'
 os.makedirs(OUT_TAB, exist_ok=True)
 # data separation (Appendix F): the training file, the decision set (val-100 v3b is a subset of val-500 v3b), the benchmark
-SEP_TRAIN = os.environ.get('VERIBIM_TRAIN_TASKS', f'{ROOT}/tasks/train/tasks_stage_b_v10.jsonl')   # not released; regenerate with modifc_gen
+SEP_TRAIN = os.environ.get('VERIBIM_TRAIN_TASKS', f'{ROOT}/tasks/train/tasks_stage_b_v10.jsonl')   # released gzip-compressed (tasks_stage_b_v10.jsonl.gz); decompress it in place
 SEP_VAL500 = f'{ROOT}/tasks/val_500/val_tasks_500_v3b.jsonl'
 SEP_VAL100 = f'{ROOT}/tasks/val_500/val_tasks_100_v3b.jsonl'
 SEP_CACHE = f'{OUT_TAB}/separation_cache.json'                                  # BIM-Edit reads: scores_bench_<adapter>.csv (final_score column)
@@ -182,10 +182,12 @@ def price_table():
 
 
 def usd(r, pin, pout):
-    """Cost of one task, the formula of hosted_cost.py (cache reads 0.1x, cache writes 1.25x input)."""
+    """Cost of one task at the uncached list price: input tokens x input price + output tokens x output price.
+    Prompt-cache discounts are provider billing, not list price, so cache_read_tokens and cache_creation_tokens
+    (counted inside input_tokens) are priced as ordinary input. hosted_cost.py keeps the cached-billing formula.
+    """
     tin, tout = int(r.get('input_tokens') or 0), int(r.get('output_tokens') or 0)
-    cr, cw = int(r.get('cache_read_tokens') or 0), int(r.get('cache_creation_tokens') or 0)
-    return (tin - cr - cw) / 1e6 * pin + cr / 1e6 * pin * 0.1 + cw / 1e6 * pin * 1.25 + tout / 1e6 * pout
+    return tin / 1e6 * pin + tout / 1e6 * pout
 
 
 # ---------------------------------------------------------------- statistics
@@ -1434,8 +1436,8 @@ def write_macros(data):
         put(f'Res{stem}TokensIn', f'{a["tin"] / 1e3:.1f}', 'mean input tokens per task, thousands (per-task rows)')
         put(f'Res{stem}TokensOut', f'{a["tout"] / 1e3:.1f}', 'mean output tokens per task, thousands (per-task rows)')
         if 'usd_task' in a:
-            put(f'Res{stem}CentsTask', f'{100 * a["usd_task"]:.2f}', 'US cents per task at list price (hosted_cost.py formula)')
-            put(f'Res{stem}CentsDone', f'{100 * a["usd_done"]:.2f}', 'US cents per completed edit at list price')
+            put(f'Res{stem}CentsTask', f'{100 * a["usd_task"]:.2f}', 'US cents per task at the uncached list price (input tokens x input price + output tokens x output price)')
+            put(f'Res{stem}CentsDone', f'{100 * a["usd_done"]:.2f}', 'US cents per completed edit at the uncached list price')
         if key[0] == 2100:
             put(f'Res{stem}Failed', f"{a['n'] - a['done']:,}", f"tasks not completed ({a['n']} minus Done)")
             for cellkey, (m, k, nn) in a['cells'].items():

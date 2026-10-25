@@ -4,17 +4,17 @@
   "n_scored": 108,
   "n_unscorable": 0,
   "unscorable_ids": [],
-  "mean_final": 0.618364,
+  "mean_final": 0.650687,
   "by_operation": {
     "create": {
       "n": 36,
       "n_scored": 36,
-      "mean": 0.576319
+      "mean": 0.626477
     },
     "delete": {
       "n": 36,
       "n_scored": 36,
-      "mean": 0.769106
+      "mean": 0.815919
     },
     "update": {
       "n": 36,
@@ -23,29 +23,28 @@
     }
   },
   "by_category": {
-    "direct": 0.655549,
-    "spatial": 0.544094,
-    "topological": 0.655448
+    "direct": 0.709255,
+    "spatial": 0.586807,
+    "topological": 0.656
   },
   "axis_means": {
-    "geometry": 0.645848,
-    "semantics": 0.650362,
-    "topology": 0.55888
+    "geometry": 0.682779,
+    "semantics": 0.687399,
+    "topology": 0.581884
   },
-  "schema_validity": 0.9432,
-  "code_valid": 0.9306,
-  "code_run": 0.5521,
-  "commit_rate": 0.75,
+  "schema_validity": 0.9556,
+  "code_valid": 0.9438,
+  "code_run": 0.5621,
+  "commit_rate": 0.8426,
   "tasks_with_any_tool_call": 108,
-  "mean_tool_rounds": 2.935,
-  "total_tool_calls": 317,
+  "mean_tool_rounds": 3.13,
+  "total_tool_calls": 338,
   "stop_reasons": {
-    "completed": 90,
-    "sandbox_crash": 18
+    "completed": 108
   },
   "hit_output_cap": 0,
-  "mean_output_tokens": 916.7,
-  "wall_seconds": 1664.9,
+  "mean_output_tokens": 957.9,
+  "wall_seconds": 1773.9,
   "resolved_agent_config": {
     "max_tool_rounds": 22,
     "tool_timeout": 420.0,
@@ -64,5 +63,7 @@
   "scorer_reading": "family",
   "label": "VeriBIM-Bench v4 hosted108_lib all, gpt-5.6-luna, family reading",
   "protocol_conformant": true,
-  "finished_at": "2026-09-29T15:26:39"
+  "finished_at": "2026-09-29T15:26:39",
+  "v4d_finalized_at": "2026-10-16T08:28:33",
+  "v4d_rerun_tasks": 0
 }

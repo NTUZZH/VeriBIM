@@ -4,7 +4,7 @@
   "n_scored": 324,
   "n_unscorable": 0,
   "unscorable_ids": [],
-  "mean_final": 0.970769,
+  "mean_final": 0.967682,
   "by_operation": {
     "create": {
       "n": 108,
@@ -14,7 +14,7 @@
     "delete": {
       "n": 108,
       "n_scored": 108,
-      "mean": 0.981481
+      "mean": 0.972222
     },
     "update": {
       "n": 108,
@@ -25,28 +25,28 @@
   "by_category": {
     "direct": 0.981371,
     "spatial": 0.963911,
-    "topological": 0.967024
+    "topological": 0.957765
   },
   "axis_means": {
-    "geometry": 0.974721,
-    "semantics": 0.973807,
-    "topology": 0.963779
+    "geometry": 0.971635,
+    "semantics": 0.97072,
+    "topology": 0.960692
   },
   "schema_validity": 1.0,
-  "code_valid": 0.9946,
-  "code_run": 0.9854,
-  "commit_rate": 0.892,
+  "code_valid": 0.994,
+  "code_run": 0.9581,
+  "commit_rate": 0.8858,
   "tasks_with_any_tool_call": 324,
-  "mean_tool_rounds": 4.022,
-  "total_tool_calls": 1303,
+  "mean_tool_rounds": 4.12,
+  "total_tool_calls": 1335,
   "stop_reasons": {
-    "completed": 322,
-    "context_overflow": 1,
-    "budget_exhausted": 1
+    "completed": 320,
+    "budget_exhausted": 3,
+    "context_overflow": 1
   },
   "hit_output_cap": 0,
-  "mean_output_tokens": 774.9,
-  "wall_seconds": 8765.1,
+  "mean_output_tokens": 811.9,
+  "wall_seconds": 8995.2,
   "resolved_agent_config": {
     "max_tool_rounds": 22,
     "tool_timeout": 420.0,
@@ -65,5 +65,9 @@
   "scorer_reading": "family",
   "label": "VeriBIM-Bench v4b 324-task subset, lib arm, local grpo_v10_c50, sandbox guard",
   "protocol_conformant": true,
-  "finished_at": "2026-10-02T12:27:48"
+  "finished_at": "2026-10-02T12:27:48",
+  "v4d_finalized_at": "2026-10-16T08:28:33",
+  "v4d_rerun_tasks": 4,
+  "v4e_rerun_tasks": 9,
+  "v4e_finalized_at": "2026-10-16T15:27:53"
 }

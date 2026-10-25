@@ -1,0 +1,95 @@
+{
+  "completion_rule": "geometry, semantics and topology all >= 0.90; scorer reading family (as in the gate summaries)",
+  "model_files": {
+    "rewritten": "runs_local/stage_a_v10/gates/v100rw/per_task_grpo_v10b_c10.jsonl",
+    "original": "runs_local/stage_a_v10/gates/v500b_grpo_v10b_c10_rep1/per_task_grpo_v10b_c10.jsonl (restricted to the 100 ids)"
+  },
+  "rewritten_wording": {
+    "all_100": {
+      "n": 100,
+      "parser_completed": 15,
+      "model_completed": 97,
+      "both": 15,
+      "parser_only": 0,
+      "model_only": 82,
+      "neither": 3
+    },
+    "rewritten_85": {
+      "n": 85,
+      "parser_completed": 0,
+      "model_completed": 82,
+      "both": 0,
+      "parser_only": 0,
+      "model_only": 82,
+      "neither": 3
+    },
+    "kept_15": {
+      "n": 15,
+      "parser_completed": 15,
+      "model_completed": 15,
+      "both": 15,
+      "parser_only": 0,
+      "model_only": 0,
+      "neither": 0
+    },
+    "rewritten_85_fully_specified": {
+      "n": 79,
+      "parser_completed": 0,
+      "model_completed": 76,
+      "both": 0,
+      "parser_only": 0,
+      "model_only": 76,
+      "neither": 3
+    },
+    "rewritten_85_under_specified": {
+      "n": 6,
+      "parser_completed": 0,
+      "model_completed": 6,
+      "both": 0,
+      "parser_only": 0,
+      "model_only": 6,
+      "neither": 0
+    }
+  },
+  "original_wording": {
+    "all_100": {
+      "n": 100,
+      "parser_completed": 100,
+      "model_completed": 100,
+      "both": 100,
+      "parser_only": 0,
+      "model_only": 0,
+      "neither": 0
+    },
+    "same_85": {
+      "n": 85,
+      "parser_completed": 85,
+      "model_completed": 85,
+      "both": 85,
+      "parser_only": 0,
+      "model_only": 0,
+      "neither": 0
+    },
+    "same_15": {
+      "n": 15,
+      "parser_completed": 15,
+      "model_completed": 15,
+      "both": 15,
+      "parser_only": 0,
+      "model_only": 0,
+      "neither": 0
+    }
+  },
+  "parser_counts": {
+    "rw_recognised": 15,
+    "rw_asked": 0,
+    "orig_recognised": 100,
+    "orig_asked": 6,
+    "underspecified_tasks": 6,
+    "underspecified_in_rewritten_85": 6,
+    "score_errors": 0,
+    "program_errors": 0
+  },
+  "kept_15_parser_identical_rw_vs_original": 15,
+  "rw_unread_but_completed": []
+}

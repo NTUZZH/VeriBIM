@@ -1,0 +1,4 @@
+stratum,n_tasks,n_scenes,VeriBIM,base,sonnet_alone,sonnet_lib,ours_minus_base,lo,hi,sonnet_alone_minus_ours,lo,hi
+"realistic, not similar (< 0.80)",36,10,0.409,0.304,0.738,0.782,0.105,0.052,0.166,0.33,0.197,0.464
+"realistic, similar (>= 0.80)",126,28,0.422,0.311,0.718,0.724,0.111,0.062,0.163,0.296,0.234,0.356
+simple (all < 0.80),162,50,0.402,0.273,0.739,0.733,0.129,0.085,0.175,0.337,0.277,0.397
