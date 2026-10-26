@@ -51,8 +51,8 @@ results/
   bimedit/          per-task BIM-Edit scores of the trained models, of the untrained base model, and of
                     Claude Sonnet 5.5 in two arms (sonnet_alone/, sonnet_lib/)
 analysis/
-  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.5 (see "Release v1.1.0"
-                    to "Release v1.1.5")
+  revision/         scripts and outputs of the analyses added in releases v1.1.0 to v1.1.6 (see "Release v1.1.0"
+                    to "Release v1.1.6")
 weights/            adapter of the final model (see "Adapter weights")
 ```
 
@@ -105,7 +105,8 @@ The documented Claude Sonnet 5.5 run was repeated twice with the same note and s
 107, 107 and 107 of the 108 tasks, and 3 tasks change outcome between runs. The rule-based parser reads
 instructions by inverting the generator's sentence templates, so its benchmark result measures how far the
 template wording can be read mechanically; on instructions reworded outside the templates it completes
-0 of 85 (see "Release v1.1.5").
+0 of 85 (see "Release v1.1.5"), and with a language model that rewrites each request into the
+template wording it reads them all (see "Release v1.1.6").
 
 In the BIM-Edit rows, the difference has the opposite sign: it is the mean score of the arm minus that of
 VeriBIM-9B, paired over the 324 tasks, with its 95 % interval. All four BIM-Edit arms ran in this paper's test setup
@@ -186,6 +187,25 @@ Release v1.1.1 adds one run and its analysis.
   `equiv_216.json` holds the output. `eval_informed216.sh` in the same folder is the launcher of the run
   (`SUBSET=rest216 ARM=informed`). Both scripts use the paths of the project's working layout, as described
   under "Release v1.1.0".
+
+## Release v1.1.6
+
+Release v1.1.6 adds the reworded benchmark tasks and a baseline that pairs the rule-based parser with a rewriting model.
+
+- `analysis/revision/reworded_benchmark/` holds the 172 fully specified benchmark tasks whose instructions another
+  language model reworded (`tasks_bench_rw.jsonl`, with `mapping_original_to_reworded.jsonl` pairing each task with
+  its generated wording), the script that drew and reworded them (`reword_bench.py`, `draw.py`), the checks that each
+  rewording passed (`checks_bench_rw.json`), and the reads of the three trained stages (`reads/model/`) and of the
+  parser (`reads/parser/`, which reads none of the 172). VeriBIM-9B completes 158 of the 172 reworded tasks and 171
+  of the same tasks in the generated wording (`reads/summary_rw.json`).
+- `analysis/revision/hybrid_baseline/` is the parser with a rewriting model: the model receives the request text, a
+  sheet of the phrase forms the parser accepts (`in/grammar_sheet.txt`) and 266 example instructions drawn from the
+  training task files (`in/catalogue.json`), and writes one template sentence, with up to three attempts when the
+  parser cannot read it (`canonicalize.py`); the parser then executes the sentence in the sandbox and the checker
+  scores the result (`run_hybrid.sh`, `summarize_hybrid.py`). With Claude Sonnet 5.5 as the rewriting model the parser
+  completes 171 of the 172 reworded tasks (`scoring/rw_sonnet/`); with the untrained Qwen3.5-9B (thinking off) it
+  completes 121 (`scoring/rw_local/`). The same baseline ran on the 200 practitioner requests and completed 120 and 14
+  of them; those rows carry the practitioners' requests and are not released (`summary_hybrid.json` has the aggregates).
 
 ## Release v1.1.5
 

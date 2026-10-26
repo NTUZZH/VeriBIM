@@ -1,0 +1,74 @@
+PHRASE FORMS THE PROGRAM ACCEPTS (write the sentence from these parts; every other wording is rejected)
+
+Element nouns: wall, slab, space, door, window, column (or IfcWall, IfcSlab, IfcSpace, IfcDoor, IfcWindow, IfcColumn; "room" is accepted for a space in references). GlobalIds are 22 characters.
+One element by identifier: "the wall with GlobalId '<id>'", "the wall with ID '<id>'", "the wall with the ID <id>", "the wall (ID: <id>)", "the wall with GUID <id>", "the wall identified as <id>", "the wall whose GlobalId is <id>", "the wall <id>", "wall ID <id>", "wall <id>".
+One element by name: "the wall named '<name>'". A space may also be written "the space '<label>'".
+A storey: "storey '<name>'", "the storey at elevation <e> m", or the identifier forms with the noun storey ("the storey with GlobalId '<id>'", "the storey identified as <id>", ...).
+Where a new element goes (create): "on storey '<name>'", "on the storey with GlobalId '<id>'", "on the storey that contains the wall named '<x>'", "on the storey that the space named '<x>' belongs to".
+Several elements by identifier: "the walls with GlobalIds '<a>', '<b>' and '<c>'" (also "with IDs", "with the IDs", "(IDs: ...)", "with GUIDs", "identified as", "whose GlobalIds are").
+Sets: "all the doors on storey '<name>'", "every door hosted in the wall named '<x>'", "the walls that bound the space '<label>'", "only the walls on storey '<name>' longer than 3 m" (also "wider than", "taller than").
+Targets by relation (R = an element by name/identifier, S = a storey, SP = a space reference):
+  "the door on S that stands about 7.5 m north (+Y) of R"   (east +X, west -X, north +Y, south -Y, up +Z, down -Z)
+  "the column furthest west (-X) on S"
+  "the only slab contained in S"
+  "the door hosted in R"
+  "the wall that bounds both SP and SP" | "the wall that separates SP from SP"
+  "the space bounded by R and R" | "the space bounded by R"
+  "the wall connected to R"
+  "the slab nearest to R on S"
+  "the door on S that stands between R and R"
+  "the slab on S directly above R" | "... directly below R"
+  "the wall opposite R across SP"
+  "the wall on the left-hand side as seen from R looking into SP" (left|right)
+  "the second window from the west along R" (first..fifth)
+  "the space on S that no window bounds" (window|door)
+  "the wall on S that hosts no door and no window"
+  "the wall bounding SP that hosts no window" (window|door)
+  "the wall in which R is located" | "the wall that holds R" | "the wall R sits in"
+  "the door that connects SP to the outside" | "the door that leads from SP to the outside"
+  "the door that connects SP to SP" | "the door between SP and SP" | "the door joining SP and SP"
+  "the wall that bounds SP" | "the wall bounding SP"
+  "the slab below the walls of S" | "the slab the walls of S stand on"
+  "the only wall on S that has no connection to another element" | "the wall on S with no connection to any other element"
+  "the only space on S that has no space boundary" | "the space on S recorded with no space boundary"
+Lengths: a number followed by m, metres, meters, mm or cm (write "0.4 m"). Points: "(x, y, z) m". Direction of a move: "1.2 m to the north (+Y)" or "by 1.2 m in the +y direction".
+Optional closing constraint before the final period: ", keeping its placement fixed" | ", keeping its z value fixed" | ", preserving all of its relationships" | ", and make sure the other relationships stay consistent".
+Verbs: Delete|Remove|Take out; Set|Change|Update; Move|Shift|Relocate; Add|Create|Insert; Copy|Duplicate; Rotate|Turn; Mirror|Reflect.
+
+SENTENCE SHAPES (T = a target from above; the examples below show each shape filled in)
+- Delete T from the model, together with the relationships that depend on it.  (them, for a set)
+- Delete T from the model, and delete with it <clause>.  | Delete T together with <clause>.  | Delete T. Remove <clause>.
+- Delete the door hosted in T, then remove the wall itself along with the opening it filled.  (or "the 2 doors and windows hosted in T ... openings they filled")
+- Move T 1.2 m to the north (+Y).   | Move T by 1.2 m in the +x direction.
+- Move T 1.2 m to the north (+Y), and move the door it hosts by the same offset so it stays in the wall.
+- Move T 1.2 m to the north (+Y), and move the 4 walls that bound it by the same offset.
+- Move T into storey '<name>', leaving it exactly where it stands in the building.
+- Move T into storey '<name>', keeping the position it has inside its storey, so it rises by 3.0 m.  (rises|drops)
+- Move T into R, 2.5 m along that wall from its start point, carrying the opening it fills with it and leaving the wall it came from whole.
+- Set the height of T from 2.1 m to 2.4 m.   (overall height|overall width|height|thickness|length|width; "from about 2.1 m" allowed)
+- Set the height of <set> to 2.4 m.
+- Rename T to '<new name>'.
+- Set the predefined type of T to <UPPERCASE_TYPE>.
+- Rotate T by 15 degrees counter-clockwise about the vertical axis, turning it about its own placement origin.  (or "about the centre of its plan")
+- Mirror T across the vertical plane that follows the axis of the wall named '<name>'.   | Mirror T across the vertical plane at x = 12.5 m.
+- Set the fire rating of T in Pset_WallCommon from 'F30' to 'F60'.   | Set the fire rating of T in Pset_WallCommon to 'F60'.  (fire rating|external flag|load-bearing flag|thermal transmittance; values: true|false, 0.35 W/m2K, a decimal, or a quoted string)
+- Set the material of T to '<material>'.   | Assign the material '<material>' to T.
+- Assign T to the type object named '<type name>'.
+- Copy T 0.6 m to the west (-X), and name the copy '<name>'.
+- Make 3 copies of T at a spacing of 0.75 m to the west (-X), named '<a>', '<b>' and '<c>' in that order.
+- Add a new door named '<name>' in T, 0.9 m wide and 2.1 m high, with the middle of the leaf 3.2 m along the wall from its start and standing on the wall's base. Cut the opening it fills.   (position also: "1.5 m along the wall from its start point" or "directly above R on the storey below"; sill also: "with its sill 0.9 m above the wall's base"; an optional relationship sentence may follow: " It bounds the space '<label>'." | " The space '<label>' bounds it." | " Connect it to the wall named '<x>'.")
+- Replace T with a window named '<name>', 1.2 m wide and 1.4 m high, at the same position along the wall and with its sill 0.9 m above the wall's base. Cut the opening it fills and take the old opening out with the element it held.
+- Add a new column named '<name>' on <where>, 0.4 m by 0.4 m in section and 3.25 m high, with its base corner at (x, y, z) m in that storey's own coordinates.
+- Add a new column named '<name>' on <where>, 0.4 m by 0.4 m in section and 3.25 m high, with its lowest corner at (x, y, z) m in world coordinates, set out along that storey's own axes, which run 13 degrees counter-clockwise from the world axes.
+- Add a new column named '<name>' on <where>, 0.4 m by 0.4 m in section and 3.25 m high, with its lowest corner at (x, y, z) m.
+- Add a new wall named '<name>' on <where>, 4.0 m long, 0.2 m thick and 3.0 m high, with its base corner at (x, y, z) m in that storey's own coordinates.   (sizes: wall "L long, W thick and H high"; slab "L by W in plan and H thick"; column "L by W in section and H high"; space "L long, W wide and H high"; or "a length in the x-direction of L, a width in the y-direction of W and a height of H")
+- Add a new slab named '<name>' on <where>, 6 m by 4 m in plan and 0.2 m thick. Set its base corner 1.0 m to the east (+X) and 2.0 m to the north (+Y) of R.
+- Add a new wall named '<name>' on <where>, running from (x1, y1, z1) m to (x2, y2, z2) m with a thickness of 0.2 m in the +y direction and a height of 3.0 m.
+- Add a new wall named '<name>' on <where>, 0.2 m thick and 3.0 m high, so that it fits the gap between R and R, closing that gap exactly.
+- Add a new slab named '<name>' on <where>, 0.2 m high, so that it sits directly on top of R, over the same footprint.
+- Add a new column named '<name>' on <where>, 0.4 m by 0.4 m in section, so that it rises from the floor level of that storey and its top face touches the underside of R.
+- Add a new space named '<name>' on <where>, a length in the x-direction of L, a width in the y-direction of W and a height of H, inside SP, standing against R and touching it.
+  Any create sentence may end with ". Give it the predefined type <UPPERCASE>" before the final period, and a box create may end with a relationship sentence (" It bounds the space '<label>'." etc.).
+- Add a new wall named '<name>' on <where>, L long, W thick and H high, with its base corner at (x, y, z) m in that storey's own coordinates. Then put a door named '<d>' in that new wall, 0.9 m wide and 2.1 m high, 1.5 m along the wall from its start point, and cut the opening it fills.
+- When the request leaves the storey out: Add a new column named '<name>', 0.4 m by 0.4 m in section and 3.25 m high, with its base corner at (x, y, z) m in the storey's own coordinates.
+- When the request names no target value (under-specified): "Move the wall named '<x>' to the north (+Y).", "Set the height of the wall named '<x>'.", "Rename the wall named '<x>'.", "Rotate the wall named '<x>' counter-clockwise about the vertical axis.", or a bare "the wall" as the target ("Delete the wall from the model, together with the relationships that depend on it.").

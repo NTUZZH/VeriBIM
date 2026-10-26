@@ -1,0 +1,1558 @@
+{
+ "completion_rule": "geometry, semantics and topology all >= 0.90 (family reading)",
+ "statistics": "exact two-sided McNemar on discordant pairs; Wilson 95% score intervals",
+ "task_set": {
+  "reworded_tasks": "analysis/revision/reworded_benchmark/tasks_bench_rw.jsonl",
+  "n": 172
+ },
+ "models": {
+  "grpo_v10b_c10": {
+   "label": "grpo_v10b_c10",
+   "files": {
+    "reworded": "analysis/revision/reworded_benchmark/reads/model/per_task_grpo_v10b_c10.jsonl",
+    "generated_wording": "runs_local/bench_v4/results/full_all/per_task_grpo_v10b_c10.jsonl"
+   },
+   "n": 172,
+   "reworded": {
+    "n": 172,
+    "completed": 158,
+    "rate": 0.9186,
+    "wilson95": [
+     0.868,
+     0.9509
+    ]
+   },
+   "generated_wording": {
+    "n": 172,
+    "completed": 163,
+    "rate": 0.9477,
+    "wilson95": [
+     0.9036,
+     0.9722
+    ]
+   },
+   "both": 156,
+   "only_generated_wording": 7,
+   "only_reworded": 2,
+   "neither": 7,
+   "mcnemar_exact_p": 0.1797,
+   "difference_reworded_minus_generated": -0.0291,
+   "by_slice": {
+    "operation": {
+     "create": {
+      "n": 65,
+      "reworded": 61,
+      "generated_wording": 63,
+      "reworded_wilson95": [
+       0.8522,
+       0.9758
+      ],
+      "generated_wilson95": [
+       0.8946,
+       0.9915
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "delete": {
+      "n": 66,
+      "reworded": 64,
+      "generated_wording": 65,
+      "reworded_wilson95": [
+       0.8961,
+       0.9917
+      ],
+      "generated_wilson95": [
+       0.919,
+       0.9973
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "update": {
+      "n": 41,
+      "reworded": 33,
+      "generated_wording": 35,
+      "reworded_wilson95": [
+       0.6599,
+       0.8977
+      ],
+      "generated_wilson95": [
+       0.7156,
+       0.9312
+      ],
+      "mcnemar_exact_p": 0.6875
+     }
+    },
+    "category": {
+     "direct": {
+      "n": 48,
+      "reworded": 48,
+      "generated_wording": 47,
+      "reworded_wilson95": [
+       0.9259,
+       1.0
+      ],
+      "generated_wilson95": [
+       0.891,
+       0.9963
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "spatial": {
+      "n": 51,
+      "reworded": 44,
+      "generated_wording": 46,
+      "reworded_wilson95": [
+       0.7428,
+       0.9319
+      ],
+      "generated_wilson95": [
+       0.7902,
+       0.9574
+      ],
+      "mcnemar_exact_p": 0.625
+     },
+     "topological": {
+      "n": 73,
+      "reworded": 66,
+      "generated_wording": 70,
+      "reworded_wilson95": [
+       0.815,
+       0.9528
+      ],
+      "generated_wilson95": [
+       0.886,
+       0.9859
+      ],
+      "mcnemar_exact_p": 0.125
+     }
+    },
+    "ifc_version": {
+     "IFC2X3": {
+      "n": 55,
+      "reworded": 51,
+      "generated_wording": 52,
+      "reworded_wilson95": [
+       0.8274,
+       0.9714
+      ],
+      "generated_wilson95": [
+       0.8515,
+       0.9813
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "IFC4": {
+      "n": 57,
+      "reworded": 50,
+      "generated_wording": 53,
+      "reworded_wilson95": [
+       0.7675,
+       0.9392
+      ],
+      "generated_wilson95": [
+       0.833,
+       0.9724
+      ],
+      "mcnemar_exact_p": 0.375
+     },
+     "IFC4X3": {
+      "n": 60,
+      "reworded": 57,
+      "generated_wording": 58,
+      "reworded_wilson95": [
+       0.863,
+       0.9829
+      ],
+      "generated_wilson95": [
+       0.8864,
+       0.9908
+      ],
+      "mcnemar_exact_p": 1.0
+     }
+    },
+    "family": {
+     "column": {
+      "n": 24,
+      "reworded": 23,
+      "generated_wording": 23,
+      "reworded_wilson95": [
+       0.7976,
+       0.9926
+      ],
+      "generated_wilson95": [
+       0.7976,
+       0.9926
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "door": {
+      "n": 27,
+      "reworded": 24,
+      "generated_wording": 25,
+      "reworded_wilson95": [
+       0.7194,
+       0.9615
+      ],
+      "generated_wilson95": [
+       0.7663,
+       0.9794
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "slab": {
+      "n": 32,
+      "reworded": 29,
+      "generated_wording": 29,
+      "reworded_wilson95": [
+       0.7578,
+       0.9676
+      ],
+      "generated_wilson95": [
+       0.7578,
+       0.9676
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "space": {
+      "n": 20,
+      "reworded": 18,
+      "generated_wording": 20,
+      "reworded_wilson95": [
+       0.699,
+       0.9721
+      ],
+      "generated_wilson95": [
+       0.8389,
+       1.0
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "wall": {
+      "n": 52,
+      "reworded": 49,
+      "generated_wording": 51,
+      "reworded_wilson95": [
+       0.8436,
+       0.9802
+      ],
+      "generated_wilson95": [
+       0.8988,
+       0.9966
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "window": {
+      "n": 17,
+      "reworded": 15,
+      "generated_wording": 15,
+      "reworded_wilson95": [
+       0.6566,
+       0.9671
+      ],
+      "generated_wilson95": [
+       0.6566,
+       0.9671
+      ],
+      "mcnemar_exact_p": 1.0
+     }
+    }
+   },
+   "reworded_stop_reasons": {
+    "completed": 169,
+    "budget_exhausted": 3
+   },
+   "reworded_inference_errors": 0,
+   "reworded_resolved_agent_config": {
+    "max_tool_rounds": 22,
+    "tool_timeout": 420.0,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 8192,
+    "max_tool_output_chars": 16000,
+    "max_recorded_output_chars": 4000,
+    "capture_stdout": true,
+    "max_transcript_tokens": 0,
+    "min_turn_tokens": 256,
+    "dup_stop": 0
+   },
+   "reworded_sum_task_seconds": 5228.5
+  },
+  "dpo_v10_c6": {
+   "label": "dpo_v10_c6",
+   "files": {
+    "reworded": "analysis/revision/reworded_benchmark/reads/model/per_task_dpo_v10_c6.jsonl",
+    "generated_wording": "runs_local/bench_v4/results/full_all/per_task_dpo_v10_c6.jsonl"
+   },
+   "n": 172,
+   "reworded": {
+    "n": 172,
+    "completed": 158,
+    "rate": 0.9186,
+    "wilson95": [
+     0.868,
+     0.9509
+    ]
+   },
+   "generated_wording": {
+    "n": 172,
+    "completed": 164,
+    "rate": 0.9535,
+    "wilson95": [
+     0.9109,
+     0.9762
+    ]
+   },
+   "both": 157,
+   "only_generated_wording": 7,
+   "only_reworded": 1,
+   "neither": 7,
+   "mcnemar_exact_p": 0.0703,
+   "difference_reworded_minus_generated": -0.0349,
+   "by_slice": {
+    "operation": {
+     "create": {
+      "n": 65,
+      "reworded": 60,
+      "generated_wording": 63,
+      "reworded_wilson95": [
+       0.8322,
+       0.9667
+      ],
+      "generated_wilson95": [
+       0.8946,
+       0.9915
+      ],
+      "mcnemar_exact_p": 0.25
+     },
+     "delete": {
+      "n": 66,
+      "reworded": 64,
+      "generated_wording": 65,
+      "reworded_wilson95": [
+       0.8961,
+       0.9917
+      ],
+      "generated_wilson95": [
+       0.919,
+       0.9973
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "update": {
+      "n": 41,
+      "reworded": 34,
+      "generated_wording": 36,
+      "reworded_wilson95": [
+       0.6874,
+       0.9147
+      ],
+      "generated_wilson95": [
+       0.7446,
+       0.9468
+      ],
+      "mcnemar_exact_p": 0.625
+     }
+    },
+    "category": {
+     "direct": {
+      "n": 48,
+      "reworded": 48,
+      "generated_wording": 48,
+      "reworded_wilson95": [
+       0.9259,
+       1.0
+      ],
+      "generated_wilson95": [
+       0.9259,
+       1.0
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "spatial": {
+      "n": 51,
+      "reworded": 44,
+      "generated_wording": 46,
+      "reworded_wilson95": [
+       0.7428,
+       0.9319
+      ],
+      "generated_wilson95": [
+       0.7902,
+       0.9574
+      ],
+      "mcnemar_exact_p": 0.625
+     },
+     "topological": {
+      "n": 73,
+      "reworded": 66,
+      "generated_wording": 70,
+      "reworded_wilson95": [
+       0.815,
+       0.9528
+      ],
+      "generated_wilson95": [
+       0.886,
+       0.9859
+      ],
+      "mcnemar_exact_p": 0.125
+     }
+    },
+    "ifc_version": {
+     "IFC2X3": {
+      "n": 55,
+      "reworded": 51,
+      "generated_wording": 53,
+      "reworded_wilson95": [
+       0.8274,
+       0.9714
+      ],
+      "generated_wilson95": [
+       0.8768,
+       0.99
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "IFC4": {
+      "n": 57,
+      "reworded": 50,
+      "generated_wording": 53,
+      "reworded_wilson95": [
+       0.7675,
+       0.9392
+      ],
+      "generated_wilson95": [
+       0.833,
+       0.9724
+      ],
+      "mcnemar_exact_p": 0.375
+     },
+     "IFC4X3": {
+      "n": 60,
+      "reworded": 57,
+      "generated_wording": 58,
+      "reworded_wilson95": [
+       0.863,
+       0.9829
+      ],
+      "generated_wilson95": [
+       0.8864,
+       0.9908
+      ],
+      "mcnemar_exact_p": 1.0
+     }
+    },
+    "family": {
+     "column": {
+      "n": 24,
+      "reworded": 23,
+      "generated_wording": 23,
+      "reworded_wilson95": [
+       0.7976,
+       0.9926
+      ],
+      "generated_wilson95": [
+       0.7976,
+       0.9926
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "door": {
+      "n": 27,
+      "reworded": 25,
+      "generated_wording": 26,
+      "reworded_wilson95": [
+       0.7663,
+       0.9794
+      ],
+      "generated_wilson95": [
+       0.8172,
+       0.9934
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "slab": {
+      "n": 32,
+      "reworded": 28,
+      "generated_wording": 29,
+      "reworded_wilson95": [
+       0.7193,
+       0.9503
+      ],
+      "generated_wilson95": [
+       0.7578,
+       0.9676
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "space": {
+      "n": 20,
+      "reworded": 18,
+      "generated_wording": 20,
+      "reworded_wilson95": [
+       0.699,
+       0.9721
+      ],
+      "generated_wilson95": [
+       0.8389,
+       1.0
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "wall": {
+      "n": 52,
+      "reworded": 49,
+      "generated_wording": 51,
+      "reworded_wilson95": [
+       0.8436,
+       0.9802
+      ],
+      "generated_wilson95": [
+       0.8988,
+       0.9966
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "window": {
+      "n": 17,
+      "reworded": 15,
+      "generated_wording": 15,
+      "reworded_wilson95": [
+       0.6566,
+       0.9671
+      ],
+      "generated_wilson95": [
+       0.6566,
+       0.9671
+      ],
+      "mcnemar_exact_p": 1.0
+     }
+    }
+   },
+   "reworded_stop_reasons": {
+    "completed": 168,
+    "budget_exhausted": 4
+   },
+   "reworded_inference_errors": 0,
+   "reworded_resolved_agent_config": {
+    "max_tool_rounds": 22,
+    "tool_timeout": 420.0,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 8192,
+    "max_tool_output_chars": 16000,
+    "max_recorded_output_chars": 4000,
+    "capture_stdout": true,
+    "max_transcript_tokens": 0,
+    "min_turn_tokens": 256,
+    "dup_stop": 0
+   },
+   "reworded_sum_task_seconds": 5628.0
+  },
+  "sft_v10": {
+   "label": "sft_v10",
+   "files": {
+    "reworded": "analysis/revision/reworded_benchmark/reads/model/per_task_sft_v10.jsonl",
+    "generated_wording": "runs_local/bench_v4/results/full_all/per_task_sft_v10.jsonl"
+   },
+   "n": 172,
+   "reworded": {
+    "n": 172,
+    "completed": 159,
+    "rate": 0.9244,
+    "wilson95": [
+     0.875,
+     0.9553
+    ]
+   },
+   "generated_wording": {
+    "n": 172,
+    "completed": 164,
+    "rate": 0.9535,
+    "wilson95": [
+     0.9109,
+     0.9762
+    ]
+   },
+   "both": 159,
+   "only_generated_wording": 5,
+   "only_reworded": 0,
+   "neither": 8,
+   "mcnemar_exact_p": 0.0625,
+   "difference_reworded_minus_generated": -0.0291,
+   "by_slice": {
+    "operation": {
+     "create": {
+      "n": 65,
+      "reworded": 61,
+      "generated_wording": 63,
+      "reworded_wilson95": [
+       0.8522,
+       0.9758
+      ],
+      "generated_wilson95": [
+       0.8946,
+       0.9915
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "delete": {
+      "n": 66,
+      "reworded": 64,
+      "generated_wording": 65,
+      "reworded_wilson95": [
+       0.8961,
+       0.9917
+      ],
+      "generated_wilson95": [
+       0.919,
+       0.9973
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "update": {
+      "n": 41,
+      "reworded": 34,
+      "generated_wording": 36,
+      "reworded_wilson95": [
+       0.6874,
+       0.9147
+      ],
+      "generated_wilson95": [
+       0.7446,
+       0.9468
+      ],
+      "mcnemar_exact_p": 0.5
+     }
+    },
+    "category": {
+     "direct": {
+      "n": 48,
+      "reworded": 48,
+      "generated_wording": 48,
+      "reworded_wilson95": [
+       0.9259,
+       1.0
+      ],
+      "generated_wilson95": [
+       0.9259,
+       1.0
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "spatial": {
+      "n": 51,
+      "reworded": 44,
+      "generated_wording": 46,
+      "reworded_wilson95": [
+       0.7428,
+       0.9319
+      ],
+      "generated_wilson95": [
+       0.7902,
+       0.9574
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "topological": {
+      "n": 73,
+      "reworded": 67,
+      "generated_wording": 70,
+      "reworded_wilson95": [
+       0.8321,
+       0.9618
+      ],
+      "generated_wilson95": [
+       0.886,
+       0.9859
+      ],
+      "mcnemar_exact_p": 0.25
+     }
+    },
+    "ifc_version": {
+     "IFC2X3": {
+      "n": 55,
+      "reworded": 51,
+      "generated_wording": 53,
+      "reworded_wilson95": [
+       0.8274,
+       0.9714
+      ],
+      "generated_wilson95": [
+       0.8768,
+       0.99
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "IFC4": {
+      "n": 57,
+      "reworded": 50,
+      "generated_wording": 53,
+      "reworded_wilson95": [
+       0.7675,
+       0.9392
+      ],
+      "generated_wilson95": [
+       0.833,
+       0.9724
+      ],
+      "mcnemar_exact_p": 0.25
+     },
+     "IFC4X3": {
+      "n": 60,
+      "reworded": 58,
+      "generated_wording": 58,
+      "reworded_wilson95": [
+       0.8864,
+       0.9908
+      ],
+      "generated_wilson95": [
+       0.8864,
+       0.9908
+      ],
+      "mcnemar_exact_p": 1.0
+     }
+    },
+    "family": {
+     "column": {
+      "n": 24,
+      "reworded": 23,
+      "generated_wording": 23,
+      "reworded_wilson95": [
+       0.7976,
+       0.9926
+      ],
+      "generated_wilson95": [
+       0.7976,
+       0.9926
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "door": {
+      "n": 27,
+      "reworded": 25,
+      "generated_wording": 26,
+      "reworded_wilson95": [
+       0.7663,
+       0.9794
+      ],
+      "generated_wilson95": [
+       0.8172,
+       0.9934
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "slab": {
+      "n": 32,
+      "reworded": 27,
+      "generated_wording": 29,
+      "reworded_wilson95": [
+       0.6825,
+       0.9314
+      ],
+      "generated_wilson95": [
+       0.7578,
+       0.9676
+      ],
+      "mcnemar_exact_p": 0.5
+     },
+     "space": {
+      "n": 20,
+      "reworded": 19,
+      "generated_wording": 20,
+      "reworded_wilson95": [
+       0.7639,
+       0.9911
+      ],
+      "generated_wilson95": [
+       0.8389,
+       1.0
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "wall": {
+      "n": 52,
+      "reworded": 50,
+      "generated_wording": 51,
+      "reworded_wilson95": [
+       0.8702,
+       0.9894
+      ],
+      "generated_wilson95": [
+       0.8988,
+       0.9966
+      ],
+      "mcnemar_exact_p": 1.0
+     },
+     "window": {
+      "n": 17,
+      "reworded": 15,
+      "generated_wording": 15,
+      "reworded_wilson95": [
+       0.6566,
+       0.9671
+      ],
+      "generated_wilson95": [
+       0.6566,
+       0.9671
+      ],
+      "mcnemar_exact_p": 1.0
+     }
+    }
+   },
+   "reworded_stop_reasons": {
+    "completed": 167,
+    "budget_exhausted": 5
+   },
+   "reworded_inference_errors": 0,
+   "reworded_resolved_agent_config": {
+    "max_tool_rounds": 22,
+    "tool_timeout": 420.0,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 8192,
+    "max_tool_output_chars": 16000,
+    "max_recorded_output_chars": 4000,
+    "capture_stdout": true,
+    "max_transcript_tokens": 0,
+    "min_turn_tokens": 256,
+    "dup_stop": 0
+   },
+   "reworded_sum_task_seconds": 5998.2
+  }
+ },
+ "missing": [],
+ "parser": {
+  "label": "template parser",
+  "files": {
+   "reworded": "analysis/revision/reworded_benchmark/reads/parser/per_task_parser_rw.jsonl",
+   "generated_wording": "analysis/revision/reworded_benchmark/reads/parser/per_task_parser_original.jsonl"
+  },
+  "n": 172,
+  "reworded": {
+   "n": 172,
+   "completed": 0,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.0218
+   ]
+  },
+  "generated_wording": {
+   "n": 172,
+   "completed": 172,
+   "rate": 1.0,
+   "wilson95": [
+    0.9782,
+    1.0
+   ]
+  },
+  "both": 0,
+  "only_generated_wording": 172,
+  "only_reworded": 0,
+  "neither": 0,
+  "mcnemar_exact_p": 0.0,
+  "difference_reworded_minus_generated": -1.0,
+  "by_slice": {
+   "operation": {
+    "create": {
+     "n": 65,
+     "reworded": 0,
+     "generated_wording": 65,
+     "reworded_wilson95": [
+      0.0,
+      0.0558
+     ],
+     "generated_wilson95": [
+      0.9442,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "delete": {
+     "n": 66,
+     "reworded": 0,
+     "generated_wording": 66,
+     "reworded_wilson95": [
+      0.0,
+      0.055
+     ],
+     "generated_wilson95": [
+      0.945,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "update": {
+     "n": 41,
+     "reworded": 0,
+     "generated_wording": 41,
+     "reworded_wilson95": [
+      0.0,
+      0.0857
+     ],
+     "generated_wilson95": [
+      0.9143,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    }
+   },
+   "category": {
+    "direct": {
+     "n": 48,
+     "reworded": 0,
+     "generated_wording": 48,
+     "reworded_wilson95": [
+      0.0,
+      0.0741
+     ],
+     "generated_wilson95": [
+      0.9259,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "spatial": {
+     "n": 51,
+     "reworded": 0,
+     "generated_wording": 51,
+     "reworded_wilson95": [
+      0.0,
+      0.07
+     ],
+     "generated_wilson95": [
+      0.93,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "topological": {
+     "n": 73,
+     "reworded": 0,
+     "generated_wording": 73,
+     "reworded_wilson95": [
+      0.0,
+      0.05
+     ],
+     "generated_wilson95": [
+      0.95,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    }
+   },
+   "ifc_version": {
+    "IFC2X3": {
+     "n": 55,
+     "reworded": 0,
+     "generated_wording": 55,
+     "reworded_wilson95": [
+      0.0,
+      0.0653
+     ],
+     "generated_wilson95": [
+      0.9347,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "IFC4": {
+     "n": 57,
+     "reworded": 0,
+     "generated_wording": 57,
+     "reworded_wilson95": [
+      0.0,
+      0.0631
+     ],
+     "generated_wilson95": [
+      0.9369,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "IFC4X3": {
+     "n": 60,
+     "reworded": 0,
+     "generated_wording": 60,
+     "reworded_wilson95": [
+      0.0,
+      0.0602
+     ],
+     "generated_wilson95": [
+      0.9398,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    }
+   },
+   "family": {
+    "column": {
+     "n": 24,
+     "reworded": 0,
+     "generated_wording": 24,
+     "reworded_wilson95": [
+      0.0,
+      0.138
+     ],
+     "generated_wilson95": [
+      0.862,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "door": {
+     "n": 27,
+     "reworded": 0,
+     "generated_wording": 27,
+     "reworded_wilson95": [
+      0.0,
+      0.1246
+     ],
+     "generated_wilson95": [
+      0.8754,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "slab": {
+     "n": 32,
+     "reworded": 0,
+     "generated_wording": 32,
+     "reworded_wilson95": [
+      0.0,
+      0.1072
+     ],
+     "generated_wilson95": [
+      0.8928,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "space": {
+     "n": 20,
+     "reworded": 0,
+     "generated_wording": 20,
+     "reworded_wilson95": [
+      0.0,
+      0.1611
+     ],
+     "generated_wilson95": [
+      0.8389,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "wall": {
+     "n": 52,
+     "reworded": 0,
+     "generated_wording": 52,
+     "reworded_wilson95": [
+      0.0,
+      0.0688
+     ],
+     "generated_wilson95": [
+      0.9312,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    },
+    "window": {
+     "n": 17,
+     "reworded": 0,
+     "generated_wording": 17,
+     "reworded_wilson95": [
+      0.0,
+      0.1843
+     ],
+     "generated_wilson95": [
+      0.8157,
+      1.0
+     ],
+     "mcnemar_exact_p": 0.0
+    }
+   }
+  },
+  "reworded_recognised": 0,
+  "generated_wording_all_200": {
+   "n": 200,
+   "completed": 200,
+   "rate": 1.0,
+   "wilson95": [
+    0.9812,
+    1.0
+   ]
+  },
+  "generated_wording_all_200_recognised": 200
+ },
+ "final_model_failures": {
+  "reworded": [
+   {
+    "task_id": "COL-CRE-TOP-G7structure-002",
+    "family": "column",
+    "operation": "create",
+    "category": "topological",
+    "edit_kind": "create_box",
+    "ifc_version": "IFC2X3",
+    "stop_reason": "completed",
+    "tool_rounds": 6,
+    "score": {
+     "geometry": 1.0,
+     "semantics": 1.0,
+     "topology": 0.471429,
+     "final": 0.82381
+    },
+    "score_error": null,
+    "also_fails_generated_wording": true
+   },
+   {
+    "task_id": "DOR-CRE-TOP-B16m4X3-002",
+    "family": "door",
+    "operation": "create",
+    "category": "topological",
+    "edit_kind": "replace_filling",
+    "ifc_version": "IFC4X3",
+    "stop_reason": "budget_exhausted",
+    "tool_rounds": 22,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_generated_wording": true
+   },
+   {
+    "task_id": "DOR-DEL-SPA-B16m4-005",
+    "family": "door",
+    "operation": "delete",
+    "category": "spatial",
+    "edit_kind": "delete",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 2,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_generated_wording": false
+   },
+   {
+    "task_id": "DOR-UPD-TOP-G7arc-011",
+    "family": "door",
+    "operation": "update",
+    "category": "topological",
+    "edit_kind": "rehost_filling",
+    "ifc_version": "IFC2X3",
+    "stop_reason": "budget_exhausted",
+    "tool_rounds": 22,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_generated_wording": false
+   },
+   {
+    "task_id": "SLB-UPD-SPA-B46m4-041",
+    "family": "slab",
+    "operation": "update",
+    "category": "spatial",
+    "edit_kind": "translate",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 1,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_generated_wording": true
+   },
+   {
+    "task_id": "SLB-UPD-SPA-B46m4-024",
+    "family": "slab",
+    "operation": "update",
+    "category": "spatial",
+    "edit_kind": "mirror",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 5,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_generated_wording": true
+   },
+   {
+    "task_id": "SLB-UPD-TOP-G7structurem4-009",
+    "family": "slab",
+    "operation": "update",
+    "category": "topological",
+    "edit_kind": "move_to_storey",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 1,
+    "score": {
+     "geometry": 1.0,
+     "semantics": 1.0,
+     "topology": 0.0,
+     "final": 0.666667
+    },
+    "score_error": null,
+    "also_fails_generated_wording": false
+   },
+   {
+    "task_id": "SPC-CRE-SPA-B02m4-002",
+    "family": "space",
+    "operation": "create",
+    "category": "spatial",
+    "edit_kind": "create_box",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 10,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_generated_wording": false
+   },
+   {
+    "task_id": "CHN-MSW-TOP-B25m4-036",
+    "family": "space",
+    "operation": "update",
+    "category": "topological",
+    "edit_kind": "move_space_with_bounding_walls",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 2,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_generated_wording": false
+   },
+   {
+    "task_id": "CHN-CWD-SPA-B27-005",
+    "family": "wall",
+    "operation": "create",
+    "category": "spatial",
+    "edit_kind": "create_wall_with_door",
+    "ifc_version": "IFC2X3",
+    "stop_reason": "completed",
+    "tool_rounds": 4,
+    "score": {
+     "geometry": 0.394055,
+     "semantics": 0.5,
+     "topology": 1.0,
+     "final": 0.631352
+    },
+    "score_error": null,
+    "also_fails_generated_wording": false
+   },
+   {
+    "task_id": "WAL-UPD-TOP-B39m4X3-008",
+    "family": "wall",
+    "operation": "update",
+    "category": "topological",
+    "edit_kind": "move_to_storey",
+    "ifc_version": "IFC4X3",
+    "stop_reason": "completed",
+    "tool_rounds": 6,
+    "score": {
+     "geometry": 1.0,
+     "semantics": 1.0,
+     "topology": 0.0,
+     "final": 0.666667
+    },
+    "score_error": null,
+    "also_fails_generated_wording": false
+   },
+   {
+    "task_id": "WAL-UPD-TOP-B02m4X3-001",
+    "family": "wall",
+    "operation": "update",
+    "category": "topological",
+    "edit_kind": "assign_type",
+    "ifc_version": "IFC4X3",
+    "stop_reason": "budget_exhausted",
+    "tool_rounds": 22,
+    "score": {
+     "geometry": 1.0,
+     "semantics": 0.931818,
+     "topology": 0.0,
+     "final": 0.643939
+    },
+    "score_error": null,
+    "also_fails_generated_wording": true
+   },
+   {
+    "task_id": "WIN-DEL-SPA-B02m4-001",
+    "family": "window",
+    "operation": "delete",
+    "category": "spatial",
+    "edit_kind": "delete",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 6,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_generated_wording": true
+   },
+   {
+    "task_id": "WIN-UPD-SPA-B02-002",
+    "family": "window",
+    "operation": "update",
+    "category": "spatial",
+    "edit_kind": "assign_type",
+    "ifc_version": "IFC2X3",
+    "stop_reason": "completed",
+    "tool_rounds": 4,
+    "score": {
+     "geometry": 1.0,
+     "semantics": 0.789474,
+     "topology": 0.735714,
+     "final": 0.841729
+    },
+    "score_error": null,
+    "also_fails_generated_wording": true
+   }
+  ],
+  "generated_wording": [
+   {
+    "task_id": "COL-CRE-TOP-G7structure-002",
+    "family": "column",
+    "operation": "create",
+    "category": "topological",
+    "edit_kind": "create_box",
+    "ifc_version": "IFC2X3",
+    "stop_reason": "completed",
+    "tool_rounds": 3,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_reworded": true
+   },
+   {
+    "task_id": "DOR-CRE-TOP-B16m4X3-002",
+    "family": "door",
+    "operation": "create",
+    "category": "topological",
+    "edit_kind": "replace_filling",
+    "ifc_version": "IFC4X3",
+    "stop_reason": "budget_exhausted",
+    "tool_rounds": 22,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_reworded": true
+   },
+   {
+    "task_id": "DOR-UPD-DIR-G7arc-002",
+    "family": "door",
+    "operation": "update",
+    "category": "direct",
+    "edit_kind": "rehost_filling",
+    "ifc_version": "IFC2X3",
+    "stop_reason": "completed",
+    "tool_rounds": 5,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_reworded": false
+   },
+   {
+    "task_id": "SLB-UPD-SPA-B46m4-013",
+    "family": "slab",
+    "operation": "update",
+    "category": "spatial",
+    "edit_kind": "translate",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 1,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_reworded": false
+   },
+   {
+    "task_id": "SLB-UPD-SPA-B46m4-041",
+    "family": "slab",
+    "operation": "update",
+    "category": "spatial",
+    "edit_kind": "translate",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 5,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_reworded": true
+   },
+   {
+    "task_id": "SLB-UPD-SPA-B46m4-024",
+    "family": "slab",
+    "operation": "update",
+    "category": "spatial",
+    "edit_kind": "mirror",
+    "ifc_version": "IFC4",
+    "stop_reason": "budget_exhausted",
+    "tool_rounds": 22,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_reworded": true
+   },
+   {
+    "task_id": "WAL-UPD-TOP-B02m4X3-001",
+    "family": "wall",
+    "operation": "update",
+    "category": "topological",
+    "edit_kind": "assign_type",
+    "ifc_version": "IFC4X3",
+    "stop_reason": "completed",
+    "tool_rounds": 6,
+    "score": {
+     "geometry": 1.0,
+     "semantics": 0.931818,
+     "topology": 0.0,
+     "final": 0.643939
+    },
+    "score_error": null,
+    "also_fails_reworded": true
+   },
+   {
+    "task_id": "WIN-DEL-SPA-B02m4-001",
+    "family": "window",
+    "operation": "delete",
+    "category": "spatial",
+    "edit_kind": "delete",
+    "ifc_version": "IFC4",
+    "stop_reason": "completed",
+    "tool_rounds": 5,
+    "score": {
+     "geometry": 0.0,
+     "semantics": 0.0,
+     "topology": 0.0,
+     "final": 0.0
+    },
+    "score_error": null,
+    "also_fails_reworded": true
+   },
+   {
+    "task_id": "WIN-UPD-SPA-B02-002",
+    "family": "window",
+    "operation": "update",
+    "category": "spatial",
+    "edit_kind": "assign_type",
+    "ifc_version": "IFC2X3",
+    "stop_reason": "context_overflow",
+    "tool_rounds": 5,
+    "score": {
+     "geometry": 1.0,
+     "semantics": 0.815789,
+     "topology": 0.0,
+     "final": 0.605263
+    },
+    "score_error": null,
+    "also_fails_reworded": true
+   }
+  ],
+  "overlap": [
+   "COL-CRE-TOP-G7structure-002",
+   "DOR-CRE-TOP-B16m4X3-002",
+   "SLB-UPD-SPA-B46m4-024",
+   "SLB-UPD-SPA-B46m4-041",
+   "WAL-UPD-TOP-B02m4X3-001",
+   "WIN-DEL-SPA-B02m4-001",
+   "WIN-UPD-SPA-B02-002"
+  ],
+  "only_reworded": [
+   "CHN-CWD-SPA-B27-005",
+   "CHN-MSW-TOP-B25m4-036",
+   "DOR-DEL-SPA-B16m4-005",
+   "DOR-UPD-TOP-G7arc-011",
+   "SLB-UPD-TOP-G7structurem4-009",
+   "SPC-CRE-SPA-B02m4-002",
+   "WAL-UPD-TOP-B39m4X3-008"
+  ],
+  "only_generated_wording": [
+   "DOR-UPD-DIR-G7arc-002",
+   "SLB-UPD-SPA-B46m4-013"
+  ]
+ },
+ "reads": {
+  "grpo_v10b_c10": {
+   "start": "2026-10-19 14:40:29",
+   "end": "2026-10-19 14:56:59",
+   "rc": 0,
+   "elapsed_minutes": 16.5,
+   "fs_audit_json": "analysis/revision/reworded_benchmark/reads/model/fs_audit_grpo_v10b_c10.json",
+   "fs_audit_log": "model                        grpo_v10b_c10        trajectories  172 flagged   0  {}",
+   "fs_audit_flagged": 0
+  },
+  "dpo_v10_c6": {
+   "start": "2026-10-19 15:35:46",
+   "end": "2026-10-19 15:56:46",
+   "rc": 0,
+   "elapsed_minutes": 21.0,
+   "fs_audit_json": "analysis/revision/reworded_benchmark/reads/model/fs_audit_dpo_v10_c6.json",
+   "fs_audit_log": "model                        dpo_v10_c6           trajectories  172 flagged   0  {}",
+   "fs_audit_flagged": 0
+  },
+  "sft_v10": {
+   "start": "2026-10-19 15:14:58",
+   "end": "2026-10-19 15:34:59",
+   "rc": 0,
+   "elapsed_minutes": 20.0,
+   "fs_audit_json": "analysis/revision/reworded_benchmark/reads/model/fs_audit_sft_v10.json",
+   "fs_audit_log": "model                        sft_v10              trajectories  172 flagged   0  {}",
+   "fs_audit_flagged": 0
+  }
+ }
+}

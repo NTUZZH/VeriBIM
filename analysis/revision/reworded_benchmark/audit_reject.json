@@ -1,0 +1,10 @@
+{
+ "DOR-CRE-TOP-B16-027": "changes the target's anchor: the original window bounds the space 'FLUR-1-4'; the rewording points at 'the wall bounding the space' and its window, which can name a different window",
+ "DOR-UPD-SPA-G7arcm4X3-003": "reorders the edit: 'make the door's current host wall whole, then relocate the door' with its opening, contradictory if read as written (the 85-set rejection DOR-UPD-DIR-B18m4X3-001-x3c)",
+ "SLB-DEL-TOP-B39-002": "turns the identifying condition into a presupposition: 'Since it is not linked to any other element ... remove the sole slab on storey' instead of the only slab on the storey that has no connection",
+ "SPC-UPD-TOP-B25-001": "changes the edit: 'create the mirrored counterpart of the IfcSpace' asks for a mirrored copy; the original mirrors the existing space",
+ "CHN-MSW-TOP-B25-027": "misleading object: 'The bounding walls are identified as A and B' while the request moves 6 bounding walls; the two ids identified the space, not the walls to move",
+ "WAL-CRE-SPA-G8structure-003": "the verb's object changes: 'create a copy ... by moving the wall' invites moving the original wall",
+ "CHN-DWF-DIR-B07-004": "misleading object: 'the opening the wall filled'; the opening was filled by the door",
+ "CHN-DWF-TOP-G7arc-023": "misleading object: 'the opening that wall filled'; the opening was filled by the door"
+}

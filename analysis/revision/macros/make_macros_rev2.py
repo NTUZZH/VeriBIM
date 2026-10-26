@@ -1115,7 +1115,7 @@ for label, q in PARSER_ROWS[:5]:
         label = 'Reworded instructions'
     L.append(f"{label} & {thou(q['n'])} & {pcs} & {mcs} & {thou(q['both'])} & {q['po']} & {q['mo']} & {q['ne']} \\\\")
 # reworded benchmark tasks (round 4): the parser recognizes none, so the pairing follows from the two completion counts
-_rw = json.load(open('analysis/revision/round4/reword_bench/reads/pairing_summary.json'))
+_rw = json.load(open('analysis/revision/reworded_benchmark/reads/pairing_summary.json'))
 _rw_n = _rw['models']['grpo_v10b_c10']['reworded']['n']; _rw_m = _rw['models']['grpo_v10b_c10']['reworded']['completed']
 _rw_p = _rw['parser']['reworded']['completed']; assert _rw_p == 0 and _rw['parser']['reworded_recognised'] == 0, (_rw_p, _rw['parser']['reworded_recognised'])
 L.append(r'\midrule')
