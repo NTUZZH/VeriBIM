@@ -1,0 +1,52 @@
+{
+ "n_sampled_tasks": 6000,
+ "sampled_classes": {
+  "mixed": 194,
+  "all_pass": 5591,
+  "all_fail": 215
+ },
+ "n_candidates": 409,
+ "dropped": {
+  "in the list of tasks excluded from pair building (exclude_pairs_ids.json)": 49
+ },
+ "n_pool": 360,
+ "pool_by_class": {
+  "all_fail": 191,
+  "mixed": 169
+ },
+ "pool_by_operation": {
+  "create": 173,
+  "delete": 92,
+  "update": 95
+ },
+ "pool_by_category": {
+  "direct": 126,
+  "spatial": 123,
+  "topological": 111
+ },
+ "pool_by_version": {
+  "IFC2X3": 157,
+  "IFC4": 111,
+  "IFC4X3": 92
+ },
+ "pool_by_class_and_operation": {
+  "all_fail/create": 96,
+  "all_fail/delete": 47,
+  "all_fail/update": 48,
+  "mixed/create": 77,
+  "mixed/delete": 45,
+  "mixed/update": 47
+ },
+ "mixed_completed_histogram": {
+  "1": 23,
+  "2": 29,
+  "3": 25,
+  "4": 29,
+  "5": 63
+ },
+ "all_fail_with_final_spread_over_0.05": 4,
+ "excluded_list_size": 283,
+ "val_ids": 814,
+ "bench_ids": 2202,
+ "bench_buildings": 12
+}

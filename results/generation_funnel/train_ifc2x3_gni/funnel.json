@@ -1,0 +1,551 @@
+{
+ "generated": "2026-09-26",
+ "generator_version": "veribim-gen/0.9.0",
+ "run_seed": 20260928,
+ "n_shards": 61,
+ "n_models_used": 13,
+ "n_attempted": 1734,
+ "n_accepted": 1500,
+ "n_train": 1500,
+ "n_validation": 0,
+ "n_buildings_used": 11,
+ "n_relabelled": 1500,
+ "n_duplicates_dropped": 8,
+ "stages": {
+  "accepted": 1503,
+  "underspecified": 5,
+  "draw": 214,
+  "batch_scope": 7,
+  "duplicate": 8,
+  "parse": 5
+ },
+ "rejections": {
+  "draw:no_unique_anchor": 189,
+  "draw:no_room_on_storey": 25,
+  "batch_scope:batch_changed_outside_set": 7,
+  "underspecified:underspecified_value_still_quoted": 5,
+  "duplicate:identical_instruction": 5,
+  "parse:related_elements_apart": 5,
+  "duplicate:identical_instruction_across_shards": 3
+ },
+ "placement_rejections": {
+  "created_element_collides": 2016,
+  "created_outside_storey": 77,
+  "derived_above_below_overlaps_filling": 19,
+  "derived_fits_gap_created_element_collides": 39,
+  "derived_on_top_of_created_element_collides": 43,
+  "derived_touching_slab_created_element_collides": 145,
+  "filling_outside_host": 209,
+  "filling_outside_resized_body": 1,
+  "filling_overlaps_filling": 1424,
+  "filling_past_wall_end": 107,
+  "filling_taller_than_wall": 49,
+  "mirror_body_not_flippable": 24,
+  "mirror_plane_too_close": 2,
+  "mirror_undefinable_on_boolean": 3,
+  "mirror_undefinable_on_brep": 7,
+  "mirror_undefinable_on_mapped_item": 5,
+  "move_created_collision": 132,
+  "moved_outside_storey": 97,
+  "rehost_element_collides": 147,
+  "rehost_opening_collides": 38,
+  "rehost_outside_storey": 5,
+  "rehost_overlaps_filling": 302,
+  "rehost_past_wall_end": 856,
+  "rehost_wall_too_short": 39,
+  "relation_partner_not_touching": 487,
+  "replace_element_collides": 3,
+  "replace_overlaps_filling": 113,
+  "replace_past_wall_end": 107,
+  "replace_wall_too_short": 1,
+  "resize_undefinable_on_boolean": 17,
+  "resize_undefinable_on_brep": 12,
+  "resize_undefinable_on_mapped_item": 14,
+  "transformed_element_collides": 365,
+  "transformed_outside_storey": 2054,
+  "translate_across_host_wall": 302,
+  "translate_no_room_on_axis": 260,
+  "translate_origin_outside_storey": 28
+ },
+ "derived_placements": {
+  "spec.element_relative.against_room_wall:refused": 67,
+  "spec.element_relative.aligned_with_filling:refused": 29,
+  "spec.element_relative.centred_on_wall:ok": 40,
+  "spec.element_relative.fits_gap:ok": 1,
+  "spec.element_relative.fits_gap:refused": 68,
+  "spec.element_relative.on_top_of:ok": 36,
+  "spec.element_relative.on_top_of:refused": 34,
+  "spec.element_relative.touching_slab_above:ok": 13,
+  "spec.element_relative.touching_slab_above:refused": 56
+ },
+ "family_counts": {
+  "constraint.cascade.relations_consistent": 96,
+  "constraint.cascade.relations_preserved": 91,
+  "constraint.invariant.keep_placement": 12,
+  "constraint.invariant.keep_z": 8,
+  "constraint.relation_on_create.connection": 11,
+  "constraint.relation_on_create.space_boundary": 32,
+  "model.names.non_english": 12,
+  "model.representation.brep": 42,
+  "model.representation.mapped_item": 453,
+  "model.schema.ifc2x3": 1500,
+  "model.units.mm": 737,
+  "op.array": 27,
+  "op.copy": 46,
+  "op.create": 447,
+  "op.delete": 480,
+  "op.replace": 44,
+  "op.update.attribute.name": 51,
+  "op.update.attribute.size": 34,
+  "op.update.attribute.type": 12,
+  "op.update.geometry.resize": 66,
+  "op.update.geometry.translate": 42,
+  "op.update.material": 60,
+  "op.update.mirror": 6,
+  "op.update.pset": 55,
+  "op.update.rehost": 8,
+  "op.update.restorey": 17,
+  "op.update.rotate": 10,
+  "op.update.type_object": 25,
+  "ref.host_of_filling": 150,
+  "ref.negation": 1,
+  "ref.ordinal": 4,
+  "ref.relative.above_below": 62,
+  "ref.relative.between": 39,
+  "ref.relative.nearest": 38,
+  "ref.set": 102,
+  "ref.under_walls": 3,
+  "ref.without_relation": 104,
+  "scope.batch": 102,
+  "scope.chain": 240,
+  "scope.conditional": 17,
+  "scope.single": 1158,
+  "spec.axis_dimensions": 24,
+  "spec.axis_displacement": 16,
+  "spec.compass_displacement": 26,
+  "spec.element_relative.centred_on_wall": 39,
+  "spec.element_relative.fits_gap": 1,
+  "spec.element_relative.on_top_of": 34,
+  "spec.element_relative.touching_slab_above": 13,
+  "spec.endpoints": 4,
+  "spec.world_frame": 81,
+  "wording.class_token": 176,
+  "wording.identifier_list": 43,
+  "wording.identifier_spelling": 472,
+  "wording.ifc_class_name": 10,
+  "wording.reference_by_id": 398,
+  "wording.relationship_named": 25,
+  "wording.request_form": 382,
+  "wording.synonym": 463,
+  "wording.underspecified": 70,
+  "wording.unit_spelling": 204
+ },
+ "relation_counts": {
+  "IfcRelAggregates": 74,
+  "IfcRelAssociatesMaterial": 60,
+  "IfcRelConnectsElements": 11,
+  "IfcRelContainedInSpatialStructure": 507,
+  "IfcRelDefinesByProperties": 55,
+  "IfcRelDefinesByType": 25,
+  "IfcRelFillsElement": 270,
+  "IfcRelSpaceBoundary": 32,
+  "IfcRelVoidsElement": 278
+ },
+ "seconds": 5767.9,
+ "cpu_seconds": 13086.1,
+ "seconds_per_accepted": 3.845,
+ "validation_buildings": [],
+ "wave_settings": {
+  "wave": "v10x2g",
+  "translate_relative": true,
+  "translate_extent_range": [
+   1.0,
+   4.0
+  ],
+  "attribute_weight": 0.3,
+  "two_hop_only_prob": 0.9,
+  "delete_filling_removes_opening": true,
+  "family_shares": {
+   "spec.world_frame": 0.65,
+   "op.update.new": 0.42,
+   "op.create.new": 0.42,
+   "scope.batch": 0.22,
+   "scope.conditional": 0.35,
+   "wording.synonym": 0.35,
+   "wording.request_form": 0.3,
+   "wording.class_token": 0.15,
+   "wording.unit_spelling": 0.25,
+   "wording.underspecified": 0.1
+  },
+  "family_weights": {
+   "op.update.rotate": 1.8,
+   "op.update.mirror": 2.5,
+   "op.update.rehost": 1.8,
+   "op.update.pset": 1.2,
+   "op.update.material": 1.0,
+   "op.update.type_object": 0.9,
+   "op.update.restorey": 0.8,
+   "spec.element_relative.fits_gap": 3.0,
+   "spec.element_relative.against_room_wall": 2.0,
+   "spec.element_relative.touching_slab_above": 2.0,
+   "spec.element_relative.aligned_with_filling": 2.5,
+   "spec.element_relative.on_top_of": 1.0,
+   "spec.element_relative.centred_on_wall": 0.8
+  }
+ },
+ "category_weight": {
+  "topological": 2
+ },
+ "family_registry": {
+  "group_share": {
+   "constraint.on_edit": 0.3,
+   "constraint.relation_on_create": 0.5,
+   "model.condition": 0.0,
+   "op.create.new": 0.35,
+   "op.update.new": 0.35,
+   "ref.new": 0.3,
+   "scope.batch": 0.15,
+   "scope.conditional": 0.35,
+   "scope.id_list": 1.0,
+   "spec.displacement": 1.0,
+   "spec.element_relative": 0.4,
+   "spec.world_frame": 0.4,
+   "spec.world_frame.detail": 1.0,
+   "wording.class_token": 0.15,
+   "wording.identifier_list": 0.7,
+   "wording.identifier_spelling": 1.0,
+   "wording.ifc_class": 0.2,
+   "wording.reference_by_id": 0.4,
+   "wording.relationship_named": 0.3,
+   "wording.request_form": 0.3,
+   "wording.synonym": 0.35,
+   "wording.underspecified": 0.05,
+   "wording.unit_spelling": 0.2
+  },
+  "families": {
+   "ref.relative.nearest": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.relative.between": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.relative.above_below": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.relative.opposite": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.topological.separates": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.viewpoint.through_door": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "spec.element_relative.fits_gap": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.on_top_of": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.against_room_wall": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.touching_slab_above": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.centred_on_wall": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.aligned_with_filling": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.world_frame": {
+    "group": "spec.world_frame",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.endpoints": {
+    "group": "spec.world_frame.detail",
+    "layer": "specification",
+    "weight": 0.25
+   },
+   "spec.axis_dimensions": {
+    "group": "spec.world_frame.detail",
+    "layer": "specification",
+    "weight": 0.25
+   },
+   "spec.corner": {
+    "group": "spec.world_frame.detail",
+    "layer": "specification",
+    "weight": 0.5
+   },
+   "spec.axis_displacement": {
+    "group": "spec.displacement",
+    "layer": "specification",
+    "weight": 0.4
+   },
+   "spec.compass_displacement": {
+    "group": "spec.displacement",
+    "layer": "specification",
+    "weight": 0.6
+   },
+   "constraint.invariant.keep_placement": {
+    "group": "constraint.on_edit",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.invariant.keep_z": {
+    "group": "constraint.on_edit",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.cascade.relations_preserved": {
+    "group": "constraint.on_edit",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.cascade.relations_consistent": {
+    "group": "constraint.on_edit",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.relation_on_create.space_boundary": {
+    "group": "constraint.relation_on_create",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.relation_on_create.connection": {
+    "group": "constraint.relation_on_create",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "wording.ifc_class_name": {
+    "group": "wording.ifc_class",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "ref.ordinal": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.negation": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.host_of_filling": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.2
+   },
+   "ref.joins_spaces": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.2
+   },
+   "ref.bounds_space": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.2
+   },
+   "ref.under_walls": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.without_relation": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "wording.relationship_named": {
+    "group": "wording.relationship_named",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.identifier_spelling": {
+    "group": "wording.identifier_spelling",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.reference_by_id": {
+    "group": "wording.reference_by_id",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.identifier_list": {
+    "group": "wording.identifier_list",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "scope.id_list": {
+    "group": "scope.id_list",
+    "layer": "scope",
+    "weight": 1.0
+   },
+   "op.update.rotate": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 1.0
+   },
+   "op.update.mirror": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 0.8
+   },
+   "op.update.pset": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 1.4
+   },
+   "op.update.material": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 1.2
+   },
+   "op.update.type_object": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 1.0
+   },
+   "op.update.restorey": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 0.8
+   },
+   "op.update.rehost": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 0.6
+   },
+   "op.copy": {
+    "group": "op.create.new",
+    "layer": "operation",
+    "weight": 1.0
+   },
+   "op.array": {
+    "group": "op.create.new",
+    "layer": "operation",
+    "weight": 0.8
+   },
+   "op.replace": {
+    "group": "op.create.new",
+    "layer": "operation",
+    "weight": 1.0
+   },
+   "scope.batch": {
+    "group": "scope.batch",
+    "layer": "scope",
+    "weight": 1.0
+   },
+   "ref.set": {
+    "group": "scope.batch",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "scope.conditional": {
+    "group": "scope.conditional",
+    "layer": "scope",
+    "weight": 1.0
+   },
+   "wording.synonym": {
+    "group": "wording.synonym",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.request_form": {
+    "group": "wording.request_form",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.class_token": {
+    "group": "wording.class_token",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.unit_spelling": {
+    "group": "wording.unit_spelling",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.underspecified": {
+    "group": "wording.underspecified",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "model.units.mm": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.units.imperial": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.schema.ifc2x3": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.schema.ifc4x3": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.placement.rotated_storey": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.placement.site_offset": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.representation.brep": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.representation.mapped_item": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.names.non_english": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   }
+  }
+ },
+ "held_out_buildings": [
+  "GNI-project_7"
+ ]
+}

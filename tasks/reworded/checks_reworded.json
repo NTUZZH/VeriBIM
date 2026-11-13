@@ -1,0 +1,4694 @@
+{
+ "summary": {
+  "n_drawn": 200,
+  "passed_machine_checks": 180,
+  "passed_first_attempt": 103,
+  "attempt_histogram_passed": {
+   "1": 103,
+   "2": 59,
+   "3": 18
+  },
+  "failed_all_attempts": [
+   "COL-CRE-TOP-B11-011",
+   "DOR-CRE-TOP-B16m4X3-027",
+   "DOR-CRE-DIR-B39-010",
+   "DOR-DEL-SPA-B16-011",
+   "DOR-UPD-SPA-B16m4X3-003",
+   "SPC-CRE-SPA-B11m4-006",
+   "SPC-CRE-DIR-G7structurem4-001",
+   "SPC-CRE-SPA-B02m4X3-001",
+   "CHN-CWD-TOP-B38-009",
+   "WAL-CRE-DIR-G7structure-006",
+   "CHN-CWD-TOP-B27-024",
+   "CHN-CWD-DIR-B45m4-001",
+   "CHN-CWD-SPA-B39-001",
+   "CHN-CWD-TOP-B27-002",
+   "CHN-CWD-TOP-B11-006",
+   "CHN-CWD-SPA-B39-009",
+   "CHN-DWF-SPA-B11m4-008",
+   "WAL-UPD-TOP-B04-002",
+   "WIN-CRE-SPA-B39-004",
+   "WIN-UPD-SPA-B02m4X3-002"
+  ],
+  "audit_rejected": {
+   "DOR-CRE-TOP-B16-027": "changes the target's anchor: the original window bounds the space 'FLUR-1-4'; the rewording points at 'the wall bounding the space' and its window, which can name a different window",
+   "DOR-UPD-SPA-G7arcm4X3-003": "reorders the edit: 'make the door's current host wall whole, then relocate the door' with its opening, contradictory if read as written (the 85-set rejection DOR-UPD-DIR-B18m4X3-001-x3c)",
+   "SLB-DEL-TOP-B39-002": "turns the identifying condition into a presupposition: 'Since it is not linked to any other element ... remove the sole slab on storey' instead of the only slab on the storey that has no connection",
+   "SPC-UPD-TOP-B25-001": "changes the edit: 'create the mirrored counterpart of the IfcSpace' asks for a mirrored copy; the original mirrors the existing space",
+   "CHN-MSW-TOP-B25-027": "misleading object: 'The bounding walls are identified as A and B' while the request moves 6 bounding walls; the two ids identified the space, not the walls to move",
+   "WAL-CRE-SPA-G8structure-003": "the verb's object changes: 'create a copy ... by moving the wall' invites moving the original wall",
+   "CHN-DWF-DIR-B07-004": "misleading object: 'the opening the wall filled'; the opening was filled by the door",
+   "CHN-DWF-TOP-G7arc-023": "misleading object: 'the opening that wall filled'; the opening was filled by the door"
+  },
+  "in_eval_file": 172,
+  "failed_check_counts_all_attempts": {
+   "overlap": 150,
+   "missing_word": 3,
+   "missing_quoted_name": 3,
+   "added_quoted_name": 3
+  },
+  "eval_buildings": {
+   "BLD003": 30,
+   "BLD018": 16,
+   "BLD029": 13,
+   "BLD031": 5,
+   "BLD035": 12,
+   "BLD038": 3,
+   "BLD040": 15,
+   "BLD042": 10,
+   "BLD044": 16,
+   "BLD045": 21,
+   "GNI-project_7": 21,
+   "GNI-project_8": 10
+  },
+  "eval_family_operation": {
+   "column|create": 13,
+   "column|delete": 3,
+   "column|update": 8,
+   "door|create": 10,
+   "door|delete": 11,
+   "door|update": 6,
+   "slab|create": 15,
+   "slab|delete": 8,
+   "slab|update": 9,
+   "space|create": 7,
+   "space|delete": 5,
+   "space|update": 8,
+   "wall|create": 13,
+   "wall|delete": 31,
+   "wall|update": 8,
+   "window|create": 7,
+   "window|delete": 8,
+   "window|update": 2
+  },
+  "eval_ifc_version": {
+   "IFC2X3": 55,
+   "IFC4": 57,
+   "IFC4X3": 60
+  },
+  "diagnostic_shared_8gram": {
+   "eval_tasks_with_one_or_more": 89,
+   "note": "not a check of the 85 (28 of the 85 share an 8-word sequence when GlobalIds and numbers count as words); reported only"
+  },
+  "cost_usd_list_price": 2.2828,
+  "usage": {
+   "requests": 335,
+   "prompt_tokens": 88712,
+   "completion_tokens": 96396,
+   "reasoning_tokens": 65470,
+   "cached_prompt_tokens": 0
+  },
+  "output_tasks_sha256": "c7cce1cd36c1d98f5706f14add0223aa235ce291298eb9e0ccd6c0a3b328614b"
+ },
+ "per_task": [
+  {
+   "task_id": "COL-CRE-TOP-B11m4X3-003",
+   "reworded_task_id": "COL-CRE-TOP-B11m4X3-003-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.737,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-CRE-DIR-B45-003",
+   "reworded_task_id": "COL-CRE-DIR-B45-003-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD038",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.97"
+    ]
+   ],
+   "word_overlap_final": 0.686,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 3,
+   "shared_8grams": [
+    "corner at -170.91 11.97 27.62 metres in world",
+    "its lowest corner at -170.91 11.97 27.62 metres",
+    "lowest corner at -170.91 11.97 27.62 metres in"
+   ]
+  },
+  {
+   "task_id": "COL-CRE-SPA-B27m4-005",
+   "reworded_task_id": "COL-CRE-SPA-B27m4-005-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.76,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-CRE-TOP-G7structurem4-008",
+   "reworded_task_id": "COL-CRE-TOP-G7structurem4-008-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.759,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-CRE-TOP-B07m4X3-011",
+   "reworded_task_id": "COL-CRE-TOP-B07m4X3-011-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.774,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "its lowest corner at 25.99 2.94 0.00 m.",
+    "with its lowest corner at 25.99 2.94 0.00"
+   ]
+  },
+  {
+   "task_id": "COL-CRE-TOP-B02m4X3-001",
+   "reworded_task_id": "COL-CRE-TOP-B02m4X3-001-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.769,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 11,
+   "shared_8grams": [
+    "'basic wall interior - 4 7 8 partition",
+    "4.78 m high with its lowest corner at",
+    "high with its lowest corner at 19.62 83.00",
+    "interior - 4 7 8 partition 1-hr 198043'",
+    "its lowest corner at 19.62 83.00 6.10 m."
+   ]
+  },
+  {
+   "task_id": "COL-CRE-DIR-B04m4X3-004",
+   "reworded_task_id": "COL-CRE-DIR-B04m4X3-004-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.5,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "2 copies of the column with the id",
+    "copies of the column with the id 14zyekpnz5i8hepi1as$gs"
+   ]
+  },
+  {
+   "task_id": "COL-CRE-TOP-B38-002",
+   "reworded_task_id": "COL-CRE-TOP-B38-002-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.727,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 5,
+   "shared_8grams": [
+    "its lowest corner at -19.25 11.11 0.00 m.",
+    "on the storey that contains the column whose",
+    "storey that contains the column whose globalid is",
+    "that contains the column whose globalid is 3swigxspp4ch5war5x2hjb",
+    "the storey that contains the column whose globalid"
+   ]
+  },
+  {
+   "task_id": "COL-CRE-DIR-G7arcm4-002",
+   "reworded_task_id": "COL-CRE-DIR-G7arcm4-002-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.636,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-CRE-DIR-B02m4X3-001",
+   "reworded_task_id": "COL-CRE-DIR-B02m4X3-001-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.688,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "column named 'post 674' on the storey with",
+    "named 'post 674' on the storey with globalid"
+   ]
+  },
+  {
+   "task_id": "COL-CRE-TOP-B11-011",
+   "reworded_task_id": null,
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.96"
+    ],
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-CRE-TOP-G7structure-002",
+   "reworded_task_id": "COL-CRE-TOP-G7structure-002-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.88"
+    ],
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": 0.64,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-CRE-TOP-B06-001",
+   "reworded_task_id": "COL-CRE-TOP-B06-001-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.656,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "its lowest corner at 7.44 6.47 -0.45 m."
+   ]
+  },
+  {
+   "task_id": "COL-CRE-TOP-B11-037",
+   "reworded_task_id": "COL-CRE-TOP-B11-037-rw",
+   "family": "column",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.93"
+    ]
+   ],
+   "word_overlap_final": 0.704,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-DEL-DIR-B46-084",
+   "reworded_task_id": "COL-DEL-DIR-B46-084-rw",
+   "family": "column",
+   "operation": "delete",
+   "building_id": "BLD040",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.786,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-DEL-DIR-B46m4-002",
+   "reworded_task_id": "COL-DEL-DIR-B46m4-002-rw",
+   "family": "column",
+   "operation": "delete",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.571,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-DEL-SPA-B46m4X3-010",
+   "reworded_task_id": "COL-DEL-SPA-B46m4X3-010-rw",
+   "family": "column",
+   "operation": "delete",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.789,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46m4X3-009",
+   "reworded_task_id": "COL-UPD-DIR-B46m4X3-009-rw",
+   "family": "column",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.625,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46m4X3-002",
+   "reworded_task_id": "COL-UPD-DIR-B46m4X3-002-rw",
+   "family": "column",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "word_overlap_final": 0.571,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-UPD-SPA-B39m4X3-011",
+   "reworded_task_id": "COL-UPD-SPA-B39m4X3-011-rw",
+   "family": "column",
+   "operation": "update",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.765,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 15,
+   "shared_8grams": [
+    "' _ _2 _ . . b40 f100",
+    "+x of the column named ' _ _2",
+    ". . b40 f100 _ _600 x 600",
+    ". b40 f100 _ _600 x 600 2641508'",
+    "31.1 m east +x of the column named"
+   ]
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46-038",
+   "reworded_task_id": "COL-UPD-DIR-B46-038-rw",
+   "family": "column",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.5,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46m4-021",
+   "reworded_task_id": "COL-UPD-DIR-B46m4-021-rw",
+   "family": "column",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.667,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-UPD-SPA-B11m4X3-001",
+   "reworded_task_id": "COL-UPD-SPA-B11m4X3-001-rw",
+   "family": "column",
+   "operation": "update",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": 0.562,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46m4X3-050",
+   "reworded_task_id": "COL-UPD-DIR-B46m4X3-050-rw",
+   "family": "column",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.727,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "COL-UPD-DIR-B39-001",
+   "reworded_task_id": "COL-UPD-DIR-B39-001-rw",
+   "family": "column",
+   "operation": "update",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.692,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-025",
+   "reworded_task_id": "DOR-CRE-TOP-B16m4X3-025-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": 0.688,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "'doorset 408' 1.01 m wide and 2.1 m",
+    "a door named 'doorset 408' 1.01 m wide",
+    "door named 'doorset 408' 1.01 m wide and",
+    "named 'doorset 408' 1.01 m wide and 2.1"
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16-018",
+   "reworded_task_id": "DOR-CRE-TOP-B16-018-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.767,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-027",
+   "reworded_task_id": null,
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.97"
+    ],
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4-013",
+   "reworded_task_id": "DOR-CRE-TOP-B16m4-013-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": 0.758,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "with the middle of the leaf 2.32 metres"
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-039",
+   "reworded_task_id": "DOR-CRE-TOP-B16m4X3-039-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": 0.727,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-CRE-SPA-B39m4X3-017",
+   "reworded_task_id": "DOR-CRE-SPA-B39m4X3-017-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.87"
+    ],
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": 0.774,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 11,
+   "shared_8grams": [
+    "' _ . . b40 f150 w12 _",
+    "-y of the wall named ' _ .",
+    "8.5 m south -y of the wall named",
+    "_ . . b40 f150 w12 _ _500_",
+    "about 8.5 m south -y of the wall"
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-SPA-B16m4X3-002",
+   "reworded_task_id": "DOR-CRE-SPA-B16m4X3-002-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.743,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 15,
+   "shared_8grams": [
+    "1.22 metres wide and 2.1 metres high at",
+    "2.1 metres high at the same position along",
+    "along the wall and standing on the wall's",
+    "and 2.1 metres high at the same position",
+    "at the same position along the wall and"
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-012",
+   "reworded_task_id": "DOR-CRE-TOP-B16m4X3-012-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.94"
+    ]
+   ],
+   "word_overlap_final": 0.677,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-CRE-SPA-B04-001",
+   "reworded_task_id": "DOR-CRE-SPA-B04-001-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ],
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 9,
+   "shared_8grams": [
+    "'doorset 583' 2.7 m wide and 2.1 m",
+    "27.0 m east +x of the window with",
+    "583' 2.7 m wide and 2.1 m high",
+    "a door named 'doorset 583' 2.7 m wide",
+    "about 27.0 m east +x of the window"
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16-027",
+   "reworded_task_id": null,
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.87"
+    ]
+   ],
+   "word_overlap_final": 0.774,
+   "instruction_changed": true,
+   "audit_rejected": "changes the target's anchor: the original window bounds the space 'FLUR-1-4'; the rewording points at 'the wall bounding the space' and its window, which can name a different window",
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-CRE-DIR-B39-010",
+   "reworded_task_id": null,
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.93"
+    ],
+    [
+     "overlap:0.93"
+    ],
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-002",
+   "reworded_task_id": "DOR-CRE-TOP-B16m4X3-002-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.781,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 18,
+   "shared_8grams": [
+    "'doorset 321' 0.9 m wide and 2.1 m",
+    "0.9 m wide and 2.1 m high at",
+    "2.1 m high at the same position along",
+    "321' 0.9 m wide and 2.1 m high",
+    "a door named 'doorset 321' 0.9 m wide"
+   ]
+  },
+  {
+   "task_id": "DOR-CRE-SPA-G7arc-003",
+   "reworded_task_id": "DOR-CRE-SPA-G7arc-003-rw",
+   "family": "door",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 10,
+   "shared_8grams": [
+    "'2 secondfloor' directly above the wall named '",
+    "above the wall named ' generic - 300mm",
+    "directly above the wall named ' generic -",
+    "in the wall on storey '2 secondfloor' directly",
+    "on storey '2 secondfloor' directly above the wall"
+   ]
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B07m4X3-002",
+   "reworded_task_id": "DOR-DEL-TOP-B07m4X3-002-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.636,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the door hosted in the wall with globalid"
+   ]
+  },
+  {
+   "task_id": "DOR-DEL-DIR-B06-001",
+   "reworded_task_id": "DOR-DEL-DIR-B06-001-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.6,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B02m4X3-007",
+   "reworded_task_id": "DOR-DEL-TOP-B02m4X3-007-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.69,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-DEL-SPA-B16m4-005",
+   "reworded_task_id": "DOR-DEL-SPA-B16m4-005-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ],
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": 0.792,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 9,
+   "shared_8grams": [
+    "0vixt75ptd0eshxaa3ae4q and the space with id 3nyzmtljhctwfankcewqwn and",
+    "forms with the space with id 0vixt75ptd0eshxaa3ae4q and",
+    "id 0vixt75ptd0eshxaa3ae4q and the space with id 3nyzmtljhctwfankcewqwn",
+    "on storey '2.og' directly above the door with",
+    "space with id 0vixt75ptd0eshxaa3ae4q and the space with"
+   ]
+  },
+  {
+   "task_id": "DOR-DEL-DIR-B02-001",
+   "reworded_task_id": "DOR-DEL-DIR-B02-001-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD035",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.667,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B24m4X3-011",
+   "reworded_task_id": "DOR-DEL-TOP-B24m4X3-011-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD031",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.667,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B16-012",
+   "reworded_task_id": "DOR-DEL-TOP-B16-012-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.643,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-DEL-SPA-B16-017",
+   "reworded_task_id": "DOR-DEL-SPA-B16-017-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "ifcdoor on storey '1.og' directly above the door",
+    "on storey '1.og' directly above the door named",
+    "storey '1.og' directly above the door named 'eg-terrasse-4-1'",
+    "the ifcdoor on storey '1.og' directly above the"
+   ]
+  },
+  {
+   "task_id": "DOR-DEL-TOP-G7arcm4X3-013",
+   "reworded_task_id": "DOR-DEL-TOP-G7arcm4X3-013-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.706,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "in the wall named ' generic - 100mm",
+    "the wall named ' generic - 100mm 439587'"
+   ]
+  },
+  {
+   "task_id": "DOR-DEL-SPA-B16-011",
+   "reworded_task_id": null,
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.84"
+    ],
+    [
+     "missing_word:only"
+    ],
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-DEL-SPA-G7arc-005",
+   "reworded_task_id": "DOR-DEL-SPA-G7arc-005-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "word_overlap_final": 0.667,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B16-004",
+   "reworded_task_id": "DOR-DEL-TOP-B16-004-rw",
+   "family": "door",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.688,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-UPD-SPA-B27-015",
+   "reworded_task_id": "DOR-UPD-SPA-B27-015-rw",
+   "family": "door",
+   "operation": "update",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.714,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 6,
+   "shared_8grams": [
+    "+x of the door named 'yd-02 990x2090 -",
+    "4.9 m east +x of the door named",
+    "about 4.9 m east +x of the door",
+    "east +x of the door named 'yd-02 990x2090",
+    "m east +x of the door named 'yd-02"
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-TOP-G7arcm4-015",
+   "reworded_task_id": "DOR-UPD-TOP-G7arcm4-015-rw",
+   "family": "door",
+   "operation": "update",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.731,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "1.12 m along that wall from its start",
+    "into the wall named ' generic - 300mm",
+    "m along that wall from its start point",
+    "the wall named ' generic - 300mm 819557'"
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-SPA-G7arcm4X3-003",
+   "reworded_task_id": null,
+   "family": "door",
+   "operation": "update",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.87"
+    ],
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.633,
+   "instruction_changed": true,
+   "audit_rejected": "reorders the edit: 'make the door's current host wall whole, then relocate the door' with its opening, contradictory if read as written (the 85-set rejection DOR-UPD-DIR-B18m4X3-001-x3c)",
+   "in_eval_file": false,
+   "shared_8gram_count": 5,
+   "shared_8grams": [
+    "+x of the column named 'm_rectangular column a-col-300x300",
+    "2.3 m east +x of the column named",
+    "east +x of the column named 'm_rectangular column",
+    "m east +x of the column named 'm_rectangular",
+    "the wall named ' generic - 100mm 437664'"
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-SPA-G8arcm4X3-007",
+   "reworded_task_id": "DOR-UPD-SPA-G8arcm4X3-007-rw",
+   "family": "door",
+   "operation": "update",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.708,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 8,
+   "shared_8grams": [
+    "'doo - 052' by 3.7 metres in the",
+    "- 052' by 3.7 metres in the +y",
+    "052' by 3.7 metres in the +y direction",
+    "below the door named 'doo - 052' by",
+    "directly below the door named 'doo - 052'"
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-SPA-B16m4X3-003",
+   "reworded_task_id": null,
+   "family": "door",
+   "operation": "update",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.93"
+    ],
+    [
+     "overlap:0.93"
+    ],
+    [
+     "overlap:0.93"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-UPD-DIR-B27m4X3-002",
+   "reworded_task_id": "DOR-UPD-DIR-B27m4X3-002-rw",
+   "family": "door",
+   "operation": "update",
+   "building_id": "BLD018",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.727,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "DOR-UPD-DIR-G7arc-002",
+   "reworded_task_id": "DOR-UPD-DIR-G7arc-002-rw",
+   "family": "door",
+   "operation": "update",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.577,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the wall named ' generic - 200mm 426742'"
+   ]
+  },
+  {
+   "task_id": "DOR-UPD-TOP-G7arc-011",
+   "reworded_task_id": "DOR-UPD-TOP-G7arc-011-rw",
+   "family": "door",
+   "operation": "update",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.84"
+    ],
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "word_overlap_final": 0.72,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B27m4X3-005",
+   "reworded_task_id": "SLB-CRE-TOP-B27m4X3-005-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.7,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 6,
+   "shared_8grams": [
+    "0.2 m thick with its base corner at",
+    "base corner at 8.63 1.95 0.00 m in",
+    "its base corner at 8.63 1.95 0.00 m",
+    "m thick with its base corner at 8.63",
+    "thick with its base corner at 8.63 1.95"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-DIR-B39m4X3-013",
+   "reworded_task_id": "SLB-CRE-DIR-B39m4X3-013-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.82"
+    ],
+    [
+     "overlap:0.90"
+    ]
+   ],
+   "word_overlap_final": 0.795,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "at -9869.41 1570.87 -2.10 m in world coordinates",
+    "corner at -9869.41 1570.87 -2.10 m in world",
+    "its lowest corner at -9869.41 1570.87 -2.10 m",
+    "lowest corner at -9869.41 1570.87 -2.10 m in"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-SPA-G8structure-013",
+   "reworded_task_id": "SLB-CRE-SPA-G8structure-013-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.741,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "the wall named 'basic wall 175 mm 489415'",
+    "wall named 'basic wall 175 mm 489415' and"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-SPA-G8arc-005",
+   "reworded_task_id": "SLB-CRE-SPA-G8arc-005-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.5,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B16-023",
+   "reworded_task_id": "SLB-CRE-TOP-B16-023-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.742,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-CRE-DIR-B38m4X3-005",
+   "reworded_task_id": "SLB-CRE-DIR-B38m4X3-005-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.438,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B16-009",
+   "reworded_task_id": "SLB-CRE-TOP-B16-009-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.724,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "bounds the space 'zimmer-5-1' and the space 'zimmer-5-2'.",
+    "it bounds the space 'zimmer-5-1' and the space"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B11-010",
+   "reworded_task_id": "SLB-CRE-TOP-B11-010-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.774,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "base corner at 11.55 -14.85 0.00 m in",
+    "its base corner at 11.55 -14.85 0.00 m"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-SPA-G8structurem4X3-005",
+   "reworded_task_id": "SLB-CRE-SPA-G8structurem4X3-005-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.667,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 5,
+   "shared_8grams": [
+    "'foundation slab foundation 450 mm 463971' on storey",
+    "450 mm 463971' on storey 'level 1 _",
+    "foundation 450 mm 463971' on storey 'level 1",
+    "mm 463971' on storey 'level 1 _ foundation'",
+    "slab foundation 450 mm 463971' on storey 'level"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-DIR-B38m4-001",
+   "reworded_task_id": "SLB-CRE-DIR-B38m4-001-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.697,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "the column named 'm_w-wide flange-column w250x67 w250x67 170269'.",
+    "to the column named 'm_w-wide flange-column w250x67 w250x67"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-SPA-G8structurem4X3-001",
+   "reworded_task_id": "SLB-CRE-SPA-G8structurem4X3-001-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.741,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 11,
+   "shared_8grams": [
+    "'basic wall 175 mm 441374' over the same",
+    "directly on top of the wall named 'basic",
+    "named 'basic wall 175 mm 441374' over the",
+    "of the wall named 'basic wall 175 mm",
+    "on top of the wall named 'basic wall"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B16m4-005",
+   "reworded_task_id": "SLB-CRE-TOP-B16m4-005-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.719,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B02-003",
+   "reworded_task_id": "SLB-CRE-TOP-B02-003-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD035",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "word_overlap_final": 0.724,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 9,
+   "shared_8grams": [
+    "'basic wall interior - 6 1 8 partition",
+    "and the wall named 'basic wall interior -",
+    "directly on top of the wall with globalid",
+    "interior - 6 1 8 partition 2-hr 193124'.",
+    "named 'basic wall interior - 6 1 8"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-SPA-B02-002",
+   "reworded_task_id": "SLB-CRE-SPA-B02-002-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD035",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.784,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 23,
+   "shared_8grams": [
+    "'basic wall interior - 4 7 8 partition",
+    "+y of the wall named 'basic wall interior",
+    "-x and 6 m to the north +y",
+    "4 m by 4 m in plan and",
+    "6 m to the north +y of the"
+   ]
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B11m4X3-003",
+   "reworded_task_id": "SLB-CRE-TOP-B11m4X3-003-rw",
+   "family": "slab",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "word_overlap_final": 0.789,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 3,
+   "shared_8grams": [
+    "'deck 133' 'deck 134' and 'deck 135' in",
+    "133' 'deck 134' and 'deck 135' in that",
+    "of the only slab contained in storey 'vundament'"
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-DIR-B46-003",
+   "reworded_task_id": "SLB-DEL-DIR-B46-003-rw",
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "BLD040",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B38m4-004",
+   "reworded_task_id": "SLB-DEL-TOP-B38m4-004-rw",
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B16-007",
+   "reworded_task_id": "SLB-DEL-TOP-B16-007-rw",
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.619,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-DEL-TOP-G7structure-023",
+   "reworded_task_id": "SLB-DEL-TOP-G7structure-023-rw",
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.773,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-DEL-SPA-B24m4X3-001",
+   "reworded_task_id": "SLB-DEL-SPA-B24m4X3-001-rw",
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "BLD031",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.731,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 3,
+   "shared_8grams": [
+    "28.2 m north +y of the slab named",
+    "about 28.2 m north +y of the slab",
+    "m north +y of the slab named 'dalle-529'"
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B39-007",
+   "reworded_task_id": "SLB-DEL-TOP-B39-007-rw",
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.625,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B39-002",
+   "reworded_task_id": null,
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "word_overlap_final": 0.571,
+   "instruction_changed": true,
+   "audit_rejected": "turns the identifying condition into a presupposition: 'Since it is not linked to any other element ... remove the sole slab on storey' instead of the only slab on the storey that has no connection",
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-DEL-SPA-G8arcm4X3-001",
+   "reworded_task_id": "SLB-DEL-SPA-G8arcm4X3-001-rw",
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.737,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "nearest to the slab whose globalid is 0xrooeusbmgary2gud6hdm"
+   ]
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B38m4-003",
+   "reworded_task_id": "SLB-DEL-TOP-B38m4-003-rw",
+   "family": "slab",
+   "operation": "delete",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "word_overlap_final": 0.619,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B46-040",
+   "reworded_task_id": "SLB-UPD-DIR-B46-040-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "word_overlap_final": 0.6,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-UPD-TOP-B16m4-002",
+   "reworded_task_id": "SLB-UPD-TOP-B16m4-002-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.786,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 3,
+   "shared_8grams": [
+    "room with globalid '0dxra4mrjcyahm10rhn$jj' from the room with",
+    "the room with globalid '0dxra4mrjcyahm10rhn$jj' from the room",
+    "with globalid '0dxra4mrjcyahm10rhn$jj' from the room with globalid"
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-SPA-B46m4-013",
+   "reworded_task_id": "SLB-UPD-SPA-B46m4-013-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.90"
+    ]
+   ],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "4.1 m down -z of the slab named",
+    "about 4.1 m down -z of the slab"
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B46m4X3-049",
+   "reworded_task_id": "SLB-UPD-DIR-B46m4X3-049-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.727,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-UPD-SPA-B46m4-041",
+   "reworded_task_id": "SLB-UPD-SPA-B46m4-041-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.773,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-UPD-TOP-B11m4X3-007",
+   "reworded_task_id": "SLB-UPD-TOP-B11m4X3-007-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": 0.6,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B46m4-036",
+   "reworded_task_id": "SLB-UPD-DIR-B46m4-036-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.722,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SLB-UPD-SPA-B46m4-024",
+   "reworded_task_id": "SLB-UPD-SPA-B46m4-024-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "BLD040",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.667,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 5,
+   "shared_8grams": [
+    "across the vertical plane at y 5.5 meters",
+    "named 'pc2c'' on the storey with globalid '0b15d9oaxdxbqh7kia$qm8'",
+    "slab named 'pc2c'' on the storey with globalid",
+    "the slab named 'pc2c'' on the storey with",
+    "to the slab named 'pc2c'' on the storey"
+   ]
+  },
+  {
+   "task_id": "SLB-UPD-TOP-G7structurem4-009",
+   "reworded_task_id": "SLB-UPD-TOP-G7structurem4-009-rw",
+   "family": "slab",
+   "operation": "update",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.704,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-CRE-DIR-B45m4X3-001",
+   "reworded_task_id": "SPC-CRE-DIR-B45m4X3-001-rw",
+   "family": "space",
+   "operation": "create",
+   "building_id": "BLD038",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.91"
+    ],
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "word_overlap_final": 0.771,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 8,
+   "shared_8grams": [
+    "at -76.31 4.44 49.00 m in world coordinates",
+    "axes which run 13 degrees counter-clockwise from the",
+    "corner at -76.31 4.44 49.00 m in world",
+    "its lowest corner at -76.31 4.44 49.00 m",
+    "lowest corner at -76.31 4.44 49.00 m in"
+   ]
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B11m4-006",
+   "reworded_task_id": null,
+   "family": "space",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.84"
+    ],
+    [
+     "overlap:0.84"
+    ],
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-CRE-TOP-G8arc-002",
+   "reworded_task_id": "SPC-CRE-TOP-G8arc-002-rw",
+   "family": "space",
+   "operation": "create",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.769,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 3,
+   "shared_8grams": [
+    "on the storey that contains the ifcwall with",
+    "the storey that contains the ifcwall with globalid",
+    "with its lowest corner at 8.95 7.77 4.00"
+   ]
+  },
+  {
+   "task_id": "SPC-CRE-TOP-B27m4X3-002",
+   "reworded_task_id": "SPC-CRE-TOP-B27m4X3-002-rw",
+   "family": "space",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.792,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 8,
+   "shared_8grams": [
+    "4 m long 3 m wide and 2.9",
+    "ifcwall named '+yv b rende-bindingsverk tre 18+200+50+15 parapet",
+    "its lowest corner at 8.01 4.56 10.85 m.",
+    "long 3 m wide and 2.9 m high",
+    "m long 3 m wide and 2.9 m"
+   ]
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B27-001",
+   "reworded_task_id": "SPC-CRE-SPA-B27-001-rw",
+   "family": "space",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "word_overlap_final": 0.636,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-CRE-DIR-G7structurem4-001",
+   "reworded_task_id": null,
+   "family": "space",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.87"
+    ],
+    [
+     "overlap:0.91"
+    ],
+    [
+     "overlap:0.87"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B02m4X3-001",
+   "reworded_task_id": null,
+   "family": "space",
+   "operation": "create",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.92"
+    ],
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-CRE-TOP-B39-005",
+   "reworded_task_id": "SPC-CRE-TOP-B39-005-rw",
+   "family": "space",
+   "operation": "create",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "word_overlap_final": 0.757,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 18,
+   "shared_8grams": [
+    "' _ _2 _ . . b35 f150",
+    ". . b35 f150 w12 _ _500 x",
+    ". b35 f150 w12 _ _500 x 500",
+    "4 m long 3 m wide and 2.6",
+    "_ . . b35 f150 w12 _ _500"
+   ]
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B38m4X3-001",
+   "reworded_task_id": "SPC-CRE-SPA-B38m4X3-001-rw",
+   "family": "space",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.792,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 14,
+   "shared_8grams": [
+    "'first floor' 4 m long 3 m wide",
+    "+x and 3 m to the north +y",
+    "3 m to the east +x and 3",
+    "4 m long 3 m wide and 4.47",
+    "base corner 3 m to the east +x"
+   ]
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B02m4-002",
+   "reworded_task_id": "SPC-CRE-SPA-B02m4-002-rw",
+   "family": "space",
+   "operation": "create",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.769,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 11,
+   "shared_8grams": [
+    "'basic wall interior - 6 1 8 partition",
+    "+y of the wall named 'basic wall interior",
+    "4 m long 3 m wide and 4.78",
+    "interior - 6 1 8 partition 2-hr 188384'.",
+    "m long 3 m wide and 4.78 m"
+   ]
+  },
+  {
+   "task_id": "SPC-DEL-TOP-B25m4-005",
+   "reworded_task_id": "SPC-DEL-TOP-B25m4-005-rw",
+   "family": "space",
+   "operation": "delete",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "word_overlap_final": 0.722,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-DEL-DIR-B04m4X3-001",
+   "reworded_task_id": "SPC-DEL-DIR-B04m4X3-001-rw",
+   "family": "space",
+   "operation": "delete",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.467,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-DEL-DIR-G7arc-002",
+   "reworded_task_id": "SPC-DEL-DIR-G7arc-002-rw",
+   "family": "space",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.789,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-DEL-DIR-B02m4X3-001",
+   "reworded_task_id": "SPC-DEL-DIR-B02m4X3-001-rw",
+   "family": "space",
+   "operation": "delete",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.692,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-DEL-SPA-B53m4-001",
+   "reworded_task_id": "SPC-DEL-SPA-B53m4-001-rw",
+   "family": "space",
+   "operation": "delete",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.696,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 6,
+   "shared_8grams": [
+    "ifcspace nearest to the space named '3r01' on",
+    "nearest to the space named '3r01' on storey",
+    "space named '3r01' on storey 'roof - mech'",
+    "the ifcspace nearest to the space named '3r01'",
+    "the space named '3r01' on storey 'roof -"
+   ]
+  },
+  {
+   "task_id": "SPC-UPD-TOP-B16-034",
+   "reworded_task_id": "SPC-UPD-TOP-B16-034-rw",
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.571,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the space bounded by the wall named 'keller-a-5-2'"
+   ]
+  },
+  {
+   "task_id": "SPC-UPD-DIR-B58-001",
+   "reworded_task_id": "SPC-UPD-DIR-B58-001-rw",
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.769,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-UPD-SPA-B53m4-004",
+   "reworded_task_id": "SPC-UPD-SPA-B53m4-004-rw",
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": 0.72,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "SPC-UPD-TOP-B16m4X3-045",
+   "reworded_task_id": "SPC-UPD-TOP-B16m4X3-045-rw",
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.625,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 3,
+   "shared_8grams": [
+    "by the wall named '1og-a-1-1' and the wall",
+    "the wall named '1og-a-1-1' and the wall named",
+    "wall named '1og-a-1-1' and the wall named '1og-i-1-3'"
+   ]
+  },
+  {
+   "task_id": "SPC-UPD-SPA-B11-005",
+   "reworded_task_id": "SPC-UPD-SPA-B11-005-rw",
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "word_overlap_final": 0.727,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-MSW-TOP-B25m4-036",
+   "reworded_task_id": "CHN-MSW-TOP-B25m4-036-rw",
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "word_overlap_final": 0.471,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 5,
+   "shared_8grams": [
+    "'basic wall interior - furring 38 mm stud",
+    "named 'basic wall interior - furring 38 mm",
+    "the wall named 'basic wall interior - furring",
+    "wall interior - furring 38 mm stud 353693'",
+    "wall named 'basic wall interior - furring 38"
+   ]
+  },
+  {
+   "task_id": "SPC-UPD-TOP-B25-001",
+   "reworded_task_id": null,
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.93"
+    ]
+   ],
+   "word_overlap_final": 0.786,
+   "instruction_changed": true,
+   "audit_rejected": "changes the edit: 'create the mirrored counterpart of the IfcSpace' asks for a mirrored copy; the original mirrors the existing space",
+   "in_eval_file": false,
+   "shared_8gram_count": 23,
+   "shared_8grams": [
+    "'basic wall interior - furring 152 mm stud",
+    "'basic wall interior - furring 38 mm stud",
+    "- furring 152 mm stud 180035' and the",
+    "152 mm stud 180035' and the wall named",
+    "180035' and the wall named 'basic wall interior"
+   ]
+  },
+  {
+   "task_id": "SPC-UPD-TOP-B25m4-006",
+   "reworded_task_id": "SPC-UPD-TOP-B25m4-006-rw",
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.562,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the space bounded by the wall identified as"
+   ]
+  },
+  {
+   "task_id": "SPC-UPD-SPA-B16m4X3-001",
+   "reworded_task_id": "SPC-UPD-SPA-B16m4X3-001-rw",
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-MSW-TOP-B25-027",
+   "reworded_task_id": null,
+   "family": "space",
+   "operation": "update",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.765,
+   "instruction_changed": true,
+   "audit_rejected": "misleading object: 'The bounding walls are identified as A and B' while the request moves 6 bounding walls; the two ids identified the space, not the walls to move",
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-CRE-DIR-B38-016",
+   "reworded_task_id": "WAL-CRE-DIR-B38-016-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.667,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-CRE-SPA-B07-001",
+   "reworded_task_id": "WAL-CRE-SPA-B07-001-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.733,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 7,
+   "shared_8grams": [
+    "named '6' on storey ' . . .'",
+    "nearest to the space named '6' on storey",
+    "space named '6' on storey ' . .",
+    "the space named '6' on storey ' .",
+    "the wall nearest to the space named '6'"
+   ]
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B38-009",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ],
+    [
+     "overlap:0.89"
+    ],
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-CRE-DIR-G7structure-006",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.88"
+    ],
+    [
+     "overlap:0.83"
+    ],
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B06-002",
+   "reworded_task_id": "CHN-CWD-TOP-B06-002-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.87"
+    ],
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "word_overlap_final": 0.689,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 9,
+   "shared_8grams": [
+    "1.55 m along the wall from its start",
+    "18.19 9.78 0.00 m in that storey's own",
+    "9.78 0.00 m in that storey's own coordinates.",
+    "along the wall from its start point and",
+    "at 18.19 9.78 0.00 m in that storey's"
+   ]
+  },
+  {
+   "task_id": "WAL-CRE-SPA-G8structure-003",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.636,
+   "instruction_changed": true,
+   "audit_rejected": "the verb's object changes: 'create a copy ... by moving the wall' invites moving the original wall",
+   "in_eval_file": false,
+   "shared_8gram_count": 3,
+   "shared_8grams": [
+    "the wall named 'basic wall 175 mm 488917'",
+    "the wall on storey 'level 2 _ gl'",
+    "wall on storey 'level 2 _ gl' that"
+   ]
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B27-024",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.95"
+    ],
+    [
+     "overlap:0.87"
+    ],
+    [
+     "overlap:0.87"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B11m4-007",
+   "reworded_task_id": "CHN-CWD-TOP-B11m4-007-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.684,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "-20.68 0.00 m in that storey's own coordinates.",
+    "1.55 m along the wall from its start",
+    "22.10 -20.68 0.00 m in that storey's own",
+    "m along the wall from its start point"
+   ]
+  },
+  {
+   "task_id": "CHN-CWD-TOP-G7structure-003",
+   "reworded_task_id": "CHN-CWD-TOP-G7structure-003-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.757,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "4 m long 0.2 m thick and 3.5",
+    "base corner at -4.89 -4.84 0.00 m in",
+    "its base corner at -4.89 -4.84 0.00 m",
+    "m long 0.2 m thick and 3.5 m"
+   ]
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B11-003",
+   "reworded_task_id": "CHN-CWD-TOP-B11-003-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.89"
+    ],
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "word_overlap_final": 0.684,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-DIR-B45m4-001",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD038",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.92"
+    ],
+    [
+     "overlap:0.86"
+    ],
+    [
+     "missing_word:door",
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-DIR-B11m4-003",
+   "reworded_task_id": "CHN-CWD-DIR-B11m4-003-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "word_overlap_final": 0.771,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-TOP-G7structure-006",
+   "reworded_task_id": "CHN-CWD-TOP-G7structure-006-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ],
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 8,
+   "shared_8grams": [
+    "1.55 m along the wall from its start",
+    "along the wall from its start point and",
+    "base corner at -4.78 -5.35 0.00 m in",
+    "its base corner at -4.78 -5.35 0.00 m",
+    "m along the wall from its start point"
+   ]
+  },
+  {
+   "task_id": "CHN-CWD-SPA-B39-001",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.80"
+    ],
+    [
+     "overlap:0.86"
+    ],
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-SPA-B27-005",
+   "reworded_task_id": "CHN-CWD-SPA-B27-005-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.89"
+    ]
+   ],
+   "word_overlap_final": 0.714,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "base corner at 11.72 -5.12 0.00 m in",
+    "corner at 11.72 -5.12 0.00 m in that"
+   ]
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B27-025",
+   "reworded_task_id": "CHN-CWD-TOP-B27-025-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.737,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 9,
+   "shared_8grams": [
+    "1.55 m along the wall from its start",
+    "4 m long 0.2 m thick and 2.9",
+    "base corner at 13.62 -0.51 0.00 m in",
+    "its base corner at 13.62 -0.51 0.00 m",
+    "long 0.2 m thick and 2.9 m high"
+   ]
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B38-011",
+   "reworded_task_id": "CHN-CWD-TOP-B38-011-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.703,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B27-002",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.89"
+    ],
+    [
+     "overlap:0.83"
+    ],
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B11-006",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.95"
+    ],
+    [
+     "overlap:0.84"
+    ],
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-SPA-B39-009",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ],
+    [
+     "overlap:0.89"
+    ],
+    [
+     "overlap:0.80"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B11-001",
+   "reworded_task_id": "CHN-CWD-TOP-B11-001-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.82"
+    ],
+    [
+     "overlap:0.87"
+    ]
+   ],
+   "word_overlap_final": 0.769,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 9,
+   "shared_8grams": [
+    "1.55 m along the wall from its start",
+    "14.41 -13.79 0.00 m in that storey's own",
+    "along the wall from its start point and",
+    "at 14.41 -13.79 0.00 m in that storey's",
+    "base corner at 14.41 -13.79 0.00 m in"
+   ]
+  },
+  {
+   "task_id": "WAL-CRE-TOP-B11m4-003",
+   "reworded_task_id": "WAL-CRE-TOP-B11m4-003-rw",
+   "family": "wall",
+   "operation": "create",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.84"
+    ],
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": 0.71,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "its base corner at 12.69 -23.80 0.00 m"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B16m4-028",
+   "reworded_task_id": "CHN-DWF-TOP-B16m4-028-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": 0.52,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-SPA-B39m4X3-001",
+   "reworded_task_id": "WAL-DEL-SPA-B39m4X3-001-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.762,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "17.3 m north +y of the column with",
+    "about 17.3 m north +y of the column",
+    "m north +y of the column with id",
+    "north +y of the column with id 2cfuxawh1dfex5auqojpem"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B16-004",
+   "reworded_task_id": "CHN-DWF-SPA-B16-004-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.778,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B27-003",
+   "reworded_task_id": "CHN-DWF-SPA-B27-003-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "word_overlap_final": 0.682,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 8,
+   "shared_8grams": [
+    "+x of the wall named '+yv b rende-bindingsverk",
+    "4.9 m east +x of the wall named",
+    "about 4.9 m east +x of the wall",
+    "east +x of the wall named '+yv b",
+    "m east +x of the wall named '+yv"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B11m4-008",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.88"
+    ],
+    [
+     "missing_word:between"
+    ],
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-TOP-G8arc-014",
+   "reworded_task_id": "CHN-DWF-TOP-G8arc-014-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.765,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "in which the door with globalid '32pr3vlyh2jbgef7zu3df2' is",
+    "the wall in which the door with globalid",
+    "wall in which the door with globalid '32pr3vlyh2jbgef7zu3df2'",
+    "which the door with globalid '32pr3vlyh2jbgef7zu3df2' is located"
+   ]
+  },
+  {
+   "task_id": "WAL-DEL-DIR-G7structurem4X3-003",
+   "reworded_task_id": "WAL-DEL-DIR-G7structurem4X3-003-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.571,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the walls with globalids '01hwxlac9eth7yivlsemyf' '01hwxlac9eth7yivlsennn' '01hwxlac9eth7yivlse$yh' and"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B07-004",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.643,
+   "instruction_changed": true,
+   "audit_rejected": "misleading object: 'the opening the wall filled'; the opening was filled by the door",
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-DIR-B16m4X3-002",
+   "reworded_task_id": "WAL-DEL-DIR-B16m4X3-002-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.542,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B24m4X3-020",
+   "reworded_task_id": "CHN-DWF-DIR-B24m4X3-020-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD031",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.786,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-TOP-G7arcm4-005",
+   "reworded_task_id": "WAL-DEL-TOP-G7arcm4-005-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": 0.765,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-TOP-B38m4X3-010",
+   "reworded_task_id": "WAL-DEL-TOP-B38m4X3-010-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.667,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 7,
+   "shared_8grams": [
+    "connected to the wall named 'basic wall foundation",
+    "ifcwall connected to the wall named 'basic wall",
+    "named 'basic wall foundation - concrete 264mm 223413'",
+    "the ifcwall connected to the wall named 'basic",
+    "the wall named 'basic wall foundation - concrete"
+   ]
+  },
+  {
+   "task_id": "WAL-DEL-TOP-G8structure-012",
+   "reworded_task_id": "WAL-DEL-TOP-G8structure-012-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.708,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B16m4X3-020",
+   "reworded_task_id": "CHN-DWF-TOP-B16m4X3-020-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.789,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the wall that holds the door id 31qbnwxgr1a9jr4viik0oz"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B06m4X3-010",
+   "reworded_task_id": "CHN-DWF-TOP-B06m4X3-010-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.778,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B11m4X3-028",
+   "reworded_task_id": "CHN-DWF-DIR-B11m4X3-028-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.714,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B07m4X3-001",
+   "reworded_task_id": "CHN-DWF-DIR-B07m4X3-001-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.571,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B16m4-037",
+   "reworded_task_id": "CHN-DWF-TOP-B16m4-037-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.692,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "2 windows hosted in the ifcwall on the",
+    "hosted in the ifcwall on the left-hand side",
+    "the 2 windows hosted in the ifcwall on",
+    "windows hosted in the ifcwall on the left-hand"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B24-015",
+   "reworded_task_id": "CHN-DWF-DIR-B24-015-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD031",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.625,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-TOP-B38m4X3-006",
+   "reworded_task_id": "WAL-DEL-TOP-B38m4X3-006-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": 0.647,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B02-002",
+   "reworded_task_id": "CHN-DWF-SPA-B02-002-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD035",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.682,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 12,
+   "shared_8grams": [
+    "'basic wall interior - 6 1 8 partition",
+    "+x of the wall named 'basic wall interior",
+    "8.3 m east +x of the wall named",
+    "about 8.3 m east +x of the wall",
+    "east +x of the wall named 'basic wall"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B16-015",
+   "reworded_task_id": "CHN-DWF-DIR-B16-015-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ]
+   ],
+   "word_overlap_final": 0.571,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B11-018",
+   "reworded_task_id": "CHN-DWF-DIR-B11-018-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.733,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B27-008",
+   "reworded_task_id": "CHN-DWF-DIR-B27-008-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.562,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-TOP-G7arcm4X3-005",
+   "reworded_task_id": "CHN-DWF-TOP-G7arcm4X3-005-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.625,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "connected to the wall named ' generic -",
+    "to the wall named ' generic - 100mm"
+   ]
+  },
+  {
+   "task_id": "WAL-DEL-DIR-B27-002",
+   "reworded_task_id": "WAL-DEL-DIR-B27-002-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.769,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B07m4X3-012",
+   "reworded_task_id": "CHN-DWF-SPA-B07m4X3-012-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.727,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "between the window with globalid '3xbq5bbg560bi8wx3pwo61' and the",
+    "the window with globalid '3xbq5bbg560bi8wx3pwo61' and the space",
+    "window with globalid '3xbq5bbg560bi8wx3pwo61' and the space with",
+    "with globalid '3xbq5bbg560bi8wx3pwo61' and the space with globalid"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B11m4X3-037",
+   "reworded_task_id": "CHN-DWF-DIR-B11m4X3-037-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD044",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.714,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-SPA-G7arc-002",
+   "reworded_task_id": "WAL-DEL-SPA-G7arc-002-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": 0.579,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-SPA-B38-002",
+   "reworded_task_id": "WAL-DEL-SPA-B38-002-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.737,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "CHN-DWF-TOP-G7arc-023",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.714,
+   "instruction_changed": true,
+   "audit_rejected": "misleading object: 'the opening that wall filled'; the opening was filled by the door",
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-TOP-B38-018",
+   "reworded_task_id": "WAL-DEL-TOP-B38-018-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.591,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 7,
+   "shared_8grams": [
+    "connected to the wall named 'basic wall foundation",
+    "named 'basic wall foundation - concrete 264mm 221623'",
+    "the wall connected to the wall named 'basic",
+    "the wall named 'basic wall foundation - concrete",
+    "to the wall named 'basic wall foundation -"
+   ]
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B16m4-019",
+   "reworded_task_id": "CHN-DWF-TOP-B16m4-019-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "word_overlap_final": 0.529,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-DEL-SPA-B16m4X3-001",
+   "reworded_task_id": "WAL-DEL-SPA-B16m4X3-001-rw",
+   "family": "wall",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "17.6 m east +x of the wall named",
+    "about 17.6 m east +x of the wall"
+   ]
+  },
+  {
+   "task_id": "WAL-UPD-TOP-B39m4X3-008",
+   "reworded_task_id": "WAL-UPD-TOP-B39m4X3-008-rw",
+   "family": "wall",
+   "operation": "update",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.562,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-UPD-TOP-B04-002",
+   "reworded_task_id": null,
+   "family": "wall",
+   "operation": "update",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "missing_quoted_name:'Окно - Витраж В-2: 4 000,00 мм x 1 500,00 мм'",
+     "added_quoted_name:'Окно - Витраж В-2: 4 000,00 мм x 1 500,00 мм'"
+    ],
+    [
+     "missing_quoted_name:'Окно - Витраж В-2: 4 000,00 мм x 1 500,00 мм'",
+     "added_quoted_name:'Окно - Витраж В-2: 4 000,00 мм x 1 500,00 мм'"
+    ],
+    [
+     "missing_quoted_name:'Окно - Витраж В-2: 4 000,00 мм x 1 500,00 мм'",
+     "added_quoted_name:'Окно - Витраж В-2: 4 000,00 мм x 1 500,00 мм'"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-UPD-SPA-B24-009",
+   "reworded_task_id": "WAL-UPD-SPA-B24-009-rw",
+   "family": "wall",
+   "operation": "update",
+   "building_id": "BLD031",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.722,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "5.9 m east +x of the wall with",
+    "about 5.9 m east +x of the wall",
+    "east +x of the wall with id 2kdhord4$vho5dvoudsmh_",
+    "m east +x of the wall with id"
+   ]
+  },
+  {
+   "task_id": "WAL-UPD-DIR-G7arc-002",
+   "reworded_task_id": "WAL-UPD-DIR-G7arc-002-rw",
+   "family": "wall",
+   "operation": "update",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.88"
+    ],
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.625,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-UPD-TOP-B02m4X3-001",
+   "reworded_task_id": "WAL-UPD-TOP-B02m4X3-001-rw",
+   "family": "wall",
+   "operation": "update",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.619,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 6,
+   "shared_8grams": [
+    "door named 'single-flush 3'-0 w x 7'-0 h_wood",
+    "object named 'basic wall interior - water wall'",
+    "the door named 'single-flush 3'-0 w x 7'-0",
+    "the type object named 'basic wall interior -",
+    "to the type object named 'basic wall interior"
+   ]
+  },
+  {
+   "task_id": "WAL-UPD-DIR-G8structure-001",
+   "reworded_task_id": "WAL-UPD-DIR-G8structure-001-rw",
+   "family": "wall",
+   "operation": "update",
+   "building_id": "GNI-project_8",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.5,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-UPD-SPA-B39-004",
+   "reworded_task_id": "WAL-UPD-SPA-B39-004-rw",
+   "family": "wall",
+   "operation": "update",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.72,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 10,
+   "shared_8grams": [
+    "' _ . . b35 f100 _ _250",
+    "-y of the wall named ' _ .",
+    "20.3 m south -y of the wall named",
+    "about 20.3 m south -y of the wall",
+    "m south -y of the wall named '"
+   ]
+  },
+  {
+   "task_id": "WAL-UPD-DIR-G7arcm4-002",
+   "reworded_task_id": "WAL-UPD-DIR-G7arcm4-002-rw",
+   "family": "wall",
+   "operation": "update",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.6,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WAL-UPD-TOP-B16-002",
+   "reworded_task_id": "WAL-UPD-TOP-B16-002-rw",
+   "family": "wall",
+   "operation": "update",
+   "building_id": "BLD003",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.778,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WIN-CRE-DIR-G7structure-006",
+   "reworded_task_id": "WIN-CRE-DIR-G7structure-006-rw",
+   "family": "window",
+   "operation": "create",
+   "building_id": "GNI-project_7",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": 0.778,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 3,
+   "shared_8grams": [
+    "1.69 m along the wall from its start",
+    "along the wall from its start point and",
+    "m along the wall from its start point"
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-SPA-B39-004",
+   "reworded_task_id": null,
+   "family": "window",
+   "operation": "create",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.94"
+    ],
+    [
+     "overlap:0.88"
+    ],
+    [
+     "overlap:0.88"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WIN-CRE-TOP-B25-011",
+   "reworded_task_id": "WIN-CRE-TOP-B25-011-rw",
+   "family": "window",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC2X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.82"
+    ]
+   ],
+   "word_overlap_final": 0.706,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "its sill 0.9 m above the wall's base.",
+    "with its sill 0.9 m above the wall's"
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-TOP-B25m4-002",
+   "reworded_task_id": "WIN-CRE-TOP-B25m4-002-rw",
+   "family": "window",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": 0.683,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "its sill 0.9 m above the wall's base.",
+    "with its sill 0.9 m above the wall's"
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-SPA-B39m4X3-018",
+   "reworded_task_id": "WIN-CRE-SPA-B39m4X3-018-rw",
+   "family": "window",
+   "operation": "create",
+   "building_id": "BLD042",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.94"
+    ],
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": 0.794,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 10,
+   "shared_8grams": [
+    "' _ . . b35 f100 _ _250",
+    "+x of the wall named ' _ .",
+    "37.2 m east +x of the wall named",
+    "about 37.2 m east +x of the wall",
+    "east +x of the wall named ' _"
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-TOP-B25m4-006",
+   "reworded_task_id": "WIN-CRE-TOP-B25m4-006-rw",
+   "family": "window",
+   "operation": "create",
+   "building_id": "BLD045",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.85"
+    ]
+   ],
+   "word_overlap_final": 0.758,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "its sill 0.9 m above the wall's base.",
+    "with its sill 0.9 m above the wall's"
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-DIR-B27m4-005",
+   "reworded_task_id": "WIN-CRE-DIR-B27m4-005-rw",
+   "family": "window",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC4",
+   "attempts": 3,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.86"
+    ],
+    [
+     "overlap:0.84"
+    ]
+   ],
+   "word_overlap_final": 0.73,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "1980 mm along the wall from its start",
+    "along the wall from its start point and",
+    "its sill 900 mm above the wall's base.",
+    "mm along the wall from its start point"
+   ]
+  },
+  {
+   "task_id": "WIN-CRE-DIR-B27m4-009",
+   "reworded_task_id": "WIN-CRE-DIR-B27m4-009-rw",
+   "family": "window",
+   "operation": "create",
+   "building_id": "BLD018",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.757,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 4,
+   "shared_8grams": [
+    "2.39 metres along the wall from its start",
+    "its sill 0.9 metres above the wall's base.",
+    "metres along the wall from its start point",
+    "with its sill 0.9 metres above the wall's"
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B02m4-001",
+   "reworded_task_id": "WIN-DEL-SPA-B02m4-001-rw",
+   "family": "window",
+   "operation": "delete",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.83"
+    ]
+   ],
+   "word_overlap_final": 0.6,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 23,
+   "shared_8grams": [
+    "'basic wall exterior - brick on mtl. stud",
+    "'level 1' directly below the window named 'storefront",
+    "'storefront w 2h mull_1vert mull 6'-4 w x",
+    "- brick on mtl. stud w cap 187267'",
+    "1' directly below the window named 'storefront w"
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-DIR-B04m4X3-002",
+   "reworded_task_id": "WIN-DEL-DIR-B04m4X3-002-rw",
+   "family": "window",
+   "operation": "delete",
+   "building_id": "BLD029",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.714,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WIN-DEL-TOP-B27-017",
+   "reworded_task_id": "WIN-DEL-TOP-B27-017-rw",
+   "family": "window",
+   "operation": "delete",
+   "building_id": "BLD018",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.565,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the window hosted in the wall with guid"
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B16m4-006",
+   "reworded_task_id": "WIN-DEL-SPA-B16m4-006-rw",
+   "family": "window",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.652,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the window on the storey with id 3npt4zwu9dk8j7v_hlejgu"
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B11-002",
+   "reworded_task_id": "WIN-DEL-SPA-B11-002-rw",
+   "family": "window",
+   "operation": "delete",
+   "building_id": "BLD044",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.64,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 2,
+   "shared_8grams": [
+    "1.8 m west -x of the window named",
+    "about 1.8 m west -x of the window"
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B27m4X3-004",
+   "reworded_task_id": "WIN-DEL-SPA-B27m4X3-004-rw",
+   "family": "window",
+   "operation": "delete",
+   "building_id": "BLD018",
+   "ifc_version": "IFC4X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.607,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 7,
+   "shared_8grams": [
+    "-x of the window named 'ac_v05 - 2390x590",
+    "6.6 m west -x of the window named",
+    "about 6.6 m west -x of the window",
+    "m west -x of the window named 'ac_v05",
+    "of the window named 'ac_v05 - 2390x590 bh"
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B27m4-010",
+   "reworded_task_id": "WIN-DEL-SPA-B27m4-010-rw",
+   "family": "window",
+   "operation": "delete",
+   "building_id": "BLD018",
+   "ifc_version": "IFC4",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.68,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 1,
+   "shared_8grams": [
+    "the window named 'ac_v04 - 890 x 2890'"
+   ]
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B16m4-007",
+   "reworded_task_id": "WIN-DEL-SPA-B16m4-007-rw",
+   "family": "window",
+   "operation": "delete",
+   "building_id": "BLD003",
+   "ifc_version": "IFC4",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.94"
+    ]
+   ],
+   "word_overlap_final": 0.647,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WIN-UPD-SPA-B02-002",
+   "reworded_task_id": "WIN-UPD-SPA-B02-002-rw",
+   "family": "window",
+   "operation": "update",
+   "building_id": "BLD035",
+   "ifc_version": "IFC2X3",
+   "attempts": 1,
+   "passed_machine_checks": true,
+   "passed_first_attempt": true,
+   "failed_checks_per_attempt": [],
+   "word_overlap_final": 0.789,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 10,
+   "shared_8grams": [
+    "-y of the window named 'fixed 3'-0 h",
+    "22.7 m south -y of the window named",
+    "about 22.7 m south -y of the window",
+    "m south -y of the window named 'fixed",
+    "named 'fixed 3'-0 h x 6'-0 w 196788'"
+   ]
+  },
+  {
+   "task_id": "WIN-UPD-SPA-B02m4X3-002",
+   "reworded_task_id": null,
+   "family": "window",
+   "operation": "update",
+   "building_id": "BLD035",
+   "ifc_version": "IFC4X3",
+   "attempts": 3,
+   "passed_machine_checks": false,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.81"
+    ],
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": null,
+   "instruction_changed": false,
+   "audit_rejected": null,
+   "in_eval_file": false,
+   "shared_8gram_count": 0,
+   "shared_8grams": []
+  },
+  {
+   "task_id": "WIN-UPD-SPA-B45m4X3-002",
+   "reworded_task_id": "WIN-UPD-SPA-B45m4X3-002-rw",
+   "family": "window",
+   "operation": "update",
+   "building_id": "BLD038",
+   "ifc_version": "IFC4X3",
+   "attempts": 2,
+   "passed_machine_checks": true,
+   "passed_first_attempt": false,
+   "failed_checks_per_attempt": [
+    [
+     "overlap:0.81"
+    ]
+   ],
+   "word_overlap_final": 0.75,
+   "instruction_changed": true,
+   "audit_rejected": null,
+   "in_eval_file": true,
+   "shared_8gram_count": 6,
+   "shared_8grams": [
+    "+x of the window named 'ventana fija x0-120",
+    "3.8 m east +x of the window named",
+    "about 3.8 m east +x of the window",
+    "east +x of the window named 'ventana fija",
+    "m east +x of the window named 'ventana"
+   ]
+  }
+ ]
+}

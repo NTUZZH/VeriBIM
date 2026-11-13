@@ -1,0 +1,283 @@
+{
+ "rule_set": "report.md, section 'Rule set' (written before any count)",
+ "delete_tasks": 732,
+ "errors": [],
+ "orphaning_tasks": 52,
+ "orphaning_rate": 0.07103825136612021,
+ "orphaning_wilson95": [
+  0.05458205649406944,
+  0.09197323415950148
+ ],
+ "orphaning_share_of_benchmark": 0.024761904761904763,
+ "orphaning_or_C_tasks": 59,
+ "rule_counts": {
+  "O_A_tasks": 14,
+  "O_B_tasks": 38,
+  "O_A_and_O_B_tasks": 0,
+  "O_C1_tasks": 0,
+  "O_C2_tasks": 8,
+  "O_C_only_tasks": 7,
+  "O_A_elements": 135,
+  "O_A_elements_with_body": 135,
+  "O_B_parts": 185,
+  "O_B_parts_with_body": 185,
+  "O_B_parts_without_container": 185
+ },
+ "by_family": {
+  "column": {
+   "tasks": 34,
+   "orphaning": 0,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.10151455559221921
+   ]
+  },
+  "door": {
+   "tasks": 123,
+   "orphaning": 0,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.030285514808616413
+   ]
+  },
+  "slab": {
+   "tasks": 96,
+   "orphaning": 0,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.03847558844130279
+   ]
+  },
+  "space": {
+   "tasks": 54,
+   "orphaning": 14,
+   "rate": 0.25925925925925924,
+   "wilson95": [
+    0.16118652563923386,
+    0.389308906134747
+   ]
+  },
+  "wall": {
+   "tasks": 342,
+   "orphaning": 38,
+   "rate": 0.1111111111111111,
+   "wilson95": [
+    0.08202857902555331,
+    0.1488328658097814
+   ]
+  },
+  "window": {
+   "tasks": 83,
+   "orphaning": 0,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.04423531030894942
+   ]
+  }
+ },
+ "by_edit_kind": {
+  "clarify": {
+   "tasks": 27,
+   "orphaning": 0,
+   "rate": 0.0,
+   "wilson95": [
+    0.0,
+    0.12455503146207125
+   ]
+  },
+  "delete": {
+   "tasks": 467,
+   "orphaning": 24,
+   "rate": 0.05139186295503212,
+   "wilson95": [
+    0.034775358684883434,
+    0.07532849454093407
+   ]
+  },
+  "delete_wall_with_fillings": {
+   "tasks": 238,
+   "orphaning": 28,
+   "rate": 0.11764705882352941,
+   "wilson95": [
+    0.08266236112312761,
+    0.16477850016719492
+   ]
+  }
+ },
+ "by_family_and_edit_kind": {
+  "space|delete": 14,
+  "wall|delete": 10,
+  "wall|delete_wall_with_fillings": 28
+ },
+ "O_A_element_classes": {
+  "IfcFlowTerminal": 95,
+  "IfcFurnishingElement": 21,
+  "IfcFlowFitting": 10,
+  "IfcBuildingElementProxy": 6,
+  "IfcFlowController": 3
+ },
+ "O_B_part_classes": {
+  "IfcBuildingElementPart": 185
+ },
+ "O_B_deleted_classes": {
+  "IfcWall": 185
+ },
+ "O_C1_findings_by_relationship_end": {},
+ "O_C2_findings_by_relationship": {
+  "IfcRelCoversBldgElements (IfcCovering)": 15
+ },
+ "O_C1_tasks_by_relationship": {},
+ "O_C2_tasks_by_relationship": {
+  "IfcRelCoversBldgElements": 8
+ },
+ "space_deletions": 50,
+ "space_deletions_orphaning": 14,
+ "overlap_with_strict_382": {
+  "orphaning_and_strict": 22,
+  "orphaning_new": 30,
+  "strict_rules_of_overlap": {
+   "E-SCHEMA": 22
+  },
+  "orphaning_or_C_and_strict": 22,
+  "orphaning_or_C_new": 37,
+  "delete_tasks_strict_flagged": 53,
+  "union_strict_or_orphaning_all_2100": 412,
+  "union_strict_or_orphaning_or_C_all_2100": 419
+ },
+ "audited_sonnet_cases": {
+  "A11": {
+   "task_id": "SPC-DEL-DIR-B53-006",
+   "orphaning": true,
+   "O_A": 7,
+   "O_B": 0,
+   "strict_flagged": true
+  },
+  "A17": {
+   "task_id": "SPC-DEL-SPA-B58-003",
+   "orphaning": true,
+   "O_A": 8,
+   "O_B": 0,
+   "strict_flagged": true
+  },
+  "A19": {
+   "task_id": "SPC-DEL-DIR-G7arcm4X3-001",
+   "orphaning": true,
+   "O_A": 6,
+   "O_B": 0,
+   "strict_flagged": false
+  },
+  "A33": {
+   "task_id": "WAL-DEL-SPA-B27-008",
+   "orphaning": true,
+   "O_A": 0,
+   "O_B": 3,
+   "strict_flagged": true
+  },
+  "A42": {
+   "task_id": "WAL-DEL-TOP-B27-002",
+   "orphaning": true,
+   "O_A": 0,
+   "O_B": 6,
+   "strict_flagged": true
+  }
+ },
+ "orphaning_task_ids": [
+  "CHN-DWF-DIR-B27-003",
+  "CHN-DWF-DIR-B27-004",
+  "CHN-DWF-DIR-B27-007",
+  "CHN-DWF-DIR-B27-008",
+  "CHN-DWF-DIR-B27-009",
+  "CHN-DWF-DIR-B27m4-003",
+  "CHN-DWF-SPA-B27-001",
+  "CHN-DWF-SPA-B27-003",
+  "CHN-DWF-SPA-B27-004",
+  "CHN-DWF-SPA-B27-006",
+  "CHN-DWF-SPA-B27-008",
+  "CHN-DWF-SPA-B27m4-001",
+  "CHN-DWF-SPA-B27m4-003",
+  "CHN-DWF-SPA-B27m4-005",
+  "CHN-DWF-SPA-B27m4-006",
+  "CHN-DWF-SPA-B27m4-008",
+  "CHN-DWF-SPA-B27m4X3-001",
+  "CHN-DWF-SPA-B27m4X3-002",
+  "CHN-DWF-SPA-B27m4X3-003",
+  "CHN-DWF-SPA-B27m4X3-005",
+  "CHN-DWF-SPA-B27m4X3-008",
+  "CHN-DWF-SPA-B27m4X3-009",
+  "CHN-DWF-TOP-B27m4X3-003",
+  "CHN-DWF-TOP-B27m4X3-011",
+  "CHN-DWF-TOP-B27m4X3-014",
+  "CHN-DWF-TOP-B27m4X3-021",
+  "CHN-DWF-TOP-B27m4X3-035",
+  "CHN-DWF-TOP-B27m4X3-038",
+  "SPC-DEL-DIR-B02-003",
+  "SPC-DEL-DIR-B02m4-001",
+  "SPC-DEL-DIR-B53-006",
+  "SPC-DEL-DIR-B53-008",
+  "SPC-DEL-DIR-B53m4X3-001",
+  "SPC-DEL-DIR-B58m4-006",
+  "SPC-DEL-DIR-G7arc-002",
+  "SPC-DEL-DIR-G7arcm4X3-001",
+  "SPC-DEL-SPA-B58-003",
+  "SPC-DEL-SPA-G7arc-003",
+  "SPC-DEL-SPA-G7arcm4-001",
+  "SPC-DEL-SPA-G7arcm4X3-008",
+  "SPC-DEL-TOP-B25m4-002",
+  "SPC-DEL-TOP-B25m4-011",
+  "WAL-DEL-DIR-B27-001",
+  "WAL-DEL-DIR-B27-002",
+  "WAL-DEL-DIR-B27m4X3-002",
+  "WAL-DEL-SPA-B27-007",
+  "WAL-DEL-SPA-B27-008",
+  "WAL-DEL-SPA-B27m4-008",
+  "WAL-DEL-TOP-B27-002",
+  "WAL-DEL-TOP-B27-010",
+  "WAL-DEL-TOP-B27m4-006",
+  "WAL-DEL-TOP-B27m4X3-002"
+ ],
+ "orphaning_new_task_ids": [
+  "CHN-DWF-DIR-B27m4-003",
+  "CHN-DWF-SPA-B27m4-001",
+  "CHN-DWF-SPA-B27m4-003",
+  "CHN-DWF-SPA-B27m4-005",
+  "CHN-DWF-SPA-B27m4-006",
+  "CHN-DWF-SPA-B27m4-008",
+  "CHN-DWF-SPA-B27m4X3-001",
+  "CHN-DWF-SPA-B27m4X3-002",
+  "CHN-DWF-SPA-B27m4X3-003",
+  "CHN-DWF-SPA-B27m4X3-005",
+  "CHN-DWF-SPA-B27m4X3-008",
+  "CHN-DWF-SPA-B27m4X3-009",
+  "CHN-DWF-TOP-B27m4X3-003",
+  "CHN-DWF-TOP-B27m4X3-011",
+  "CHN-DWF-TOP-B27m4X3-014",
+  "CHN-DWF-TOP-B27m4X3-021",
+  "CHN-DWF-TOP-B27m4X3-035",
+  "CHN-DWF-TOP-B27m4X3-038",
+  "SPC-DEL-DIR-B02m4-001",
+  "SPC-DEL-DIR-B53m4X3-001",
+  "SPC-DEL-DIR-B58m4-006",
+  "SPC-DEL-DIR-G7arcm4X3-001",
+  "SPC-DEL-SPA-G7arcm4-001",
+  "SPC-DEL-SPA-G7arcm4X3-008",
+  "SPC-DEL-TOP-B25m4-002",
+  "SPC-DEL-TOP-B25m4-011",
+  "WAL-DEL-DIR-B27m4X3-002",
+  "WAL-DEL-SPA-B27m4-008",
+  "WAL-DEL-TOP-B27m4-006",
+  "WAL-DEL-TOP-B27m4X3-002"
+ ],
+ "orphaning_or_C_only_task_ids": [
+  "COL-DEL-DIR-B46-015",
+  "COL-DEL-DIR-B46-084",
+  "COL-DEL-DIR-B46m4-002",
+  "COL-DEL-DIR-B46m4-022",
+  "COL-DEL-DIR-B46m4X3-024",
+  "COL-DEL-SPA-B46-004",
+  "COL-DEL-SPA-B46m4X3-010"
+ ]
+}

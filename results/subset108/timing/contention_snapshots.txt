@@ -1,0 +1,2 @@
+108-task subset with the candidate list, 16 in flight: 7 snapshots during the read, all clean
+108-task subset with the candidate list, one task at a time: 24 snapshots during the read, all clean

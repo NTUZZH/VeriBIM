@@ -1,0 +1,18 @@
+{
+ "n": 172,
+ "stock_template": 162,
+ "training_template": 165,
+ "only_stock_template": 4,
+ "only_training_template": 7,
+ "verdict_changes": 11,
+ "difference_b_minus_a": 0.01744186046511628,
+ "interval95": [
+  -0.01744186046511628,
+  0.05813953488372093
+ ],
+ "mcnemar_exact_p": 0.548828125,
+ "mean_score_a": 0.9566242906976744,
+ "mean_score_b": 0.9693180930232558,
+ "mean_rounds_a": 4.6395348837209305,
+ "mean_rounds_b": 4.691860465116279
+}

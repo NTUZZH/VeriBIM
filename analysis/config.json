@@ -1,0 +1,685 @@
+{
+ "tasks": {
+  "benchmark": "tasks/benchmark/tasks.v4d.jsonl",
+  "subset108": "tasks/benchmark/subset_108.json",
+  "subset324": "tasks/benchmark/subset_324.json",
+  "reworded": "tasks/reworded/tasks_reworded.jsonl",
+  "practitioner_ids_from": "results/practitioner/base_documented/per_task_Qwen3.5-9B.jsonl",
+  "clean_summary": "results/benchmark/ground_truth_validity/per_task_summary_benchmark.csv",
+  "clean_field": "true_error"
+ },
+ "expect": {
+  "bench": 2100,
+  "sub108": 108,
+  "sub324": 324,
+  "rw": 172,
+  "prac": 200
+ },
+ "ours_row": {
+  "model": "VeriBIM-9B",
+  "arm_sub108": "With the library and the candidate list",
+  "arm_sub324": "With the library and the candidate list"
+ },
+ "equivalence": {
+  "margin": 0.05,
+  "tests": [
+   {
+    "name": "HundredEight",
+    "set": "sub108",
+    "arm": "SonnetDoc"
+   },
+   {
+    "name": "TwoSixteen",
+    "set": "sub324",
+    "arm": "SonnetDoc",
+    "restrict": "rest216"
+   },
+   {
+    "name": "ThreeTwentyFour",
+    "set": "sub324",
+    "arm": "SonnetDoc"
+   }
+  ]
+ },
+ "threshold_paired": {
+  "sub108": [
+   "SonnetNote",
+   "SonnetAlone"
+  ],
+  "sub324": [
+   "SonnetNote"
+  ]
+ },
+ "per_building": {
+  "named": {
+   "GniSeven": "GNI-project_7"
+  },
+  "not_below": {
+   "sub108": "SonnetNote",
+   "sub324": "SonnetNote"
+  }
+ },
+ "per_building_table": {
+  "sub108": [
+   "ImitationLib",
+   "BaseNote",
+   "SonnetNote"
+  ],
+  "sub324": [
+   "ImitationLib",
+   "SonnetNote"
+  ],
+  "bench_stages": [
+   "imitation"
+  ]
+ },
+ "compact_rows_108": [
+  "SonnetDoc",
+  "OpusDoc",
+  "GptDoc",
+  "GptReasonDoc",
+  "DeepSeekDoc",
+  "GeminiDoc",
+  "BaseDoc"
+ ],
+ "clean_pairs": [
+  {
+   "set": "sub108",
+   "arm": "SonnetDoc"
+  },
+  {
+   "set": "sub108",
+   "arm": "SonnetAlone"
+  },
+  {
+   "set": "sub108",
+   "arm": "DeepSeekAlone"
+  },
+  {
+   "set": "sub108",
+   "arm": "GptReasonDoc"
+  },
+  {
+   "set": "rest216",
+   "arm": "SonnetDoc"
+  }
+ ],
+ "threshold_table": [
+  {
+   "title": "108-task subset, all tasks",
+   "set": "sub108",
+   "part": "all",
+   "rows": [
+    [
+     "@ours",
+     "VeriBIM-9B, with library"
+    ],
+    [
+     "ImitationLib",
+     "Imitation, with library"
+    ],
+    [
+     "BaseAlone",
+     "Untrained, alone"
+    ],
+    [
+     "BaseDoc",
+     "Untrained, documented library"
+    ],
+    [
+     "GptNote",
+     "GPT-5.6, with library"
+    ],
+    [
+     "GptDoc",
+     "GPT-5.6, documented library"
+    ],
+    [
+     "DeepSeekNote",
+     "DeepSeek V4, with library"
+    ],
+    [
+     "DeepSeekDoc",
+     "DeepSeek V4, documented library"
+    ],
+    [
+     "SonnetAlone",
+     "Claude Sonnet 5.5, alone"
+    ],
+    [
+     "SonnetNote",
+     "Claude Sonnet 5.5, with library"
+    ],
+    [
+     "SonnetDoc",
+     "Claude Sonnet 5.5, documented library"
+    ],
+    [
+     "OpusDoc",
+     "Claude Opus 5.5, documented library"
+    ],
+    [
+     "GeminiNote",
+     "Gemini 3.8 Flash, with library"
+    ],
+    [
+     "GeminiDoc",
+     "Gemini 3.8 Flash, documented library"
+    ]
+   ]
+  },
+  {
+   "title": "108-task subset, fully specified tasks",
+   "set": "sub108",
+   "part": "full",
+   "rows": [
+    [
+     "@ours",
+     "VeriBIM-9B, with library"
+    ],
+    [
+     "SonnetNote",
+     "Claude Sonnet 5.5, with library"
+    ],
+    [
+     "SonnetDoc",
+     "Claude Sonnet 5.5, documented library"
+    ],
+    [
+     "OpusDoc",
+     "Claude Opus 5.5, documented library"
+    ]
+   ]
+  },
+  {
+   "title": "324-task subset, all tasks",
+   "set": "sub324",
+   "part": "all",
+   "rows": [
+    [
+     "@ours",
+     "VeriBIM-9B, with library"
+    ],
+    [
+     "SonnetNote",
+     "Claude Sonnet 5.5, with library"
+    ],
+    [
+     "SonnetDoc",
+     "Claude Sonnet 5.5, documented library"
+    ]
+   ]
+  },
+  {
+   "title": "324-task subset, fully specified tasks",
+   "set": "sub324",
+   "part": "full",
+   "rows": [
+    [
+     "@ours",
+     "VeriBIM-9B, with library"
+    ],
+    [
+     "SonnetNote",
+     "Claude Sonnet 5.5, with library"
+    ],
+    [
+     "SonnetDoc",
+     "Claude Sonnet 5.5, documented library"
+    ]
+   ]
+  },
+  {
+   "title": "2,100-task benchmark",
+   "set": "bench",
+   "part": "all",
+   "rows": [
+    [
+     "@imitation",
+     "Imitation"
+    ],
+    [
+     "@preference",
+     "Preference stage"
+    ],
+    [
+     "@reinforcement",
+     "VeriBIM-9B"
+    ]
+   ]
+  }
+ ],
+ "label": "reported model grpo_v14_c20 (reinforcement stage), stage models sft_v14 and dpo_v14_c6",
+ "stages": {
+  "imitation": "sft_v14",
+  "preference": "dpo_v14_c6",
+  "reinforcement": "grpo_v14_c20"
+ },
+ "reported": "reinforcement",
+ "reads": {
+  "bench": {
+   "imitation": "results/benchmark/stage_models/per_task_sft_v14.jsonl",
+   "preference": "results/benchmark/stage_models/per_task_dpo_v14_c6.jsonl",
+   "reinforcement": "results/benchmark/stage_models/per_task_grpo_v14_c20.jsonl"
+  },
+  "sub108": {
+   "reinforcement": "results/subset108/veribim9b/per_task_grpo_v14_c20.jsonl"
+  },
+  "sub324": {
+   "reinforcement": "results/subset324/veribim9b/per_task_grpo_v14_c20.jsonl"
+  },
+  "rw": {
+   "imitation": "results/reworded/stage_models/per_task_sft_v14.jsonl",
+   "preference": "results/reworded/stage_models/per_task_dpo_v14_c6.jsonl",
+   "reinforcement": "results/reworded/stage_models/per_task_grpo_v14_c20.jsonl"
+  },
+  "prac": {
+   "imitation": "results/practitioner/stage_models/per_task_sft_v14.jsonl",
+   "preference": "results/practitioner/stage_models/per_task_dpo_v14_c6.jsonl",
+   "reinforcement": "results/practitioner/stage_models/per_task_grpo_v14_c20.jsonl"
+  },
+  "rw_nolist": {
+   "reinforcement": "results/reworded/veribim9b_without_list/per_task_grpo_v14_c20.jsonl"
+  },
+  "prac_nolist": {
+   "reinforcement": "results/practitioner/veribim9b_without_list/per_task_grpo_v14_c20.jsonl"
+  }
+ },
+ "arms": {
+  "bench": [
+   {
+    "key": "Parser",
+    "label": "template parser alone",
+    "path": "results/benchmark/template_parser/per_task_parser.jsonl"
+   }
+  ],
+  "sub108": [
+   {
+    "key": "GptAlone",
+    "model": "GPT-5.6",
+    "arm": "Alone",
+    "path": "results/subset108/commercial_alone/per_task_gpt-5.6-luna.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true
+   },
+   {
+    "key": "GptNote",
+    "model": "GPT-5.6",
+    "arm": "With the library note",
+    "path": "results/subset108/commercial_library_note/per_task_gpt-5.6-luna.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true,
+    "holm": "primary"
+   },
+   {
+    "key": "GptAsk",
+    "model": "GPT-5.6",
+    "arm": "With the library note and the instruction to ask",
+    "path": "results/subset108/commercial_library_note_ask/per_task_gpt-5.6-luna.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "holm": "ask"
+   },
+   {
+    "key": "GptDoc",
+    "model": "GPT-5.6",
+    "arm": "With the documented library",
+    "path": "results/subset108/commercial_documented/per_task_gpt-5.6-luna.jsonl",
+    "order": "subset_file",
+    "group": 1,
+    "holm": "documented"
+   },
+   {
+    "key": "GptReasonDoc",
+    "model": "GPT-5.6",
+    "arm": "With the documented library, reasoning on",
+    "path": "results/subset108/commercial_documented_reasoning/per_task_gpt-5.6-luna.jsonl",
+    "order": "subset_file",
+    "group": 1,
+    "holm": "documented"
+   },
+   {
+    "key": "DeepSeekAlone",
+    "model": "DeepSeek V4",
+    "arm": "Alone",
+    "path": "results/subset108/commercial_alone/per_task_deepseek-v4-pro.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true
+   },
+   {
+    "key": "DeepSeekNote",
+    "model": "DeepSeek V4",
+    "arm": "With the library note",
+    "path": "results/subset108/commercial_library_note/per_task_deepseek-v4-pro.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true,
+    "holm": "primary"
+   },
+   {
+    "key": "DeepSeekAsk",
+    "model": "DeepSeek V4",
+    "arm": "With the library note and the instruction to ask",
+    "path": "results/subset108/commercial_library_note_ask/per_task_deepseek-v4-pro.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "holm": "ask"
+   },
+   {
+    "key": "DeepSeekDoc",
+    "model": "DeepSeek V4",
+    "arm": "With the documented library",
+    "path": "results/subset108/commercial_documented/per_task_deepseek-v4-pro.jsonl",
+    "order": "subset_file",
+    "group": 1,
+    "holm": "documented"
+   },
+   {
+    "key": "SonnetAlone",
+    "model": "Claude Sonnet 5.5",
+    "arm": "Alone",
+    "path": "results/subset108/commercial_alone/per_task_claude-sonnet-5-5.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true
+   },
+   {
+    "key": "SonnetNote",
+    "model": "Claude Sonnet 5.5",
+    "arm": "With the library note",
+    "path": "results/subset108/commercial_library_note/per_task_claude-sonnet-5-5.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true,
+    "holm": "primary"
+   },
+   {
+    "key": "SonnetAsk",
+    "model": "Claude Sonnet 5.5",
+    "arm": "With the library note and the instruction to ask",
+    "path": "results/subset108/commercial_library_note_ask/per_task_claude-sonnet-5-5.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "holm": "ask"
+   },
+   {
+    "key": "SonnetDoc",
+    "model": "Claude Sonnet 5.5",
+    "arm": "With the documented library (run 1 of 3)",
+    "arm_label": "With the documented library",
+    "path": "results/subset108/commercial_documented/per_task_claude-sonnet-5-5.jsonl",
+    "order": "subset_file",
+    "group": 1,
+    "holm": "documented"
+   },
+   {
+    "key": "OpusDoc",
+    "model": "Claude Opus 5.5",
+    "arm": "With the documented library",
+    "path": "results/subset108/commercial_documented/per_task_claude-opus-5-5.jsonl",
+    "order": "subset_file",
+    "group": 1,
+    "holm": "documented"
+   },
+   {
+    "key": "GeminiAlone",
+    "model": "Gemini 3.8 Flash",
+    "arm": "Alone",
+    "path": "results/subset108/commercial_alone/per_task_gemini-3.8-flash.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true
+   },
+   {
+    "key": "GeminiNote",
+    "model": "Gemini 3.8 Flash",
+    "arm": "With the library note",
+    "path": "results/subset108/commercial_library_note/per_task_gemini-3.8-flash.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true,
+    "holm": "primary"
+   },
+   {
+    "key": "GeminiAsk",
+    "model": "Gemini 3.8 Flash",
+    "arm": "With the library note and the instruction to ask",
+    "path": "results/subset108/commercial_library_note_ask/per_task_gemini-3.8-flash.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "holm": "ask"
+   },
+   {
+    "key": "GeminiDoc",
+    "model": "Gemini 3.8 Flash",
+    "arm": "With the documented library",
+    "path": "results/subset108/commercial_documented/per_task_gemini-3.8-flash.jsonl",
+    "order": "subset_file",
+    "group": 1,
+    "holm": "documented"
+   },
+   {
+    "key": "BaseAlone",
+    "model": "Qwen3.5-9B, untrained",
+    "arm": "Alone",
+    "path": "results/subset108/base_alone/per_task_Qwen3.5-9B.jsonl",
+    "order": "sorted",
+    "group": 3,
+    "per_version": true
+   },
+   {
+    "key": "BaseNote",
+    "model": "Qwen3.5-9B, untrained",
+    "arm": "With the library note",
+    "path": "results/subset108/base_library_note/per_task_Qwen3.5-9B.jsonl",
+    "order": "sorted",
+    "group": 3,
+    "per_version": true
+   },
+   {
+    "key": "BaseDoc",
+    "model": "Qwen3.5-9B, untrained",
+    "arm": "With the documented library",
+    "path": "results/subset108/base_documented/per_task_Qwen3.5-9B.jsonl",
+    "order": "subset_file",
+    "group": 3
+   },
+   {
+    "key": "BaseRetr",
+    "model": "Qwen3.5-9B, untrained",
+    "arm": "Documented library with retrieved examples",
+    "arm_label": "With the documented library and retrieved examples",
+    "path": "results/subset108/base_documented_retrieval/per_task_Qwen3.5-9B.jsonl",
+    "order": "subset_file",
+    "group": 3
+   },
+   {
+    "key": "BaseRetrShort",
+    "model": "Qwen3.5-9B, untrained",
+    "arm": "Library note with retrieved examples",
+    "arm_label": "With the library note and retrieved examples",
+    "path": "results/subset108/base_library_note_retrieval/per_task_Qwen3.5-9B.jsonl",
+    "order": "subset_file",
+    "group": 3
+   },
+   {
+    "key": "ImitationAlone",
+    "model": "Imitation model",
+    "arm": "Alone",
+    "path": null,
+    "order": "sorted",
+    "group": 3,
+    "per_version": true,
+    "trained": true
+   },
+   {
+    "key": "ImitationLib",
+    "model": "Imitation model",
+    "arm": "With the library and the candidate list",
+    "path": "results/subset108/imitation_model_benchmark_rows/per_task_sft_v14_sub108.jsonl",
+    "order": "sorted",
+    "group": 3,
+    "per_version": true,
+    "trained": true
+   },
+   {
+    "key": "Parser",
+    "model": "Template parser",
+    "arm": "Alone",
+    "path": "results/benchmark/template_parser/per_task_parser.jsonl",
+    "file_set": "bench",
+    "order": "sorted",
+    "group": 4,
+    "full_table": false
+   }
+  ],
+  "sub324": [
+   {
+    "key": "SonnetAlone",
+    "model": "Claude Sonnet 5.5",
+    "arm": "Alone",
+    "path": "results/subset324/commercial_alone/per_task_claude-sonnet-5-5.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true
+   },
+   {
+    "key": "SonnetNote",
+    "model": "Claude Sonnet 5.5",
+    "arm": "With the library",
+    "arm_label": "With the library note",
+    "path": "results/subset324/commercial_library_note/per_task_claude-sonnet-5-5.jsonl",
+    "order": "sorted",
+    "group": 1,
+    "per_version": true
+   },
+   {
+    "key": "SonnetDoc",
+    "model": "Claude Sonnet 5.5",
+    "arm": "Documented library",
+    "arm_label": "With the documented library",
+    "path": [
+     "results/subset108/commercial_documented/per_task_claude-sonnet-5-5.jsonl",
+     "results/subset324/commercial_documented_other216/per_task_claude-sonnet-5-5.jsonl"
+    ],
+    "order": "sorted",
+    "group": 1
+   },
+   {
+    "key": "ImitationAlone",
+    "model": "Imitation model",
+    "arm": "Alone",
+    "path": null,
+    "order": "sorted",
+    "group": 2,
+    "per_version": true,
+    "trained": true
+   },
+   {
+    "key": "ImitationLib",
+    "model": "Imitation model",
+    "arm": "With the library and the candidate list",
+    "path": "results/subset324/imitation_model_benchmark_rows/per_task_sft_v14_sub324.jsonl",
+    "order": "sorted",
+    "group": 2,
+    "per_version": true,
+    "trained": true
+   },
+   {
+    "key": "Parser",
+    "model": "Template parser",
+    "arm": "Alone",
+    "path": "results/benchmark/template_parser/per_task_parser.jsonl",
+    "file_set": "bench",
+    "order": "sorted",
+    "group": 3,
+    "full_table": false
+   }
+  ],
+  "rw": [
+   {
+    "key": "BaseDoc",
+    "label": "untrained Qwen3.5-9B with the documented library",
+    "path": "results/reworded/base_documented/per_task_Qwen3.5-9B.jsonl"
+   },
+   {
+    "key": "Parser",
+    "label": "template parser alone",
+    "path": "results/reworded/template_parser/per_task_parser_rw.jsonl"
+   },
+   {
+    "key": "HybSonnet",
+    "label": "template parser after rewriting by Claude Sonnet 5.5",
+    "path": "results/reworded/parser_after_commercial_rewrite/per_task_parser.jsonl",
+    "interval": "hybrid"
+   },
+   {
+    "key": "HybLocal",
+    "label": "template parser after rewriting by the local model",
+    "path": "results/reworded/parser_after_local_rewrite/per_task_parser.jsonl",
+    "interval": "hybrid"
+   }
+  ],
+  "prac": [
+   {
+    "key": "BaseDoc",
+    "label": "untrained Qwen3.5-9B with the documented library",
+    "path": "results/practitioner/base_documented/per_task_Qwen3.5-9B.jsonl"
+   },
+   {
+    "key": "BaseDocList",
+    "label": "untrained Qwen3.5-9B with the documented library and the candidate list",
+    "path": "results/practitioner/base_documented_list/per_task_Qwen3.5-9B.jsonl"
+   },
+   {
+    "key": "HybSonnet",
+    "label": "template parser after rewriting by Claude Sonnet 5.5",
+    "path": "results/practitioner/parser_after_commercial_rewrite/per_task_parser.jsonl",
+    "interval": "hybrid"
+   },
+   {
+    "key": "HybLocal",
+    "label": "template parser after rewriting by the local model",
+    "path": "results/practitioner/parser_after_local_rewrite/per_task_parser.jsonl",
+    "interval": "hybrid"
+   },
+   {
+    "key": "SonnetDoc",
+    "label": "Claude Sonnet 5.5 with the documented library",
+    "path": "results/practitioner/commercial_documented/per_task_claude-sonnet-5-5.jsonl"
+   },
+   {
+    "key": "GptDoc",
+    "label": "GPT-5.6 with the documented library",
+    "path": "results/practitioner/commercial_documented/per_task_gpt-5.6-luna.jsonl"
+   },
+   {
+    "key": "SonnetAlone",
+    "label": "Claude Sonnet 5.5 alone",
+    "path": "results/practitioner/commercial_alone/per_task_claude-sonnet-5-5.jsonl"
+   },
+   {
+    "key": "GptAlone",
+    "label": "GPT-5.6 alone",
+    "path": "results/practitioner/commercial_alone/per_task_gpt-5.6-luna.jsonl"
+   },
+   {
+    "key": "Parser",
+    "label": "template parser alone",
+    "path": "results/practitioner/template_parser/per_task_parser.jsonl"
+   }
+  ]
+ },
+ "lib_train_did": {
+  "set": "sub108",
+  "arms": [
+   "ImitationLib",
+   "ImitationAlone",
+   "BaseNote",
+   "BaseAlone"
+  ]
+ }
+}

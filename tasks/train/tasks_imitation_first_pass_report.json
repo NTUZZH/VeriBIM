@@ -1,0 +1,28 @@
+{
+ "description": "Task definitions of the first imitation pass: the tasks whose ids occur in the rows of that pass. The rows (trajectories) are not released.",
+ "rows": 18862,
+ "distinct_tasks": 18709,
+ "task_records_released": 18709,
+ "buildings": 27,
+ "records_without_building_id": 0,
+ "generated_training_task_file": "tasks/train/tasks_generated.jsonl.gz",
+ "generated_training_tasks": 51956,
+ "ids_also_in_generated_file": 10394,
+ "of_these_identical": {
+  "instruction": 17,
+  "prompt": 17,
+  "edit_params": 0,
+  "input_ifc": 10394,
+  "instruction_and_edit_params": 0
+ },
+ "of_these_only_the_id_coincides": 10394,
+ "fields_absent_on_one_side": {},
+ "comparison": "instruction (or prompt when a record has no instruction field) and edit_params compared as parsed JSON values; input_ifc names the source model",
+ "generator_versions_first_pass": {
+  "veribim-gen/0.2.0": 18709
+ },
+ "generator_versions_of_the_shared_ids_in_the_generated_file": {
+  "veribim-gen/0.7.1": 10394
+ },
+ "note": "a task id is built from the element family, the operation, the category, the building and a running number, so the two generator versions reuse ids for different tasks on the same source model"
+}

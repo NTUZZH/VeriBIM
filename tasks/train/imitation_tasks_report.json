@@ -1,0 +1,16 @@
+{
+ "imitation_rows": 75953,
+ "imitation_rows_by_source": {
+  "gold": 37865,
+  "gold_paraphrase": 38088
+ },
+ "imitation_tasks": 37865,
+ "training_task_file_tasks": 51956,
+ "imitation_tasks_in_training_task_file": 35446,
+ "imitation_tasks_outside_training_task_file": 2419,
+ "outside_tasks_by_source_file": {
+  "runs_local/wave_v2/wave_all_accepted.jsonl": 890,
+  "runs_local/stage_a_v8_dev/tasks_v8_all.jsonl": 837,
+  "runs_local/stage_a_v8_dev/tasks_to_add_v8b.jsonl": 692
+ }
+}

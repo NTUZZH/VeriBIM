@@ -1,0 +1,4 @@
+grpo_v14_c20	stage 2	val-hard completion 0.8800	mean 0.8898	n 300
+sft_v14	stage 0	val-hard completion 0.8767	mean 0.8858	n 300
+dpo_v14_c6	stage 1	val-hard completion 0.8767	mean 0.8830	n 300
+REPORTED	grpo_v14_c20

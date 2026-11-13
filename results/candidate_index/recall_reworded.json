@@ -1,0 +1,3733 @@
+{
+ "task_file": "runs_local/revision_2026-10-15/round4/reword_bench/tasks_bench_rw.jsonl",
+ "max_chars": 1200,
+ "n_tasks": 172,
+ "skipped_no_required": {},
+ "overall": {
+  "n": 172,
+  "recall@5": 0.89,
+  "recall@10": 0.977,
+  "recall@20": 0.983,
+  "hint_recall@10": 0.942,
+  "mean_rank": 7.13,
+  "required_never_ranked": 0,
+  "required_total": 245
+ },
+ "seconds": 2.1,
+ "by_operation": {
+  "create": {
+   "n": 65,
+   "recall@5": 0.923,
+   "recall@10": 0.985,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.969,
+   "mean_rank": 1.92,
+   "required_never_ranked": 0,
+   "required_total": 65
+  },
+  "delete": {
+   "n": 66,
+   "recall@5": 0.818,
+   "recall@10": 0.97,
+   "recall@20": 0.97,
+   "hint_recall@10": 0.894,
+   "mean_rank": 3.32,
+   "required_never_ranked": 0,
+   "required_total": 128
+  },
+  "update": {
+   "n": 41,
+   "recall@5": 0.951,
+   "recall@10": 0.976,
+   "recall@20": 0.976,
+   "hint_recall@10": 0.976,
+   "mean_rank": 23.04,
+   "required_never_ranked": 0,
+   "required_total": 52
+  }
+ },
+ "by_category": {
+  "direct": {
+   "n": 48,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.64,
+   "required_never_ranked": 0,
+   "required_total": 76
+  },
+  "spatial": {
+   "n": 51,
+   "recall@5": 0.843,
+   "recall@10": 0.961,
+   "recall@20": 0.961,
+   "hint_recall@10": 0.961,
+   "mean_rank": 3.57,
+   "required_never_ranked": 0,
+   "required_total": 56
+  },
+  "topological": {
+   "n": 73,
+   "recall@5": 0.849,
+   "recall@10": 0.973,
+   "recall@20": 0.986,
+   "hint_recall@10": 0.89,
+   "mean_rank": 12.59,
+   "required_never_ranked": 0,
+   "required_total": 113
+  }
+ },
+ "by_operation_category": {
+  "create/direct": {
+   "n": 13,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 13
+  },
+  "create/spatial": {
+   "n": 16,
+   "recall@5": 0.938,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.19,
+   "required_never_ranked": 0,
+   "required_total": 16
+  },
+  "create/topological": {
+   "n": 36,
+   "recall@5": 0.889,
+   "recall@10": 0.972,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.944,
+   "mean_rank": 2.14,
+   "required_never_ranked": 0,
+   "required_total": 36
+  },
+  "delete/direct": {
+   "n": 20,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.93,
+   "required_never_ranked": 0,
+   "required_total": 43
+  },
+  "delete/spatial": {
+   "n": 21,
+   "recall@5": 0.714,
+   "recall@10": 0.905,
+   "recall@20": 0.905,
+   "hint_recall@10": 0.905,
+   "mean_rank": 5.0,
+   "required_never_ranked": 0,
+   "required_total": 26
+  },
+  "delete/topological": {
+   "n": 25,
+   "recall@5": 0.76,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.8,
+   "mean_rank": 3.59,
+   "required_never_ranked": 0,
+   "required_total": 59
+  },
+  "update/direct": {
+   "n": 15,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.45,
+   "required_never_ranked": 0,
+   "required_total": 20
+  },
+  "update/spatial": {
+   "n": 14,
+   "recall@5": 0.929,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.5,
+   "required_never_ranked": 0,
+   "required_total": 14
+  },
+  "update/topological": {
+   "n": 12,
+   "recall@5": 0.917,
+   "recall@10": 0.917,
+   "recall@20": 0.917,
+   "hint_recall@10": 0.917,
+   "mean_rank": 63.0,
+   "required_never_ranked": 0,
+   "required_total": 18
+  }
+ },
+ "create_storey_target": {
+  "n": 40,
+  "recall@5": 0.975,
+  "recall@10": 1.0,
+  "recall@20": 1.0,
+  "hint_recall@10": 1.0,
+  "mean_rank": 1.12,
+  "required_never_ranked": 0,
+  "required_total": 40
+ },
+ "by_family": {
+  "create/array_elements/guid": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "create/array_elements/in_storey": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "create/copy_element/guid": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "create/copy_element/nearest": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "create/copy_element/under": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "create/create_box/guid": {
+   "n": 18,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 18
+  },
+  "create/create_box/name": {
+   "n": 12,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 12
+  },
+  "create/create_filling/above_below": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "create/create_filling/guid": {
+   "n": 3,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 3
+  },
+  "create/create_filling/host_of": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "create/create_filling/offset": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "create/create_wall_with_door/guid": {
+   "n": 4,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 4
+  },
+  "create/create_wall_with_door/name": {
+   "n": 6,
+   "recall@5": 0.833,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.83,
+   "required_never_ranked": 0,
+   "required_total": 6
+  },
+  "create/replace_filling/between": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 4.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "create/replace_filling/bounds": {
+   "n": 4,
+   "recall@5": 0.5,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.75,
+   "mean_rank": 5.5,
+   "required_never_ranked": 0,
+   "required_total": 4
+  },
+  "create/replace_filling/hosted": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "create/replace_filling/joins": {
+   "n": 1,
+   "recall@5": 0.0,
+   "recall@10": 0.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.0,
+   "mean_rank": 15.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "create/replace_filling/offset": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "create/replace_filling/separates": {
+   "n": 1,
+   "recall@5": 0.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 6.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "delete/delete/above_below": {
+   "n": 4,
+   "recall@5": 0.5,
+   "recall@10": 0.75,
+   "recall@20": 0.75,
+   "hint_recall@10": 0.75,
+   "mean_rank": 8.75,
+   "required_never_ranked": 0,
+   "required_total": 4
+  },
+  "delete/delete/bounds": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "delete/delete/connects": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "delete/delete/extreme": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "delete/delete/guid": {
+   "n": 6,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 6
+  },
+  "delete/delete/hosted": {
+   "n": 5,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.2,
+   "required_never_ranked": 0,
+   "required_total": 5
+  },
+  "delete/delete/nearest": {
+   "n": 3,
+   "recall@5": 0.667,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 4.0,
+   "required_never_ranked": 0,
+   "required_total": 3
+  },
+  "delete/delete/negation": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "delete/delete/offset": {
+   "n": 8,
+   "recall@5": 0.875,
+   "recall@10": 0.875,
+   "recall@20": 0.875,
+   "hint_recall@10": 0.875,
+   "mean_rank": 5.62,
+   "required_never_ranked": 0,
+   "required_total": 8
+  },
+  "delete/delete/opposite": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "delete/delete/ordinal": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "delete/delete/separates": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 5.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "delete/delete/set": {
+   "n": 11,
+   "recall@5": 0.818,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.909,
+   "mean_rank": 2.82,
+   "required_never_ranked": 0,
+   "required_total": 38
+  },
+  "delete/delete/without_relation": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "delete/delete_wall_with_fillings/above_below": {
+   "n": 1,
+   "recall@5": 0.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 4.67,
+   "required_never_ranked": 0,
+   "required_total": 3
+  },
+  "delete/delete_wall_with_fillings/between": {
+   "n": 1,
+   "recall@5": 0.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 5.5,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "delete/delete_wall_with_fillings/connects": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 3
+  },
+  "delete/delete_wall_with_fillings/egocentric": {
+   "n": 2,
+   "recall@5": 0.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.0,
+   "mean_rank": 5.83,
+   "required_never_ranked": 0,
+   "required_total": 6
+  },
+  "delete/delete_wall_with_fillings/guid": {
+   "n": 8,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.05,
+   "required_never_ranked": 0,
+   "required_total": 19
+  },
+  "delete/delete_wall_with_fillings/host_of": {
+   "n": 3,
+   "recall@5": 0.667,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.667,
+   "mean_rank": 3.86,
+   "required_never_ranked": 0,
+   "required_total": 14
+  },
+  "delete/delete_wall_with_fillings/offset": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.5,
+   "required_never_ranked": 0,
+   "required_total": 4
+  },
+  "delete/delete_wall_with_fillings/separates": {
+   "n": 1,
+   "recall@5": 0.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 0.0,
+   "mean_rank": 5.0,
+   "required_never_ranked": 0,
+   "required_total": 3
+  },
+  "update/assign_material/extreme": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/assign_material/guid": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "update/assign_material/set": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.29,
+   "required_never_ranked": 0,
+   "required_total": 7
+  },
+  "update/assign_type/host_of": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/assign_type/offset": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.5,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "update/mirror/guid": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/mirror/host_of": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/mirror/nearest": {
+   "n": 1,
+   "recall@5": 0.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 6.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/mirror/offset": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/move_space_with_bounding_walls/space_of": {
+   "n": 1,
+   "recall@5": 0.0,
+   "recall@10": 0.0,
+   "recall@20": 0.0,
+   "hint_recall@10": 0.0,
+   "mean_rank": 158.14,
+   "required_never_ranked": 0,
+   "required_total": 7
+  },
+  "update/move_to_storey/connects": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/move_to_storey/guid": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "update/move_to_storey/space_of": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/move_to_storey/without_relation": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.5,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "update/rehost_filling/guid": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/rehost_filling/hosted": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "update/rename/guid": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/rename/offset": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/rotate/guid": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "update/rotate/nearest": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/set_pset/guid": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/set_pset/offset": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/set_pset/separates": {
+   "n": 1,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 3.0,
+   "required_never_ranked": 0,
+   "required_total": 1
+  },
+  "update/translate/above_below": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.5,
+   "required_never_ranked": 0,
+   "required_total": 2
+  },
+  "update/translate/guid": {
+   "n": 3,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 1.0,
+   "required_never_ranked": 0,
+   "required_total": 3
+  },
+  "update/translate/offset": {
+   "n": 4,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.0,
+   "required_never_ranked": 0,
+   "required_total": 4
+  },
+  "update/translate/space_of": {
+   "n": 2,
+   "recall@5": 1.0,
+   "recall@10": 1.0,
+   "recall@20": 1.0,
+   "hint_recall@10": 1.0,
+   "mean_rank": 2.5,
+   "required_never_ranked": 0,
+   "required_total": 2
+  }
+ },
+ "worst_families": [
+  [
+   "delete/delete/offset",
+   8,
+   0.875,
+   0.875
+  ],
+  [
+   "delete/delete/set",
+   11,
+   1.0,
+   0.909
+  ],
+  [
+   "create/create_box/guid",
+   18,
+   1.0,
+   1.0
+  ],
+  [
+   "create/create_box/name",
+   12,
+   1.0,
+   1.0
+  ],
+  [
+   "create/create_wall_with_door/name",
+   6,
+   1.0,
+   1.0
+  ]
+ ],
+ "hint_lines_distribution": {
+  "3": 1,
+  "4": 1,
+  "5": 1,
+  "6": 53,
+  "7": 67,
+  "8": 49
+ },
+ "hint_chars_max": 1198,
+ "rows": [
+  {
+   "task_id": "DOR-CRE-TOP-B16-018-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "bounds",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    9
+   ],
+   "worst": 9,
+   "in_hint": false,
+   "hint_lines": 7,
+   "hint_chars": 1082,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B16-012-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "bounds",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1065,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-DEL-SPA-B16-017-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "above_below",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1090,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B16-004-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "opposite",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1077,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B16-023-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1121,
+   "storey_target": true
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B16-009-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1098,
+   "storey_target": true
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B16-007-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "separates",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    5
+   ],
+   "worst": 5,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1181,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-UPD-TOP-B16-034-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "space_of",
+   "edit_kind": "move_to_storey",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1179,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B16-004-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "above_below",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    5,
+    7,
+    2
+   ],
+   "worst": 7,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1121,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B16-015-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    2,
+    5,
+    1
+   ],
+   "worst": 5,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1114,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-UPD-TOP-B16-002-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "host_of",
+   "edit_kind": "mirror",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1148,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-UPD-SPA-B27-015-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "set_pset",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1135,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B27-001-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1175,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-CWD-SPA-B27-005-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "name",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    6
+   ],
+   "worst": 6,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1165,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B27-025-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1168,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B27-003-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    3,
+    2
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1169,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B27-008-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    2,
+    1
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1193,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-DEL-DIR-B27-002-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1071,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-DEL-TOP-B27-017-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "hosted",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1129,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-TOP-B06-001-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1064,
+   "storey_target": true
+  },
+  {
+   "task_id": "DOR-DEL-DIR-B06-001-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1088,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B06-002-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1082,
+   "storey_target": true
+  },
+  {
+   "task_id": "WAL-CRE-SPA-B07-001-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "nearest",
+   "edit_kind": "copy_element",
+   "n_required": 1,
+   "pos": [
+    4
+   ],
+   "worst": 4,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1062,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B24-015-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    2,
+    3,
+    1
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1137,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-UPD-SPA-B24-009-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "rename",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1134,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-SPA-B04-001-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1050,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-DEL-DIR-B02-001-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 2,
+   "pos": [
+    1,
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1159,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B02-003-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1075,
+   "storey_target": true
+  },
+  {
+   "task_id": "SLB-CRE-SPA-B02-002-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1185,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B02-002-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    3,
+    2
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1045,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-UPD-SPA-B02-002-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "assign_type",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1173,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-DIR-B45-003-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1107,
+   "storey_target": true
+  },
+  {
+   "task_id": "COL-DEL-DIR-B46-084-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 4,
+   "pos": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "worst": 4,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1109,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46-038-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "set",
+   "edit_kind": "assign_material",
+   "n_required": 4,
+   "pos": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "worst": 4,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1108,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-DEL-DIR-B46-003-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1099,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B46-040-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "mirror",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1095,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-UPD-DIR-B39-001-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1063,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B39-007-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "without_relation",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1198,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-CRE-TOP-B39-005-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1058,
+   "storey_target": true
+  },
+  {
+   "task_id": "WAL-UPD-SPA-B39-004-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "mirror",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1049,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-TOP-B11-037-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1179,
+   "storey_target": true
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B11-010-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1143,
+   "storey_target": true
+  },
+  {
+   "task_id": "SPC-UPD-SPA-B11-005-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "above_below",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1166,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B11-003-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1072,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B11-001-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1182,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B11-018-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    2,
+    1
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1120,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B11-002-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1073,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-CRE-TOP-B25-011-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "separates",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    6
+   ],
+   "worst": 6,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1088,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-UPD-DIR-B58-001-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "move_to_storey",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1156,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-TOP-B38-002-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1194,
+   "storey_target": true
+  },
+  {
+   "task_id": "WAL-CRE-DIR-B38-016-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "copy_element",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1103,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B38-011-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1093,
+   "storey_target": true
+  },
+  {
+   "task_id": "WAL-DEL-SPA-B38-002-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "nearest",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1082,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-DEL-TOP-B38-018-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "connects",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1102,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-SPA-G7arc-003-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "above_below",
+   "edit_kind": "create_filling",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1148,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-DEL-SPA-G7arc-005-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "extreme",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1126,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-UPD-DIR-G7arc-002-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "rehost_filling",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1162,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-UPD-TOP-G7arc-011-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "hosted",
+   "edit_kind": "rehost_filling",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1149,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-DEL-DIR-G7arc-002-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1181,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-DEL-SPA-G7arc-002-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1170,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-UPD-DIR-G7arc-002-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1172,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-TOP-G7structure-002-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1196,
+   "storey_target": true
+  },
+  {
+   "task_id": "SLB-DEL-TOP-G7structure-023-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 2,
+   "pos": [
+    1,
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1040,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-CWD-TOP-G7structure-003-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1104,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-CWD-TOP-G7structure-006-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1112,
+   "storey_target": true
+  },
+  {
+   "task_id": "WIN-CRE-DIR-G7structure-006-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_filling",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1096,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-SPA-G8arc-005-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "under",
+   "edit_kind": "copy_element",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1141,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-CRE-TOP-G8arc-002-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1119,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-DWF-TOP-G8arc-014-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "host_of",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    1,
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1127,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-SPA-G8structure-013-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1127,
+   "storey_target": true
+  },
+  {
+   "task_id": "WAL-DEL-TOP-G8structure-012-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "negation",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1131,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-UPD-DIR-G8structure-001-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "move_to_storey",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1131,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4-013-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "host_of",
+   "edit_kind": "create_filling",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1138,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-DEL-SPA-B16m4-005-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "above_below",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    6
+   ],
+   "worst": 6,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1080,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B16m4-005-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1095,
+   "storey_target": true
+  },
+  {
+   "task_id": "SLB-UPD-TOP-B16m4-002-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "separates",
+   "edit_kind": "set_pset",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1187,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B16m4-028-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "egocentric",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    5,
+    10,
+    3
+   ],
+   "worst": 10,
+   "in_hint": false,
+   "hint_lines": 7,
+   "hint_chars": 1099,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B16m4-037-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "egocentric",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    9,
+    5,
+    3
+   ],
+   "worst": 9,
+   "in_hint": false,
+   "hint_lines": 7,
+   "hint_chars": 1089,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B16m4-019-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "separates",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    4,
+    8,
+    3
+   ],
+   "worst": 8,
+   "in_hint": false,
+   "hint_lines": 7,
+   "hint_chars": 1079,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B16m4-006-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "above_below",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1104,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B16m4-007-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "ordinal",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1093,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-025-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "bounds",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1070,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-039-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "hosted",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1078,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-SPA-B16m4X3-002-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "between",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    4
+   ],
+   "worst": 4,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1196,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-012-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "host_of",
+   "edit_kind": "create_filling",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1066,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-TOP-B16m4X3-002-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "joins",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    15
+   ],
+   "worst": 15,
+   "in_hint": false,
+   "hint_lines": 8,
+   "hint_chars": 1193,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-UPD-TOP-B16m4X3-045-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "space_of",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1157,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-UPD-SPA-B16m4X3-001-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1168,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-DEL-DIR-B16m4X3-002-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1196,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B16m4X3-020-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "host_of",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    3,
+    1,
+    2
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1071,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-DEL-SPA-B16m4X3-001-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1076,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-CWD-TOP-B11m4-007-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1127,
+   "storey_target": true
+  },
+  {
+   "task_id": "CHN-CWD-DIR-B11m4-003-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_wall_with_door",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1106,
+   "storey_target": true
+  },
+  {
+   "task_id": "WAL-CRE-TOP-B11m4-003-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1164,
+   "storey_target": true
+  },
+  {
+   "task_id": "COL-CRE-TOP-B11m4X3-003-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1179,
+   "storey_target": true
+  },
+  {
+   "task_id": "COL-UPD-SPA-B11m4X3-001-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "extreme",
+   "edit_kind": "assign_material",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1161,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B11m4X3-003-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "in_storey",
+   "edit_kind": "array_elements",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1171,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-UPD-TOP-B11m4X3-007-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "without_relation",
+   "edit_kind": "move_to_storey",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1169,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B11m4X3-028-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    2,
+    1
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1075,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B11m4X3-037-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    2,
+    1
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1075,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-SPA-B27m4-005-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1120,
+   "storey_target": true
+  },
+  {
+   "task_id": "WIN-CRE-DIR-B27m4-005-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_filling",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1116,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-CRE-DIR-B27m4-009-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_filling",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1119,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B27m4-010-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1175,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-UPD-DIR-B27m4X3-002-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "set_pset",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1135,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-TOP-B27m4X3-005-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 3,
+   "hint_chars": 587,
+   "storey_target": true
+  },
+  {
+   "task_id": "SPC-CRE-TOP-B27m4X3-002-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 4,
+   "hint_chars": 682,
+   "storey_target": true
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B27m4X3-004-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1168,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-TOP-B06m4X3-010-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "host_of",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 9,
+   "pos": [
+    8,
+    9,
+    3,
+    4,
+    5,
+    6,
+    7,
+    1,
+    2
+   ],
+   "worst": 9,
+   "in_hint": false,
+   "hint_lines": 6,
+   "hint_chars": 1088,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-TOP-B07m4X3-011-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1111,
+   "storey_target": true
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B07m4X3-002-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "hosted",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1057,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B07m4X3-001-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    4,
+    5,
+    1
+   ],
+   "worst": 5,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1070,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-SPA-B07m4X3-012-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "between",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    6,
+    5
+   ],
+   "worst": 6,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1135,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B24m4X3-011-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "hosted",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1135,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-DEL-SPA-B24m4X3-001-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1182,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-DIR-B24m4X3-020-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 2,
+   "pos": [
+    2,
+    1
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1143,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-DIR-B04m4X3-004-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "array_elements",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1073,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-DEL-DIR-B04m4X3-001-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 3,
+   "pos": [
+    1,
+    2,
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1111,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-DEL-DIR-B04m4X3-002-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 3,
+   "pos": [
+    1,
+    2,
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1070,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B02m4-002-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1077,
+   "storey_target": true
+  },
+  {
+   "task_id": "WIN-DEL-SPA-B02m4-001-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "above_below",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    25
+   ],
+   "worst": 25,
+   "in_hint": false,
+   "hint_lines": 6,
+   "hint_chars": 1085,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-TOP-B02m4X3-001-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1193,
+   "storey_target": true
+  },
+  {
+   "task_id": "COL-CRE-DIR-B02m4X3-001-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1062,
+   "storey_target": true
+  },
+  {
+   "task_id": "DOR-DEL-TOP-B02m4X3-007-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "hosted",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1153,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-DEL-DIR-B02m4X3-001-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1136,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-UPD-TOP-B02m4X3-001-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "host_of",
+   "edit_kind": "assign_type",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1161,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-CRE-DIR-B45m4X3-001-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1070,
+   "storey_target": true
+  },
+  {
+   "task_id": "WIN-UPD-SPA-B45m4X3-002-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "assign_type",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1071,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-DEL-DIR-B46m4-002-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 2,
+   "pos": [
+    1,
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1109,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46m4-021-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "assign_material",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1109,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-UPD-SPA-B46m4-013-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1093,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-UPD-SPA-B46m4-041-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1093,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B46m4-036-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "rotate",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1095,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-UPD-SPA-B46m4-024-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "nearest",
+   "edit_kind": "mirror",
+   "n_required": 1,
+   "pos": [
+    6
+   ],
+   "worst": 6,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1096,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-DEL-SPA-B46m4X3-010-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    30
+   ],
+   "worst": 30,
+   "in_hint": false,
+   "hint_lines": 8,
+   "hint_chars": 1108,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46m4X3-009-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "set",
+   "edit_kind": "assign_material",
+   "n_required": 3,
+   "pos": [
+    1,
+    2,
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1109,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46m4X3-002-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "assign_material",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1108,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-UPD-DIR-B46m4X3-050-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1107,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-UPD-DIR-B46m4X3-049-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "rotate",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1095,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-UPD-SPA-B39m4X3-011-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1059,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-CRE-SPA-B39m4X3-017-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "create_filling",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1065,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-DIR-B39m4X3-013-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1049,
+   "storey_target": true
+  },
+  {
+   "task_id": "WAL-DEL-SPA-B39m4X3-001-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1049,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-UPD-TOP-B39m4X3-008-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "connects",
+   "edit_kind": "move_to_storey",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1049,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-CRE-SPA-B39m4X3-018-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "offset",
+   "edit_kind": "create_filling",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1067,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-DEL-TOP-B25m4-005-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 3,
+   "pos": [
+    1,
+    2,
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1182,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-MSW-TOP-B25m4-036-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "space_of",
+   "edit_kind": "move_space_with_bounding_walls",
+   "n_required": 7,
+   "pos": [
+    1081,
+    1,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "worst": 1081,
+   "in_hint": false,
+   "hint_lines": 5,
+   "hint_chars": 1023,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-UPD-TOP-B25m4-006-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "space_of",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1115,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-CRE-TOP-B25m4-002-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "bounds",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    5
+   ],
+   "worst": 5,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1073,
+   "storey_target": false
+  },
+  {
+   "task_id": "WIN-CRE-TOP-B25m4-006-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "bounds",
+   "edit_kind": "replace_filling",
+   "n_required": 1,
+   "pos": [
+    6
+   ],
+   "worst": 6,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1138,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-DEL-SPA-B53m4-001-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "nearest",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    6
+   ],
+   "worst": 6,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1078,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-UPD-SPA-B53m4-004-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "nearest",
+   "edit_kind": "rotate",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1078,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-DIR-B38m4-001-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1198,
+   "storey_target": true
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B38m4-004-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 2,
+   "pos": [
+    1,
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1192,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-DEL-TOP-B38m4-003-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "without_relation",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1192,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-DIR-B38m4X3-005-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "array_elements",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1190,
+   "storey_target": false
+  },
+  {
+   "task_id": "SPC-CRE-SPA-B38m4X3-001-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1187,
+   "storey_target": true
+  },
+  {
+   "task_id": "WAL-DEL-TOP-B38m4X3-010-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "connects",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1183,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-DEL-TOP-B38m4X3-006-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 9,
+   "pos": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "worst": 9,
+   "in_hint": false,
+   "hint_lines": 7,
+   "hint_chars": 1187,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-DIR-G7arcm4-002-rw",
+   "operation": "create",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "copy_element",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1098,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-UPD-TOP-G7arcm4-015-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "hosted",
+   "edit_kind": "rehost_filling",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1099,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-DEL-TOP-G7arcm4-005-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 4,
+   "pos": [
+    1,
+    2,
+    3,
+    6
+   ],
+   "worst": 6,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1160,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-UPD-DIR-G7arcm4-002-rw",
+   "operation": "update",
+   "category": "direct",
+   "anchor": "guid",
+   "edit_kind": "rename",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1172,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-DEL-TOP-G7arcm4X3-013-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "hosted",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1131,
+   "storey_target": false
+  },
+  {
+   "task_id": "CHN-DWF-TOP-G7arcm4X3-005-rw",
+   "operation": "delete",
+   "category": "topological",
+   "anchor": "connects",
+   "edit_kind": "delete_wall_with_fillings",
+   "n_required": 3,
+   "pos": [
+    2,
+    3,
+    4
+   ],
+   "worst": 4,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1110,
+   "storey_target": false
+  },
+  {
+   "task_id": "COL-CRE-TOP-G7structurem4-008-rw",
+   "operation": "create",
+   "category": "topological",
+   "anchor": "guid",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1194,
+   "storey_target": true
+  },
+  {
+   "task_id": "SLB-UPD-TOP-G7structurem4-009-rw",
+   "operation": "update",
+   "category": "topological",
+   "anchor": "without_relation",
+   "edit_kind": "move_to_storey",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1190,
+   "storey_target": false
+  },
+  {
+   "task_id": "WAL-DEL-DIR-G7structurem4X3-003-rw",
+   "operation": "delete",
+   "category": "direct",
+   "anchor": "set",
+   "edit_kind": "delete",
+   "n_required": 4,
+   "pos": [
+    2,
+    1,
+    4,
+    3
+   ],
+   "worst": 4,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1063,
+   "storey_target": false
+  },
+  {
+   "task_id": "DOR-UPD-SPA-G8arcm4X3-007-rw",
+   "operation": "update",
+   "category": "spatial",
+   "anchor": "above_below",
+   "edit_kind": "translate",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1127,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-DEL-SPA-G8arcm4X3-001-rw",
+   "operation": "delete",
+   "category": "spatial",
+   "anchor": "nearest",
+   "edit_kind": "delete",
+   "n_required": 1,
+   "pos": [
+    3
+   ],
+   "worst": 3,
+   "in_hint": true,
+   "hint_lines": 8,
+   "hint_chars": 1151,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-SPA-G8structurem4X3-005-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "nearest",
+   "edit_kind": "copy_element",
+   "n_required": 1,
+   "pos": [
+    2
+   ],
+   "worst": 2,
+   "in_hint": true,
+   "hint_lines": 6,
+   "hint_chars": 1059,
+   "storey_target": false
+  },
+  {
+   "task_id": "SLB-CRE-SPA-G8structurem4X3-001-rw",
+   "operation": "create",
+   "category": "spatial",
+   "anchor": "name",
+   "edit_kind": "create_box",
+   "n_required": 1,
+   "pos": [
+    1
+   ],
+   "worst": 1,
+   "in_hint": true,
+   "hint_lines": 7,
+   "hint_chars": 1137,
+   "storey_target": true
+  }
+ ]
+}

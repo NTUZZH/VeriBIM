@@ -1,0 +1,576 @@
+{
+ "generated": "2026-09-27",
+ "generator_version": "veribim-gen/0.9.0",
+ "run_seed": 20260932,
+ "n_shards": 161,
+ "n_models_used": 19,
+ "n_attempted": 5167,
+ "n_accepted": 4000,
+ "n_train": 4000,
+ "n_validation": 0,
+ "n_buildings_used": 12,
+ "n_relabelled": 4000,
+ "n_duplicates_dropped": 107,
+ "stages": {
+  "accepted": 4054,
+  "draw": 1015,
+  "duplicate": 107,
+  "underspecified": 13,
+  "parse": 5,
+  "meshable": 75,
+  "batch_scope": 5
+ },
+ "rejections": {
+  "draw:no_unique_anchor": 938,
+  "meshable:target_not_meshable": 75,
+  "duplicate:identical_instruction_across_shards": 54,
+  "duplicate:identical_instruction": 53,
+  "draw:no_room_on_storey": 37,
+  "draw:wall_cannot_host_opening": 17,
+  "draw:storey_not_axis_aligned": 16,
+  "underspecified:underspecified_value_still_quoted": 13,
+  "draw:no_feasible_chain": 7,
+  "parse:related_elements_apart": 5,
+  "batch_scope:batch_changed_outside_set": 5
+ },
+ "placement_rejections": {
+  "created_element_collides": 5694,
+  "created_outside_storey": 2024,
+  "derived_above_below_overlaps_filling": 5,
+  "derived_adjacent_to_space_created_element_collides": 69,
+  "derived_adjacent_to_space_created_outside_storey": 20,
+  "derived_fits_gap_created_element_collides": 4,
+  "derived_on_top_of_created_element_collides": 65,
+  "derived_storey_not_world_aligned": 68,
+  "derived_touching_slab_created_element_collides": 214,
+  "filling_outside_host": 82,
+  "filling_overlaps_filling": 575,
+  "filling_past_wall_end": 64,
+  "filling_taller_than_wall": 251,
+  "mirror_body_not_flippable": 91,
+  "mirror_plane_too_close": 4,
+  "mirror_undefinable_on_boolean": 13,
+  "mirror_undefinable_on_brep": 13,
+  "mirror_undefinable_on_mapped_item": 8,
+  "mirror_undefinable_on_tessellated": 19,
+  "move_created_collision": 20314,
+  "moved_outside_storey": 1401,
+  "no_geometry": 74,
+  "rehost_element_collides": 9,
+  "rehost_opening_not_rewritable": 91,
+  "rehost_past_wall_end": 3,
+  "rehost_without_opening": 3,
+  "relation_partner_has_no_body": 9,
+  "relation_partner_not_touching": 1193,
+  "replace_element_collides": 501,
+  "replace_overlaps_filling": 116,
+  "replace_past_wall_end": 46,
+  "replace_wall_too_short": 2,
+  "replace_without_opening": 28,
+  "resize_undefinable_on_boolean": 15,
+  "resize_undefinable_on_brep": 6,
+  "resize_undefinable_on_mapped_item": 23,
+  "resize_undefinable_on_tessellated": 15,
+  "restorey_leaves_fillings": 9,
+  "transformed_element_collides": 5507,
+  "transformed_outside_storey": 4954,
+  "translate_across_host_wall": 179,
+  "translate_filling_without_opening": 3,
+  "translate_host_wall_not_axis_aligned": 31,
+  "translate_no_room_on_axis": 282,
+  "translate_origin_outside_storey": 128
+ },
+ "derived_placements": {
+  "spec.element_relative.against_room_wall:ok": 20,
+  "spec.element_relative.against_room_wall:refused": 195,
+  "spec.element_relative.aligned_with_filling:ok": 1,
+  "spec.element_relative.aligned_with_filling:refused": 57,
+  "spec.element_relative.centred_on_wall:ok": 78,
+  "spec.element_relative.fits_gap:ok": 1,
+  "spec.element_relative.fits_gap:refused": 221,
+  "spec.element_relative.on_top_of:ok": 51,
+  "spec.element_relative.on_top_of:refused": 165,
+  "spec.element_relative.touching_slab_above:ok": 57,
+  "spec.element_relative.touching_slab_above:refused": 186
+ },
+ "family_counts": {
+  "constraint.cascade.relations_consistent": 311,
+  "constraint.cascade.relations_preserved": 224,
+  "constraint.invariant.keep_placement": 51,
+  "constraint.invariant.keep_z": 8,
+  "constraint.relation_on_create.connection": 24,
+  "constraint.relation_on_create.space_boundary": 71,
+  "model.names.non_english": 1040,
+  "model.placement.rotated_storey": 479,
+  "model.placement.site_offset": 1603,
+  "model.representation.brep": 531,
+  "model.representation.mapped_item": 785,
+  "model.units.imperial": 103,
+  "model.units.mm": 2167,
+  "op.array": 64,
+  "op.copy": 161,
+  "op.create": 988,
+  "op.delete": 1292,
+  "op.replace": 156,
+  "op.update.attribute.name": 97,
+  "op.update.attribute.size": 32,
+  "op.update.attribute.type": 150,
+  "op.update.geometry.resize": 76,
+  "op.update.geometry.translate": 194,
+  "op.update.material": 160,
+  "op.update.mirror": 39,
+  "op.update.pset": 195,
+  "op.update.rehost": 7,
+  "op.update.restorey": 84,
+  "op.update.rotate": 35,
+  "op.update.type_object": 87,
+  "ref.bounds_space": 12,
+  "ref.host_of_filling": 116,
+  "ref.negation": 16,
+  "ref.ordinal": 8,
+  "ref.relative.above_below": 76,
+  "ref.relative.between": 48,
+  "ref.relative.nearest": 143,
+  "ref.relative.opposite": 21,
+  "ref.set": 388,
+  "ref.topological.separates": 7,
+  "ref.under_walls": 4,
+  "ref.viewpoint.through_door": 33,
+  "ref.without_relation": 237,
+  "scope.batch": 388,
+  "scope.chain": 480,
+  "scope.conditional": 40,
+  "scope.single": 3132,
+  "spec.axis_dimensions": 31,
+  "spec.axis_displacement": 27,
+  "spec.compass_displacement": 38,
+  "spec.element_relative.against_room_wall": 20,
+  "spec.element_relative.aligned_with_filling": 1,
+  "spec.element_relative.centred_on_wall": 77,
+  "spec.element_relative.fits_gap": 1,
+  "spec.element_relative.on_top_of": 49,
+  "spec.element_relative.touching_slab_above": 57,
+  "spec.endpoints": 5,
+  "spec.world_frame": 172,
+  "wording.class_token": 562,
+  "wording.identifier_list": 231,
+  "wording.identifier_spelling": 1392,
+  "wording.ifc_class_name": 20,
+  "wording.reference_by_id": 990,
+  "wording.relationship_named": 27,
+  "wording.request_form": 1135,
+  "wording.synonym": 1239,
+  "wording.underspecified": 183,
+  "wording.unit_spelling": 460
+ },
+ "relation_counts": {
+  "IfcRelAggregates": 191,
+  "IfcRelAssociatesMaterial": 160,
+  "IfcRelConnectsElements": 24,
+  "IfcRelContainedInSpatialStructure": 1228,
+  "IfcRelDefinesByProperties": 195,
+  "IfcRelDefinesByType": 87,
+  "IfcRelFillsElement": 547,
+  "IfcRelSpaceBoundary": 71,
+  "IfcRelVoidsElement": 554
+ },
+ "seconds": 19695.4,
+ "cpu_seconds": 30861.8,
+ "seconds_per_accepted": 4.924,
+ "validation_buildings": [],
+ "wave_settings": {
+  "wave": "v10benchIFC4",
+  "translate_relative": true,
+  "translate_extent_range": [
+   1.0,
+   4.0
+  ],
+  "attribute_weight": 0.3,
+  "two_hop_only_prob": 0.9,
+  "delete_filling_removes_opening": true,
+  "family_shares": {
+   "spec.element_relative": 0.6,
+   "constraint.relation_on_create": 0.55,
+   "ref.new": 0.4,
+   "spec.world_frame": 0.45,
+   "constraint.on_edit": 0.32,
+   "op.update.new": 0.6,
+   "op.create.new": 0.6,
+   "scope.batch": 0.3,
+   "scope.conditional": 0.35,
+   "wording.synonym": 0.35,
+   "wording.request_form": 0.3,
+   "wording.class_token": 0.15,
+   "wording.unit_spelling": 0.25,
+   "wording.underspecified": 0.1
+  },
+  "family_weights": {
+   "op.update.rotate": 1.8,
+   "op.update.mirror": 3.5,
+   "op.update.rehost": 2.5,
+   "op.update.pset": 1.0,
+   "op.update.material": 0.8,
+   "op.update.type_object": 0.8,
+   "op.update.restorey": 1.0,
+   "spec.element_relative.fits_gap": 3.0,
+   "spec.element_relative.against_room_wall": 2.0,
+   "spec.element_relative.touching_slab_above": 2.0,
+   "spec.element_relative.aligned_with_filling": 2.5,
+   "spec.element_relative.on_top_of": 1.0,
+   "spec.element_relative.centred_on_wall": 0.8
+  }
+ },
+ "category_weight": {
+  "topological": 2
+ },
+ "family_registry": {
+  "group_share": {
+   "constraint.on_edit": 0.3,
+   "constraint.relation_on_create": 0.5,
+   "model.condition": 0.0,
+   "op.create.new": 0.35,
+   "op.update.new": 0.35,
+   "ref.new": 0.3,
+   "scope.batch": 0.15,
+   "scope.conditional": 0.35,
+   "scope.id_list": 1.0,
+   "spec.displacement": 1.0,
+   "spec.element_relative": 0.4,
+   "spec.world_frame": 0.4,
+   "spec.world_frame.detail": 1.0,
+   "wording.class_token": 0.15,
+   "wording.identifier_list": 0.7,
+   "wording.identifier_spelling": 1.0,
+   "wording.ifc_class": 0.2,
+   "wording.reference_by_id": 0.4,
+   "wording.relationship_named": 0.3,
+   "wording.request_form": 0.3,
+   "wording.synonym": 0.35,
+   "wording.underspecified": 0.05,
+   "wording.unit_spelling": 0.2
+  },
+  "families": {
+   "ref.relative.nearest": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.relative.between": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.relative.above_below": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.relative.opposite": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.topological.separates": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.viewpoint.through_door": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "spec.element_relative.fits_gap": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.on_top_of": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.against_room_wall": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.touching_slab_above": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.centred_on_wall": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.element_relative.aligned_with_filling": {
+    "group": "spec.element_relative",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.world_frame": {
+    "group": "spec.world_frame",
+    "layer": "specification",
+    "weight": 1.0
+   },
+   "spec.endpoints": {
+    "group": "spec.world_frame.detail",
+    "layer": "specification",
+    "weight": 0.25
+   },
+   "spec.axis_dimensions": {
+    "group": "spec.world_frame.detail",
+    "layer": "specification",
+    "weight": 0.25
+   },
+   "spec.corner": {
+    "group": "spec.world_frame.detail",
+    "layer": "specification",
+    "weight": 0.5
+   },
+   "spec.axis_displacement": {
+    "group": "spec.displacement",
+    "layer": "specification",
+    "weight": 0.4
+   },
+   "spec.compass_displacement": {
+    "group": "spec.displacement",
+    "layer": "specification",
+    "weight": 0.6
+   },
+   "constraint.invariant.keep_placement": {
+    "group": "constraint.on_edit",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.invariant.keep_z": {
+    "group": "constraint.on_edit",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.cascade.relations_preserved": {
+    "group": "constraint.on_edit",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.cascade.relations_consistent": {
+    "group": "constraint.on_edit",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.relation_on_create.space_boundary": {
+    "group": "constraint.relation_on_create",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "constraint.relation_on_create.connection": {
+    "group": "constraint.relation_on_create",
+    "layer": "constraint",
+    "weight": 1.0
+   },
+   "wording.ifc_class_name": {
+    "group": "wording.ifc_class",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "ref.ordinal": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.negation": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.host_of_filling": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.2
+   },
+   "ref.joins_spaces": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.2
+   },
+   "ref.bounds_space": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.2
+   },
+   "ref.under_walls": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "ref.without_relation": {
+    "group": "ref.new",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "wording.relationship_named": {
+    "group": "wording.relationship_named",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.identifier_spelling": {
+    "group": "wording.identifier_spelling",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.reference_by_id": {
+    "group": "wording.reference_by_id",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.identifier_list": {
+    "group": "wording.identifier_list",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "scope.id_list": {
+    "group": "scope.id_list",
+    "layer": "scope",
+    "weight": 1.0
+   },
+   "op.update.rotate": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 1.0
+   },
+   "op.update.mirror": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 0.8
+   },
+   "op.update.pset": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 1.4
+   },
+   "op.update.material": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 1.2
+   },
+   "op.update.type_object": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 1.0
+   },
+   "op.update.restorey": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 0.8
+   },
+   "op.update.rehost": {
+    "group": "op.update.new",
+    "layer": "operation",
+    "weight": 0.6
+   },
+   "op.copy": {
+    "group": "op.create.new",
+    "layer": "operation",
+    "weight": 1.0
+   },
+   "op.array": {
+    "group": "op.create.new",
+    "layer": "operation",
+    "weight": 0.8
+   },
+   "op.replace": {
+    "group": "op.create.new",
+    "layer": "operation",
+    "weight": 1.0
+   },
+   "scope.batch": {
+    "group": "scope.batch",
+    "layer": "scope",
+    "weight": 1.0
+   },
+   "ref.set": {
+    "group": "scope.batch",
+    "layer": "reference",
+    "weight": 1.0
+   },
+   "scope.conditional": {
+    "group": "scope.conditional",
+    "layer": "scope",
+    "weight": 1.0
+   },
+   "wording.synonym": {
+    "group": "wording.synonym",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.request_form": {
+    "group": "wording.request_form",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.class_token": {
+    "group": "wording.class_token",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.unit_spelling": {
+    "group": "wording.unit_spelling",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "wording.underspecified": {
+    "group": "wording.underspecified",
+    "layer": "wording",
+    "weight": 1.0
+   },
+   "model.units.mm": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.units.imperial": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.schema.ifc2x3": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.schema.ifc4x3": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.placement.rotated_storey": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.placement.site_offset": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.representation.brep": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.representation.mapped_item": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   },
+   "model.names.non_english": {
+    "group": "model.condition",
+    "layer": "model_condition",
+    "weight": 0.0
+   }
+  }
+ },
+ "held_out_buildings": []
+}

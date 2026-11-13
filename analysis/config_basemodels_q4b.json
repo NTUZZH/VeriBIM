@@ -1,0 +1,31 @@
+{
+ "models": [
+  {
+   "stem": "FourB",
+   "label": "Qwen3.5-4B",
+   "untrained": {
+    "sub108": "results/subset108/qwen4b_untrained_documented/per_task_Qwen3.5-4B.jsonl",
+    "rw": "results/reworded/qwen4b_untrained_documented/per_task_Qwen3.5-4B.jsonl",
+    "prac": "results/practitioner/qwen4b_untrained_documented/per_task_Qwen3.5-4B.jsonl",
+    "prac_list": "results/practitioner/qwen4b_untrained_documented_list/per_task_Qwen3.5-4B.jsonl"
+   },
+   "trained": {
+    "bench": "results/benchmark/qwen4b_after_imitation/per_task_q4b_sft_p3.jsonl",
+    "rw": "results/reworded/qwen4b_after_imitation/per_task_q4b_sft_p3.jsonl",
+    "prac": "results/practitioner/qwen4b_after_imitation/per_task_q4b_sft_p3.jsonl"
+   }
+  }
+ ],
+ "reference": {
+  "label": "the proposed model",
+  "bench": "results/benchmark/stage_models/per_task_grpo_v14_c20.jsonl",
+  "rw": "results/reworded/stage_models/per_task_grpo_v14_c20.jsonl",
+  "prac": "results/practitioner/stage_models/per_task_grpo_v14_c20.jsonl"
+ },
+ "ids": {
+  "bench_tasks": "tasks/benchmark/tasks.v4d.jsonl",
+  "sub108": "tasks/benchmark/subset_108.json",
+  "rw": "tasks/reworded/subset_reworded.json",
+  "prac": "results/practitioner/request_ids_first_set.json"
+ }
+}
